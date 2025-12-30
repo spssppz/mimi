@@ -24,8 +24,8 @@ export default function Showroom() {
 				</div>
 
 				<div className="mb-26 md:mb-18 flex justify-center">
-					<Image
-						src="/images/showroom/mimi.svg"
+					<Image unoptimized
+						src="./images/showroom/mimi.svg"
 						width={600}
 						height={95}
 						alt="MiMiSmart"
@@ -35,8 +35,8 @@ export default function Showroom() {
 
 					{!isPlaying && (
 						<>
-							<Image
-								src="/images/showroom/preview.jpg"
+							<Image unoptimized
+								src="./images/showroom/preview.jpg"
 								alt="Превью видео"
 								fill
 								className="object-cover rounded-2xl"
@@ -47,8 +47,8 @@ export default function Showroom() {
 								className="absolute rounded-full overflow-hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
 								aria-label="Запустить видео"
 							>
-								<Image
-									src="/images/icons/play.svg"
+								<Image unoptimized
+									src="./images/icons/play.svg"
 									width={54}
 									height={54}
 									alt="Запустить видео"
@@ -71,8 +71,8 @@ export default function Showroom() {
 				<div className="flex justify-between flex-col md:flex-row items-start md:items-center gap-8">
 					<div className="flex items-center gap-3">
 						<div className="w-11 h-11 bg-white rounded-[10px]">
-							<Image
-								src="/images/icons/address-decor.svg"
+							<Image unoptimized
+								src="./images/icons/address-decor.svg"
 								width={44}
 								height={44}
 								alt="г. Москва, Новоданиловская наб., 6к1"

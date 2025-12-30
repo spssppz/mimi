@@ -12,48 +12,48 @@ const cases = [
 	{
 		title: "Высокие технологии в классическом исполнении",
 		description: "Вся электрика в доме теперь в вашем смартфоне. Делай десятки действий одним кликом.",
-		image: "/images/cases/1.jpg",
+		image: "./images/cases/1.jpg",
 		tags: ["Мультимедиа", "Освещение", "Климат", "Мультимедиа"],
 	},
 	{
 		title: "3-х этажный дом. Поселок Park Avenue",
 		description: "Вся электрика в доме теперь в вашем смартфоне. Делай десятки действий одним кликом.",
-		image: "/images/cases/2.jpg",
+		image: "./images/cases/2.jpg",
 		tags: ["Климат", "Мультимедиа", "Климат", "Безопасность"],
 	},
 	{
 		title: "Большой дом для всей семьи",
 		description: "Вся электрика в доме теперь в вашем смартфоне. Делай десятки действий одним кликом.",
-		image: "/images/cases/3.jpg",
+		image: "./images/cases/3.jpg",
 		tags: ["Климат", "Безопасность"],
 	},
 	{
 		title: "Высокие технологии в классическом исполнении",
 		description: "Вся электрика в доме теперь в вашем смартфоне. Делай десятки действий одним кликом.",
-		image: "/images/cases/1.jpg",
+		image: "./images/cases/1.jpg",
 		tags: ["Мультимедиа", "Освещение"],
 	},
 	{
 		title: "3-х этажный дом. Поселок Park Avenue",
 		description: "Вся электрика в доме теперь в вашем смартфоне. Делай десятки действий одним кликом.",
-		image: "/images/cases/2.jpg",
+		image: "./images/cases/2.jpg",
 		tags: ["Климат", "Мультимедиа"],
 	},
 	{
 		title: "Большой дом для всей семьи",
 		description: "Вся электрика в доме теперь в вашем смартфоне. Делай десятки действий одним кликом.",
-		image: "/images/cases/3.jpg",
+		image: "./images/cases/3.jpg",
 		tags: ["Климат", "Безопасность", "Освещение", "Мультимедиа"],
 	},
 ];
 
 const cats = [
-	{ icon: "/images/icons/cats/01.svg", label: "Освещение" },
-	{ icon: "/images/icons/cats/02.svg", label: "Климат" },
-	{ icon: "/images/icons/cats/03.svg", label: "Мультимедиа" },
-	{ icon: "/images/icons/cats/04.svg", label: "Безопасность" },
-	{ icon: "/images/icons/cats/05.svg", label: "Шторы" },
-	{ icon: "/images/icons/cats/06.svg", label: "Кинотеатр" },
+	{ icon: "./images/icons/cats/01.svg", label: "Освещение" },
+	{ icon: "./images/icons/cats/02.svg", label: "Климат" },
+	{ icon: "./images/icons/cats/03.svg", label: "Мультимедиа" },
+	{ icon: "./images/icons/cats/04.svg", label: "Безопасность" },
+	{ icon: "./images/icons/cats/05.svg", label: "Шторы" },
+	{ icon: "./images/icons/cats/06.svg", label: "Кинотеатр" },
 ];
 
 export default function Cases() {
@@ -73,7 +73,7 @@ export default function Cases() {
 							key={cat.label}
 							className="flex items-center gap-2.5 bg-[#242634] py-2.5 cursor-pointer font-medium text-[14px] px-4 rounded-full text-white tracking-[-0.01em] leading-tight"
 						>
-							<Image
+							<Image unoptimized
 								src={cat.icon}
 								width={18}
 								height={18}
@@ -112,7 +112,7 @@ export default function Cases() {
 							<SwiperSlide key={`${item.title}-${index}`}>
 
 								<div className="relative aspect-360/290 mb-7.5 overflow-hidden rounded-xl">
-									<Image
+									<Image unoptimized
 										src={item.image}
 										alt={item.title}
 										fill

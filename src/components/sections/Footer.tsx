@@ -136,9 +136,9 @@ const footerColumns = [
 ]
 
 const socialLinks = [
-	{ name: 'Telegram', path: '/images/icons/socials/tg.svg', href: '/' },
-	{ name: 'YouTube', path: '/images/icons/socials/youtube.svg', href: '/' },
-	{ name: 'VK', path: '/images/icons/socials/vk.svg', href: '/' },
+	{ name: 'Telegram', path: './images/icons/socials/tg.svg', href: '/' },
+	{ name: 'YouTube', path: './images/icons/socials/youtube.svg', href: '/' },
+	{ name: 'VK', path: './images/icons/socials/vk.svg', href: '/' },
 ]
 
 type FooterLink = {
@@ -182,8 +182,8 @@ export default function Footer() {
 
 				<div className="border-t border-[#d9d9d9] pt-6 pb-10">
 					<Link href="/" className="inline-block mb-10">
-						<Image
-							src="/images/logo.svg"
+						<Image unoptimized
+							src="./images/logo.svg"
 							alt="MiMiSmart"
 							width={120}
 							height={32}
@@ -229,7 +229,7 @@ export default function Footer() {
 										href={icon.href}
 										className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
 									>
-										<Image
+										<Image unoptimized
 											src={icon.path}
 											alt={icon.name}
 											width={18}

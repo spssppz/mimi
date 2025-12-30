@@ -14,8 +14,8 @@ export default function Solutions() {
 					<li className="border border-[#5A5D64] min-h-76 md:min-h-89 rounded-xl p-8 flex flex-col justify-center items-center text-center">
 						<div className="mb-4">
 
-							<Image
-								src="/images/solutions/1.png"
+							<Image unoptimized
+								src="./images/solutions/1.png"
 								alt="Для квартиры"
 								width={100}
 								height={100}
@@ -37,8 +37,8 @@ export default function Solutions() {
 					<li className="border border-[#5A5D64] min-h-76 md:min-h-89 rounded-xl p-8 flex flex-col justify-center items-center text-center">
 						<div className="mb-4">
 
-							<Image
-								src="/images/solutions/2.png"
+							<Image unoptimized
+								src="./images/solutions/2.png"
 								alt="Для дома"
 								width={165}
 								height={100}

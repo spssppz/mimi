@@ -29,7 +29,7 @@ const articles: Article[] = [
 		title: "Высокие технологии в классическом исполнении",
 		description:
 			"Механика игры «Потолкуем?» Архитектура. Увлекаетесь архитектурой и урбанистикой? Вам точно подойдёт наша игра!",
-		image: "/images/articles/1.jpg",
+		image: "./images/articles/1.jpg",
 	},
 	{
 		id: 2,
@@ -38,7 +38,7 @@ const articles: Article[] = [
 		title: "Высокие технологии в классическом исполнении",
 		description:
 			"Механика игры «Потолкуем?» Архитектура. Увлекаетесь архитектурой и урбанистикой? Вам точно подойдёт наша игра!",
-		image: "/images/articles/2.jpg",
+		image: "./images/articles/2.jpg",
 	},
 	{
 		id: 3,
@@ -47,7 +47,7 @@ const articles: Article[] = [
 		title: "Высокие технологии в классическом исполнении",
 		description:
 			"Механика игры «Потолкуем?» Архитектура. Увлекаетесь архитектурой и урбанистикой? Вам точно подойдёт наша игра!",
-		image: "/images/articles/3.jpg",
+		image: "./images/articles/3.jpg",
 	},
 ]
 
@@ -100,7 +100,7 @@ function ArticleCard({ article, className }: { article: Article, className?: str
 			</p>
 
 			<div className="aspect-326/149 lg:aspect-273/125 rounded-2xl overflow-hidden mt-auto">
-				<Image
+				<Image unoptimized
 					src={article.image}
 					alt={article.title}
 					width={273}

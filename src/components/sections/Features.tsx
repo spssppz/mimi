@@ -13,33 +13,33 @@ const features = [
 	{
 		title: "Приложение",
 		description: "Вся электрика в доме теперь в вашем смартфоне. Делай десятки действий одним кликом.",
-		src: "/images/features/1.jpg",
+		src: "./images/features/1.jpg",
 	},
 	{
 		title: "Выключатели",
 		description: "Управляйте так, как привыкли. Почти как классические выключатели. На одну кнопку можно разместить десятки действий.",
-		src: "/images/features/2.jpg",
+		src: "./images/features/2.jpg",
 
 	},
 	{
 		title: "Голосовое управление",
 		description: "Просто скажите — Алиса, открой шторы. Или — Siri, выключи свет. Команда будет выполнена незамедлительно.",
-		src: "/images/features/1.jpg",
+		src: "./images/features/1.jpg",
 	},
 	{
 		title: "Приложение",
 		description: "Вся электрика в доме теперь в вашем смартфоне. Делай десятки действий одним кликом.",
-		src: "/images/features/1.jpg",
+		src: "./images/features/1.jpg",
 	},
 	{
 		title: "Выключатели",
 		description: "Управляйте так, как привыкли. Почти как классические выключатели. На одну кнопку можно разместить десятки действий.",
-		src: "/images/features/2.jpg",
+		src: "./images/features/2.jpg",
 	},
 	{
 		title: "Голосовое управление",
 		description: "Просто скажите — Алиса, открой шторы. Или — Siri, выключи свет. Команда будет выполнена незамедлительно.",
-		src: "/images/features/1.jpg",
+		src: "./images/features/1.jpg",
 	},
 ];
 
@@ -68,7 +68,7 @@ export default function Features() {
 								className="w-70! mr-10 md:w-110! shrink-0"
 							>
 								<a href="" className="relative block aspect-11/10 rounded-[20px] overflow-hidden mb-4 bg-brand-gray">
-									<Image
+									<Image unoptimized
 										src={item.src}
 										alt={item.title}
 										fill
