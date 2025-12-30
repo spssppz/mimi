@@ -73,7 +73,7 @@ export default function Cases() {
 							key={cat.label}
 							className="flex items-center gap-2.5 bg-[#242634] py-2.5 cursor-pointer font-medium text-[14px] px-4 rounded-full text-white tracking-[-0.01em] leading-tight"
 						>
-							<Image unoptimized
+							<Image
 								src={cat.icon}
 								width={18}
 								height={18}
@@ -112,7 +112,7 @@ export default function Cases() {
 							<SwiperSlide key={`${item.title}-${index}`}>
 
 								<div className="relative aspect-360/290 mb-7.5 overflow-hidden rounded-xl">
-									<Image unoptimized
+									<Image
 										src={item.image}
 										alt={item.title}
 										fill

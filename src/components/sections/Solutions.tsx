@@ -14,7 +14,7 @@ export default function Solutions() {
 					<li className="border border-[#5A5D64] min-h-76 md:min-h-89 rounded-xl p-8 flex flex-col justify-center items-center text-center">
 						<div className="mb-4">
 
-							<Image unoptimized
+							<Image
 								src="./images/solutions/1.png"
 								alt="Для квартиры"
 								width={100}
@@ -37,7 +37,7 @@ export default function Solutions() {
 					<li className="border border-[#5A5D64] min-h-76 md:min-h-89 rounded-xl p-8 flex flex-col justify-center items-center text-center">
 						<div className="mb-4">
 
-							<Image unoptimized
+							<Image
 								src="./images/solutions/2.png"
 								alt="Для дома"
 								width={165}

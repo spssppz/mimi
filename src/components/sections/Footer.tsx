@@ -182,7 +182,7 @@ export default function Footer() {
 
 				<div className="border-t border-[#d9d9d9] pt-6 pb-10">
 					<Link href="/" className="inline-block mb-10">
-						<Image unoptimized
+						<Image
 							src="./images/logo.svg"
 							alt="MiMiSmart"
 							width={120}
@@ -229,7 +229,7 @@ export default function Footer() {
 										href={icon.href}
 										className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
 									>
-										<Image unoptimized
+										<Image
 											src={icon.path}
 											alt={icon.name}
 											width={18}

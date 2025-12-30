@@ -100,7 +100,7 @@ function ArticleCard({ article, className }: { article: Article, className?: str
 			</p>
 
 			<div className="aspect-326/149 lg:aspect-273/125 rounded-2xl overflow-hidden mt-auto">
-				<Image unoptimized
+				<Image
 					src={article.image}
 					alt={article.title}
 					width={273}

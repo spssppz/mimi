@@ -68,7 +68,7 @@ export default function Features() {
 								className="w-70! mr-10 md:w-110! shrink-0"
 							>
 								<a href="" className="relative block aspect-11/10 rounded-[20px] overflow-hidden mb-4 bg-brand-gray">
-									<Image unoptimized
+									<Image
 										src={item.src}
 										alt={item.title}
 										fill
