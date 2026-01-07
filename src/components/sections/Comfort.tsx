@@ -1,5 +1,94 @@
+'use client'
+
 import Image from "next/image";
 import { Title } from "../UI/Title";
+import { useState } from 'react'
+type TabKey = 'morning' | 'away' | 'leak'
+
+type Tab = {
+	title: string
+	items: string[]
+}
+
+const TABS: Record<TabKey, Tab> = {
+	morning: {
+		title: 'Наступило утро',
+		items: [
+			'За час начнут прогреваться теплые полы',
+			'Отопление перейдет в дневной режим',
+			'Плавно откроются шторы, естественно пробуждая солнечными лучами',
+			'Вместо будильника, тихая музыка аккуратно встретит с новым днем'
+		]
+	},
+	away: {
+		title: 'Я ушел или пришел',
+		items: [
+			'Свет во всех комнатах будет выключен',
+			'Отопление перейдет в экономичный режим',
+			'Система безопасности активируется',
+			'Все розетки будут обесточены'
+		]
+	},
+	leak: {
+		title: 'Случилась протечка',
+		items: [
+			'Вода будет автоматически перекрыта',
+			'Вы получите уведомление в приложение',
+			'Опасные зоны будут обесточены',
+			'Система перейдет в аварийный режим'
+		]
+	}
+}
+
+function ComfortCard() {
+	const [activeTab, setActiveTab] = useState<TabKey>('morning')
+
+	return (
+		<div className="relative overflow-hidden rounded-[20px] bg-[#121212] px-5 lg:px-8 pt-6 lg:pt-7 min-h-94 flex flex-col">
+			<Image
+				src="./images/comfort/bg-2.png"
+				alt="Фон"
+				fill
+			/>
+
+			<div className="relative flex justify-between items-start mb-10 md:mb-4.5 gap-3">
+				<div className="flex flex-col items-start space-y-3">
+					{Object.entries(TABS).map(([key, tab]) => (
+						<button
+							key={key}
+							onClick={() => setActiveTab(key as TabKey)}
+							className={`font-semibold text-[16px] leading-tight tracking-[-0.01em] transition cursor-pointer
+			${activeTab === key
+									? 'text-[#d1d1d1]'
+									: 'text-[#d1d1d1] opacity-30 hover:opacity-60'}
+		`}
+						>
+							{tab.title}
+						</button>
+					))}
+
+				</div>
+
+				<div className="w-20 lg:w-25 h-20 lg:h-25 rounded-full bg-white" />
+			</div>
+
+			<ul className="relative flex-auto bg-linear-to-b max-w-88 from-[#27272b] to-[#101011] shadow-[inset_-4px_4px_3px_0_rgba(0,0,0,0.25)] rounded-t-xl py-5 px-4 font-helvetica leading-tight text-[14px] tracking-[-0.01em] text-[#f6f9ff] space-y-5 md:space-y-4">
+				{TABS[activeTab].items.map((text, i) => (
+					<li key={i} className="flex items-center gap-3">
+						<Image
+							src="./images/icons/comfort-check.svg"
+							alt="check"
+							width={24}
+							height={24}
+							className="basis-6"
+						/>
+						<span>{text}</span>
+					</li>
+				))}
+			</ul>
+		</div>
+	)
+}
 
 export default function Comfort() {
 	return (
@@ -36,66 +125,7 @@ export default function Comfort() {
 							</p>
 						</div>
 
-						<div className="relative overflow-hidden rounded-[20px] bg-[#121212] px-5 lg:px-8 pt-6 lg:pt-7 min-h-94 flex flex-col">
-							<Image
-								src="./images/comfort/bg-2.png"
-								alt="Фон"
-								fill
-							/>
-							<div className="relative flex justify-between items-start mb-10 md:mb-4.5 gap-3">
-								<div className="flex flex-col items-start space-y-3">
-									<button className="cursor-pointer font-semibold text-[16px] text-[#d1d1d1] leading-tight tracking-[-0.01em]">Наступило утро</button>
-									<button className="cursor-pointer font-semibold text-[16px] text-[#d1d1d1] leading-tight tracking-[-0.01em] opacity-30">Я ушел или пришел</button>
-									<button className="cursor-pointer font-semibold text-[16px] text-[#d1d1d1] leading-tight tracking-[-0.01em] opacity-30">Случилась протечка</button>
-								</div>
-
-								<div className="w-20 lg:w-25 h-20 lg:h-25 rounded-full bg-white">
-								</div>
-							</div>
-
-							<ul className="relative flex-auto bg-linear-to-b max-w-88 from-[#27272b] to-[#101011] shadow-[inset_-4px_4px_3px_0_rgba(0,0,0,0.25)] rounded-t-xl py-5 px-4 font-helvetica leading-tight text-[14px] tracking-[-0.01em] text-[#f6f9ff] space-y-5 md:space-y-4">
-								<li className="flex items-center gap-3">
-									<Image
-										src="./images/icons/comfort-check.svg"
-										alt="check"
-										width={24}
-										height={24}
-										className="basis-6"
-									/>
-									<span>За час начнут прогреваться теплые полы</span>
-								</li>
-								<li className="flex items-center gap-3">
-									<Image
-										src="./images/icons/comfort-check.svg"
-										alt="check"
-										width={24}
-										height={24}
-										className="basis-6"
-									/>
-									<span>Отопление перейдет в дневной режим</span>
-								</li>
-								<li className="flex items-center gap-3">
-									<Image
-										src="./images/icons/comfort-check.svg"
-										alt="check"
-										width={24}
-										height={24}
-										className="basis-6"
-									/>
-									<span>Плавно откроются шторы, естественно пробуждая солнечными лучами</span>
-								</li>
-								<li className="flex items-center gap-3">
-									<Image
-										src="./images/icons/comfort-check.svg"
-										alt="check"
-										width={24}
-										height={24}
-										className="basis-6"
-									/>
-									<span>Вместо будильника, тихая музыка аккуратно встретит с новым днем</span>
-								</li>
-							</ul>
-						</div>
+						<ComfortCard />
 					</div>
 
 				</div>

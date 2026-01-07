@@ -9,7 +9,15 @@ export default function Showroom() {
 	const [isPlaying, setIsPlaying] = useState(false)
 
 	return (
-		<section className="pt-10 pb-26 md:pt-16 md:pb-34 lg:pt-22.5 lg:pb-45">
+		<section className="overflow-hidden relative pt-10 pb-26 md:pt-16 md:pb-34 lg:pt-22.5 lg:pb-45">
+			<span className='absolute bottom-15 left-1/2 -translate-x-1/2 w-360 aspect-1440/820 -z-1'>
+				<Image
+					src='./images/showroom/bg.png'
+					alt="background image"
+					fill
+					className="object-cover"
+				/>
+			</span>
 			<div className="max-w-236 mx-auto px-4">
 
 				<Title className="mb-6">
@@ -88,7 +96,6 @@ export default function Showroom() {
 				</div>
 
 			</div>
-
 		</section>
 	);
 };
