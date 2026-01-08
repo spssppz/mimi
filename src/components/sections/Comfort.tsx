@@ -7,12 +7,14 @@ type TabKey = 'morning' | 'away' | 'leak'
 
 type Tab = {
 	title: string
+	icon: string
 	items: string[]
 }
 
 const TABS: Record<TabKey, Tab> = {
 	morning: {
 		title: 'Наступило утро',
+		icon: './images/comfort/icon-1.svg',
 		items: [
 			'За час начнут прогреваться теплые полы',
 			'Отопление перейдет в дневной режим',
@@ -22,25 +24,26 @@ const TABS: Record<TabKey, Tab> = {
 	},
 	away: {
 		title: 'Я ушел или пришел',
+		icon: './images/comfort/icon-2.svg',
 		items: [
-			'Свет во всех комнатах будет выключен',
-			'Отопление перейдет в экономичный режим',
-			'Система безопасности активируется',
-			'Все розетки будут обесточены'
+			'Выключает весь забытый свет',
+			'Переводит датчики присутствия в режим охраны',
+			'Устанавливает весь климат по комнатам в экономный режим',
 		]
 	},
 	leak: {
 		title: 'Случилась протечка',
+		icon: './images/comfort/icon-3.svg',
 		items: [
-			'Вода будет автоматически перекрыта',
-			'Вы получите уведомление в приложение',
-			'Опасные зоны будут обесточены',
-			'Система перейдет в аварийный режим'
+			'При попадании воды перекрываются клапана',
+			'Уведомление на телефоне сообщит, в каком именно помещении произошла утечка',
+			'Сценарий «Уборка» отключает датчики на время мойки полов, обычно на 4-8 часов',
+			'Датчик протечки встроен в плитку и выглядит красиво'
 		]
 	}
 }
 
-function ComfortCard() {
+function TabsCard() {
 	const [activeTab, setActiveTab] = useState<TabKey>('morning')
 
 	return (
@@ -69,7 +72,16 @@ function ComfortCard() {
 
 				</div>
 
-				<div className="w-20 lg:w-25 h-20 lg:h-25 rounded-full bg-white" />
+
+
+				<div className="flex items-center justify-center relative w-20 lg:w-25 aspect-square rounded-full bg-[radial-gradient(53.7%_53.7%_at_30.56%_38.36%,rgba(207,231,247,0.2)_0%,rgba(121,111,17,0.1)_100%)] shadow-[0px_54px_15px_rgba(0,0,0,0.02),0px_34px_14px_rgba(0,0,0,0.15),0px_19px_12px_rgba(18,18,18,0.5),0px_2px_5px_rgba(0,0,0,0.98),inset_0px_-2px_1px_rgba(0,0,0,0.55)]">
+					<Image
+						src={TABS[activeTab].icon}
+						alt={TABS[activeTab].title}
+						width={76}
+						height={76}
+					/>
+				</div>
 			</div>
 
 			<ul className="relative flex-auto bg-linear-to-b max-w-88 from-[#27272b] to-[#101011] shadow-[inset_-4px_4px_3px_0_rgba(0,0,0,0.25)] rounded-t-xl py-5 px-4 font-helvetica leading-tight text-[14px] tracking-[-0.01em] text-[#f6f9ff] space-y-5 md:space-y-4">
@@ -86,7 +98,7 @@ function ComfortCard() {
 					</li>
 				))}
 			</ul>
-		</div>
+		</div >
 	)
 }
 
@@ -100,8 +112,8 @@ export default function Comfort() {
 				<div className="grid md:grid-cols-2 gap-20 md:gap-5">
 
 					<div className="overflow-hidden relative rounded-[20px] bg-[#d8d8d8] p-5 md:p-7 lg:p-8 min-h-111.5 lg:min-h-auto">
-						<h3 className="font-bold text-[32px] md:text-[38px] lg:text-[44px] tracking-[-0.05em] mb-3 md:mb-6 text-black/7 \">
-							Управляйте климатом, освещением, шторами и другим:
+						<h3 className="font-bold text-[32px] md:text-[38px] lg:text-[44px] tracking-[-0.05em] mb-3 md:mb-6 text-black/7">
+							Управляйте климатом, освещением, шторами и&nbsp;другим:
 						</h3>
 						<p className="font-helvetica text-[15px] leading-snug text-[#a8a8a9] tracking-[-0.01em] max-w-58">
 							с помощью голоса, смартфона, привычных выключателей или полностью автоматической системы.
@@ -125,7 +137,7 @@ export default function Comfort() {
 							</p>
 						</div>
 
-						<ComfortCard />
+						<TabsCard />
 					</div>
 
 				</div>

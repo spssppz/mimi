@@ -154,7 +154,7 @@ type FooterColumnProps = {
 
 export function FooterColumn({ title, links, showOnMobile }: FooterColumnProps) {
 	return (
-		<div className={`mb-10 md:mb-6 break-inside-avoid ${showOnMobile ? 'block' : 'hidden md:block'}`}>
+		<div className={`break-inside-avoid ${showOnMobile ? 'block' : 'hidden md:block'}`}>
 			<h4 className="font-medium text-[14px] mb-3 tracking-wide text-[#0a051a]">
 				{title}
 			</h4>
@@ -179,7 +179,6 @@ export default function Footer() {
 	return (
 		<footer className="bg-[#efefef] py-10">
 			<div className="max-w-308 mx-auto px-4">
-
 				<div className="border-t border-[#d9d9d9] pt-6 pb-10">
 					<Link href="/" className="inline-block mb-10">
 						<Image
@@ -191,7 +190,7 @@ export default function Footer() {
 						/>
 					</Link>
 
-					<div className="columns-2 md:columns-3 lg:columns-5 gap-10">
+					<div className="columns-2 space-y-10 md:space-y-6 md:columns-3 lg:columns-5 gap-10">
 						{footerColumns.map(column => (
 							<FooterColumn
 								key={column.title}
@@ -242,7 +241,7 @@ export default function Footer() {
 					</div>
 				</div>
 				<div className="font-helvetica text-[#0a051a] border-t text-[13px] border-[#d9d9d9] pt-6 flex flex-col justify-between items-start gap-2.5 md:gap-4 md:flex-row md:items-center">
-					<p>© 2025 MiMiSmart. All rights reserved.</p>
+					<p>&copy; 2025 MiMiSmart. All rights reserved.</p>
 					<Link href="/" className="text-brand-light-gray/60 transition-colors hover:text-brand-light-gray">Политика конфиденциальности</Link>
 				</div>
 			</div>

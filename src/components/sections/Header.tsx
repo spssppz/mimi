@@ -36,7 +36,7 @@ export default function Header() {
 	return (
 		<header
 			onMouseLeave={() => setShowFunctional(false)}
-			className="lg:relative font-helvetica lg:backdrop-blur-md bg-[rgba(244, 244, 244)]/95 border-b border-[rgba(69, 69, 69)]/15 py-2"
+			className="lg:relative z-2 font-helvetica lg:backdrop-blur-md bg-[rgba(244, 244, 244)]/95 border-b border-[rgba(69, 69, 69)]/15 py-2"
 		>
 			<div className="max-w-308 mx-auto px-4 flex items-center lg:justify-between gap-5">
 
