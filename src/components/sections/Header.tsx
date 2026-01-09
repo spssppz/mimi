@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTheme } from '@/context/ThemeContext';
 
 const functionalMenu = {
 	title: "Функционал",
@@ -32,11 +33,11 @@ export default function Header() {
 			document.body.classList.remove('overflow-hidden')
 		}
 	}, [isOpen])
-
+	const { enabled } = useTheme()
 	return (
 		<header
 			onMouseLeave={() => setShowFunctional(false)}
-			className="lg:relative z-2 font-helvetica lg:backdrop-blur-md bg-[rgba(244, 244, 244)]/95 border-b border-[rgba(69, 69, 69)]/15 py-2"
+			className={`lg:relative z-2 font-helvetica transition-colors duration-400 lg:backdrop-blur-md ${enabled ? 'bg-foreground border-foreground' : 'bg-[rgba(244, 244, 244)]/95 border-[rgba(69, 69, 69)]/15'} border-b py-2`}
 		>
 			<div className="max-w-308 mx-auto px-4 flex items-center lg:justify-between gap-5">
 
@@ -51,7 +52,7 @@ export default function Header() {
 				</Link>
 
 				<div className="flex gap-6 xl:gap-8 items-center order-3 lg:order-2">
-					<nav className="hidden lg:flex gap-6 xl:gap-8 items-center text-brand-light-gray/60 text-[13px]">
+					<nav className={`hidden lg:flex gap-6 xl:gap-8 transition-colors duration-400 items-center ${enabled ? 'text-[#939393]/60' : 'text-brand-light-gray/60'} text-[13px]`}>
 						<Link href="/">Главная</Link>
 						<Link href="/">Услуги</Link>
 						<button onClick={() => setShowFunctional(true)} className="cursor-pointer">Функционал</button>
@@ -87,7 +88,7 @@ export default function Header() {
 					</button>
 				</div>
 
-				<a href="tel:+740122344555" className="order-2 lg:order-3 bg-white rounded-full shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.06)] p-2 min-w-9.5 lg:min-w-auto min-h-9.5 lg:min-h-auto lg:px-4 lg:pt-2.5 lg:pb-2 flex items-center justify-center gap-2 font-medium text-[13px]">
+				<a href="tel:+740122344555" className={`order-2 lg:order-3 rounded-full shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.06)] p-2 min-w-9.5 lg:min-w-auto min-h-9.5 lg:min-h-auto lg:px-4 lg:pt-2.5 lg:pb-2 flex items-center justify-center transition-colors duration-400 gap-2 font-medium text-[13px] ${enabled ? 'text-white bg-[#00d0ff]' : 'bg-white'}`}>
 					<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M8.06802 9.66463C8.18849 9.71995 8.32422 9.73259 8.45284 9.70047C8.58145 9.66834 8.69529 9.59336 8.7756 9.48788L8.98268 9.21663C9.09135 9.07173 9.23227 8.95413 9.39427 8.87313C9.55626 8.79213 9.7349 8.74996 9.91602 8.74996H11.666C11.9754 8.74996 12.2722 8.87288 12.491 9.09167C12.7098 9.31046 12.8327 9.60721 12.8327 9.91663V11.6666C12.8327 11.976 12.7098 12.2728 12.491 12.4916C12.2722 12.7104 11.9754 12.8333 11.666 12.8333C8.88124 12.8333 6.21053 11.727 4.24139 9.75791C2.27226 7.78878 1.16602 5.11807 1.16602 2.33329C1.16602 2.02387 1.28893 1.72713 1.50772 1.50833C1.72652 1.28954 2.02326 1.16663 2.33268 1.16663H4.08268C4.3921 1.16663 4.68885 1.28954 4.90764 1.50833C5.12643 1.72713 5.24935 2.02387 5.24935 2.33329V4.08329C5.24935 4.26441 5.20718 4.44304 5.12618 4.60504C5.04518 4.76704 4.92758 4.90795 4.78268 5.01663L4.50968 5.22138C4.40259 5.30315 4.32711 5.41947 4.29606 5.55058C4.26501 5.68169 4.28031 5.81951 4.33935 5.94063C5.13658 7.55988 6.44776 8.86942 8.06802 9.66463Z" fill="currentColor" />
 					</svg>

@@ -245,15 +245,6 @@
   height: 22.4%;
 }
 
-.bedroom-zone:hover .curtain-open {
-  opacity: 0;
-}
-
-.bedroom-zone:hover .curtain-close {
-  opacity: 1;
-}
-
-
 .bedroom-zone:hover .lamp-off {
   opacity: 0;
 }
@@ -262,7 +253,15 @@
   opacity: 1;
 }
 
-.curtain {
+.bedroom-zone:hover .curtain-open {
+  opacity: 0;
+}
+
+.bedroom-zone:hover .curtain-close {
+  opacity: 1;
+}
+
+.bedroom-zone .curtain {
   display: block;
   position: absolute;
   top: 13.3%;
@@ -271,11 +270,11 @@
   pointer-events: none;
 }
 
-.curtain-open {
+.bedroom-zone .curtain-open {
   opacity: 1;
 }
 
-.curtain-close {
+.bedroom-zone .curtain-close {
   opacity: 0;
 }
 
@@ -408,4 +407,15 @@
   height: 30.3%;
   top: 16.2%;
   right: 14.6%;
+}
+
+
+.sitting-zone .curtain {
+  display: block;
+  position: absolute;
+  transform: rotate(90deg);
+  top: -1.7%;
+  left: -7.5%;
+  transition: 0.5s;
+  pointer-events: none;
 }

@@ -1,12 +1,11 @@
-import type { Metadata } from "next";
-
-import "./globals.css";
-
+import type { Metadata } from "next"
+import "./globals.css"
 import { inter, helvetica } from './fonts'
+import { ThemeProvider } from '@/context/ThemeContext'
 
 export const metadata: Metadata = {
   title: "MiMiSmart",
-};
+}
 
 export default function RootLayout({
   children,
@@ -19,7 +18,9 @@ export default function RootLayout({
       className={`${inter.variable} ${helvetica.variable}`}
     >
       <body className="font-sans">
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

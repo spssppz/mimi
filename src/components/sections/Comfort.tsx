@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { Title } from "../UI/Title";
 import { useState } from 'react'
+
+import { useTheme } from '@/context/ThemeContext'
+
 type TabKey = 'morning' | 'away' | 'leak'
 
 type Tab = {
@@ -103,11 +106,12 @@ function TabsCard() {
 }
 
 export default function Comfort() {
+	const { enabled } = useTheme()
 	return (
-		<section className="py-22.5 lg:pb-22.5 lg:pt-30">
+		<section className={`py-22.5 lg:pb-22.5 lg:pt-30 transition-colors duration-400 ${enabled && 'bg-foreground'}`}>
 			<div className="max-w-308 mx-auto px-4">
-				<Title className="mb-2">Комфорт в каждом движении</Title>
-				<p className="lg:max-w-120 font-helvetica text-[17px] tracking-[-0.01em] text-[#303236] leading-tight mb-10">Интеллектуальная система заботится о вашем доме: <br />
+				<Title className={`mb-2 transition-colors duration-400 ${enabled && 'text-white'}`}>Комфорт в каждом движении</Title>
+				<p className={`lg:max-w-120 font-helvetica text-[17px] tracking-[-0.01em] transition-colors duration-400 ${enabled ? 'text-[#d9dadc]' : 'text-[#303236]'} leading-tight mb-10`}>Интеллектуальная система заботится о вашем доме: <br />
 					от освещения до климата — всегда под вашим контролем.</p>
 				<div className="grid md:grid-cols-2 gap-20 md:gap-5">
 
@@ -129,10 +133,10 @@ export default function Comfort() {
 
 					<div className="lg:pt-17">
 						<div className="tracking-[-0.01em] mb-6 lg:px-8">
-							<h3 className="text-[24px] md:text-[28px] font-bold mb-2.5 leading-tight">
+							<h3 className={`text-[24px] md:text-[28px] font-bold mb-2.5 leading-tight transition-colors duration-400 ${enabled && 'text-white'}`}>
 								Создавайте сценарии крайне просто, справится даже ребенок.
 							</h3>
-							<p className="font-helvetica text-[15px] text-[#303236] leading-snug">
+							<p className={`font-helvetica text-[15px] transition-colors duration-400 ${enabled ? 'text-[#d9dadc]' : 'text-[#303236]'} leading-snug`}>
 								Прямо с телефона, буквально за 20 секунд.
 							</p>
 						</div>

@@ -3,9 +3,11 @@
 import Image from 'next/image';
 import { Title } from '../UI/Title';
 import { Button } from '../UI/Button';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useTheme } from '@/context/ThemeContext';
 
 function LivingRoom() {
+	const { enabled } = useTheme()
 	useEffect(() => {
 		// ищем контейнер зоны и датчик
 		const zone = document.querySelector<HTMLDivElement>('.living-zone')
@@ -55,7 +57,7 @@ function LivingRoom() {
 
 	return (
 		<div className="living-zone">
-			<span className='living-cctv'>
+			<span className={`living-cctv transition-all duration-400 ${enabled && 'brightness-30'}`}>
 				<Image src="./images/smarthome/cctv.png" width={85} height={78} alt="" />
 			</span>
 
@@ -102,17 +104,23 @@ function LivingRoom() {
 }
 
 export default function SmartHome() {
-	const [enabled, setEnabled] = useState(false);
+	const { enabled, toggle } = useTheme()
 
 	return (
 
-		<section className="min-h-205 relative">
+		<section className={`overflow-hidden min-h-205 relative transition-colors duration-400 ${enabled && 'bg-foreground'}`}>
 			<div className="absolute -top-13.75 left-1/2 -translate-x-1/2 w-360 aspect-1440/820">
 				<Image
 					src='./images/smarthome/bg.png'
 					alt="background image"
 					fill
-					className="object-cover"
+					className={`object-cover transition-opacity duration-400 ${enabled && 'opacity-0'}`}
+				/>
+				<Image
+					src='./images/smarthome/bg-dark.png'
+					alt="background image"
+					fill
+					className={`left-1.75! top-0.5! object-cover transition-opacity duration-400 ${!enabled && 'opacity-0'}`}
 				/>
 				<LivingRoom />
 
@@ -148,51 +156,60 @@ export default function SmartHome() {
 				</div>
 
 				<div className="garage-zone">
-					<span className='garage-cctv'>
+					<span className={`garage-cctv transition-all duration-400 ${enabled && 'brightness-30'}`}>
 						<Image src="./images/smarthome/cctv.png" width={85} height={78} alt="" />
 					</span>
 				</div>
 				<div className="sitting-zone">
+					<span className={`curtain curtain-open ${enabled && 'opacity-0'}`}>
+						<Image src="./images/smarthome/curtain-open.png" width={193} height={186} alt="" />
+					</span>
+					<span className={`curtain curtain-close brightness-20 ${!enabled && 'opacity-0'}`}>
+						<Image src="./images/smarthome/curtain-close.png" width={193} height={186} alt="" />
+					</span>
 				</div>
 			</div>
 			<div className="max-w-308 mx-auto px-4">
 				<div className='pt-13.5 lg:pl-36 lg:pt-30'>
 					<button
 						type="button"
-						onClick={() => setEnabled(!enabled)}
+						onClick={toggle}
 						aria-pressed={enabled}
-						className="relative inline-flex items-center gap-4 cursor-pointer group select-none mb-5"
+						className="font-helvetica relative inline-flex items-center gap-4 cursor-pointer group select-none mb-5"
 					>
 
 						<span
-							className={`relative w-15 h-7.5 rounded-full transition-colors duration-300 border border-[#C6C6C6] shadow-[inset_0_3px_8px_0_rgba(0, 0, 0, 0.24] flex items-center`}
+							className={`relative w-15 h-7.5 rounded-full transition-colors duration-300 bg-linear-to-b ${enabled ? 'from-[#333333] to-[#4D4D4D]' : 'from-[#C6C6C6] to-[#FFFFFF]'} shadow-[0_3px_8px_rgba(0,0,0,0.24)] flex items-center justify-start`}
 						>
+							<span className={`absolute top-px left-px right-px transition-colors duration-300  bottom-px ${enabled ? 'bg-[#444]' : 'bg-[#d8d8d8]'} rounded-full`}>
 
+							</span>
 							<span
-								className={`transform transition-transform duration-300 rounded-[100%] ${enabled ? 'translate-x-0' : 'translate-x-7.5'}`}
+								className={`transform relative transition-transform duration-300 rounded-full ${enabled ? 'translate-x-0' : 'translate-x-7.5'}`}
 							>
 								<Image
 									src='./images/icons/theme-btn-circle.svg'
 									alt="Dark/Light theme btn icon"
 									width={29}
 									height={29}
-									className="object-cover"
+									className="object-cover "
 								/>
+								<span className={`absolute top-[50%] left-[50%] transition-colors duration-300 -translate-1/2 rounded-full shadow-[inset_1px_1px_1px_0_rgba(0,0,0,0.35)] w-1 h-1 ${enabled ? 'bg-[#ff383c]' : 'bg-[#1eb02f]'}`}></span>
 							</span>
 						</span>
 
-						<span className="font-helvetica tracking-[-0.01em] text-[14px] bg-linear-to-r from-[#dbdbdb] to-brand-light-gray bg-clip-text text-transparent">
+						<span className="tracking-[-0.01em] text-[14px] bg-linear-to-r from-[#dbdbdb] to-brand-light-gray bg-clip-text text-transparent">
 							Увидеть в действии
 						</span>
 					</button>
-					<Title className="mb-2 relative">Умный дом под&nbsp;ключ</Title>
-					<p className='font-helvetica relative text-[17px] mb-10 md:mb-20 tracking-[-0.01em] leading-tight'>
+					<Title className={`mb-2 transition-colors duration-400 relative ${enabled && 'text-white'}`}>Умный дом под&nbsp;ключ</Title>
+					<p className={`font-helvetica relative text-[17px] mb-10 md:mb-20 tracking-[-0.01em] transition-colors duration-400 leading-tight ${enabled && 'text-[#d9dadc]/60'}`}>
 						Производство и монтаж современной электрики. <br />
 						Автоматическое управление всеми системами дома.
 					</p>
 					<Button>Узнать больше</Button>
 				</div>
 			</div>
-		</section >
+		</section>
 	);
 };
