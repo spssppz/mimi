@@ -8,40 +8,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import { Title } from "../UI/Title";
 import { SliderNavigation } from "../UI/SliderNavigation";
-
-const features = [
-	{
-		title: "Приложение",
-		description: "Вся электрика в доме теперь в вашем смартфоне. Делай десятки действий одним кликом.",
-		src: "./images/features/1.jpg",
-	},
-	{
-		title: "Выключатели",
-		description: "Управляйте так, как привыкли. Почти как классические выключатели. На одну кнопку можно разместить десятки действий.",
-		src: "./images/features/2.jpg",
-
-	},
-	{
-		title: "Голосовое управление",
-		description: "Просто скажите — Алиса, открой шторы. Или — Siri, выключи свет. Команда будет выполнена незамедлительно.",
-		src: "./images/features/1.jpg",
-	},
-	{
-		title: "Приложение",
-		description: "Вся электрика в доме теперь в вашем смартфоне. Делай десятки действий одним кликом.",
-		src: "./images/features/1.jpg",
-	},
-	{
-		title: "Выключатели",
-		description: "Управляйте так, как привыкли. Почти как классические выключатели. На одну кнопку можно разместить десятки действий.",
-		src: "./images/features/2.jpg",
-	},
-	{
-		title: "Голосовое управление",
-		description: "Просто скажите — Алиса, открой шторы. Или — Siri, выключи свет. Команда будет выполнена незамедлительно.",
-		src: "./images/features/1.jpg",
-	},
-];
+import { features } from "@/data/features";
 
 export default function Features() {
 

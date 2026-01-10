@@ -86,7 +86,7 @@ function LivingRoom() {
 			</span>
 
 			<div className="sensor" id="motion-sensor">
-				<div className="sensor-icon">
+				<div className={`sensor-icon transition-all duration-400 ${enabled && 'brightness-30'}`}>
 					<Image
 						src="./images/smarthome/fire-detector.png"
 						width={24}
@@ -124,23 +124,23 @@ export default function SmartHome() {
 				/>
 				<LivingRoom />
 
-				<div className="bedroom-zone">
+				<div className={`bedroom-zone ${enabled && 'dark-theme'}`}>
 					<span className='curtain curtain-open'>
 						<Image src="./images/smarthome/curtain-open.png" width={193} height={186} alt="" />
 					</span>
-					<span className='curtain curtain-close'>
+					<span className={`curtain curtain-close ${enabled && 'brightness-20'}`}>
 						<Image src="./images/smarthome/curtain-close.png" width={193} height={186} alt="" />
 					</span>
 					<span className='lamp lamp-off'>
 						<Image src="./images/smarthome/lamp-off.png" width={89} height={80} alt="" />
 					</span>
-					<span className='lamp lamp-on'>
+					<span className='lamp lamp-on '>
 						<Image src="./images/smarthome/lamp-on.png" width={89} height={80} alt="" />
 					</span>
 				</div>
 				<div className='kitchen-zone'>
 					<div className='kitchen-zone-2'>
-						<span className='conditioner conditioner-off'>
+						<span className={`conditioner conditioner-off ${enabled && 'brightness-30'}`}>
 							<Image src="./images/smarthome/conditioner-off.png" width={100.8} height={121.8} alt="" />
 						</span>
 						<span className='conditioner conditioner-on'>

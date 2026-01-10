@@ -5,46 +5,8 @@ import { Title } from "../UI/Title";
 import { useState } from 'react'
 
 import { useTheme } from '@/context/ThemeContext'
-
-type TabKey = 'morning' | 'away' | 'leak'
-
-type Tab = {
-	title: string
-	icon: string
-	items: string[]
-}
-
-const TABS: Record<TabKey, Tab> = {
-	morning: {
-		title: 'Наступило утро',
-		icon: './images/comfort/icon-1.svg',
-		items: [
-			'За час начнут прогреваться теплые полы',
-			'Отопление перейдет в дневной режим',
-			'Плавно откроются шторы, естественно пробуждая солнечными лучами',
-			'Вместо будильника, тихая музыка аккуратно встретит с новым днем'
-		]
-	},
-	away: {
-		title: 'Я ушел или пришел',
-		icon: './images/comfort/icon-2.svg',
-		items: [
-			'Выключает весь забытый свет',
-			'Переводит датчики присутствия в режим охраны',
-			'Устанавливает весь климат по комнатам в экономный режим',
-		]
-	},
-	leak: {
-		title: 'Случилась протечка',
-		icon: './images/comfort/icon-3.svg',
-		items: [
-			'При попадании воды перекрываются клапана',
-			'Уведомление на телефоне сообщит, в каком именно помещении произошла утечка',
-			'Сценарий «Уборка» отключает датчики на время мойки полов, обычно на 4-8 часов',
-			'Датчик протечки встроен в плитку и выглядит красиво'
-		]
-	}
-}
+import { Tabs } from "@/data/comfort";
+import { TabKey } from "@/types/comfort";
 
 function TabsCard() {
 	const [activeTab, setActiveTab] = useState<TabKey>('morning')
@@ -59,7 +21,7 @@ function TabsCard() {
 
 			<div className="relative flex justify-between items-start mb-10 md:mb-4.5 gap-3">
 				<div className="flex flex-col items-start space-y-3">
-					{Object.entries(TABS).map(([key, tab]) => (
+					{Object.entries(Tabs).map(([key, tab]) => (
 						<button
 							key={key}
 							onClick={() => setActiveTab(key as TabKey)}
@@ -79,16 +41,15 @@ function TabsCard() {
 
 				<div className="flex items-center justify-center relative w-20 lg:w-25 aspect-square rounded-full bg-[radial-gradient(53.7%_53.7%_at_30.56%_38.36%,rgba(207,231,247,0.2)_0%,rgba(121,111,17,0.1)_100%)] shadow-[0px_54px_15px_rgba(0,0,0,0.02),0px_34px_14px_rgba(0,0,0,0.15),0px_19px_12px_rgba(18,18,18,0.5),0px_2px_5px_rgba(0,0,0,0.98),inset_0px_-2px_1px_rgba(0,0,0,0.55)]">
 					<Image
-						src={TABS[activeTab].icon}
-						alt={TABS[activeTab].title}
+						src={Tabs[activeTab].icon}
+						alt={Tabs[activeTab].title}
 						width={76}
 						height={76}
 					/>
 				</div>
 			</div>
-
 			<ul className="relative flex-auto bg-linear-to-b max-w-88 from-[#27272b] to-[#101011] shadow-[inset_-4px_4px_3px_0_rgba(0,0,0,0.25)] rounded-t-xl py-5 px-4 font-helvetica leading-tight text-[14px] tracking-[-0.01em] text-[#f6f9ff] space-y-5 md:space-y-4">
-				{TABS[activeTab].items.map((text, i) => (
+				{Tabs[activeTab].items.map((text, i) => (
 					<li key={i} className="flex items-center gap-3">
 						<Image
 							src="./images/icons/comfort-check.svg"
@@ -101,6 +62,7 @@ function TabsCard() {
 					</li>
 				))}
 			</ul>
+			<div className="absolute -bottom-[4%] left-0 w-full h-[34%] bg-[linear-gradient(180deg,rgba(37,37,41,0)_0%,#252529_82.91%)] pointer-events-none"></div>
 		</div >
 	)
 }

@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Image from 'next/image';
 import { Title } from '../UI/Title';
 import { Button } from '../UI/Button';
+import { showroomContent } from '@/data/showroom';
+import { brand } from '@/config/brand';
 
 export default function Showroom() {
 	const [isPlaying, setIsPlaying] = useState(false)
@@ -20,16 +22,12 @@ export default function Showroom() {
 			</span>
 			<div className="max-w-236 mx-auto px-4">
 
-				<Title className="mb-6">
-					Приходите к нам <br />
-					в Шоурум в Москве
+				<Title className="mb-6 lg:max-w-200">
+					{showroomContent.title}
 				</Title>
 
-				<div className="font-helvetica text-brand-gray leading-snug tracking-[-0.01em] mb-10 md:mb-14 lg:mb-18">
-					Вы вживую ощутите тот комфорт, который дает Умный Дом. <br />
-					Сами поуправляете системой. <br />
-					Мы расскажем о возможностях, которые вы даже не могли себе представить. <br />
-					Вы поймете, почему обычная электрика устарела еще 30 лет назад.
+				<div className="font-helvetica lg:max-w-122.5 text-brand-gray leading-snug tracking-[-0.01em] mb-10 md:mb-14 lg:mb-18">
+					{showroomContent.description}
 				</div>
 
 				<div className="mb-26 md:mb-18 flex justify-center">
@@ -45,7 +43,7 @@ export default function Showroom() {
 					{!isPlaying && (
 						<>
 							<Image
-								src="./images/showroom/preview.jpg"
+								src={`${showroomContent.videoPreview}`}
 								alt="Превью видео"
 								fill
 								className="object-cover rounded-2xl"
@@ -72,7 +70,7 @@ export default function Showroom() {
 							controls
 							autoPlay
 						>
-							<source src="/videos/showroom.mp4" type="video/mp4" />
+							<source src={`${showroomContent.videoSrc}`} type="video/mp4" />
 						</video>
 					)}
 				</div>
@@ -87,9 +85,8 @@ export default function Showroom() {
 								alt="г. Москва, Новоданиловская наб., 6к1"
 							/>
 						</div>
-						<div className="font-helvetica text-[14px] tracking-[-0.01em] text-brand-blue">
-							г. Москва, <br />
-							Новоданиловская наб., 6к1
+						<div className="font-helvetica lg:max-w-45 text-[14px] tracking-[-0.01em] text-brand-blue">
+							{brand.address}
 						</div>
 					</div>
 					<Button>Записаться в шоурум</Button>

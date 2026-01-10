@@ -7,69 +7,9 @@ import { Navigation } from "swiper/modules"
 import "swiper/css"
 import { Title } from "../UI/Title"
 import { SliderNavigation } from "../UI/SliderNavigation"
-
-/* =======================
-	 TYPES & DATA
-======================= */
-
-type Article = {
-	id: number
-	tag: string
-	isNew: boolean
-	title: string
-	description: string
-	image: string
-}
-
-const articles: Article[] = [
-	{
-		id: 1,
-		tag: "Тег",
-		isNew: true,
-		title: "Высокие технологии в классическом исполнении",
-		description:
-			"Механика игры «Потолкуем?» Архитектура. Увлекаетесь архитектурой и урбанистикой? Вам точно подойдёт наша игра!",
-		image: "./images/articles/1.jpg",
-	},
-	{
-		id: 2,
-		tag: "Тег",
-		isNew: true,
-		title: "Высокие технологии в классическом исполнении",
-		description:
-			"Механика игры «Потолкуем?» Архитектура. Увлекаетесь архитектурой и урбанистикой? Вам точно подойдёт наша игра!",
-		image: "./images/articles/2.jpg",
-	},
-	{
-		id: 3,
-		tag: "Тег",
-		isNew: true,
-		title: "Высокие технологии в классическом исполнении",
-		description:
-			"Механика игры «Потолкуем?» Архитектура. Увлекаетесь архитектурой и урбанистикой? Вам точно подойдёт наша игра!",
-		image: "./images/articles/3.jpg",
-	},
-]
-
-/* =======================
-	 HOOK
-======================= */
-
-function useMediaQuery(query: string) {
-	const [matches, setMatches] = useState(false)
-
-	useEffect(() => {
-		const media = window.matchMedia(query)
-		setMatches(media.matches)
-
-		const listener = () => setMatches(media.matches)
-		media.addEventListener("change", listener)
-
-		return () => media.removeEventListener("change", listener)
-	}, [query])
-
-	return matches
-}
+import { articles } from '@/data/articles'
+import type { Article } from "@/types/article"
+import { useMediaQuery } from "@/hooks/useMediaQuery"
 
 /* =======================
 	 UI BLOCKS
