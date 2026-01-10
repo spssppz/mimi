@@ -8,9 +8,3 @@ export type FooterColumnData = {
 	links: FooterLink[]
 	showOnMobile?: boolean
 }
-
-export type SocialLink = {
-	name: string
-	path: string
-	href: string
-}

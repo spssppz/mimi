@@ -1,4 +1,4 @@
-import type { FooterColumnData, SocialLink } from "@/types/footer"
+import type { FooterColumnData } from "@/types/footer"
 
 export const footerColumns: FooterColumnData[] = [
 	{
@@ -132,10 +132,4 @@ export const footerColumns: FooterColumnData[] = [
 		],
 		showOnMobile: true,
 	},
-]
-
-export const socialLinks: SocialLink[] = [
-	{ name: 'Telegram', path: './images/icons/socials/tg.svg', href: '/' },
-	{ name: 'YouTube', path: './images/icons/socials/youtube.svg', href: '/' },
-	{ name: 'VK', path: './images/icons/socials/vk.svg', href: '/' },
 ]

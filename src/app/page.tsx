@@ -1,4 +1,4 @@
-import Header from "@/components/sections/Header";
+import Header from "@/components/layout/Header";
 import SmartHome from "@/components/sections/SmartHome";
 import Comfort from "@/components/sections/Comfort";
 import Capabilities from "@/components/sections/Capabilities";
@@ -8,7 +8,7 @@ import Features from "@/components/sections/Features";
 import Showroom from "@/components/sections/Showroom";
 import Cases from "@/components/sections/Cases";
 import Articles from "@/components/sections/Articles";
-import Footer from "@/components/sections/Footer";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (

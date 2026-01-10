@@ -5,18 +5,9 @@ import Image from 'next/image';
 import { useTheme } from '@/context/ThemeContext';
 import { brand } from '@/config/brand';
 import { contacts } from '@/config/contacts';
+import { functionalMenu, menuItems } from '@/data/header';
+import { Button } from '../UI/Button';
 
-const functionalMenu = {
-	title: "Функционал",
-	categories: [
-		{
-			id: "security",
-			label: "Безопасность",
-			items: ["Видеонаблюдение", "Сигнализация", "Пожарная сигнализация", "Контроль доступа", "Протечка воды", "Ворота", "Домофон"]
-		},
-		{ id: "climate", label: "Микроклимат", items: ["Отопление", "Кондиционирование"] },
-	]
-};
 
 export default function Header() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -57,17 +48,17 @@ export default function Header() {
 
 				<div className="flex gap-6 xl:gap-8 items-center order-3 lg:order-2">
 					<nav className={`hidden lg:flex gap-6 xl:gap-8 transition-colors duration-400 items-center ${enabled ? 'text-[#939393]/60' : 'text-brand-light-gray/60'} text-[13px]`}>
-						<Link href="/">Главная</Link>
-						<Link href="/">Услуги</Link>
-						<button onClick={() => setShowFunctional(true)} className="cursor-pointer">Функционал</button>
-						<Link href="/">Оборудование</Link>
-						<Link href="/">Фурнитура</Link>
-						<Link href="/">Готовые решения</Link>
-						<Link href="/">Проекты</Link>
+						{menuItems.filter(item => item.desktop).map(item =>
+							item.href ? (
+								<Link key={item.label} href={item.href} className='transitions-colors duration-300 hover:text-brand-light-gray'>{item.label}</Link>
+							) : (
+								<button key={item.label} className='transitions-colors duration-300 hover:text-brand-light-gray cursor-pointer' onClick={() => setShowFunctional(true)}>{item.label}</button>
+							)
+						)}
 					</nav>
 					<button
 						onClick={() => setIsOpen(prev => !prev)}
-						className="lg:hidden relative z-3 text-brand-light-gray lg:text-[#777777] w-6 h-6 basis-6 cursor-pointer"
+						className="lg:hidden relative z-12 text-brand-light-gray lg:text-[#777777] w-6 h-6 basis-6 cursor-pointer"
 					>
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path
@@ -160,24 +151,43 @@ export default function Header() {
 							{contacts.email && (
 								<a className="mb-6 inline-block" href={`mailto:${contacts.email}`}>{contacts.email}</a>
 							)}
-							{/* Сошиалс! */}
+							<nav
+								className="flex gap-4 mb-10"
+								aria-label="Социальные сети"
+							>
+								{contacts.socials?.map(icon => (
+									<Link
+										key={icon.name}
+										href={icon.href}
+										target='_blank'
+										className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+									>
+										<Image
+											src={icon.icon}
+											alt={icon.name}
+											width={18}
+											height={18}
+										/>
+									</Link>
+								))}
+							</nav>
 							<div className="grid grid-cols-2 gap-3">
-								<a href="" className="border flex items-center justify-center border-[rgba(224, 232, 235)]/40 rounded-xl min-h-13" aria-label='Перейти в App Store'>
-									<Image
-										src="./images/icons/app/apple.svg"
-										alt="App Store"
-										width={32}
-										height={32}
-									/>
-								</a>
-								<a href="" className="border flex items-center justify-center border-[rgba(224, 232, 235)]/40 rounded-xl min-h-13" aria-label='Перейти в Google Play'>
-									<Image
-										src="./images/icons/app/android.svg"
-										alt="Google Play"
-										width={32}
-										height={32}
-									/>
-								</a>
+								{contacts.apps?.map(app => (
+									<a
+										key={app.label}
+										href={app.href}
+										target='_blank'
+										className="border flex items-center justify-center border-[rgba(224,232,235)]/40 rounded-xl min-h-13"
+										aria-label={`Перейти в ${app.label}`}
+									>
+										<Image
+											src={app.icon}
+											alt={app.label}
+											width={32}
+											height={32}
+										/>
+									</a>
+								))}
 							</div>
 						</div>
 					</div>
@@ -187,22 +197,13 @@ export default function Header() {
 
 			{
 				isOpen && (
-					<div className="fixed top-0 z-2 left-0 w-full overflow-auto h-full px-8 pt-20 pb-10 bg-white font-helvetica">
+					<div className="fixed top-0 z-11 left-0 w-full overflow-auto h-full px-8 pt-20 pb-10 bg-white font-helvetica">
 
 						<nav className="flex flex-col gap-5 text-[20px] pb-10">
-							<Link href="/">Главная</Link>
-							<Link href="/">Услуги</Link>
-							<Link href="/">Функционал</Link>
-							{/* <button onClick={() => setShowFunctional(true)} className="text-left cursor-pointer">Функционал</button> */}
-							<Link href="/">Оборудование</Link>
-							<Link href="/">Фурнитура</Link>
-							<Link href="/">Готовые решения</Link>
-							<Link href="/">Проекты</Link>
-							<Link href="/">Цены</Link>
-							<Link href="/">О компании</Link>
-							<Link href="/">Партнерам</Link>
-							<Link href="/">Статьи</Link>
-							<Link href="/">Контакты</Link>
+							{menuItems.map(item =>
+								item.href ? <Link key={item.label} href={item.href}>{item.label}</Link> :
+									<button key={item.label} className='cursor-pointer text-left' onClick={() => setShowFunctional(true)}>{item.label}</button>
+							)}
 						</nav>
 						<div className='pt-10 border-t border-[#d9d9d9] leading-tight font-helvetica text-[17px] tracking-[-0.01em]'>
 							<div className='mb-10'>
@@ -216,9 +217,8 @@ export default function Header() {
 										/>
 									</div>
 									<div>
-										<div className="mb-1 text-brand-blue">
-											г. Москва, <br />
-											Новоданиловская наб., 6к1
+										<div className="mb-1 text-brand-blue max-w-[74%]">
+											{brand.address}
 										</div>
 										<p className="flex items-center gap-1">
 											<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -230,17 +230,23 @@ export default function Header() {
 													strokeLinejoin="round"
 												/>
 											</svg>
-											<span>4,9 рейтинг</span>
+											<span>{contacts.rating} рейтинг</span>
 										</p>
 									</div>
 								</div>
 								<div className='text-brand-blue flex items-center gap-3 mb-8'>
-									<div className='basis-12.5 w-12.5 shadow-[0_0_2px_0_rgba(148,148,148,0.12)]'>
-
+									<div className='basis-12.5 w-12.5'>
+										<Image
+											className="w-full h-auto"
+											src="./images/icons/phone-header.svg"
+											alt="MiMiSmart"
+											width={50}
+											height={50}
+										/>
 									</div>
 									<div>
-										<a href="tel:+740122344555">+7 (4012) 234-45-55</a>
-										<p className='text-[#acacac]'>Время работы 09:00 - 18:00</p>
+										<a href={`tel:${phoneClean}`}>{contacts.phone}</a>
+										<p className='text-[#acacac]'>Время работы: {contacts.workingHours}</p>
 									</div>
 								</div>
 								<div className='text-brand-blue flex items-center gap-3 mb-8'>
@@ -253,26 +259,52 @@ export default function Header() {
 											height={50}
 										/>
 									</div>
-									<a href="mailto:mimismart@gmail.com">mimismart@gmail.com</a>
+									<a href={`mailto:${contacts.email}`}>{contacts.email}</a>
 								</div>
 							</div>
+
+							<nav
+								className="flex gap-4 mb-10"
+								aria-label="Социальные сети"
+							>
+								{contacts.socials?.map(icon => (
+									<Link
+										key={icon.name}
+										href={icon.href}
+										target='_blank'
+										className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+									>
+										<Image
+											src={icon.icon}
+											alt={icon.name}
+											width={18}
+											height={18}
+										/>
+									</Link>
+								))}
+							</nav>
+							<Button className='mb-4 w-full'>Связаться с нами</Button>
+							<div className='font-helvetica flex items-center gap-2 text-[15px] text-[#acacac] -tracking-[0.01em] leading-normal mb-10'>
+								<span>Мы на связи сейчас</span>
+								<span className='w-2 h-2 rounded-full bg-[#27ca40] box-shadow: 0 4px 4px 0 rgba(39, 202, 64, 0.25);'></span>
+							</div>
 							<div className="grid grid-cols-2 gap-3">
-								<a href="" className="border flex items-center justify-center border-[rgba(224, 232, 235)]/40 rounded-xl min-h-14" aria-label='Перейти в App Store'>
-									<Image
-										src="./images/icons/app/apple.svg"
-										alt="App Store"
-										width={32}
-										height={32}
-									/>
-								</a>
-								<a href="" className="border flex items-center justify-center border-[rgba(224, 232, 235)]/40 rounded-xl min-h-14" aria-label='Перейти в Google Play'>
-									<Image
-										src="./images/icons/app/android.svg"
-										alt="Google Play"
-										width={32}
-										height={32}
-									/>
-								</a>
+								{contacts.apps?.map(app => (
+									<a
+										key={app.label}
+										href={app.href}
+										target='_blank'
+										className="border flex items-center justify-center border-[rgba(224,232,235)]/40 rounded-xl min-h-14"
+										aria-label={`Перейти в ${app.label}`}
+									>
+										<Image
+											src={app.icon}
+											alt={app.label}
+											width={32}
+											height={32}
+										/>
+									</a>
+								))}
 							</div>
 						</div>
 						{/* дальше */}

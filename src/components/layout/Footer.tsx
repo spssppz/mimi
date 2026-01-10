@@ -1,4 +1,4 @@
-import { footerColumns, socialLinks } from "@/data/footer";
+import { footerColumns } from "@/data/footer";
 import { FooterColumnData } from "@/types/footer";
 import Image from "next/image";
 import Link from "next/link";
@@ -77,14 +77,15 @@ export default function Footer() {
 								className="flex gap-4"
 								aria-label="Социальные сети"
 							>
-								{socialLinks.map(icon => (
+								{contacts.socials?.map(icon => (
 									<Link
 										key={icon.name}
 										href={icon.href}
+										target='_blank'
 										className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
 									>
 										<Image
-											src={icon.path}
+											src={icon.icon}
 											alt={icon.name}
 											width={18}
 											height={18}
