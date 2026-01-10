@@ -1,3 +1,7 @@
+import { TgIcon } from "@/icons/socials/TgIcon";
+import { VkIcon } from "@/icons/socials/VkIcon";
+import { YoutubeIcon } from "@/icons/socials/YoutubeIcon";
+
 import type { Contacts } from "@/types/contacts";
 
 export const contacts: Contacts = {
@@ -20,18 +24,18 @@ export const contacts: Contacts = {
 	socials: [
 		{
 			name: 'Telegram',
-			icon: '/images/icons/socials/tg.svg',
-			href: '/'
+			href: '/',
+			icon: TgIcon,
 		},
 		{
 			name: 'YouTube',
-			icon: '/images/icons/socials/youtube.svg',
-			href: '/'
+			href: '/',
+			icon: YoutubeIcon,
 		},
 		{
 			name: 'VK',
-			icon: '/images/icons/socials/vk.svg',
-			href: '/'
+			href: '/',
+			icon: VkIcon,
 		},
 	]
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { BtnArrowIcon } from '@/icons/BtnArrowIcon';
 import { useState, useRef } from 'react';
 
 interface ButtonProps {
@@ -48,10 +49,7 @@ export const Button = ({ children, className = "" }: ButtonProps) => {
 
 			<span className="relative z-10 flex items-center gap-1.5">
 				{children}
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M18 8L22 12L18 16" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-					<path d="M2 12H22" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-				</svg>
+				<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
 			</span>
 		</button>
 	);

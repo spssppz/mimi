@@ -155,21 +155,20 @@ export default function Header() {
 								className="flex gap-4 mb-10"
 								aria-label="Социальные сети"
 							>
-								{contacts.socials?.map(icon => (
-									<Link
-										key={icon.name}
-										href={icon.href}
-										target='_blank'
-										className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
-									>
-										<Image
-											src={icon.icon}
-											alt={icon.name}
-											width={18}
-											height={18}
-										/>
-									</Link>
-								))}
+
+								{contacts.socials?.map(icon => {
+									const IconComponent = icon.icon
+									return (
+										<Link
+											key={icon.name}
+											href={icon.href}
+											target="_blank"
+											className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+										>
+											<IconComponent className="w-4.5 h-4.5 text-[#0B0D10]/40" />
+										</Link>
+									)
+								})}
 							</nav>
 							<div className="grid grid-cols-2 gap-3">
 								{contacts.apps?.map(app => (
@@ -267,21 +266,19 @@ export default function Header() {
 								className="flex gap-4 mb-10"
 								aria-label="Социальные сети"
 							>
-								{contacts.socials?.map(icon => (
-									<Link
-										key={icon.name}
-										href={icon.href}
-										target='_blank'
-										className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
-									>
-										<Image
-											src={icon.icon}
-											alt={icon.name}
-											width={18}
-											height={18}
-										/>
-									</Link>
-								))}
+								{contacts.socials?.map(icon => {
+									const IconComponent = icon.icon
+									return (
+										<Link
+											key={icon.name}
+											href={icon.href}
+											target="_blank"
+											className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+										>
+											<IconComponent className="w-4.5 h-4.5 text-[#478BEB]" />
+										</Link>
+									)
+								})}
 							</nav>
 							<Button className='mb-4 w-full'>Связаться с нами</Button>
 							<div className='font-helvetica flex items-center gap-2 text-[15px] text-[#acacac] -tracking-[0.01em] leading-normal mb-10'>

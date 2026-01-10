@@ -6,6 +6,7 @@ import { Title } from '../UI/Title';
 import { Button } from '../UI/Button';
 import { showroomContent } from '@/data/showroom';
 import { brand } from '@/config/brand';
+import { PlayIcon } from '@/icons/PlayIcon';
 
 export default function Showroom() {
 	const [isPlaying, setIsPlaying] = useState(false)
@@ -54,12 +55,7 @@ export default function Showroom() {
 								className="absolute rounded-full overflow-hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
 								aria-label="Запустить видео"
 							>
-								<Image
-									src="./images/icons/play.svg"
-									width={54}
-									height={54}
-									alt="Запустить видео"
-								/>
+								<PlayIcon className='w-13.5 h-13.5'></PlayIcon>
 							</button>
 						</>
 					)}

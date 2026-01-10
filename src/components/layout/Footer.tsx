@@ -5,6 +5,10 @@ import Link from "next/link";
 import { brand } from "@/config/brand";
 import { contacts } from "@/config/contacts";
 import { routes } from "@/config/routes";
+import { TgIcon } from '@/icons/socials/TgIcon'
+import { VkIcon } from "@/icons/socials/VkIcon";
+import { YoutubeIcon } from "@/icons/socials/YoutubeIcon";
+
 
 export function FooterColumn({ title, links, showOnMobile }: FooterColumnData) {
 	return (
@@ -44,7 +48,12 @@ export default function Footer() {
 							priority
 						/>
 					</Link>
+					<div>
 
+						{/* <TgIcon className="w-6 h-6 text-blue-500"></TgIcon>
+						<VkIcon className="w-6 h-6 text-blue-500"></VkIcon>
+						<YoutubeIcon className="w-6 h-6 text-blue-500"></YoutubeIcon> */}
+					</div>
 					<div className="columns-2 space-y-10 md:space-y-6 md:columns-3 lg:columns-5 gap-10">
 						{footerColumns.map(column => (
 							<FooterColumn
@@ -77,21 +86,19 @@ export default function Footer() {
 								className="flex gap-4"
 								aria-label="Социальные сети"
 							>
-								{contacts.socials?.map(icon => (
-									<Link
-										key={icon.name}
-										href={icon.href}
-										target='_blank'
-										className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
-									>
-										<Image
-											src={icon.icon}
-											alt={icon.name}
-											width={18}
-											height={18}
-										/>
-									</Link>
-								))}
+								{contacts.socials?.map(icon => {
+									const IconComponent = icon.icon
+									return (
+										<Link
+											key={icon.name}
+											href={icon.href}
+											target="_blank"
+											className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+										>
+											<IconComponent className="w-4.5 h-4.5 text-[#0A051A]" />
+										</Link>
+									)
+								})}
 							</nav>
 						</div>
 					</div>

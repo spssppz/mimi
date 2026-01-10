@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
 
-  // Убираем весь кастомный webpack
 }
 
 export default nextConfig

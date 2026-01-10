@@ -9,6 +9,7 @@ import "swiper/css";
 import { Title } from "../UI/Title";
 import { SliderNavigation } from "../UI/SliderNavigation";
 import { features } from "@/data/features";
+import { RightArrowIcon } from "@/icons/RightArrowIcon";
 
 export default function Features() {
 
@@ -50,9 +51,7 @@ export default function Features() {
 								</p>
 								<a href="#" className="inline-flex items-center gap-1 text-[15px] font-medium text-brand-blue group">
 									Узнать больше
-									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="transition-transform group-hover:translate-x-1">
-										<path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-									</svg>
+									<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
 								</a>
 							</SwiperSlide>
 						))}

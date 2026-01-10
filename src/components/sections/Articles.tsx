@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper/modules"
 import "swiper/css"
@@ -10,6 +10,8 @@ import { SliderNavigation } from "../UI/SliderNavigation"
 import { articles } from '@/data/articles'
 import type { Article } from "@/types/article"
 import { useMediaQuery } from "@/hooks/useMediaQuery"
+import Link from "next/link"
+import { RightArrowIcon } from "@/icons/RightArrowIcon"
 
 /* =======================
 	 UI BLOCKS
@@ -17,7 +19,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery"
 
 function ArticleCard({ article, className }: { article: Article, className?: string }) {
 	return (
-		<div className={`relative bg-white p-4 pt-5 md:p-5 md:pt-7.5 rounded-[20px] leading-tight font-semibold ${className}`}>
+		<div className={`group relative bg-white p-4 pt-5 md:p-5 md:pt-7.5 rounded-[20px] leading-tight font-semibold ${className}`}>
 
 			<div className="flex justify-between items-center mb-4 gap-3">
 				<span className="text-brand-blue text-[14px]">
@@ -31,8 +33,11 @@ function ArticleCard({ article, className }: { article: Article, className?: str
 				)}
 			</div>
 
-			<h3 className="text-[20px] text-[#0a051a] mb-5">
-				{article.title}
+			<h3 className="text-[20px] text-[#0a051a] mb-5 transition-colors duration-350 group-hover:text-brand-blue">
+				<Link href="">
+					{article.title}
+					<span className="absolute rounded-[20px] block top-0 left-0 w-full h-full"></span>
+				</Link>
 			</h3>
 
 			<p className="text-brand-gray font-helvetica text-[15px] font-normal leading-normal mb-6 line-clamp-2">
@@ -61,14 +66,7 @@ function MoreSlide({ className }: { className?: string }) {
 			<span className="text-[14px]">
 				Больше новостей
 			</span>
-			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M9 18L15 12L9 6"
-					stroke="currentColor"
-					strokeWidth="2"
-					strokeLinecap="round"
-					strokeLinejoin="round"
-				/>
-			</svg>
+			<RightArrowIcon className="w-6 h-6"></RightArrowIcon>
 		</a >
 	)
 }

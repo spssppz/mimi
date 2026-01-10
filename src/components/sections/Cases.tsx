@@ -10,6 +10,7 @@ import { cases } from '@/data/cases'
 import { Title } from '../UI/Title'
 import { SliderNavigation } from '../UI/SliderNavigation'
 import { categories } from '@/data/categories'
+import { RightArrowIcon } from '@/icons/RightArrowIcon'
 
 export default function Cases() {
 	const [activeCat, setActiveCat] = useState<string | null>(null)
@@ -90,7 +91,6 @@ export default function Cases() {
 										className="object-cover"
 									/>
 								</div>
-
 								{index === 0 ? (
 									<div
 										className="relative mb-6 lg:mb-7 min-h-14 lg:min-h-15.5"
@@ -98,12 +98,10 @@ export default function Cases() {
 											width: `calc(${filteredCases.length * 100}% + ${(filteredCases.length - 1) * 60}px)`
 										}}
 									>
-										<Image
-											src="./images/cases/decor.svg"
-											alt=""
-											fill
-											className="object-cover"
-										/>
+										<div className='pattern-bg absolute top-0 left-0 w-full h-[29%] lg:h-[35%]'></div>
+										<div className='absolute bottom-0 left-0 w-full h-[71%] lg:h-[65%] bg-linear-to-b from-[#0F1014] via-[#131519] via-[53.37%] to-[rgba(16,16,16,0)]'>
+											<span className='absolute top-0 left-0 w-37.5 h-full bg-foreground [clip-path:polygon(0_0,100%_100%,0_100%)]'></span>
+										</div>
 									</div>
 								) : (
 									<div className="mb-6 lg:mb-7 min-h-14 lg:min-h-15.5" />
@@ -139,14 +137,7 @@ export default function Cases() {
 									className="text-brand-blue inline-flex items-center gap-1 leading-tight"
 								>
 									<span className="text-[15px]">Смотреть проект</span>
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M9 18L15 12L9 6"
-											stroke="currentColor"
-											strokeWidth="2"
-											strokeLinecap="round"
-											strokeLinejoin="round">
-										</path>
-									</svg>
+									<RightArrowIcon className="w-6 h-6"></RightArrowIcon>
 								</a>
 							</SwiperSlide>
 						)

@@ -1,3 +1,5 @@
+import { FC, SVGProps } from 'react'
+
 type AppLink = {
 	label: string
 	href: string
@@ -7,7 +9,7 @@ type AppLink = {
 type SocialLink = {
 	name: string
 	href: string
-	icon: string
+	icon: FC<SVGProps<SVGSVGElement>>
 }
 
 export type Contacts = {

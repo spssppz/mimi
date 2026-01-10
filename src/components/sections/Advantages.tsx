@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Title } from "../UI/Title";
+import { RightArrowIcon } from "@/icons/RightArrowIcon";
 
 export default function Advantages() {
 	return (
@@ -9,9 +10,7 @@ export default function Advantages() {
 					дома MiMiSmart</Title>
 				<a href="#" className="mb-10 inline-flex items-center gap-1 text-[15px] font-medium text-brand-blue group">
 					Узнать больше
-					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="transition-transform group-hover:translate-x-1">
-						<path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-					</svg>
+					<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
 				</a>
 				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap">
 					<li className="shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_rgba(0,0,0,0.06)] tracking-[-0.01em] lg:w-[32%] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
@@ -74,6 +73,15 @@ export default function Advantages() {
 								/>
 							</svg>
 						</a>
+					</li>
+					<li className="hidden xl:block lg:w-[21.75%] min-h-65 relative">
+
+						<Image
+							src="./images/advantages/decor-1.svg"
+							alt="background"
+							fill
+							className="object-cover"
+						/>
 					</li>
 					<li className="lg:ml-auto lg:w-[22%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#0f1015] overflow-hidden relative">
 						<Image

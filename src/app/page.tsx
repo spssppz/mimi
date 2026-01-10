@@ -12,18 +12,20 @@ import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Header />
-      <SmartHome />
-      <Comfort />
-      <Capabilities />
-      <Solutions />
-      <Advantages />
-      <Features />
-      <Showroom />
-      <Cases />
-      <Articles />
+      <main>
+        <SmartHome />
+        <Comfort />
+        <Capabilities />
+        <Solutions />
+        <Advantages />
+        <Features />
+        <Showroom />
+        <Cases />
+        <Articles />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 } 
