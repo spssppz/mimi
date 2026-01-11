@@ -1,3 +1,5 @@
+import { AppStoreIcon } from "@/icons/app/AppStoreIcon";
+import { GooglePlayIcon } from "@/icons/app/GooglePlayIcon";
 import { TgIcon } from "@/icons/socials/TgIcon";
 import { VkIcon } from "@/icons/socials/VkIcon";
 import { YoutubeIcon } from "@/icons/socials/YoutubeIcon";
@@ -13,12 +15,12 @@ export const contacts: Contacts = {
 		{
 			label: 'App Store',
 			href: '',
-			icon: '/images/icons/app/apple.svg'
+			icon: AppStoreIcon
 		},
 		{
 			label: 'Google Play',
 			href: '',
-			icon: '/images/icons/app/android.svg'
+			icon: GooglePlayIcon
 		},
 	],
 	socials: [

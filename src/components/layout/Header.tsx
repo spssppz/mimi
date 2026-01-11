@@ -170,23 +170,22 @@ export default function Header() {
 									)
 								})}
 							</nav>
+
 							<div className="grid grid-cols-2 gap-3">
-								{contacts.apps?.map(app => (
-									<a
-										key={app.label}
-										href={app.href}
-										target='_blank'
-										className="border flex items-center justify-center border-[rgba(224,232,235)]/40 rounded-xl min-h-13"
-										aria-label={`Перейти в ${app.label}`}
-									>
-										<Image
-											src={app.icon}
-											alt={app.label}
-											width={32}
-											height={32}
-										/>
-									</a>
-								))}
+								{contacts.apps?.map(app => {
+									const IconComponent = app.icon
+									return (
+										<a
+											key={app.label}
+											href={app.href}
+											target='_blank'
+											className="border flex items-center justify-center border-[rgba(224,232,235)]/40 rounded-xl min-h-14"
+											aria-label={`Перейти в ${app.label}`}
+										>
+											<IconComponent className='w-8 h-8 text-[#0B0D10]'></IconComponent>
+										</a>
+									)
+								})}
 							</div>
 						</div>
 					</div>
@@ -286,22 +285,20 @@ export default function Header() {
 								<span className='w-2 h-2 rounded-full bg-[#27ca40] box-shadow: 0 4px 4px 0 rgba(39, 202, 64, 0.25);'></span>
 							</div>
 							<div className="grid grid-cols-2 gap-3">
-								{contacts.apps?.map(app => (
-									<a
-										key={app.label}
-										href={app.href}
-										target='_blank'
-										className="border flex items-center justify-center border-[rgba(224,232,235)]/40 rounded-xl min-h-14"
-										aria-label={`Перейти в ${app.label}`}
-									>
-										<Image
-											src={app.icon}
-											alt={app.label}
-											width={32}
-											height={32}
-										/>
-									</a>
-								))}
+								{contacts.apps?.map(app => {
+									const IconComponent = app.icon
+									return (
+										<a
+											key={app.label}
+											href={app.href}
+											target='_blank'
+											className="border flex items-center justify-center border-[rgba(224,232,235)]/40 rounded-xl min-h-14"
+											aria-label={`Перейти в ${app.label}`}
+										>
+											<IconComponent className='w-8 h-8'></IconComponent>
+										</a>
+									)
+								})}
 							</div>
 						</div>
 						{/* дальше */}

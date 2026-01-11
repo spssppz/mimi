@@ -43,7 +43,7 @@ export default function Cases() {
 
 					{categories.map(cat => {
 						const isActive = activeCat === cat.label
-
+						const IconComponent = cat.icon
 						return (
 							<button
 								key={cat.label}
@@ -54,12 +54,7 @@ export default function Cases() {
 										: 'bg-[#242634] text-white'
 									}`}
 							>
-								<Image
-									src={cat.icon}
-									width={18}
-									height={18}
-									alt={cat.label}
-								/>
+								<IconComponent className="w-4.5 h-4.5" />
 								{cat.label}
 							</button>
 						)

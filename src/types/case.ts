@@ -1,3 +1,5 @@
+import { FC, SVGProps } from 'react'
+
 export type CaseItem = {
 	title: string
 	description: string
@@ -6,6 +8,6 @@ export type CaseItem = {
 }
 
 export type Category = {
-	icon: string
+	icon: FC<SVGProps<SVGSVGElement>>
 	label: string
 }

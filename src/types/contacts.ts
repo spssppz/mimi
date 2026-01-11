@@ -3,7 +3,7 @@ import { FC, SVGProps } from 'react'
 type AppLink = {
 	label: string
 	href: string
-	icon: string
+	icon: FC<SVGProps<SVGSVGElement>>
 }
 
 type SocialLink = {
