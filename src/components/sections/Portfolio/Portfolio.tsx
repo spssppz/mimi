@@ -10,6 +10,12 @@ import { RightArrowIcon } from '@/icons/RightArrowIcon'
 import { Title } from '@/components/UI/Title'
 
 export default function Portfolio() {
+	const categoriesMap = useMemo(() => {
+		return Object.fromEntries(
+			categories.map(cat => [cat.label, cat.icon])
+		)
+	}, [])
+
 	const [activeCat, setActiveCat] = useState<string | null>(null)
 
 	const filteredCases = useMemo(() => {
@@ -19,12 +25,12 @@ export default function Portfolio() {
 
 	return (
 		<section className="pt-15 pb-22.5 lg:pb-30 overflow-hidden">
-			<div className="max-w-308 mx-auto px-4">
+			<div className="max-w-348 mx-auto px-4">
 
-				<Title className="mb-10">Проекты</Title>
+				<Title className="mb-10 xl:px-20">Проекты</Title>
 
 				{/* Фильтр */}
-				<div className="flex flex-wrap gap-3 mb-10">
+				<div className="flex flex-wrap gap-3 lg:mb-10 xl:px-20">
 					<button
 						onClick={() => setActiveCat(null)}
 						className={`cursor-pointer py-2.5 px-4 rounded-full text-[14px] font-medium transition
@@ -58,17 +64,28 @@ export default function Portfolio() {
 				<ul>
 					{filteredCases.map((item, index) => {
 						return (
-							<li className='py-10 border-b border-[#d9d9d9] flex' key={`${item.title}-${index}`}>
-								<div>
-									<div className='mb-5 flex flex-wrap gap-2'>
-										{item.tags.map((tag, i) => (
-											<div className='font-helvetica py-1.5 border border-[#d9d9d9] rounded-[50px] px-3 font-medium flex gap-2.5 text-[13px] text-brand-gray tracking-[-0.02em]'>{tag}</div>
-										))}
+							<li className='py-10 border-b gap-4 lg:gap-20 border-[#d9d9d9] flex flex-col-reverse lg:flex-row lg:items-end xl:pl-20' key={`${item.title}-${index}`}>
+								<div className='lg:basis-106.5'>
+									<div className='mb-4 md:mb-5 flex flex-wrap gap-2'>
+										{item.tags.map((tag, i) => {
+											const Icon = categoriesMap[tag]
+
+											return (
+												<div
+													key={`${tag}-${i}`}
+													className='font-helvetica py-1.5 border border-[#d9d9d9] rounded-[50px] px-3 font-medium flex items-center gap-2.5 text-[13px] text-brand-gray tracking-[-0.02em]'
+												>
+													{Icon && <Icon className="w-4 h-4" />}
+													<span>{tag}</span>
+												</div>
+											)
+										})}
 									</div>
-									<h3 className="font-helvetica text-[20px] tracking-[-0.01em] mb-3 font-medium leading-tight">
+
+									<h3 className="font-helvetica text-[18px] md:text-[20px] tracking-[-0.01em] mb-3 font-medium leading-tight">
 										{item.title}
 									</h3>
-									<p className="text-brand-gray text-[16px] mb-5 tracking-[-0.01em] leading-snug">
+									<p className="text-brand-gray text-[15px] md:text-[16px] mb-4 md:mb-5 tracking-[-0.01em] leading-snug">
 										{item.description}
 									</p>
 									<a
@@ -79,9 +96,9 @@ export default function Portfolio() {
 										<RightArrowIcon className="w-6 h-6"></RightArrowIcon>
 									</a>
 								</div>
-								<div className='relative w-[10%] h-full'>
+								<div className='relative rounded-xl overflow-hidden flex-auto aspect-774/430'>
 									<Image
-										src={item.image}
+										src={item.imageMain}
 										alt={item.title}
 										fill
 										className="object-cover"

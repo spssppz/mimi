@@ -4,6 +4,7 @@ export type CaseItem = {
 	title: string
 	description: string
 	image: string
+	imageMain: string
 	tags: string[]
 }
 

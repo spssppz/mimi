@@ -9,6 +9,12 @@
   --color-brand-blue: #478beb;
   --color-brand-gray: #5f6368;
   --color-brand-light-gray: #262626;
+
+
+  --ease-soft: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-float: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-drift: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-chaos: cubic-bezier(0.6, 0.04, 0.98, 0.34);
 }
 
 @layer base {
@@ -434,4 +440,197 @@
   left: -7.5%;
   transition: 0.5s;
   pointer-events: none;
+}
+
+.blob {
+  will-change: transform;
+  transform-origin: center;
+}
+
+.blob-1 {
+  animation: blob1 9s var(--ease-float) infinite;
+
+  .mimi-anim {}
+
+  position: relative;
+  animation-delay: -2s;
+}
+
+.blob-2 {
+  animation: blob2 7s var(--ease-drift) infinite;
+  animation-delay: -4s;
+}
+
+.blob-3 {
+  animation: blob3 11s var(--ease-soft) infinite;
+  animation-delay: -6s;
+}
+
+.blob-4 {
+  animation: blob4 6s var(--ease-chaos) infinite;
+  animation-delay: -3s;
+}
+
+.blob-5 {
+  animation: blob5 13s linear infinite;
+  animation-delay: -8s;
+}
+
+.blob-6 {
+  animation: blob6 10s var(--ease-float) infinite;
+  animation-delay: -5s;
+}
+
+
+@keyframes blob1 {
+  33.33% {
+    transform: translate(-80px, -50px);
+  }
+
+  66.33% {
+    transform: translate(0px, -50px);
+  }
+}
+
+@keyframes blob2 {
+  25% {
+    transform: translate(-20px, 10px);
+  }
+
+  50% {
+    transform: translate(-40px, 30px);
+  }
+
+  75% {
+    transform: translate(30px, -20px);
+  }
+}
+
+@keyframes blob3 {
+  33.33% {
+    transform: translate(-80px, -80px);
+  }
+
+  70% {
+    transform: translate(-60px, -10px);
+  }
+}
+
+@keyframes blob4 {
+  50% {
+    transform: translate(10px, -60px);
+  }
+}
+
+@keyframes blob5 {
+  50% {
+    transform: translate(-80px, -40px);
+  }
+}
+
+@keyframes blob6 {
+  50% {
+    transform: translate(20px, -60px);
+  }
+}
+
+.blur-anim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+.blur-anim div {
+  position: absolute;
+  width: 10%;
+  bottom: -10px;
+  backdrop-filter: blur(4px);
+  background: linear-gradient(270deg,
+      rgba(217, 217, 217, 0.8),
+      rgba(217, 217, 217, 0.3),
+      rgba(217, 217, 217, 0.8));
+  background-size: 300% 300%;
+
+  animation: blurFlow 6s ease-in-out infinite;
+}
+
+@keyframes blurFlow {
+  0% {
+    background-position: 0% 50%;
+    backdrop-filter: blur(3px);
+    opacity: 0.8;
+  }
+
+  50% {
+    background-position: 100% 50%;
+    backdrop-filter: blur(6px);
+    opacity: 1;
+  }
+
+  100% {
+    background-position: 0% 50%;
+    backdrop-filter: blur(3px);
+    opacity: 0.8;
+  }
+}
+
+.blur-anim div:nth-child(odd) {
+  animation-delay: -2s;
+}
+
+.blur-anim div:nth-child(even) {
+  animation-delay: -4s;
+}
+
+.blur-anim div:nth-child(1) {
+  left: 0%;
+  height: 69%;
+}
+
+.blur-anim div:nth-child(2) {
+  left: 10%;
+  height: 64%;
+}
+
+.blur-anim div:nth-child(3) {
+  left: 20%;
+  height: 59%;
+}
+
+.blur-anim div:nth-child(4) {
+  left: 30%;
+  height: 54%;
+}
+
+.blur-anim div:nth-child(5) {
+  left: 40%;
+  height: 49%;
+}
+
+.blur-anim div:nth-child(6) {
+  left: 50%;
+  height: 44%;
+}
+
+.blur-anim div:nth-child(7) {
+  left: 60%;
+  height: 39%;
+}
+
+.blur-anim div:nth-child(8) {
+  left: 70%;
+  height: 34%;
+}
+
+.blur-anim div:nth-child(9) {
+  left: 80%;
+  height: 29%;
+}
+
+.blur-anim div:nth-child(10) {
+  left: 90%;
+  height: 24%;
 }

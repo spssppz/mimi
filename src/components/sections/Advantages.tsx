@@ -14,12 +14,19 @@ export default function Advantages() {
 				</a>
 				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap">
 					<li className="shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_rgba(0,0,0,0.06)] tracking-[-0.01em] lg:w-[32%] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
-						<Image
-							src="./images/advantages/1.png"
-							alt="background"
-							fill
-							className="object-cover"
-						/>
+						<span className="absolute bottom-3 left-4 leading-tight font-bold text-[64px] text-black">Навсегда</span>
+						<div className="blur-anim">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
 						<h3 className="relative mb-1 font-medium text-[16px]">Пожизненная гарантия.</h3>
 						<p className="relative font-helvetica text-[15px] text-brand-gray">
 							Самая высокая гарантия на рынке в мире и круглосуточная поддержка.
