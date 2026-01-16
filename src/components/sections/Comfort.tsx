@@ -71,7 +71,12 @@ function TabsCard() {
 					</filter>
 				</defs>
 			</svg>
-
+			<Image
+				src="./images/comfort/bg-2.svg"
+				alt="bg"
+				fill
+				className="object-cover"
+			/>
 			<div className="relative flex justify-between items-start mb-10 md:mb-4.5 gap-3">
 				<div className="flex flex-col items-start space-y-3">
 					{Object.entries(Tabs).map(([key, tab]) => (
@@ -131,10 +136,16 @@ export default function Comfort() {
 				<div className="grid md:grid-cols-2 gap-20 md:gap-5">
 
 					<div className="overflow-hidden relative rounded-[20px] bg-[#d8d8d8] p-5 md:p-7 lg:p-8 min-h-111.5 lg:min-h-auto">
-						<h3 className="[text-shadow:1px_-1px_1px_rgba(255,255,255,0.6),-2px_2px_1px_rgba(254,254,254,0.12),-2px_2px_3px_rgba(0,0,0,0.19)] font-bold text-[32px] md:text-[38px] lg:text-[44px] tracking-[-0.05em] mb-3 md:mb-6 text-black/7">
+						<Image
+							src="./images/comfort/bg-1.svg"
+							alt="bg"
+							fill
+							className="object-cover"
+						/>
+						<h3 className="relative [text-shadow:1px_-1px_1px_rgba(255,255,255,0.6),-2px_2px_1px_rgba(254,254,254,0.12),-2px_2px_3px_rgba(0,0,0,0.19)] font-bold text-[32px] md:text-[38px] lg:text-[44px] tracking-[-0.05em] mb-3 md:mb-6 bg-clip-text text-transparent bg-black/20">
 							Управляйте климатом, освещением, шторами и&nbsp;другим:
 						</h3>
-						<p className="font-helvetica text-[15px] leading-snug text-[#a8a8a9] tracking-[-0.01em] max-w-58">
+						<p className="relative font-helvetica text-[15px] leading-snug text-[#a8a8a9] tracking-[-0.01em] max-w-58">
 							с помощью голоса, смартфона, привычных выключателей или полностью автоматической системы.
 						</p>
 						<div className="absolute bottom-0 right-0 w-[72%] aspect-square pointer-events-none">
@@ -148,7 +159,7 @@ export default function Comfort() {
 
 					<div className="lg:pt-17">
 						<div className="tracking-[-0.01em] mb-6 lg:px-8">
-							<h3 className={`text-[24px] md:text-[28px] font-bold mb-2.5 leading-tight transition-colors duration-400 ${enabled && 'text-white'}`}>
+							<h3 className={`text-[24px] lg:max-w-[85%] md:text-[28px] font-bold mb-2.5 leading-tight transition-colors duration-400 ${enabled && 'text-white'}`}>
 								Создавайте сценарии крайне просто, справится даже ребенок.
 							</h3>
 							<p className={`font-helvetica text-[15px] transition-colors duration-400 ${enabled ? 'text-[#d9dadc]' : 'text-[#303236]'} leading-snug`}>
