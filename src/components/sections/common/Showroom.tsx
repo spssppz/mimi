@@ -69,7 +69,7 @@ export default function Showroom() {
 					<div className="flex items-center gap-3">
 						<div className="w-11 h-11 bg-white rounded-[10px] flex items-center justify-center">
 							<Image
-								src="./images/icons/address-decor.svg"
+								src="/images/icons/address-decor.svg"
 								width={44}
 								height={44}
 								alt="Address"

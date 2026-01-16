@@ -6,8 +6,8 @@ export const showroomContent = {
 Вы поймете, почему обычная электрика устарела еще 30 лет назад.`,
 	address: {
 		text: "г. Москва, Новоданиловская наб., 6к1",
-		icon: "./images/icons/address-decor.svg",
+		icon: "/images/icons/address-decor.svg",
 	},
-	videoPreview: "./images/showroom/preview.jpg",
+	videoPreview: "/images/showroom/preview.jpg",
 	videoSrc: "/videos/showroom.mp4",
 }

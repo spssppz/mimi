@@ -58,37 +58,37 @@ function LivingRoom() {
 	return (
 		<div className="living-zone">
 			<span className={`living-cctv transition-all duration-400 ${enabled && 'brightness-30'}`}>
-				<Image src="./images/smarthome/cctv.png" width={85} height={78} alt="" />
+				<Image src="/images/smarthome/cctv.png" width={85} height={78} alt="" />
 			</span>
 
 			<span className="step step-left step-1">
-				<Image src="./images/smarthome/step-left.png" width={28} height={19} alt="" />
+				<Image src="/images/smarthome/step-left.png" width={28} height={19} alt="" />
 			</span>
 
 			<span className="step step-right step-2">
-				<Image src="./images/smarthome/step-right.png" width={28} height={19} alt="" />
+				<Image src="/images/smarthome/step-right.png" width={28} height={19} alt="" />
 			</span>
 
 			<span className="step step-left step-3">
-				<Image src="./images/smarthome/step-left.png" width={28} height={19} alt="" />
+				<Image src="/images/smarthome/step-left.png" width={28} height={19} alt="" />
 			</span>
 
 			<span className="step step-right step-4">
-				<Image src="./images/smarthome/step-right.png" width={28} height={19} alt="" />
+				<Image src="/images/smarthome/step-right.png" width={28} height={19} alt="" />
 			</span>
 
 			<span className="step step-left step-5">
-				<Image src="./images/smarthome/step-left.png" width={28} height={19} alt="" />
+				<Image src="/images/smarthome/step-left.png" width={28} height={19} alt="" />
 			</span>
 
 			<span className="step step-right step-6">
-				<Image src="./images/smarthome/step-right.png" width={28} height={19} alt="" />
+				<Image src="/images/smarthome/step-right.png" width={28} height={19} alt="" />
 			</span>
 
 			<div className="sensor" id="motion-sensor">
 				<div className={`sensor-icon transition-all duration-400 ${enabled && 'brightness-30'}`}>
 					<Image
-						src="./images/smarthome/fire-detector.png"
+						src="/images/smarthome/fire-detector.png"
 						width={24}
 						height={24}
 						alt="Датчик движения"
@@ -111,13 +111,13 @@ export default function SmartHome() {
 		<section className={`overflow-hidden min-h-205 relative transition-colors duration-400 ${enabled && 'bg-foreground'}`}>
 			<div className="absolute -top-13.75 left-1/2 -translate-x-1/2 w-360 aspect-1440/820">
 				<Image
-					src='./images/smarthome/bg.png'
+					src='/images/smarthome/bg.png'
 					alt="background image"
 					fill
 					className={`object-cover transition-opacity duration-400 ${enabled && 'opacity-0'}`}
 				/>
 				<Image
-					src='./images/smarthome/bg-dark.png'
+					src='/images/smarthome/bg-dark.png'
 					alt="background image"
 					fill
 					className={`left-1.75! top-0.5! object-cover transition-opacity duration-400 ${!enabled && 'opacity-0'}`}
@@ -126,46 +126,46 @@ export default function SmartHome() {
 
 				<div className={`bedroom-zone ${enabled && 'dark-theme'}`}>
 					<span className='curtain curtain-open'>
-						<Image src="./images/smarthome/curtain-open.png" width={193} height={186} alt="" />
+						<Image src="/images/smarthome/curtain-open.png" width={193} height={186} alt="" />
 					</span>
 					<span className={`curtain curtain-close ${enabled && 'brightness-20'}`}>
-						<Image src="./images/smarthome/curtain-close.png" width={193} height={186} alt="" />
+						<Image src="/images/smarthome/curtain-close.png" width={193} height={186} alt="" />
 					</span>
 					<span className='lamp lamp-off'>
-						<Image src="./images/smarthome/lamp-off.png" width={89} height={80} alt="" />
+						<Image src="/images/smarthome/lamp-off.png" width={89} height={80} alt="" />
 					</span>
 					<span className='lamp lamp-on '>
-						<Image src="./images/smarthome/lamp-on.png" width={89} height={80} alt="" />
+						<Image src="/images/smarthome/lamp-on.png" width={89} height={80} alt="" />
 					</span>
 				</div>
 				<div className='kitchen-zone'>
 					<div className='kitchen-zone-2'>
 						<span className={`conditioner conditioner-off ${enabled && 'brightness-30'}`}>
-							<Image src="./images/smarthome/conditioner-off.png" width={100.8} height={121.8} alt="" />
+							<Image src="/images/smarthome/conditioner-off.png" width={100.8} height={121.8} alt="" />
 						</span>
 						<span className='conditioner conditioner-on'>
-							<Image src="./images/smarthome/conditioner-on.png" width={100.8} height={121.8} alt="" />
+							<Image src="/images/smarthome/conditioner-on.png" width={100.8} height={121.8} alt="" />
 						</span>
 					</div>
 					<span className='lamp lamp-off'>
-						<Image src="./images/smarthome/lamp-off.png" width={89} height={80} alt="" />
+						<Image src="/images/smarthome/lamp-off.png" width={89} height={80} alt="" />
 					</span>
 					<span className='lamp lamp-on'>
-						<Image src="./images/smarthome/lamp-on.png" width={89} height={80} alt="" />
+						<Image src="/images/smarthome/lamp-on.png" width={89} height={80} alt="" />
 					</span>
 				</div>
 
 				<div className="garage-zone">
 					<span className={`garage-cctv transition-all duration-400 ${enabled && 'brightness-30'}`}>
-						<Image src="./images/smarthome/cctv.png" width={85} height={78} alt="" />
+						<Image src="/images/smarthome/cctv.png" width={85} height={78} alt="" />
 					</span>
 				</div>
 				<div className="sitting-zone">
 					<span className={`curtain curtain-open ${enabled && 'opacity-0'}`}>
-						<Image src="./images/smarthome/curtain-open.png" width={193} height={186} alt="" />
+						<Image src="/images/smarthome/curtain-open.png" width={193} height={186} alt="" />
 					</span>
 					<span className={`curtain curtain-close brightness-20 ${!enabled && 'opacity-0'}`}>
-						<Image src="./images/smarthome/curtain-close.png" width={193} height={186} alt="" />
+						<Image src="/images/smarthome/curtain-close.png" width={193} height={186} alt="" />
 					</span>
 				</div>
 			</div>
@@ -188,7 +188,7 @@ export default function SmartHome() {
 								className={`transform relative transition-transform duration-300 rounded-full ${enabled ? 'translate-x-0' : 'translate-x-7.5'}`}
 							>
 								<Image
-									src='./images/icons/theme-btn-circle.svg'
+									src='/images/icons/theme-btn-circle.svg'
 									alt="Dark/Light theme btn icon"
 									width={29}
 									height={29}

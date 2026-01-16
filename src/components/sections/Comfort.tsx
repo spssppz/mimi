@@ -72,7 +72,7 @@ function TabsCard() {
 				</defs>
 			</svg>
 			<Image
-				src="./images/comfort/bg-2.svg"
+				src="/images/comfort/bg-2.svg"
 				alt="bg"
 				fill
 				className="object-cover"
@@ -110,7 +110,7 @@ function TabsCard() {
 				{Tabs[activeTab].items.map((text, i) => (
 					<li key={i} className="flex items-center gap-3">
 						<Image
-							src="./images/icons/comfort-check.svg"
+							src="/images/icons/comfort-check.svg"
 							alt="check"
 							width={24}
 							height={24}
@@ -137,20 +137,31 @@ export default function Comfort() {
 
 					<div className="overflow-hidden relative rounded-[20px] bg-[#d8d8d8] p-5 md:p-7 lg:p-8 min-h-111.5 lg:min-h-auto">
 						<Image
-							src="./images/comfort/bg-1.svg"
+							src="/images/comfort/bg-1.svg"
 							alt="bg"
 							fill
 							className="object-cover"
 						/>
-						<h3 className="relative [text-shadow:1px_-1px_1px_rgba(255,255,255,0.6),-2px_2px_1px_rgba(254,254,254,0.12),-2px_2px_3px_rgba(0,0,0,0.19)] font-bold text-[32px] md:text-[38px] lg:text-[44px] tracking-[-0.05em] mb-3 md:mb-6 bg-clip-text text-transparent bg-black/20">
-							Управляйте климатом, освещением, шторами и&nbsp;другим:
+						<h3 className="relative font-bold text-[44px] tracking-[-0.05em] text-black/30">
+							<span className="
+    absolute inset-0
+    text-transparent bg-clip-text bg-black/25
+    [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.6)]
+  ">
+								Управляйте климатом, освещением, шторами и другим:
+							</span>
+
+							<span className="[text-shadow:2px_2px_3px_rgba(0,0,0,0.35)]">
+								Управляйте климатом, освещением, шторами и другим:
+							</span>
 						</h3>
+
 						<p className="relative font-helvetica text-[15px] leading-snug text-[#a8a8a9] tracking-[-0.01em] max-w-58">
 							с помощью голоса, смартфона, привычных выключателей или полностью автоматической системы.
 						</p>
 						<div className="absolute bottom-0 right-0 w-[72%] aspect-square pointer-events-none">
 							<Image
-								src="./images/comfort/1.png"
+								src="/images/comfort/1.png"
 								alt="Колонки Алиса"
 								fill
 							/>

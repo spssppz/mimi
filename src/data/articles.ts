@@ -8,7 +8,7 @@ export const articles: Article[] = [
 		title: "Высокие технологии в классическом исполнении",
 		description:
 			"Механика игры «Потолкуем?» Архитектура. Увлекаетесь архитектурой и урбанистикой? Вам точно подойдёт наша игра!",
-		image: "./images/articles/1.jpg",
+		image: "/images/articles/1.jpg",
 	},
 	{
 		id: 2,
@@ -17,7 +17,7 @@ export const articles: Article[] = [
 		title: "Высокие технологии в классическом исполнении",
 		description:
 			"Механика игры «Потолкуем?» Архитектура. Увлекаетесь архитектурой и урбанистикой? Вам точно подойдёт наша игра!",
-		image: "./images/articles/2.jpg",
+		image: "/images/articles/2.jpg",
 	},
 	{
 		id: 3,
@@ -26,6 +26,6 @@ export const articles: Article[] = [
 		title: "Высокие технологии в классическом исполнении",
 		description:
 			"Механика игры «Потолкуем?» Архитектура. Увлекаетесь архитектурой и урбанистикой? Вам точно подойдёт наша игра!",
-		image: "./images/articles/3.jpg",
+		image: "/images/articles/3.jpg",
 	},
 ]

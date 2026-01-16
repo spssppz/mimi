@@ -28,7 +28,7 @@ export default function Capabilities() {
 						<span className="absolute w-[44%] top-0 -right-7.25 aspect-584/500">
 
 							<Image
-								src="./images/capabilities/decor/1.png"
+								src="/images/capabilities/decor/1.png"
 								alt="Фон"
 								fill
 							/>
@@ -49,7 +49,7 @@ export default function Capabilities() {
 						<span className="absolute w-80.5 top-7 right-6 aspect-322/303">
 
 							<Image
-								src="./images/capabilities/decor/2.png"
+								src="/images/capabilities/decor/2.png"
 								alt="Фон"
 								fill
 							/>
@@ -58,7 +58,7 @@ export default function Capabilities() {
 					<li className="sticky top-9 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-20 px-15 bg-[#0f1015] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
 						<Image
 							className="object-cover"
-							src="./images/capabilities/bg/3.png"
+							src="/images/capabilities/bg/3.png"
 							alt="Фон"
 							fill
 						/>
@@ -76,7 +76,7 @@ export default function Capabilities() {
 					<li className="sticky top-12 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-20 px-15 bg-[#c7c7c9] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
 						<Image
 							className="object-cover"
-							src="./images/capabilities/bg/4.png"
+							src="/images/capabilities/bg/4.png"
 							alt="Фон"
 							fill
 						/>
@@ -94,7 +94,7 @@ export default function Capabilities() {
 					<li className="sticky top-15 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-20 px-15 bg-[#eee] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
 						<Image
 							className="object-cover"
-							src="./images/capabilities/bg/5.png"
+							src="/images/capabilities/bg/5.png"
 							alt="Фон"
 							fill
 						/>
@@ -112,7 +112,7 @@ export default function Capabilities() {
 					<li className="sticky top-18 bg-[radial-gradient(50%_200%_at_50%_50%,#F4EFC5_0%,#F4F4F4_48.56%,#D3B291_100%)] shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-20 px-15 bg-[#0f1015] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
 						<Image
 							className="object-cover"
-							src="./images/capabilities/bg/6.png"
+							src="/images/capabilities/bg/6.png"
 							alt="Фон"
 							fill
 						/>
@@ -130,7 +130,7 @@ export default function Capabilities() {
 					<li className="sticky top-21 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-20 px-15 bg-[#c9c9ca] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
 						<Image
 							className="object-cover"
-							src="./images/capabilities/bg/7.png"
+							src="/images/capabilities/bg/7.png"
 							alt="Фон"
 							fill
 						/>
@@ -148,7 +148,7 @@ export default function Capabilities() {
 					<li className="sticky top-24 bg-[radial-gradient(50%_50%_at_50%_50%,#462925_0%,#000000_100%)] shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-20 px-15 bg-[#0f1015] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
 						<Image
 							className="object-cover"
-							src="./images/capabilities/bg/8.png"
+							src="/images/capabilities/bg/8.png"
 							alt="Фон"
 							fill
 						/>
@@ -199,7 +199,7 @@ export default function Capabilities() {
 								<span className="absolute w-98 top-0 -right-10 sm:-right-5 aspect-233/200">
 
 									<Image
-										src="./images/capabilities/decor/1.png"
+										src="/images/capabilities/decor/1.png"
 										alt="Лампа"
 										fill
 									/>
@@ -233,7 +233,7 @@ export default function Capabilities() {
 								<span className="absolute w-60 md:w-70 top-7 right-6 aspect-322/303">
 
 									<Image
-										src="./images/capabilities/decor/2.png"
+										src="/images/capabilities/decor/2.png"
 										alt="Фон"
 										fill
 									/>
@@ -244,7 +244,7 @@ export default function Capabilities() {
 							<div className="relative lg:sticky lg:top-9 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-4 px-6 md:py-8 md:px-12 bg-[#0f1015] gap-4 min-h-125 overflow-hidden flex flex-col justify-between">
 								<Image
 									className="object-cover"
-									src="./images/capabilities/bg/3.png"
+									src="/images/capabilities/bg/3.png"
 									alt="Фон"
 									fill
 								/>
@@ -275,7 +275,7 @@ export default function Capabilities() {
 							<div className="relative lg:sticky lg:top-12 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-4 px-6 md:py-8 md:px-12 bg-[#c7c7c9] gap-4 min-h-125 overflow-hidden flex flex-col justify-between">
 								<Image
 									className="object-cover"
-									src="./images/capabilities/bg/4.png"
+									src="/images/capabilities/bg/4.png"
 									alt="Фон"
 									fill
 								/>
@@ -306,7 +306,7 @@ export default function Capabilities() {
 							<div className="relative lg:sticky lg:top-15 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-4 px-6 md:py-8 md:px-12 bg-[#eee] gap-4 min-h-125 overflow-hidden flex flex-col justify-between">
 								<Image
 									className="object-cover"
-									src="./images/capabilities/bg/5.png"
+									src="/images/capabilities/bg/5.png"
 									alt="Фон"
 									fill
 								/>
@@ -337,7 +337,7 @@ export default function Capabilities() {
 							<div className="relative lg:sticky lg:top-18 bg-[radial-gradient(50%_200%_at_50%_50%,#F4EFC5_0%,#F4F4F4_48.56%,#D3B291_100%)] shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-4 px-6 md:py-8 md:px-12 bg-[#0f1015] gap-4 min-h-125 overflow-hidden flex flex-col justify-between">
 								<Image
 									className="object-cover"
-									src="./images/capabilities/bg/6.png"
+									src="/images/capabilities/bg/6.png"
 									alt="Фон"
 									fill
 								/>
@@ -368,7 +368,7 @@ export default function Capabilities() {
 							<div className="relative lg:sticky lg:top-21 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-4 px-6 md:py-8 md:px-12 bg-[#c9c9ca] gap-4 min-h-125 overflow-hidden flex flex-col justify-between">
 								<Image
 									className="object-cover"
-									src="./images/capabilities/bg/7.png"
+									src="/images/capabilities/bg/7.png"
 									alt="Фон"
 									fill
 								/>
@@ -399,7 +399,7 @@ export default function Capabilities() {
 							<div className="relative lg:sticky lg:top-24 bg-[radial-gradient(50%_50%_at_50%_50%,#462925_0%,#000000_100%)] shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-4 px-6 md:py-8 md:px-12 bg-[#0f1015] gap-4 min-h-125 overflow-hidden flex flex-col justify-between">
 								<Image
 									className="object-cover"
-									src="./images/capabilities/bg/8.png"
+									src="/images/capabilities/bg/8.png"
 									alt="Фон"
 									fill
 								/>

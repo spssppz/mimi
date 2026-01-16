@@ -10,7 +10,7 @@ export const Title = ({ children, className = "" }: TitleProps) => {
 		<h2 className={`text-[40px] md:text-[52px] lg:text-[64px] font-bold tracking-[-0.01em] leading-tight ${className}`}>
 			{children}
 			<Image
-				src="./images/icons/title-decor.svg"
+				src="/images/icons/title-decor.svg"
 				alt="Title decor"
 				width={11}
 				height={11}

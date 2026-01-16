@@ -15,7 +15,7 @@ export default function Solutions() {
 					<li className="relative">
 						<div className='absolute -left-[15%] -top-[18%] bottom-0 right-0'>
 							<Image
-								src="./images/solutions/decor-1.png"
+								src="/images/solutions/decor-1.png"
 								alt="bg"
 								fill
 							/>
@@ -24,7 +24,7 @@ export default function Solutions() {
 							<div className="mb-4">
 
 								<Image
-									src="./images/solutions/1.png"
+									src="/images/solutions/1.png"
 									alt="Для квартиры"
 									width={100}
 									height={100}
@@ -45,7 +45,7 @@ export default function Solutions() {
 					<li className="relative">
 						<div className='absolute top-0 left-0 -right-[20%] -bottom-[30%]'>
 							<Image
-								src="./images/solutions/decor-2.png"
+								src="/images/solutions/decor-2.png"
 								alt="bg"
 								fill
 							/>
@@ -53,7 +53,7 @@ export default function Solutions() {
 						<div className='relative bg-foreground border border-[#5A5D64] min-h-76 md:min-h-89 rounded-xl p-8 flex flex-col justify-center items-center text-center'>
 							<div className="mb-4">
 								<Image
-									src="./images/solutions/2.png"
+									src="/images/solutions/2.png"
 									alt="Для дома"
 									width={165}
 									height={100}

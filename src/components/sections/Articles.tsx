@@ -126,7 +126,7 @@ export default function Articles() {
 							</SwiperSlide>
 						</Swiper>
 
-						<SliderNavigation setPrev={setPrevEl} setNext={setNextEl} />
+						<SliderNavigation className="justify-end mt-10" setPrev={setPrevEl} setNext={setNextEl} />
 					</>
 				)}
 			</div>

@@ -39,7 +39,7 @@ export default function Header() {
 				<Link href="/" className="basis-30 w-30 order-1 mr-auto lg:mr-0">
 					<Image
 						className="w-full h-auto"
-						src="./images/logo.svg"
+						src="/images/logo.svg"
 						alt="MiMiSmart"
 						width={120}
 						height={32}
@@ -208,7 +208,7 @@ export default function Header() {
 								<div className="flex items-center gap-3 mb-8">
 									<div className="w-12.5 h-12.5 bg-white rounded-[10px]">
 										<Image
-											src="./images/icons/address-decor.svg"
+											src="/images/icons/address-decor.svg"
 											width={50}
 											height={50}
 											alt="г. Москва, Новоданиловская наб., 6к1"
@@ -236,7 +236,7 @@ export default function Header() {
 									<div className='basis-12.5 w-12.5'>
 										<Image
 											className="w-full h-auto"
-											src="./images/icons/phone-header.svg"
+											src="/images/icons/phone-header.svg"
 											alt="MiMiSmart"
 											width={50}
 											height={50}
@@ -251,7 +251,7 @@ export default function Header() {
 									<div className='basis-12.5 w-12.5 shadow-[0_0_2px_0_rgba(148,148,148,0.12)]'>
 										<Image
 											className="w-full h-auto"
-											src="./images/icons/mail-header.svg"
+											src="/images/icons/mail-header.svg"
 											alt="MiMiSmart"
 											width={50}
 											height={50}

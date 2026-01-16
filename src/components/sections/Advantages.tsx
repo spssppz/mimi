@@ -53,7 +53,7 @@ export default function Advantages() {
 					</li>
 					<li className="lg:w-[42.75%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#0f1015] overflow-hidden relative">
 						<Image
-							src="./images/advantages/2.png"
+							src="/images/advantages/2.png"
 							alt="background"
 							fill
 							className="object-cover"
@@ -84,7 +84,7 @@ export default function Advantages() {
 					<li className="hidden xl:block lg:w-[21.75%] min-h-65 relative">
 
 						<Image
-							src="./images/advantages/decor-1.svg"
+							src="/images/advantages/decor-1.svg"
 							alt="background"
 							fill
 							className="object-cover"
@@ -92,7 +92,7 @@ export default function Advantages() {
 					</li>
 					<li className="lg:ml-auto lg:w-[22%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#0f1015] overflow-hidden relative">
 						<Image
-							src="./images/advantages/3.png"
+							src="/images/advantages/3.png"
 							alt="background"
 							fill
 							className="object-cover"
@@ -122,7 +122,7 @@ export default function Advantages() {
 					</li>
 					<li className="lg:w-[22%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
 						<Image
-							src="./images/advantages/4.png"
+							src="/images/advantages/4.png"
 							alt="background"
 							fill
 							className="object-cover"
@@ -152,7 +152,7 @@ export default function Advantages() {
 					</li>
 					<li className="relative lg:w-[32%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden">
 						<Image
-							src="./images/advantages/5.png"
+							src="/images/advantages/5.png"
 							alt="background"
 							fill
 							className="object-cover"

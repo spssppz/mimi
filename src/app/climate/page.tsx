@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 // 
+import Showroom from "@/components/sections/common/Showroom";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
@@ -12,6 +13,7 @@ export default function ClimatePage() {
 			<Header />
 			<main>
 				{/*  */}
+				<Showroom></Showroom>
 			</main>
 			<Footer />
 		</>

@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 // 
+import BodyImpact from "@/components/sections/Lightning/BodyImpact";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
@@ -12,6 +13,7 @@ export default function LightningPage() {
 			<Header />
 			<main>
 				{/*  */}
+				<BodyImpact></BodyImpact>
 			</main>
 			<Footer />
 		</>
