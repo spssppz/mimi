@@ -634,3 +634,59 @@
   left: 90%;
   height: 24%;
 }
+
+@keyframes scroll-y-down {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-y-up {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-x-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-x-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.anim-y-down {
+  animation: scroll-y-down 30s linear infinite;
+}
+
+.anim-y-up {
+  animation: scroll-y-up 30s linear infinite;
+}
+
+.anim-x-left {
+  animation: scroll-x-left 25s linear infinite;
+}
+
+.anim-x-right {
+  animation: scroll-x-right 25s linear infinite;
+}

@@ -1,4 +1,6 @@
 import Header from "@/components/layout/Header";
+import HeroAbout from "@/components/sections/About/HeroAbout";
+import Achievements from "@/components/sections/About/Achievements";
 // 
 import Team from "@/components/sections/About/Team";
 import Certificates from "@/components/sections/About/Certificates";
@@ -15,6 +17,8 @@ export default function AboutPage() {
 		<>
 			<Header />
 			<main>
+				<HeroAbout></HeroAbout>
+				<Achievements></Achievements>
 				{/*  */}
 				<Team></Team>
 				<Certificates></Certificates>
