@@ -450,8 +450,6 @@
 .blob-1 {
   animation: blob1 9s var(--ease-float) infinite;
 
-  .mimi-anim {}
-
   position: relative;
   animation-delay: -2s;
 }
@@ -776,4 +774,8 @@
 
 .image-0 {
   opacity: 1;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

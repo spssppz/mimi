@@ -18,14 +18,23 @@ export default function LightningBio() {
 						src="/images/lightning-page/bio/bg.jpg"
 						fill
 						alt=""
-						className="hidden lg:block"
+						className="hidden lg:block object-cover"
 					/>
-					<div className="relative py-6 lg:py-0 px-5 lg:min-h-auto lg:px-0 text-[17px] text-white space-y-3 lg:max-w-115">
-						<p>Биодинамическое освещение создано, чтобы имитировать естественное освещение.</p>
-						<p>Стандартное освещение в квартире – нарушает генетически заложенные внутренние часы человека.</p>
+					<div className="relative min-h-70 mb-2.5 lg:mb-0 overflow-hidden rounded-[20px] lg:rounded-none py-6 lg:py-0 px-5 lg:min-h-auto lg:px-0 text-[17px] text-white lg:max-w-115">
+						<Image
+							src="/images/lightning-page/bio/bg-mob.jpg"
+							fill
+							alt=""
+							className="object-cover lg:hidden"
+						/>
+						<div className="space-y-3 relative">
+
+							<p>Биодинамическое освещение создано, чтобы имитировать естественное освещение.</p>
+							<p>Стандартное освещение в квартире – нарушает генетически заложенные внутренние часы человека.</p>
+						</div>
 					</div>
-					<ul className="relative flex gap-2.5 -tracking-[0.01em]">
-						<li className="rounded-[20px] p-6 bg-white">
+					<ul className="relative sm:flex-row flex-col flex gap-2.5 -tracking-[0.01em]">
+						<li className="rounded-[20px] px-5 md:px-6 py-6 bg-white">
 							<div className="mb-2 font-helvetica font-medium text-[17px]">Есть природа</div>
 							<ul className="text-[15px] text-brand-gray">
 								<li>Утром солнце встает </li>

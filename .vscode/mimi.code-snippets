@@ -1,0 +1,9 @@
+{
+	"font helvetica": {
+		"scope": "typescriptreact",
+		"prefix": "fh",
+		"body": [
+			"font-helvetica",
+		],
+	}
+}
