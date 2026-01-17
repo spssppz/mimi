@@ -10,7 +10,7 @@ export default function BodyImpact() {
 				<Title className="mb-10">Влияние на организм</Title>
 				<ul className="grid lg:grid-cols-3 grid-cols-2 gap-3 md:gap-4 lg:gap-5">
 					{BodyImpactList.map(item => (
-						<li className="bg-white rounded-[20px] px-4 py-8.5 flex flex-col items-center justify-center text-center gap-5">
+						<li key={item.id} className="bg-white rounded-[20px] px-4 py-8.5 flex flex-col items-center justify-center text-center gap-5">
 							<div className="relative w-13.5 h-13.5 lg:w-16 lg:h-16">
 								<Image
 									src={item.icon}

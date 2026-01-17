@@ -20,7 +20,7 @@ export default function Home() {
         <Capabilities />
         <Solutions />
         <Advantages />
-        <Features />
+        <Features title="Удобное управление" />
         <Showroom />
         <Cases />
         <Articles />

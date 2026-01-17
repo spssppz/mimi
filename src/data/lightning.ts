@@ -7,27 +7,27 @@ export const BodyImpactList: BodyImpactItem[] = [
 		text: "Легче просыпаться",
 	},
 	{
-		id: 1,
+		id: 2,
 		icon: "/images/lightning/body-impact/2.svg",
 		text: "Повышение активности утром",
 	},
 	{
-		id: 1,
+		id: 3,
 		icon: "/images/lightning/body-impact/3.svg",
 		text: "Улучшение координации днем",
 	},
 	{
-		id: 1,
+		id: 4,
 		icon: "/images/lightning/body-impact/4.svg",
 		text: "Улучшение реакции днем",
 	},
 	{
-		id: 1,
+		id: 5,
 		icon: "/images/lightning/body-impact/5.svg",
 		text: "Расслабление вечером",
 	},
 	{
-		id: 1,
+		id: 6,
 		icon: "/images/lightning/body-impact/6.svg",
 		text: "Проще засыпать",
 	},

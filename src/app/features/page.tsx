@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 // 
+import Features from "@/components/sections/Features";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
@@ -12,6 +13,7 @@ export default function FeaturesPage() {
 			<Header />
 			<main>
 				{/*  */}
+				<Features title="Удобное управление?" />
 			</main>
 			<Footer />
 		</>
