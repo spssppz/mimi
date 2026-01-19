@@ -61,7 +61,7 @@ function MoreSlide({ className }: { className?: string }) {
 	return (
 		<a
 			href="#"
-			className={`border-2 text-[#4a5df9] border-[#4a5df9] rounded-[20px] flex items-center justify-center gap-2.5 ${className}`}
+			className={`border-2 text-[#4a5df9] transition hover:text-foreground duration-300 border-[#4a5df9] hover:border-foreground rounded-[20px] flex items-center justify-center gap-2.5 ${className}`}
 		>
 			<span className="text-[14px]">
 				Больше новостей

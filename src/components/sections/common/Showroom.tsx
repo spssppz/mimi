@@ -28,8 +28,11 @@ export default function Showroom() {
 					{showroomContent.title}
 				</Title>
 
-				<div className="font-helvetica lg:max-w-122.5 text-brand-gray leading-snug tracking-[-0.01em] mb-10 md:mb-14 lg:mb-18">
-					{showroomContent.description}
+				<div className="font-helvetica lg:max-w-152 text-brand-gray leading-snug tracking-[-0.01em] mb-10 md:mb-14 lg:mb-18">
+					Вы вживую ощутите тот комфорт, который дает Умный Дом. <br />
+					Сами поуправляете системой. <br />
+					Мы расскажем о возможностях, которые вы даже не могли себе представить.
+					Вы поймете, почему обычная электрика устарела еще 30 лет назад.
 				</div>
 
 				<MimiLogo className='mb-26 md:mb-18 flex justify-center lg:mx-auto'></MimiLogo>

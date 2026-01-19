@@ -804,12 +804,26 @@
   display: none;
 }
 
-.inner-shadow-text {
-  color: #e2e2e2;
-  filter: url(#inner-shadow);
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
-.inner-shadow-cap-1 {
-  color: #e2e2e2;
-  filter: url(#inner-shadow-cap-1);
+[data-reveal].active {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* варианты */
+[data-reveal="left"] {
+  transform: translateX(-40px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(40px);
+}
+
+[data-reveal="up"] {
+  transform: translateY(40px);
 }

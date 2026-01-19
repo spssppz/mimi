@@ -30,7 +30,7 @@ export const Button = ({ children, className = "" }: ButtonProps) => {
 			onMouseMove={handleMouseMove}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
-			className={`group relative overflow-hidden cursor-pointer bg-[#f8f9fa] shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] rounded-[50px] flex px-6 py-2.5 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] min-w-62.25 tracking-[-0.02em] text-[#00576b] transition-all duration-300 ${className}`}
+			className={`group relative cursor-pointer bg-[#f8f9fa] shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] rounded-[50px] flex px-6 py-2.5 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] min-w-62.25 tracking-[-0.02em] text-[#00576b] transition-all duration-300 ${className}`}
 		>
 			<span
 				className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 rounded-full"

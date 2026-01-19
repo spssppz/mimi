@@ -8,9 +8,9 @@ export default function Advantages() {
 			<div className="max-w-308 mx-auto px-4">
 				<Title className="mb-10">Преимущества умного <br />
 					дома MiMiSmart</Title>
-				<a href="#" className="mb-10 inline-flex items-center gap-1 text-[15px] font-medium text-brand-blue group">
+				<a href="#" className="mb-10 inline-flex hover:text-foreground transition-colors duration-300 items-center gap-1 text-[15px] font-medium text-brand-blue group">
 					Узнать больше
-					<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
+					<RightArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"></RightArrowIcon>
 				</a>
 				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap">
 					<li className="shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_rgba(0,0,0,0.06)] tracking-[-0.01em] lg:w-[32%] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
@@ -31,19 +31,19 @@ export default function Advantages() {
 						<p className="relative font-helvetica text-[15px] text-brand-gray">
 							Самая высокая гарантия на рынке в мире и круглосуточная поддержка.
 						</p>
-						<a href="" className="items-center justify-center flex rounded-full w-8.5 h-8.5 bg-white overflow-hidden absolute right-2.5 bottom-2.5">
+						<a href="" className="items-center justify-center flex rounded-full w-8.5 h-8.5 bg-white overflow-hidden absolute right-2.5 bottom-2.5 transition-colors duration-300 hover:text-white hover:bg-foreground">
 							<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path
 
 									d="M4.58337 11H17.4167"
-									stroke="#0A051A"
+									stroke="currentColor"
 									strokeWidth="2"
 									strokeLinecap="round"
 									strokeLinejoin="round"
 								/>
 								<path
 									d="M11 4.5835V17.4168"
-									stroke="#0A051A"
+									stroke="currentColor"
 									strokeWidth="2"
 									strokeLinecap="round"
 									strokeLinejoin="round"
@@ -62,18 +62,18 @@ export default function Advantages() {
 						<p className="relative font-helvetica text-[15px] text-brand-gray">
 							Самые миниатюрные и технологичные датчики для автоматизации в мире.
 						</p>
-						<a href="" className="items-center justify-center flex rounded-full w-8.5 h-8.5 bg-white overflow-hidden absolute right-2.5 bottom-2.5">
+						<a href="" className="items-center justify-center flex rounded-full w-8.5 h-8.5 bg-white overflow-hidden absolute right-2.5 bottom-2.5 transition-colors duration-300 hover:text-white hover:bg-foreground">
 							<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M4.58337 11H17.4167"
-									stroke="#0A051A"
+									stroke="currentColor"
 									strokeWidth="2"
 									strokeLinecap="round"
 									strokeLinejoin="round"
 								/>
 								<path
 									d="M11 4.5835V17.4168"
-									stroke="#0A051A"
+									stroke="currentColor"
 									strokeWidth="2"
 									strokeLinecap="round"
 									strokeLinejoin="round"
@@ -101,18 +101,18 @@ export default function Advantages() {
 						<p className="relative font-helvetica text-[15px] text-brand-gray">
 							53 представительства <br />по всему Миру.
 						</p>
-						<a href="" className="items-center justify-center flex rounded-full w-8.5 h-8.5 bg-white overflow-hidden absolute right-2.5 bottom-2.5">
+						<a href="" className="items-center justify-center flex rounded-full w-8.5 h-8.5 bg-white overflow-hidden absolute right-2.5 bottom-2.5 transition-colors duration-300 hover:text-white hover:bg-foreground">
 							<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M4.58337 11H17.4167"
-									stroke="#0A051A"
+									stroke="currentColor"
 									strokeWidth="2"
 									strokeLinecap="round"
 									strokeLinejoin="round"
 								/>
 								<path
 									d="M11 4.5835V17.4168"
-									stroke="#0A051A"
+									stroke="currentColor"
 									strokeWidth="2"
 									strokeLinecap="round"
 									strokeLinejoin="round"
@@ -131,18 +131,18 @@ export default function Advantages() {
 						<p className="relative font-helvetica text-[15px] text-brand-gray">
 							Высокая надежность при любых авариях.
 						</p>
-						<a href="" className="items-center justify-center flex rounded-full w-8.5 h-8.5 bg-white overflow-hidden absolute right-2.5 bottom-2.5">
+						<a href="" className="items-center justify-center flex rounded-full w-8.5 h-8.5 bg-white overflow-hidden absolute right-2.5 bottom-2.5 transition-colors duration-300 hover:text-white hover:bg-foreground">
 							<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M4.58337 11H17.4167"
-									stroke="#0A051A"
+									stroke="currentColor"
 									strokeWidth="2"
 									strokeLinecap="round"
 									strokeLinejoin="round"
 								/>
 								<path
 									d="M11 4.5835V17.4168"
-									stroke="#0A051A"
+									stroke="currentColor"
 									strokeWidth="2"
 									strokeLinecap="round"
 									strokeLinejoin="round"
@@ -161,18 +161,18 @@ export default function Advantages() {
 						<p className="relative font-helvetica text-[15px] text-brand-gray">
 							Подключаем выключатели и оборудование любых брендов.
 						</p>
-						<a href="" className="items-center justify-center flex rounded-full w-8.5 h-8.5 bg-white overflow-hidden absolute right-2.5 bottom-2.5">
+						<a href="" className="items-center justify-center flex rounded-full w-8.5 h-8.5 bg-white overflow-hidden absolute right-2.5 bottom-2.5 transition-colors duration-300 hover:text-white hover:bg-foreground">
 							<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M4.58337 11H17.4167"
-									stroke="#0A051A"
+									stroke="currentColor"
 									strokeWidth="2"
 									strokeLinecap="round"
 									strokeLinejoin="round"
 								/>
 								<path
 									d="M11 4.5835V17.4168"
-									stroke="#0A051A"
+									stroke="currentColor"
 									strokeWidth="2"
 									strokeLinecap="round"
 									strokeLinejoin="round"
