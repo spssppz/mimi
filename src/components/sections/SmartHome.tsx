@@ -138,7 +138,7 @@ export default function SmartHome() {
 						<Image src="/images/smarthome/lamp-on.png" width={89} height={80} alt="" />
 					</span>
 				</div>
-				<div className='kitchen-zone'>
+				<div className={`kitchen-zone ${enabled && 'dark-theme'}`}>
 					<div className='kitchen-zone-2'>
 						<span className={`conditioner conditioner-off ${enabled && 'brightness-30'}`}>
 							<Image src="/images/smarthome/conditioner-off.png" width={100.8} height={121.8} alt="" />

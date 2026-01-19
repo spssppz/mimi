@@ -267,6 +267,14 @@
   opacity: 1;
 }
 
+.bedroom-zone.dark-theme .lamp-off {
+  opacity: 0;
+}
+
+.bedroom-zone.dark-theme .lamp-on {
+  opacity: 1;
+}
+
 .bedroom-zone:hover .curtain-open {
   opacity: 0;
 }
@@ -342,6 +350,14 @@
   opacity: 1;
 }
 
+.kitchen-zone.dark-theme .lamp-off {
+  opacity: 0;
+}
+
+.kitchen-zone.dark-theme .lamp-on {
+  opacity: 1;
+}
+
 .kitchen-zone .lamp {
   display: block;
   position: absolute;
@@ -357,6 +373,14 @@
 
 .kitchen-zone:hover .conditioner-on {
   opacity: 1;
+}
+
+.kitchen-zone.dark-theme:hover .conditioner-off {
+  opacity: 1;
+}
+
+.kitchen-zone.dark-theme:hover .conditioner-on {
+  opacity: 0;
 }
 
 .kitchen-zone .conditioner {
