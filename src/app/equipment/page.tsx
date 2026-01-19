@@ -1,5 +1,8 @@
 import Header from "@/components/layout/Header";
 // 
+import EquipmentApp from "@/components/sections/Equipment/EquipmentApp";
+import EquipmentCatalog from "@/components/sections/Equipment/EquipmentCatalog";
+import Showroom from "@/components/sections/common/Showroom";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
@@ -12,6 +15,9 @@ export default function EquipmentPage() {
 			<Header />
 			<main>
 				{/*  */}
+				<EquipmentApp></EquipmentApp>
+				<EquipmentCatalog></EquipmentCatalog>
+				<Showroom></Showroom>
 			</main>
 			<Footer />
 		</>

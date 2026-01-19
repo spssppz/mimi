@@ -39,6 +39,7 @@ export default function Signaling() {
 					<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
 				</a>
 			</div>
+			// слайдер
 			<div className="max-w-308 mx-auto px-4">
 				<ul className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 lg:gap-x-5 gap-y-10.5 lg:gap-y-5">
 					{items.map(item => (

@@ -142,19 +142,47 @@ export default function Comfort() {
 							fill
 							className="object-cover"
 						/>
-						<h3 className="relative font-bold text-[44px] tracking-[-0.05em] text-black/30">
-							<span className="
-    absolute inset-0
-    text-transparent bg-clip-text bg-black/25
-    [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.6)]
-  ">
-								Управляйте климатом, освещением, шторами и другим:
-							</span>
+						{/* SVG Filter for Inner Shadow */}
+						<svg
+							width="0"
+							height="0"
+							style={{ position: "absolute", display: "block" }}
+						>
+							<filter id="inner-shadow" x="-50%" y="-50%" width="200%" height="200%">
+								{/* Create an inverted alpha mask */}
+								<feComponentTransfer in="SourceAlpha" result="inverted-alpha">
+									<feFuncA type="table" tableValues="1 0" />
+								</feComponentTransfer>
 
-							<span className="[text-shadow:2px_2px_3px_rgba(0,0,0,0.35)]">
-								Управляйте климатом, освещением, шторами и другим:
-							</span>
-						</h3>
+								{/* Blur and offset the inverted mask */}
+								<feGaussianBlur in="inverted-alpha" stdDeviation="1" result="blur" />
+								<feOffset in="blur" dx="-0.5" dy="0.5" result="offsetBlur" />
+
+								{/* Color the shadow (black with opacity) */}
+								<feFlood floodColor="#000" floodOpacity="0.8" result="color" />
+								<feComposite
+									in="color"
+									in2="offsetBlur"
+									operator="in"
+									result="shadow"
+								/>
+
+								{/* Clip the shadow to the text */}
+								<feComposite
+									in="shadow"
+									in2="SourceAlpha"
+									operator="in"
+									result="innerShadow"
+								/>
+
+								{/* Merge original text with the inner shadow */}
+								<feMerge>
+									<feMergeNode in="SourceGraphic" />
+									<feMergeNode in="innerShadow" />
+								</feMerge>
+							</filter>
+						</svg>
+						<h1 className="mb-3 lg:mb-6 inner-shadow-text text-[32px] md:text-[36px] font-bold lg:text-[44px] tracking-[-0.05em]">Управляйте климатом, освещением, шторами и другим:</h1>
 
 						<p className="relative font-helvetica text-[15px] leading-snug text-[#a8a8a9] tracking-[-0.01em] max-w-58">
 							с помощью голоса, смартфона, привычных выключателей или полностью автоматической системы.

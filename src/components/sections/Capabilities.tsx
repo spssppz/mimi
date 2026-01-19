@@ -11,11 +11,50 @@ export default function Capabilities() {
 	return (
 		<section className="pb-10 pt-22.5 md:pb-16 lg:py-22.5 overflow-hidden lg:overflow-visible">
 			<div className="max-w-308 mx-auto px-4">
+				<svg
+					width="0"
+					height="0"
+					style={{ position: "absolute", display: "block" }}
+				>
+					<filter id="inner-shadow-cap-1" x="-50%" y="-50%" width="200%" height="200%">
+						{/* Create an inverted alpha mask */}
+						<feComponentTransfer in="SourceAlpha" result="inverted-alpha">
+							<feFuncA type="table" tableValues="1 0" />
+						</feComponentTransfer>
+
+						{/* Blur and offset the inverted mask */}
+						<feGaussianBlur in="inverted-alpha" stdDeviation="1" result="blur" />
+						<feOffset in="blur" dx="-0.5" dy="0.5" result="offsetBlur" />
+
+						{/* Color the shadow (black with opacity) */}
+						<feFlood floodColor="#000" floodOpacity="0.8" result="color" />
+						<feComposite
+							in="color"
+							in2="offsetBlur"
+							operator="in"
+							result="shadow"
+						/>
+
+						{/* Clip the shadow to the text */}
+						<feComposite
+							in="shadow"
+							in2="SourceAlpha"
+							operator="in"
+							result="innerShadow"
+						/>
+
+						{/* Merge original text with the inner shadow */}
+						<feMerge>
+							<feMergeNode in="SourceGraphic" />
+							<feMergeNode in="innerShadow" />
+						</feMerge>
+					</filter>
+				</svg>
 				<Title className="mb-10">Чем вы сможете управлять?</Title>
 				{/* DESKTOP */}
 				<ul className="hidden lg:block space-y-5">
 					<li className="sticky top-3 bg-[linear-gradient(225deg,#f4dbc5_0%,#f4f4f4_48.56%,#d1a683_100%)] shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-20 px-15 gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
-						<h3 className="font-bold text-[100px] leading-none tracking-[-0.04em] bg-clip-text text-transparent bg-black/40 opacity-80 [text-shadow:1px_-1px_1px_rgba(255,255,255,0.6),-2px_2px_1px_rgba(254,254,254,0.12)]">Освещение</h3>
+						<h3 className="font-bold text-[100px] leading-none tracking-[-0.04em] inner-shadow-cap-1">Освещение</h3>
 						<div className="flex justify-between gap-4 items-end">
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#907e70]">
 								Подходят любые светильники. <br /> Регулируйте яркость, температуру теплого и холодного света. Управляйте шторами с кнопок и с телефона.

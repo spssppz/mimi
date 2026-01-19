@@ -7,18 +7,21 @@ import { useState } from "react"
 const tabs = [
 	{
 		id: 0,
+		image: '/images/security-page/fire-safety/1.jpg',
 		title: "Уведомления",
 		content:
 			"Система мгновенно оповещает владельцев о возможных опасностях, что позволяет принимать меры еще до того, как ситуация станет критической."
 	},
 	{
 		id: 1,
+		image: '/images/security-page/fire-safety/2.jpg',
 		title: "Пожаротушение",
 		content:
 			"При наличии системы пожаротушения, Умный дом автоматически активирует оборудование или следует указаниям пользователя."
 	},
 	{
 		id: 2,
+		image: '/images/security-page/fire-safety/3.jpg',
 		title: "Автоматические меры",
 		content:
 			"В зависимости от настроек, система может отключать электропитание, газ и воду, а также активировать аварийное освещение."
@@ -43,7 +46,7 @@ export default function FireSafety() {
 					</a>
 				</div>
 				<Image
-					src="/images/security-page/fire-safety/main.jpg"
+					src={tabs[active].image}
 					width={910}
 					height={500}
 					alt=""

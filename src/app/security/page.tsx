@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import SecurityHero from "@/components/sections/Security/SecurityHero";
+import WaterProtection from "@/components/sections/Security/WaterProtection";
 import VideoControl from "@/components/sections/Security/VideoControl";
 // 
 import FireSafety from "@/components/sections/Security/FireSafety";
@@ -19,8 +20,8 @@ export default function SecurityPage() {
 			<Header />
 			<main>
 				<SecurityHero />
+				<WaterProtection></WaterProtection>
 				<VideoControl></VideoControl>
-				{/*  */}
 				<FireSafety></FireSafety>
 				<Intercom></Intercom>
 				<Signaling></Signaling>

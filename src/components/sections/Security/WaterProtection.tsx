@@ -7,80 +7,62 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
+import { RightArrowIcon } from "@/icons/RightArrowIcon";
 
 const features = [
 	{
 		id: 0,
-		title: 'Поддерживает комфортную температуру',
+		title: 'Как работает',
 		content: {
-			subtitle: "Слишком сухой воздух может негативно отразиться на здоровье:",
 			list: [
-				"Пересыхание слизистых оболочек",
-				"Постоянная жажда",
-				"Снижение иммунитета",
-				"Снижение качества сна",
-				"Обострение болезней органов дыхания",
-				"Увеличение аллергической чувствительности",
-				"Ухудшение состояния кожи",
+				"Устанавливается датчик протечки и клапан перекрытия воды.",
+				"При попадании воды на датчик, клапан перекроет воду.",
 			],
 		},
-		image: '/images/climate-page/features/1.png',
+		image: '/images/security-page/water-protection/1.png',
 	},
 	{
 		id: 1,
-		title: 'Контроль влажности',
+		title: 'Датчики протечки',
 		content: {
-			subtitle: "Слишком сухой воздух может негативно отразиться на здоровье:",
 			list: [
-				"Пересыхание слизистых оболочек",
-				"Постоянная жажда",
-				"Снижение иммунитета",
-				"Снижение качества сна",
-				"Обострение болезней органов дыхания",
-				"Увеличение аллергической чувствительности",
-				"Ухудшение состояния кожи",
+				"О них невозможно запнуться",
+				"Их невозможно перевернуть",
+				"Они не перестанут работать в самый нужный момент",
+				"Они реально стильные и не портят дизайн",
+				"Им не требуется обслуживание",
 			],
 		},
-		image: '/images/climate-page/features/2.png',
+		image: '/images/security-page/water-protection/2.png',
 	},
 	{
 		id: 2,
-		title: 'Контроль концентрации углекислого газа CO2 ',
+		title: 'Ложные срабатывания',
 		content: {
-			subtitle: "Слишком сухой воздух может негативно отразиться на здоровье:",
-			list: [
-				"Пересыхание слизистых оболочек",
-				"Постоянная жажда",
-				"Снижение иммунитета",
-				"Снижение качества сна",
-				"Обострение болезней органов дыхания",
-				"Увеличение аллергической чувствительности",
-				"Ухудшение состояния кожи",
-			],
+			subtitle: "Если в момент попадания воды человек находится рядом с датчиком протечки, то система поймет, что срабатывание ложное и проинформирует владельца о попадании воды на датчик, но не перекроет воду.",
 		},
-		image: '/images/climate-page/features/3.png',
+		image: '/images/security-page/water-protection/3.png',
 	},
 	{
 		id: 3,
-		title: 'Очищение и обеспыливание воздуха',
+		title: 'Оповещение пользователя о протечке',
 		content: {
-			subtitle: "Слишком сухой воздух может негативно отразиться на здоровье:",
-			list: [
-				"Пересыхание слизистых оболочек",
-				"Постоянная жажда",
-				"Снижение иммунитета",
-				"Снижение качества сна",
-				"Обострение болезней органов дыхания",
-				"Увеличение аллергической чувствительности",
-				"Ухудшение состояния кожи",
-			],
+			subtitle: "При реальном срабатывании система на максимальной громкости колонки (а также в приложении) моментально проинформирует пользователей о протечке, и перекроет воду.",
 		},
-		image: '/images/climate-page/features/4.png',
+		image: '/images/security-page/water-protection/4.png',
+	},
+	{
+		id: 4,
+		title: 'Локализация',
+		content: {
+			subtitle: "Если протечка была, например в гостевой ванной, вовсе не обязательно перекрывать всю воду в доме. Достаточно перекрыть примыкающий узел. ",
+		},
+		image: '/images/security-page/water-protection/4.png',
 	},
 ]
 
-export default function ClimateFeatures() {
-	const [activeIndex, setActiveIndex] = useState(1); // По умолчанию открыта влажность
+export default function WaterProtection() {
+	const [activeIndex, setActiveIndex] = useState(1);
 	const swiperRef = useRef<any>(null);
 
 	const handleSelect = (index: number) => {
@@ -89,7 +71,13 @@ export default function ClimateFeatures() {
 	};
 	return (
 		<section className="pt-22.5 lg:pt-30 pb-22.5 overflow-hidden">
-			<Title className="max-w-308 mb-6 md:mb-8 lg:mb-10 mx-auto px-4">Особенности системы.</Title>
+			<div className="max-w-308 mb-10 mx-auto px-4 flex md:flex-row flex-col items-start gap-10 justify-between md:items-end">
+				<Title>Защита от протечек воды.</Title>
+				<a href="#" className="font-helvetica inline-flex lg:items-center gap-1 -tracking-[0.01em] text-[15px] font-medium text-brand-blue group whitespace-nowrap">
+					Узнать больше
+					<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
+				</a>
+			</div>
 			<div className="max-w-348 mx-auto px-4">
 				<div className="rounded-3xl overflow-hidden bg-white min-h-152.5 items-center gap-30 lg:flex hidden">
 					<div className="py-15 pl-20 flex-none w-[37%] relative">
@@ -104,9 +92,9 @@ export default function ClimateFeatures() {
 									</button>
 									{activeIndex === idx && item.content && (
 										<div className="pt-4">
-											<p className="mb-1">{item.content.subtitle}</p>
+											<p className="mb-1">{item.content?.subtitle}</p>
 											<ul className="space-y-px">
-												{item.content.list.map((li, i) => (
+												{item.content.list?.map((li, i) => (
 													<li key={i} className="flex items-start">
 														<span className="mr-2">•</span> {li}
 													</li>
@@ -152,9 +140,10 @@ export default function ClimateFeatures() {
 								<div className="rounded-[20px] mb-4 p-6 bg-background leading-snug -tracking-[0.01em]">
 									<div className="mb-4 font-helvetica font-semibold">{item.title}</div>
 									<div>
+
 										<p className="mb-1">{item.content.subtitle}</p>
 										<ul className="space-y-1">
-											{item.content.list.map((li, i) => (
+											{item.content.list?.map((li, i) => (
 												<li key={i} className="flex items-start">
 													<span className="mr-2">•</span>
 													{li}
