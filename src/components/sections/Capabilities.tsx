@@ -24,9 +24,9 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#907e70]">
 								Подходят любые светильники. <br /> Регулируйте яркость, температуру теплого и холодного света. Управляйте шторами с кнопок и с телефона.
 							</p>
-							<button className="shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#5a250a]">
+							<button className="shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#5a250a] group">
 								Подробнее
-								<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
+								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
 							</button>
 						</div>
 						<span className="absolute w-[44%] top-0 -right-7.25 aspect-584/500">
@@ -44,9 +44,9 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#303236]">
 								Автоматический климат-контроль: <br /> слаженная работа отопления, теплых полов, кондиционеров, вентиляции и увлажнения
 							</p>
-							<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 								Подробнее
-								<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
+								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
 							</button>
 						</div>
 
@@ -71,9 +71,9 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#95979e]">
 								Защита от протечек воды, охранная сигнализация, имитацция присутствия
 							</p>
-							<button className="shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+							<button className="group shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 								Подробнее
-								<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
+								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
 							</button>
 						</div>
 					</li>
@@ -89,9 +89,9 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#58595d]">
 								Управляем любыми видами отопления, теплых полов и конвекторов. В каждой комнате своя, комфортная каждому температура.
 							</p>
-							<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 								Подробнее
-								<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
+								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
 							</button>
 						</div>
 					</li>
@@ -107,9 +107,9 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#95979e]">
 								Смотрите ваши камеры и отвечайте на звонок в домофон в любой точке мира. Наблюдайте за домом и будьте уверены, что с родными все в порядке.
 							</p>
-							<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 								Подробнее
-								<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
+								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
 							</button>
 						</div>
 					</li>
@@ -125,9 +125,9 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#58595d]">
 								Спроектируем и реализуем современную электрику. Управление розетками, сценарные выключатели, стабилизация напряжения, резервное питание, молниезащита.
 							</p>
-							<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 								Подробнее
-								<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
+								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
 							</button>
 						</div>
 					</li>
@@ -143,9 +143,9 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#303236]">
 								Оборудуем кинозалы и кино в гостиной под ключ. Автоматизируем аппаратуру кино и создаем удобные сценарии
 							</p>
-							<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 								Подробнее
-								<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
+								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
 							</button>
 						</div>
 					</li>
@@ -161,9 +161,9 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#92969d]">
 								Своя музыка в каждой комнате, AirPlay, следящая музыка, звуковые оповещения
 							</p>
-							<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 								Подробнее
-								<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
+								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
 							</button>
 						</div>
 					</li>

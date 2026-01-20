@@ -56,7 +56,7 @@ export default function Cases() {
 								className={`flex items-center gap-2.5 py-2.5 px-4 rounded-full text-[14px] font-medium transition
 				${isActive ? 'bg-brand-blue text-white'
 										: hasCases
-											? 'cursor-pointer bg-[#242634] text-white'
+											? 'cursor-pointer bg-[#242634] text-white hover:opacity-80 transition-opacity duration-200'
 											: 'bg-transparent text-brand-gray'
 									}
 			`}
@@ -137,10 +137,10 @@ export default function Cases() {
 
 								<a
 									href="#"
-									className="text-brand-blue inline-flex items-center gap-1 leading-tight"
+									className="text-brand-blue inline-flex items-center gap-1 leading-tight group"
 								>
 									<span className="text-[15px]">Смотреть проект</span>
-									<RightArrowIcon className="w-6 h-6"></RightArrowIcon>
+									<RightArrowIcon className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1"></RightArrowIcon>
 								</a>
 							</SwiperSlide>
 						)

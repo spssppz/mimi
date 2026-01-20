@@ -14,7 +14,7 @@ export default function VideoControl() {
 					</div>
 					<a href="#" className="-tracking-[0.01em] font-helvetica inline-flex items-center gap-1 text-[15px] font-medium text-brand-blue group">
 						Узнать больше
-						<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
+						<RightArrowIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></RightArrowIcon>
 					</a>
 				</div>
 				<Image

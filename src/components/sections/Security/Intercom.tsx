@@ -41,7 +41,7 @@ export default function Intercom() {
 					</div>
 					<a href="#" className="mb-10 inline-flex items-center gap-1 -tracking-[0.01em] text-[15px] font-medium text-brand-blue group">
 						Узнать больше
-						<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
+						<RightArrowIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></RightArrowIcon>
 					</a>
 				</div>
 				<ul className="grid md:grid-cols-2 gap-5">

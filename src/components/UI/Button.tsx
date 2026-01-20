@@ -47,9 +47,9 @@ export const Button = ({ children, className = "" }: ButtonProps) => {
 				}}
 			/>
 
-			<span className="relative z-10 flex items-center gap-1.5">
+			<span className="relative z-10 flex items-center gap-1.5 group">
 				{children}
-				<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
+				<BtnArrowIcon className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300"></BtnArrowIcon>
 			</span>
 		</button>
 	);

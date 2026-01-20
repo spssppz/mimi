@@ -18,9 +18,9 @@ export default function Improvement() {
 					<div className="text-[20px] md:text-[22px] lg:text-[24px] -tracking-[0.01em] mb-2 lg:mb-4">Поможем улучшить</div>
 					<div className="text-[40px] md:text-[52px] lg:text-[64px]">Вашу квартиру.</div>
 				</div>
-				<button className="min-w-62.25 shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#d1d1d1] tracking-[-0.02em] text-[#5a250a]">
+				<button className="min-w-62.25 shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#d1d1d1] tracking-[-0.02em] text-[#5a250a] group">
 					Подробнее
-					<BtnArrowIcon className="w-6 h-6"></BtnArrowIcon>
+					<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
 				</button>
 			</div>
 		</section>

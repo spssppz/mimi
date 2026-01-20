@@ -426,10 +426,13 @@
   top: -2.8%;
   left: -28%;
   display: block;
-  animation: garage-cctv-anim 7s infinite linear;
   transform-origin: calc(100% - 22px) 11px;
   pointer-events: none;
-  transform: scaleX(-1);
+  transform: scaleX(-1) rotate(-10deg) translate(0, 0);
+}
+
+.garage-zone:hover .garage-cctv {
+  animation: garage-cctv-anim 7s linear forwards;
 }
 
 @keyframes garage-cctv-anim {

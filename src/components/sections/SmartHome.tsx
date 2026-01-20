@@ -198,7 +198,7 @@ export default function SmartHome() {
 							</span>
 						</span>
 
-						<span className="tracking-[-0.01em] text-[14px] bg-linear-to-r from-[#dbdbdb] to-brand-light-gray bg-clip-text text-transparent">
+						<span className="tracking-[-0.01em] text-[14px] bg-linear-to-r from-[#dbdbdb] to-brand-light-gray bg-clip-text text-transparent transition-opacity group-hover:opacity-70">
 							Увидеть в действии
 						</span>
 					</button>

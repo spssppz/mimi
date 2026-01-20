@@ -36,7 +36,7 @@ export default function Signaling() {
 				<div className="mb-4 -tracking-[0.01em] text-[17px] leading-tight lg:max-w-143">Сигнализация в системе Умный дом реализуется за счет комплекса датчиков, которые покрывают всю охраняемую площадь.</div>
 				<a href="#" className="mb-10 font-helvetica inline-flex items-center gap-1 -tracking-[0.01em] text-[15px] font-medium text-brand-blue group">
 					Узнать больше
-					<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
+					<RightArrowIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></RightArrowIcon>
 				</a>
 			</div>
 			// слайдер

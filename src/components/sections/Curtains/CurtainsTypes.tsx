@@ -18,9 +18,9 @@ export default function CurtainsTypes() {
 			<div className="max-w-308 mx-auto px-4">
 				<div className="mb-6 md:mb-8 lg:mb-10 justify-between lg:flex lg:items-end lg:gap-10">
 					<Title>Типы штор.</Title>
-					<a href="#" className="lg:inline-flex tracking-[-0.01e] hidden items-center gap-1 text-[15px] text-brand-blue">
+					<a href="#" className="lg:inline-flex tracking-[-0.01e] hidden items-center gap-1 text-[15px] text-brand-blue group">
 						Узнать больше
-						<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
+						<RightArrowIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></RightArrowIcon>
 					</a>
 				</div>
 				<ul className="hidden mb-10 lg:grid grid-cols-3 gap-5">

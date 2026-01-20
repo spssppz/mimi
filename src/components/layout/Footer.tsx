@@ -39,14 +39,8 @@ export default function Footer() {
 		<footer className="bg-[#efefef] py-10">
 			<div className="max-w-308 mx-auto px-4">
 				<div className="border-t border-[#d9d9d9] pt-6 pb-10">
-					<Link href="/" className="inline-block mb-10">
-						<Image
-							src={brand.logo.src}
-							alt={brand.name}
-							width={brand.logo.width}
-							height={brand.logo.height}
-							priority
-						/>
+					<Link href="/" className="mb-10 inline-block font-helvetica font-bold tracking-[0.01em] text-[#00d0ff] text-[20px] md:text-[22px] order-1 mr-auto lg:mr-0">
+						MiMi<span className="transition-colors duration-301 text-foreground">Smart</span>
 					</Link>
 					<div>
 
