@@ -70,49 +70,49 @@ function TabsCard() {
 		)
 	}, [activeTab])
 
-	useEffect(() => {
-		if (!blobsRef.current) return
+	// useEffect(() => {
+	// 	if (!blobsRef.current) return
 
-		const blobs = gsap.utils.toArray<SVGGElement>(
-			blobsRef.current.querySelectorAll('.blob')
-		)
+	// 	const blobs = gsap.utils.toArray<SVGGElement>(
+	// 		blobsRef.current.querySelectorAll('.blob')
+	// 	)
 
-		const tl = gsap.timeline({
-			paused: true,
-			repeat: -1,
-			yoyo: true,
-			defaults: { ease: 'sine.inOut' },
-		})
+	// 	const tl = gsap.timeline({
+	// 		paused: true,
+	// 		repeat: -1,
+	// 		yoyo: true,
+	// 		defaults: { ease: 'sine.inOut' },
+	// 	})
 
-		blobs.forEach(blob => {
-			tl.to(blob, {
-				x: gsap.utils.random(-90, 40),
-				y: gsap.utils.random(-45, 60),
-				scale: gsap.utils.random(0.9, 1.1),
-				rotation: gsap.utils.random(-14, 12),
-				duration: gsap.utils.random(4, 6),
-			}, 0)
-		})
+	// 	blobs.forEach(blob => {
+	// 		tl.to(blob, {
+	// 			x: gsap.utils.random(-90, 40),
+	// 			y: gsap.utils.random(-45, 60),
+	// 			scale: gsap.utils.random(0.9, 1.1),
+	// 			rotation: gsap.utils.random(-14, 12),
+	// 			duration: gsap.utils.random(4, 6),
+	// 		}, 0)
+	// 	})
 
-		const trigger = ScrollTrigger.create({
-			trigger: blobsRef.current,
-			start: 'top 90%',
-			end: 'bottom 10%',
-			onEnter: () => tl.play(),
-			onLeave: () => tl.pause(),
-			onEnterBack: () => tl.play(),
-			onLeaveBack: () => tl.pause(),
-		})
+	// 	const trigger = ScrollTrigger.create({
+	// 		trigger: blobsRef.current,
+	// 		start: 'top 90%',
+	// 		end: 'bottom 10%',
+	// 		onEnter: () => tl.play(),
+	// 		onLeave: () => tl.pause(),
+	// 		onEnterBack: () => tl.play(),
+	// 		onLeaveBack: () => tl.pause(),
+	// 	})
 
-		return () => {
-			tl.kill()
-			trigger.kill() // ✅ вот так правильно
-		}
-	}, [])
+	// 	return () => {
+	// 		tl.kill()
+	// 		trigger.kill() // ✅ вот так правильно
+	// 	}
+	// }, [])
 
 	return (
 		<div className="relative overflow-hidden lg:min-h-98 rounded-[20px] bg-[#121212] px-5 lg:px-8 pt-6 lg:pt-7 min-h-102 flex flex-col">
-			<svg
+			{/* <svg
 				ref={blobsRef}
 				className="absolute inset-0 w-[120%] h-[120%] -left-[10%] -top-[10%] animate-gradient"
 				viewBox="0 0 590 376"
@@ -170,7 +170,13 @@ function TabsCard() {
 						<feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_6231_44730" />
 					</filter>
 				</defs>
-			</svg>
+			</svg> */}
+			<Image
+				src="/images/comfort/bg.jpg"
+				alt="bg"
+				fill
+				className="object-cover"
+			/>
 			<Image
 				src="/images/comfort/bg-2.svg"
 				alt="bg"
@@ -244,23 +250,18 @@ export default function Comfort() {
 	useEffect(() => {
 		if (!titleRef.current) return
 
-		gsap.fromTo(
-			titleRef.current,
-			{
-				color: '#a8a8a9',
+		gsap.to(titleRef.current, {
+			color: '#0b0d10',
+			scrollTrigger: {
+				trigger: titleRef.current,
+				start: 'top 75%',
+				end: 'bottom 25%',
+				scrub: true, // привязка к скроллу
 			},
-			{
-				color: '#0b0d10',
-				duration: 4,
-				ease: 'power2.out',
-				scrollTrigger: {
-					trigger: titleRef.current,
-					start: 'top 75%',
-					once: true, // 🔥 важно
-				},
-			}
-		)
+		})
 	}, [])
+
+
 
 	return (
 		<section className={`py-22.5 lg:pb-22.5 lg:pt-30 transition-colors duration-400 ${enabled && 'bg-foreground'}`}>
@@ -281,7 +282,7 @@ export default function Comfort() {
 
 						<h2
 							ref={titleRef}
-							className="relative mb-3 lg:mb-6 text-[32px] md:text-[36px] lg:text-[44px] font-bold tracking-[-0.05em]"
+							className="text-[#a8a8a9] relative mb-3 lg:mb-6 text-[32px] md:text-[36px] lg:text-[44px] font-bold tracking-[-0.05em]"
 						>
 							Управляйте климатом, освещением, шторами и другим:
 						</h2>
