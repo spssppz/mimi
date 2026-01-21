@@ -6,14 +6,66 @@ import 'swiper/css'
 import { Title } from "../UI/Title";
 import { Pagination } from "swiper/modules";
 import { BtnArrowIcon } from "@/icons/BtnArrowIcon";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Capabilities() {
-	useScrollReveal()
+	const titleRef = useRef<HTMLHeadingElement | null>(null)
+	const phrase1Ref = useRef<HTMLSpanElement>(null)
+	const phrase2Ref = useRef<HTMLSpanElement>(null)
+
+	useEffect(() => {
+		if (!phrase1Ref.current || !phrase2Ref.current) return
+
+		const tl = gsap.timeline({ repeat: -1, defaults: { duration: 0.6, ease: 'power1.out' } })
+
+		// Фраза 1
+		tl.fromTo(
+			phrase1Ref.current,
+			{ opacity: 0, y: 6 },
+			{ opacity: 1, y: 0 }
+		)
+		tl.to(phrase1Ref.current, { opacity: 1, duration: 2 }) // держим видимой
+		tl.to(phrase1Ref.current, { opacity: 0, y: -6, duration: 0.6 })
+
+		// Фраза 2
+		tl.fromTo(
+			phrase2Ref.current,
+			{ opacity: 0, y: 6 },
+			{ opacity: 1, y: 0, duration: 0.6 }
+		)
+		tl.to(phrase2Ref.current, { opacity: 1, duration: 2 })
+		tl.to(phrase2Ref.current, { opacity: 0, y: -6, duration: 0.6 })
+	}, [])
+
+	useEffect(() => {
+		if (!titleRef.current) return
+
+		gsap.fromTo(
+			titleRef.current,
+			{
+				y: 30,
+				opacity: 0,
+			},
+			{
+				y: 0,
+				opacity: 1,
+				duration: 0.8,
+				ease: 'power3.out',
+				scrollTrigger: {
+					trigger: titleRef.current,
+					start: 'top 80%',
+					once: true,
+				},
+			}
+		)
+	}, [])
 	return (
 		<section className="pb-10 pt-22.5 md:pb-16 lg:py-22.5 overflow-hidden lg:overflow-visible">
 			<div className="max-w-308 mx-auto px-4">
-				<div data-reveal="up">
+				<div ref={titleRef}>
 					<Title className="mb-10">Чем вы сможете управлять?</Title>
 				</div>
 				{/* DESKTOP */}
@@ -163,11 +215,10 @@ export default function Capabilities() {
 								fill
 							/>
 
-							<span className="phrase phrase-1">
+							<span ref={phrase1Ref} className="absolute left-1/2 bottom-[calc(100%+37px)] -translate-x-1/2 whitespace-nowrap">
 								Алиса, включи музыку на кухне
 							</span>
-
-							<span className="phrase phrase-2">
+							<span ref={phrase2Ref} className="absolute left-1/2 bottom-[calc(100%+10px)] -translate-x-1/2 whitespace-nowrap opacity-30">
 								– Дети, все к столу!
 							</span>
 						</div>

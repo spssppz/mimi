@@ -1,8 +1,33 @@
+"use client"
+
 import Image from "next/image";
 import { Title } from "../UI/Title";
 import { RightArrowIcon } from "@/icons/RightArrowIcon";
+import { useEffect, useRef } from "react";
 
 export default function Advantages() {
+	const blurRef = useRef<HTMLDivElement | null>(null)
+
+	useEffect(() => {
+		if (!blurRef.current) return
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						blurRef.current?.classList.add('active')
+					} else {
+						blurRef.current?.classList.remove('active')
+					}
+				})
+			},
+			{ threshold: 0.1 } // включаем, когда хотя бы 10% блока видны
+		)
+
+		observer.observe(blurRef.current)
+
+		return () => observer.disconnect()
+	}, [])
 	return (
 		<section className="pt-30 pb-22.5">
 			<div className="max-w-308 mx-auto px-4">
@@ -15,7 +40,7 @@ export default function Advantages() {
 				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap">
 					<li className="shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_rgba(0,0,0,0.06)] tracking-[-0.01em] lg:w-[32%] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
 						<span className="absolute bottom-3 left-4 leading-tight font-bold text-[64px] text-black">Навсегда</span>
-						<div className="blur-anim">
+						<div className="blur-anim" ref={blurRef}>
 							<div></div>
 							<div></div>
 							<div></div>

@@ -202,7 +202,7 @@ export default function SmartHome() {
 							Увидеть в действии
 						</span>
 					</button>
-					<Title className={`mb-2 transition-colors duration-400 relative ${enabled && 'text-white'}`}>Умный дом под&nbsp;ключ</Title>
+					<Title className={`mb-2 transition-colors duration-400 max-w-[80%] relative ${enabled && 'text-white'}`}>Умный дом под&nbsp;ключ</Title>
 					<p className={`font-helvetica relative text-[17px] mb-10 md:mb-20 tracking-[-0.01em] transition-colors duration-400 leading-tight ${enabled && 'text-[#d9dadc]/60'}`}>
 						Производство и монтаж современной электрики. <br />
 						Автоматическое управление всеми системами дома.
