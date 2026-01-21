@@ -49,7 +49,7 @@ export default function Showroom() {
 
 							<button
 								onClick={() => setIsPlaying(true)}
-								className="absolute rounded-full overflow-hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20"
+								className="absolute rounded-full overflow-hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 transition-opacity duration-300 hover:opacity-70"
 								aria-label="Запустить видео"
 							>
 								<PlayIcon className='w-13.5 h-13.5'></PlayIcon>
@@ -62,6 +62,7 @@ export default function Showroom() {
 							className="w-full h-full object-cover rounded-2xl"
 							controls
 							autoPlay
+							muted
 						>
 							<source src={`${showroomContent.videoSrc}`} type="video/mp4" />
 						</video>
@@ -78,9 +79,9 @@ export default function Showroom() {
 								alt="Address"
 							/>
 						</div>
-						<div className="font-helvetica lg:max-w-45 text-[14px] tracking-[-0.01em] text-brand-blue">
+						<a href="" className="hover:text-foreground transition-colors duration-300 font-helvetica lg:max-w-45 text-[14px] tracking-[-0.01em] text-brand-blue">
 							{brand.address}
-						</div>
+						</a>
 					</div>
 					<Button>Записаться в шоурум</Button>
 				</div>

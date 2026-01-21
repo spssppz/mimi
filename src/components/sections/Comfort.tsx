@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Title } from "../UI/Title";
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useTheme } from '@/context/ThemeContext'
 import { Tabs } from "@/data/comfort";
@@ -106,24 +106,64 @@ function TabsCard() {
 					/>
 				</div>
 			</div>
-			<ul className="relative flex-auto bg-linear-to-b max-w-88 from-[#27272b] to-[#101011] shadow-[inset_-4px_4px_3px_0_rgba(0,0,0,0.25)] rounded-t-xl py-5 px-4 font-helvetica leading-tight text-[14px] tracking-[-0.01em] text-[#f6f9ff] space-y-5 md:space-y-4">
-				{Tabs[activeTab].items.map((text, i) => (
-					<li key={i} className="flex items-center gap-3">
-						<Image
-							src="/images/icons/comfort-check.svg"
-							alt="check"
-							width={24}
-							height={24}
-							className="basis-6"
-						/>
-						<span>{text}</span>
-					</li>
-				))}
-			</ul>
+			<div
+				key={activeTab}
+				className="animate-fadeInUp flex-auto flex flex-col"
+			>
+				<ul className="relative bg-linear-to-b max-w-88 from-[#27272b] flex-auto to-[#101011] shadow-[inset_-4px_4px_3px_0_rgba(0,0,0,0.25)] rounded-t-xl py-5 px-4 font-helvetica leading-tight text-[14px] tracking-[-0.01em] text-[#f6f9ff] space-y-5 md:space-y-4">
+					{Tabs[activeTab].items.map((text, i) => (
+						<li key={i} className="flex items-center gap-3">
+							<Image
+								src="/images/icons/comfort-check.svg"
+								alt="check"
+								width={24}
+								height={24}
+								className="basis-6"
+							/>
+							<span>{text}</span>
+						</li>
+					))}
+				</ul>
+			</div>
 			<div className="absolute -bottom-[4%] left-0 w-full h-[34%] bg-[linear-gradient(180deg,rgba(37,37,41,0)_0%,#252529_82.91%)] pointer-events-none"></div>
 		</div >
 	)
 }
+
+export const AnimatedTitle = ({ children }: { children: React.ReactNode }) => {
+	const ref = useRef<HTMLHeadingElement>(null)
+	const [active, setActive] = useState(false)
+
+	useEffect(() => {
+		if (!ref.current) return
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					setActive(true)
+					observer.disconnect() // ← ОДИН РАЗ
+				}
+			},
+			{ threshold: 0.4 }
+		)
+
+		observer.observe(ref.current)
+
+		return () => observer.disconnect()
+	}, [])
+
+	return (
+		<h1
+			ref={ref}
+			className={`relative mb-3 lg:mb-6 text-[32px] md:text-[36px] lg:text-[44px]
+				font-bold tracking-[-0.05em] text-[#a8a8a9]
+				${active ? 'animate-text-fill' : ''}`}
+		>
+			{children}
+		</h1>
+	)
+}
+
 
 export default function Comfort() {
 	const { enabled } = useTheme()
@@ -142,7 +182,7 @@ export default function Comfort() {
 							fill
 							className="object-cover"
 						/>
-						<h1 className="relative mb-3 lg:mb-6 text-[32px] md:text-[36px] font-bold lg:text-[44px] tracking-[-0.05em] text-[#a8a8a9]">Управляйте климатом, освещением, шторами и другим:</h1>
+						<AnimatedTitle>Управляйте климатом, освещением, шторами и другим:</AnimatedTitle>
 
 						<p className="relative font-helvetica text-[15px] leading-snug text-[#a8a8a9] tracking-[-0.01em] max-w-58">
 							с помощью голоса, смартфона, привычных выключателей или полностью автоматической системы.
