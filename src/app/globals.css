@@ -232,10 +232,17 @@
   top: -7%;
   right: -6.2%;
   display: block;
-  animation: cctv-anim 7s infinite linear;
   transform-origin: calc(100% - 22px) 11px;
   pointer-events: none;
 }
+
+@media (min-width: 640px) {
+  .living-cctv {
+    animation: cctv-anim 7s infinite linear;
+
+  }
+}
+
 
 @keyframes cctv-anim {
   0% {
@@ -572,13 +579,13 @@
   position: absolute;
   width: 10%;
   bottom: -10px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
   background: linear-gradient(270deg,
       rgba(217, 217, 217, 0.8),
       rgba(217, 217, 217, 0.3),
       rgba(217, 217, 217, 0.8));
   background-size: 300% 300%;
-
+  will-change: transform, opacity;
   animation: blurFlow 6s ease-in-out infinite;
 }
 
@@ -591,7 +598,7 @@
 
   50% {
     background-position: 100% 50%;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(4px);
     opacity: 1;
   }
 

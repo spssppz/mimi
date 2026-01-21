@@ -195,14 +195,14 @@ export default function Capabilities() {
 					>
 						<SwiperSlide className="flex-none w-full mr-4">
 							<div className="relative lg:sticky lg:top-3 bg-[linear-gradient(225deg,#f4dbc5_0%,#f4f4f4_48.56%,#d1a683_100%)] shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-4 px-6 md:py-8 md:px-12 gap-4 min-h-125 overflow-hidden flex flex-col justify-between">
-								<h3 className="font-bold text-[40px] sm:text-[60px] md:text-[80px] leading-none tracking-[-0.04em] bg-[linear-gradient(225deg,#e0c3a8_0%,#dcdcdc_48.56%,#b88c63_100%)] bg-clip-text text-transparent">Освещение</h3>
+								<h3 className="relative z-10 font-bold text-[40px] sm:text-[60px] md:text-[80px] leading-none tracking-[-0.04em] bg-[linear-gradient(225deg,#e0c3a8_0%,#dcdcdc_48.56%,#b88c63_100%)] bg-clip-text text-transparent">Освещение</h3>
 								<div className="flex justify-between gap-4 items-start sm:items-end flex-col sm:flex-row">
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#907e70]">
 										Подходят любые светильники. <br /> Регулируйте яркость, температуру теплого и холодного света. Управляйте шторами с кнопок и с телефона.
 									</p>
 									<button className="shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#5a250a]">
 										Подробнее
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://лwww.w3.org/2000/svg">
 											<path d="M18 8L22 12L18 16"
 												stroke="currentColor"
 												strokeWidth="1.6"
@@ -216,7 +216,7 @@ export default function Capabilities() {
 										</svg>
 									</button>
 								</div>
-								<span className="absolute w-98 top-0 -right-10 sm:-right-5 aspect-233/200">
+								<span className="absolute w-98 top-0 -right-20 sm:-right-5 aspect-233/200">
 
 									<Image
 										src="/images/capabilities/decor/1.png"

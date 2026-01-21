@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import CinemaHero from "@/components/sections/Cinema/CinemaHero";
 // 
 import Features from "@/components/sections/Features";
 // 
@@ -13,6 +14,7 @@ export default function CinemaPage() {
 		<>
 			<Header />
 			<main>
+				<CinemaHero></CinemaHero>
 				{/*  */}
 				<Features title="Удобное управление" />
 				{/*  */}

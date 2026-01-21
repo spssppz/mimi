@@ -14,9 +14,17 @@ export default function Showroom() {
 
 	return (
 		<section className="overflow-hidden relative pt-10 pb-26 md:pt-16 md:pb-34 lg:pt-22.5 lg:pb-45">
-			<span className='absolute bottom-15 left-1/2 -translate-x-1/2 w-360 aspect-1440/820 -z-1'>
+			<span className='absolute bottom-15 left-0 w-full aspect-390/516 -z-1 sm:hidden'>
 				<Image
-					src='/images/showroom/bg.png' // Убрал точку в начале для корректного пути в Next.js
+					src='/images/showroom/bg-mob.png'
+					alt="background image"
+					fill
+					className="object-cover"
+				/>
+			</span>
+			<span className='absolute bottom-5 lg:bottom-15 left-1/2 -translate-x-1/2 w-360 aspect-1440/820 -z-1 hidden sm:block'>
+				<Image
+					src='/images/showroom/bg.png'
 					alt="background image"
 					fill
 					className="object-cover"
@@ -37,7 +45,7 @@ export default function Showroom() {
 
 				<MimiLogo className='mb-26 md:mb-18 flex justify-center lg:mx-auto'></MimiLogo>
 
-				<div className="relative border-16 border-[#f9fbfc] aspect-video mb-8.5 md:mb-6 rounded-[20px] overflow-hidden bg-[#f9fbfc]">
+				<div className="relative border-3 md:border-8 lg:border-16 border-[#f9fbfc] aspect-video mb-8.5 md:mb-6 rounded-[18px] md:rounded-[20px] overflow-hidden bg-[#f9fbfc]">
 					{!isPlaying && (
 						<>
 							<Image
@@ -79,7 +87,7 @@ export default function Showroom() {
 								alt="Address"
 							/>
 						</div>
-						<a href="" className="hover:text-foreground transition-colors duration-300 font-helvetica lg:max-w-45 text-[14px] tracking-[-0.01em] text-brand-blue">
+						<a href="" className="hover:text-foreground transition-colors duration-300 font-helvetica max-w-45 text-[14px] tracking-[-0.01em] text-brand-blue">
 							{brand.address}
 						</a>
 					</div>
