@@ -439,7 +439,7 @@
 }
 
 .garage-zone:hover .garage-cctv {
-  animation: garage-cctv-anim 7s linear forwards;
+  animation: garage-cctv-anim 4s linear forwards;
 }
 
 @keyframes garage-cctv-anim {

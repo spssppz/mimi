@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react' // Добавили useRef
+import { useEffect, useRef, useState } from 'react' // Добавили useRef
 import Image from 'next/image';
 import { Title } from '../../UI/Title';
 import { Button } from '../../UI/Button';
+import { gsap } from 'gsap'
 import { showroomContent } from '@/data/showroom';
 import { brand } from '@/config/brand';
 import { PlayIcon } from '@/icons/PlayIcon';
@@ -11,9 +12,32 @@ import { MimiLogo } from '@/components/UI/MimiLogo';
 
 export default function Showroom() {
 	const [isPlaying, setIsPlaying] = useState(false)
+	const gradientRef = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		if (gradientRef.current) {
+			gsap.to(gradientRef.current, {
+				scale: 1.15,
+				opacity: 0.7,
+				duration: 3,
+				repeat: -1,
+				yoyo: true,
+				ease: 'sine.inOut'
+			})
+		}
+	}, [])
 
 	return (
 		<section className="overflow-hidden relative pt-10 pb-26 md:pt-16 md:pb-34 lg:pt-22.5 lg:pb-45">
+			<div ref={gradientRef}
+				className='absolute bottom-25  left-[40%] sm:left-0 2xl:left-[10%] w-88 sm:w-179.5 aspect-square -z-1'>
+				<Image
+					src='/images/showroom/decor.svg'
+					alt="background image"
+					fill
+					className="object-cover"
+				/>
+			</div>
 			<span className='absolute bottom-15 left-0 w-full aspect-390/516 -z-1 sm:hidden'>
 				<Image
 					src='/images/showroom/bg-mob.png'

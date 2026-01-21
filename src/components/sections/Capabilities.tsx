@@ -474,18 +474,17 @@ export default function Capabilities() {
 									alt="Фон"
 									fill
 								/>
-								<div className="absolute bottom-[17.7%] right-[27%] w-[18.83%] aspect-square font-medium text-[15px] text-white tracking-[-0.01em]">
+								<div className="absolute bottom-[19%] sm:bottom-[18%] md:bottom-[18.6%] right-[27%] w-[28%] sm:w-[18.83%] aspect-square font-medium text-[14px] sm:text-[15px] text-white tracking-[-0.01em]">
 									<Image
 										src="/images/capabilities/decor/8.png"
 										alt="Фон"
 										fill
 									/>
 
-									<span className="phrase phrase-1">
+									<span ref={phrase1Ref} className="absolute left-1/2 bottom-[calc(100%+37px)] -translate-x-1/2 whitespace-nowrap">
 										Алиса, включи музыку на кухне
 									</span>
-
-									<span className="phrase phrase-2">
+									<span ref={phrase2Ref} className="absolute left-1/2 bottom-[calc(100%+10px)] -translate-x-1/2 whitespace-nowrap opacity-30">
 										– Дети, все к столу!
 									</span>
 								</div>

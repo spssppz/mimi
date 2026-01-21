@@ -247,13 +247,11 @@ export default function Comfort() {
 		gsap.fromTo(
 			titleRef.current,
 			{
-				color: '#b5b5b5',
-				textShadow: '0 0 0 rgba(0,0,0,0)',
+				color: '#a8a8a9',
 			},
 			{
-				color: '#1f1f1f',
-				textShadow: '0 0 20px rgba(0,0,0,0.35)',
-				duration: 1.2,
+				color: '#0b0d10',
+				duration: 4,
 				ease: 'power2.out',
 				scrollTrigger: {
 					trigger: titleRef.current,
