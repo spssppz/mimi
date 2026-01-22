@@ -109,7 +109,7 @@ export default function SmartHome() {
 	return (
 
 		<section className={`overflow-hidden min-h-205 relative transition-colors duration-400 ${enabled && 'bg-foreground'}`}>
-			<div className='absolute lg:block hidden w-117.5 aspect-470/683 top-0 right-0'>
+			<div className='absolute lg:block hidden w-117.5 aspect-470/683 top-0 right-[13%]'>
 				<Image
 					src='/images/smarthome/decor.png'
 					alt="background image"
