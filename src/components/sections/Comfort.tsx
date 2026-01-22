@@ -208,12 +208,12 @@ export default function Comfort() {
 				<div className="grid md:grid-cols-2 gap-20 md:gap-5">
 
 					<div className="overflow-hidden relative rounded-[20px] bg-[#d8d8d8] p-5 md:p-7 lg:p-8 min-h-111.5 lg:min-h-auto">
-						<Image
+						{/* <Image
 							src="/images/comfort/bg-1.svg"
 							alt="bg"
 							fill
 							className="object-cover"
-						/>
+						/> */}
 
 
 						<h2
