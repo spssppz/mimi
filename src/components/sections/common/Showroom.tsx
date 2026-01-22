@@ -11,9 +11,27 @@ import { PlayIcon } from '@/icons/PlayIcon';
 import { MimiLogo } from '@/components/UI/MimiLogo';
 
 export default function Showroom() {
-	const [isPlaying, setIsPlaying] = useState(false)
 	const gradientRef = useRef<HTMLDivElement>(null)
 
+	const [isMuted, setIsMuted] = useState(true)
+	const videoRef = useRef<HTMLVideoElement>(null)
+
+	const handlePlayWithSound = () => {
+		if (!videoRef.current) return
+		videoRef.current.currentTime = 0   // Перезапуск с начала
+		videoRef.current.muted = false     // Включаем звук
+		videoRef.current.play()            // Старт видео
+		setIsMuted(false)                  // Обновляем состояние
+	}
+
+	useEffect(() => {
+		if (videoRef.current) {
+			videoRef.current.muted = true
+			videoRef.current.play().catch(() => {
+				// Автоплей может блокироваться браузером, обработка ошибки
+			})
+		}
+	}, [])
 	useEffect(() => {
 		if (gradientRef.current) {
 			gsap.to(gradientRef.current, {
@@ -70,34 +88,26 @@ export default function Showroom() {
 				<MimiLogo className='mb-26 md:mb-18 flex justify-center lg:mx-auto'></MimiLogo>
 
 				<div className="relative border-3 md:border-8 lg:border-16 border-[#f9fbfc] aspect-video mb-8.5 md:mb-6 rounded-[18px] md:rounded-[20px] overflow-hidden bg-[#f9fbfc]">
-					{!isPlaying && (
-						<>
-							<Image
-								src={`${showroomContent.videoPreview}`}
-								alt="Превью видео"
-								fill
-								className="object-cover rounded-2xl"
-							/>
+					<video
+						ref={videoRef}
+						className="w-full h-full object-cover rounded-2xl cursor-pointer"
+						autoPlay
+						loop
+						muted={isMuted}
+						onClick={handlePlayWithSound}
+						controls={!isMuted} // Показываем контролы только после включения звука
+					>
+						<source src={`${showroomContent.videoSrc}`} type="video/mp4" />
+					</video>
 
-							<button
-								onClick={() => setIsPlaying(true)}
-								className="absolute rounded-full overflow-hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 transition-opacity duration-300 hover:opacity-70"
-								aria-label="Запустить видео"
-							>
-								<PlayIcon className='w-13.5 h-13.5'></PlayIcon>
-							</button>
-						</>
-					)}
-
-					{isPlaying && (
-						<video
-							className="w-full h-full object-cover rounded-2xl"
-							controls
-							autoPlay
-							muted
+					{isMuted && (
+						<button
+							onClick={handlePlayWithSound}
+							className="absolute rounded-full overflow-hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 transition-opacity duration-300 hover:opacity-70"
+							aria-label="Включить звук и перезапустить видео"
 						>
-							<source src={`${showroomContent.videoSrc}`} type="video/mp4" />
-						</video>
+							<PlayIcon className="w-13.5 h-13.5" />
+						</button>
 					)}
 				</div>
 

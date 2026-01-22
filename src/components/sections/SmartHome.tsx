@@ -118,7 +118,7 @@ export default function SmartHome() {
 				/>
 
 			</div>
-			<div className='absolute lg:block hidden w-160 aspect-square -top-[12%] left-[59%]'>
+			<div className={`absolute lg:block hidden transition-opacity duration-400 w-160 aspect-square -top-[8%] left-[68%] ${enabled && 'opacity-20'}`}>
 				<Image
 					src='/images/smarthome/decor-2.png'
 					alt="background image"
