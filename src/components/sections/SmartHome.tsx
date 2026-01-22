@@ -109,6 +109,24 @@ export default function SmartHome() {
 	return (
 
 		<section className={`overflow-hidden min-h-205 relative transition-colors duration-400 ${enabled && 'bg-foreground'}`}>
+			<div className='absolute lg:block hidden w-117.5 aspect-470/683 top-0 right-0'>
+				<Image
+					src='/images/smarthome/decor.png'
+					alt="background image"
+					fill
+					className='object-cover'
+				/>
+
+			</div>
+			<div className='absolute lg:block hidden w-101.25 aspect-405/670 top-0 right-0'>
+				<Image
+					src='/images/smarthome/decor-2.png'
+					alt="background image"
+					fill
+					className='object-cover'
+				/>
+
+			</div>
 			<div className="absolute -top-13.75 left-3 sm:left-1/2 sm:-translate-x-1/2 w-360 aspect-1440/820">
 				<Image
 					src='/images/smarthome/bg.png'
@@ -169,6 +187,7 @@ export default function SmartHome() {
 					</span>
 				</div>
 			</div>
+
 			<div className="max-w-308 mx-auto px-4">
 				<div className='pt-13.5 lg:pl-36 lg:pt-30'>
 					<button
