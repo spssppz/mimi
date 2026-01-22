@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 function TabsCard() {
 	const [activeTab, setActiveTab] = useState<TabKey>('morning')
-	const blobsRef = useRef<SVGSVGElement | null>(null)
+	const blobsRef = useRef<HTMLDivElement | null>(null)
 	const listRef = useRef<HTMLUListElement | null>(null)
 	const iconRef = useRef<HTMLImageElement | null>(null)
 	useEffect(() => {
@@ -70,113 +70,54 @@ function TabsCard() {
 		)
 	}, [activeTab])
 
-	// useEffect(() => {
-	// 	if (!blobsRef.current) return
+	useEffect(() => {
+		if (!blobsRef.current) return
 
-	// 	const blobs = gsap.utils.toArray<SVGGElement>(
-	// 		blobsRef.current.querySelectorAll('.blob')
-	// 	)
+		const blobs = gsap.utils.toArray<SVGGElement>(
+			blobsRef.current.querySelectorAll('.blob')
+		)
 
-	// 	const tl = gsap.timeline({
-	// 		paused: true,
-	// 		repeat: -1,
-	// 		yoyo: true,
-	// 		defaults: { ease: 'sine.inOut' },
-	// 	})
+		const tl = gsap.timeline({
+			paused: true,
+			repeat: -1,
+			yoyo: true,
+			defaults: { ease: 'sine.inOut' },
+		})
 
-	// 	blobs.forEach(blob => {
-	// 		tl.to(blob, {
-	// 			x: gsap.utils.random(-90, 40),
-	// 			y: gsap.utils.random(-45, 60),
-	// 			scale: gsap.utils.random(0.9, 1.1),
-	// 			rotation: gsap.utils.random(-14, 12),
-	// 			duration: gsap.utils.random(4, 6),
-	// 		}, 0)
-	// 	})
+		blobs.forEach(blob => {
+			tl.to(blob, {
+				x: gsap.utils.random(-90, 40),
+				y: gsap.utils.random(-45, 60),
+				scale: gsap.utils.random(0.9, 1.1),
+				rotation: gsap.utils.random(-14, 12),
+				duration: gsap.utils.random(4, 6),
+			}, 0)
+		})
 
-	// 	const trigger = ScrollTrigger.create({
-	// 		trigger: blobsRef.current,
-	// 		start: 'top 90%',
-	// 		end: 'bottom 10%',
-	// 		onEnter: () => tl.play(),
-	// 		onLeave: () => tl.pause(),
-	// 		onEnterBack: () => tl.play(),
-	// 		onLeaveBack: () => tl.pause(),
-	// 	})
+		const trigger = ScrollTrigger.create({
+			trigger: blobsRef.current,
+			start: 'top 90%',
+			end: 'bottom 10%',
+			onEnter: () => tl.play(),
+			onLeave: () => tl.pause(),
+			onEnterBack: () => tl.play(),
+			onLeaveBack: () => tl.pause(),
+		})
 
-	// 	return () => {
-	// 		tl.kill()
-	// 		trigger.kill() // ✅ вот так правильно
-	// 	}
-	// }, [])
+		return () => {
+			tl.kill()
+			trigger.kill() // ✅ вот так правильно
+		}
+	}, [])
 
 	return (
 		<div className="relative overflow-hidden lg:min-h-98 rounded-[20px] bg-[#121212] px-5 lg:px-8 pt-6 lg:pt-7 min-h-102 flex flex-col">
-			{/* <svg
-				ref={blobsRef}
-				className="absolute inset-0 w-[120%] h-[120%] -left-[10%] -top-[10%] animate-gradient"
-				viewBox="0 0 590 376"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg"
-				preserveAspectRatio="xMidYMid slice"
-			>
-				<g className="blob" filter="url(#filter0_f_6231_44730)">
-					<path fillRule="evenodd" clipRule="evenodd" d="M336.139 254.705C368.537 256.379 386.561 289.45 414.647 305.674C444.814 323.099 504.189 316.859 504.036 351.69C503.87 389.514 430.947 379.806 414.172 413.713C392.866 456.78 451.534 540.363 404.916 552.047C358.629 563.648 375.387 458.595 334.735 433.622C293.394 408.227 225.258 461.142 195.09 423.151C166.902 387.653 196.261 330.653 225.367 295.894C251.655 264.5 295.242 252.592 336.139 254.705Z" fill="#926520" />
-				</g>
-				<g className="blob" filter="url(#filter1_f_6231_44730)">
-					<path fillRule="evenodd" clipRule="evenodd" d="M548.357 469.722C518.446 457.164 512.701 419.942 491.778 395.157C469.305 368.536 411.33 354.278 423.282 321.561C436.262 286.033 501.575 319.889 528.852 293.676C563.496 260.383 536.638 161.86 584.457 166.672C631.935 171.45 580.556 264.601 610.334 301.876C640.617 339.783 722.657 313.101 738.159 359.07C752.644 402.021 705.699 445.692 666.534 468.526C631.159 489.149 586.116 485.575 548.357 469.722Z" fill="#742092" />
-				</g>
-				<g className="blob mix-blend-overlay" filter="url(#filter2_f_6231_44730)">
-					<path d="M-19.5917 276.808C-19.5917 276.808 171.223 321.598 295 321.598C418.777 321.598 609.591 276.808 609.591 276.808V397.011C609.591 397.011 418.777 441.8 295 441.8C171.223 441.8 -19.5917 397.011 -19.5917 397.011V276.808Z" fill="white" />
-				</g>
-				<g className="blob mix-blend-overlay" filter="url(#filter3_f_6231_44730)">
-					<path d="M-143.258 244.906C-143.258 244.906 -14.7342 286.906 68.6361 286.906C152.006 286.906 280.53 244.906 280.53 244.906V357.623C280.53 357.623 152.006 399.623 68.6361 399.623C-14.7342 399.623 -143.258 357.623 -143.258 357.623V244.906Z" fill="white" />
-				</g>
-				<g className="blob mix-blend-overlay" filter="url(#filter4_f_6231_44730)">
-					<path d="M309.47 244.906C309.47 244.906 437.994 286.906 521.364 286.906C604.734 286.906 733.258 244.906 733.258 244.906V357.623C733.258 357.623 604.734 399.623 521.364 399.623C437.994 399.623 309.47 357.623 309.47 357.623V244.906Z" fill="white" />
-				</g>
-				<g className="blob mix-blend-overlay" filter="url(#filter5_f_6231_44730)">
-					<path d="M-19.5916 178.996C-19.5916 178.996 171.223 223.786 295 223.786C418.777 223.786 609.591 178.996 609.591 178.996V299.199C609.591 299.199 418.777 343.988 295 343.988C171.223 343.988 -19.5916 299.199 -19.5916 299.199V178.996Z" fill="#99E1FF" />
-				</g>
-				<defs>
-					<filter id="filter0_f_6231_44730" x="-16.326" y="54.4685" width="720.362" height="698.47" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-						<feFlood floodOpacity="0" result="BackgroundImageFix" />
-						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-						<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_6231_44730" />
-					</filter>
-					<filter id="filter1_f_6231_44730" x="221.677" y="-33.4982" width="719.17" height="716.315" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-						<feFlood floodOpacity="0" result="BackgroundImageFix" />
-						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-						<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_6231_44730" />
-					</filter>
-					<filter id="filter2_f_6231_44730" x="-79.5917" y="216.808" width="749.183" height="284.992" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-						<feFlood floodOpacity="0" result="BackgroundImageFix" />
-						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-						<feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_6231_44730" />
-					</filter>
-					<filter id="filter3_f_6231_44730" x="-203.258" y="184.906" width="543.788" height="274.717" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-						<feFlood floodOpacity="0" result="BackgroundImageFix" />
-						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-						<feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_6231_44730" />
-					</filter>
-					<filter id="filter4_f_6231_44730" x="249.47" y="184.906" width="543.788" height="274.717" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-						<feFlood floodOpacity="0" result="BackgroundImageFix" />
-						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-						<feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_6231_44730" />
-					</filter>
-					<filter id="filter5_f_6231_44730" x="-79.5916" y="118.996" width="749.183" height="284.992" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-						<feFlood floodOpacity="0" result="BackgroundImageFix" />
-						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-						<feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_6231_44730" />
-					</filter>
-				</defs>
-			</svg> */}
-			<Image
-				src="/images/comfort/bg.jpg"
-				alt="bg"
-				fill
-				className="object-cover"
-			/>
+			<div ref={blobsRef} className="absolute inset-0 overflow-hidden">
+				<div className="blob blob-1" />
+				<div className="blob blob-2" />
+				<div className="blob blob-3" />
+				<div className="blob blob-4" />
+			</div>
 			<Image
 				src="/images/comfort/bg-2.svg"
 				alt="bg"

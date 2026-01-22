@@ -747,3 +747,44 @@
 .animate-text-fill {
   animation: text-fill-shadow 1.2s ease-out forwards;
 }
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+  opacity: 0.8;
+}
+
+.blob-1 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #926520 0%, transparent 70%);
+  top: -10%;
+  left: -5%;
+}
+
+.blob-2 {
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, #742092 0%, transparent 70%);
+  bottom: 10%;
+  right: -10%;
+}
+
+.blob-3 {
+  width: 500px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+  top: 40%;
+  left: 10%;
+  mix-blend-mode: overlay;
+}
+
+.blob-4 {
+  width: 500px;
+  height: 220px;
+  background: radial-gradient(circle, #99E1FF 0%, transparent 70%);
+  bottom: -10%;
+  left: 20%;
+}
