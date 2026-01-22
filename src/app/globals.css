@@ -751,40 +751,56 @@
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(70px);
   will-change: transform;
-  opacity: 0.8;
+  opacity: 0.95;
 }
 
+/* Тёплый золотой */
 .blob-1 {
   width: 420px;
   height: 420px;
-  background: radial-gradient(circle, #926520 0%, transparent 70%);
+  background: radial-gradient(circle,
+      #ffb648 0%,
+      #c97a00 45%,
+      transparent 75%);
   top: -10%;
   left: -5%;
 }
 
+/* Фиолетовый неоновый */
 .blob-2 {
   width: 360px;
   height: 360px;
-  background: radial-gradient(circle, #742092 0%, transparent 70%);
+  background: radial-gradient(circle,
+      #c65cff 0%,
+      #6b1bb1 50%,
+      transparent 75%);
   bottom: 10%;
   right: -10%;
 }
 
+/* Световой блик */
 .blob-3 {
-  width: 500px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+  width: 520px;
+  height: 240px;
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.35) 40%,
+      transparent 70%);
   top: 40%;
   left: 10%;
-  mix-blend-mode: overlay;
+  mix-blend-mode: screen;
 }
 
+/* Голубой неон */
 .blob-4 {
-  width: 500px;
-  height: 220px;
-  background: radial-gradient(circle, #99E1FF 0%, transparent 70%);
+  width: 520px;
+  height: 240px;
+  background: radial-gradient(circle,
+      #6fdcff 0%,
+      #1c7fd6 50%,
+      transparent 75%);
   bottom: -10%;
   left: 20%;
 }

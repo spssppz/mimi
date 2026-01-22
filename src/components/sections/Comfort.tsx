@@ -17,55 +17,44 @@ function TabsCard() {
 	const blobsRef = useRef<HTMLDivElement | null>(null)
 	const listRef = useRef<HTMLUListElement | null>(null)
 	const iconRef = useRef<HTMLImageElement | null>(null)
+
 	useEffect(() => {
 		if (!listRef.current || !iconRef.current) return
 
-		const tl = gsap.timeline()
+		gsap.killTweensOf([listRef.current, iconRef.current])
 
-		// Иконка
+		const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
+
 		tl.to(iconRef.current, {
-			scale: 0.6,
+			scale: 0.7,
 			opacity: 0,
-			duration: 0.25,
-			ease: 'power2.in',
+			duration: 0.15,
 		})
 
-		// Список
 		tl.to(
 			listRef.current,
 			{
-				y: 20,
+				y: 15,
 				opacity: 0,
-				duration: 0.25,
-				ease: 'power2.in',
+				duration: 0.15,
 			},
 			'<'
 		)
 
-		tl.add(() => {
-			// просто даём React обновить DOM
-		}, '+=0.05')
+		tl.set([iconRef.current, listRef.current], {
+			clearProps: 'all',
+		})
 
 		tl.fromTo(
 			iconRef.current,
-			{ scale: 0.6, opacity: 0 },
-			{
-				scale: 1,
-				opacity: 1,
-				duration: 0.35,
-				ease: 'power3.out',
-			}
+			{ scale: 0.7, opacity: 0 },
+			{ scale: 1, opacity: 1, duration: 0.25 }
 		)
 
 		tl.fromTo(
 			listRef.current,
-			{ y: 20, opacity: 0 },
-			{
-				y: 0,
-				opacity: 1,
-				duration: 0.4,
-				ease: 'power3.out',
-			},
+			{ y: 15, opacity: 0 },
+			{ y: 0, opacity: 1, duration: 0.3 },
 			'<'
 		)
 	}, [activeTab])
@@ -73,25 +62,30 @@ function TabsCard() {
 	useEffect(() => {
 		if (!blobsRef.current) return
 
-		const blobs = gsap.utils.toArray<SVGGElement>(
+		const blobs = gsap.utils.toArray<HTMLElement>(
 			blobsRef.current.querySelectorAll('.blob')
 		)
 
 		const tl = gsap.timeline({
-			paused: true,
 			repeat: -1,
 			yoyo: true,
-			defaults: { ease: 'sine.inOut' },
+			defaults: {
+				ease: 'sine.inOut',
+			},
 		})
 
-		blobs.forEach(blob => {
-			tl.to(blob, {
-				x: gsap.utils.random(-90, 40),
-				y: gsap.utils.random(-45, 60),
-				scale: gsap.utils.random(0.9, 1.1),
-				rotation: gsap.utils.random(-14, 12),
-				duration: gsap.utils.random(4, 6),
-			}, 0)
+		blobs.forEach((blob, i) => {
+			tl.to(
+				blob,
+				{
+					x: gsap.utils.random(-120, 120),
+					y: gsap.utils.random(-80, 80),
+					scale: gsap.utils.random(0.85, 1.15),
+					rotation: gsap.utils.random(-20, 20),
+					duration: gsap.utils.random(6, 10),
+				},
+				i * 0.2 // 🔥 фаза — каждый блоб живёт своей жизнью
+			)
 		})
 
 		const trigger = ScrollTrigger.create({
@@ -106,9 +100,10 @@ function TabsCard() {
 
 		return () => {
 			tl.kill()
-			trigger.kill() // ✅ вот так правильно
+			trigger.kill()
 		}
 	}, [])
+
 
 	return (
 		<div className="relative overflow-hidden lg:min-h-98 rounded-[20px] bg-[#121212] px-5 lg:px-8 pt-6 lg:pt-7 min-h-102 flex flex-col">

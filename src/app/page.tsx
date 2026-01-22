@@ -17,9 +17,9 @@ export default function Home() {
       <main>
         <SmartHome />
         <Comfort />
-        <Capabilities />
+        {/* <Capabilities /> */}
         <Solutions />
-        <Advantages />
+        {/* <Advantages /> */}
         <Features title="Удобное управление" />
         <Showroom />
         <Cases />
