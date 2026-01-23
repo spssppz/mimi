@@ -274,7 +274,7 @@ export default function Header() {
 							)
 						})}
 					</nav>
-					<Button className='mb-4 w-full'>Связаться с нами</Button>
+					<Button className='mb-4 w-full justify-center'>Связаться с нами</Button>
 					<div className='font-helvetica flex items-center gap-2 text-[15px] text-[#acacac] -tracking-[0.01em] leading-normal mb-10'>
 						<span>Мы на связи сейчас</span>
 						<span className='w-2 h-2 rounded-full bg-[#27ca40] box-shadow: 0 4px 4px 0 rgba(39, 202, 64, 0.25);'></span>

@@ -1,4 +1,3 @@
-import { Button } from "@/components/UI/Button";
 import { Title } from "@/components/UI/Title";
 import Image from "next/image";
 

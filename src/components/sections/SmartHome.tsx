@@ -226,7 +226,7 @@ export default function SmartHome() {
 						Производство и монтаж современной электрики. <br />
 						Автоматическое управление всеми системами дома.
 					</p>
-					<Button>Узнать больше</Button>
+					<Button className='justify-center'>Узнать больше</Button>
 				</div>
 			</div>
 		</section>

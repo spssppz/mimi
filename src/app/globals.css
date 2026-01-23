@@ -654,7 +654,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  background: #5f6368;
+  background: currentColor;
   border-radius: 2px;
   height: 2px;
   width: 15px;

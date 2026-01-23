@@ -43,7 +43,7 @@ export default function OurFuture() {
 					{typeof window !== 'undefined' && window.innerWidth >= 1024 && (
 						<SwiperSlide className="flex-none mr-4 md:mr-5 lg:mr-10 tracking-[-0.01em]">
 							<div className="font-bold items-center justify-center flex text-[32px] text-[#acacac] aspect-375/465 rounded-[20px] overflow-hidden mb-4 bg-[#ededed] p-20">
-								<span>Дальше больше...</span>
+								<span className="max-w-40">Дальше больше...</span>
 							</div>
 						</SwiperSlide>
 					)}

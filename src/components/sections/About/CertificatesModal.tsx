@@ -68,7 +68,7 @@ export function CertificatesModal({ certificates, activeIndex, onClose }: Certif
 			>
 				<button
 					onClick={onClose}
-					className="cursor-pointer close-btn absolute top-5 right-5 w-9 h-9 rounded-full bg-background"
+					className="hover:bg-foreground hover:text-white transition-colors duration-300 cursor-pointer text-[#5f6368] close-btn absolute top-5 right-5 w-9 h-9 rounded-full bg-background"
 				>
 				</button>
 

@@ -27,7 +27,7 @@ export default function CurtainsHero() {
 					<div className="text-[15px] leading-normal">Открываются сами, когда нужно</div>
 				</div>
 				<div>
-					<Button>Узнать больше</Button>
+					<Button className="justify-center">Узнать больше</Button>
 				</div>
 			</div>
 		</section>

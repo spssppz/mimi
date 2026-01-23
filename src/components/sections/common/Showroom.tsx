@@ -125,7 +125,7 @@ export default function Showroom() {
 							{brand.address}
 						</a>
 					</div>
-					<Button>Записаться в шоурум</Button>
+					<Button className='justify-center'>Записаться в шоурум</Button>
 				</div>
 
 			</div>

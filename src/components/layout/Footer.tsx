@@ -8,6 +8,7 @@ import { routes } from "@/config/routes";
 import { TgIcon } from '@/icons/socials/TgIcon'
 import { VkIcon } from "@/icons/socials/VkIcon";
 import { YoutubeIcon } from "@/icons/socials/YoutubeIcon";
+import { RightArrowIcon } from "@/icons/RightArrowIcon";
 
 
 export function FooterColumn({ title, links, showOnMobile }: FooterColumnData) {
@@ -39,14 +40,12 @@ export default function Footer() {
 		<footer className="bg-[#efefef] py-10">
 			<div className="max-w-308 mx-auto px-4">
 				<div className="border-t border-[#d9d9d9] pt-6 pb-10">
-					<Link href="/" className="mb-10 inline-block font-helvetica font-bold tracking-[0.01em] text-[#00d0ff] text-[20px] md:text-[22px] order-1 mr-auto lg:mr-0">
-						MiMi<span className="transition-colors duration-301 text-foreground">Smart</span>
-					</Link>
-					<div>
-
-						{/* <TgIcon className="w-6 h-6 text-blue-500"></TgIcon>
-						<VkIcon className="w-6 h-6 text-blue-500"></VkIcon>
-						<YoutubeIcon className="w-6 h-6 text-blue-500"></YoutubeIcon> */}
+					<div className="mb-10 flex font-helvetica gap-5 items-center">
+						<Link href="/" className="font-bold tracking-[0.01em] text-[#00d0ff] text-[20px] md:text-[22px]">
+							MiMi<span className="transition-colors duration-301 text-foreground">Smart</span>
+						</Link>
+						{/* <RightArrowIcon className="w-4.5 h-4.5"></RightArrowIcon>
+						<span className="text-[13px]">О компании</span> */}
 					</div>
 					<div className="columns-2 space-y-10 md:space-y-6 md:columns-3 lg:columns-5 gap-10">
 						{footerColumns.map(column => (

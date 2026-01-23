@@ -24,10 +24,10 @@ export default function Contacts() {
 								alt="г. Москва, Новоданиловская наб., 6к1"
 							/>
 						</div>
-						<div>
-							<address className="text-brand-blue not-italic max-w-50">
+						<div className="max-w-50">
+							<a className="transition-colors duration-300 hover:text-foreground text-brand-blue" href="" target="_blank">
 								{brand.address}
-							</address>
+							</a>
 						</div>
 					</div>
 					<div className='text-brand-blue flex items-center gap-3'>
@@ -41,7 +41,7 @@ export default function Contacts() {
 							/>
 						</div>
 						<div>
-							<a href={`tel:${phoneClean}`}>{contacts.phone}</a>
+							<a className="transition-colors duration-300 hover:text-foreground" href={`tel:${phoneClean}`}>{contacts.phone}</a>
 							<p className='text-[#acacac]'>Время работы: {contacts.workingHours}</p>
 						</div>
 					</div>
@@ -55,7 +55,7 @@ export default function Contacts() {
 								height={50}
 							/>
 						</div>
-						<a href={`mailto:${contacts.email}`}>{contacts.email}</a>
+						<a className="transition-colors duration-300 hover:text-foreground" href={`mailto:${contacts.email}`}>{contacts.email}</a>
 					</div>
 				</div>
 				<nav
@@ -76,7 +76,7 @@ export default function Contacts() {
 						)
 					})}
 				</nav>
-				<Button className='lg:min-w-80  mb-4'>Связаться с нами</Button>
+				<Button className='lg:min-w-80 justify-between mb-4'>Связаться с нами</Button>
 				<div className='flex items-center gap-2 text-[14px] text-[#acacac] -tracking-[0.01em] leading-normal pl-6'>
 					<span>Мы на связи сейчас</span>
 					<span className='w-2 h-2 rounded-full bg-[#27ca40] box-shadow: 0 4px 4px 0 rgba(39, 202, 64, 0.25);'></span>
