@@ -1,9 +1,10 @@
 import Header from "@/components/layout/Header";
 import Portfolio from "@/components/sections/Portfolio/Portfolio";
 import Footer from "@/components/layout/Footer";
+import { routes } from "@/config/routes";
 
 export const metadata = {
-	title: 'Проекты'
+	title: routes.portfolio.title
 }
 
 export default function AboutPage() {

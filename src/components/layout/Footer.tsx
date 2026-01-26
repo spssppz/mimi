@@ -1,14 +1,12 @@
+'use client'
+
 import { footerColumns } from "@/data/footer";
 import { FooterColumnData } from "@/types/footer";
-import Image from "next/image";
 import Link from "next/link";
-import { brand } from "@/config/brand";
 import { contacts } from "@/config/contacts";
 import { routes } from "@/config/routes";
-import { TgIcon } from '@/icons/socials/TgIcon'
-import { VkIcon } from "@/icons/socials/VkIcon";
-import { YoutubeIcon } from "@/icons/socials/YoutubeIcon";
 import { RightArrowIcon } from "@/icons/RightArrowIcon";
+import { usePathname } from "next/navigation";
 
 
 export function FooterColumn({ title, links, showOnMobile }: FooterColumnData) {
@@ -34,19 +32,42 @@ export function FooterColumn({ title, links, showOnMobile }: FooterColumnData) {
 	)
 }
 
+
+export const Breadcrumbs = () => {
+	const pathname = usePathname()
+
+	const currentRoute = Object.values(routes).find(
+		route => route.path === pathname
+	)
+
+	return (
+		<div className="mb-10 flex font-helvetica gap-5 items-center">
+			<Link
+				href="/"
+				className="font-bold tracking-[0.01em] text-[#00d0ff] text-[20px] md:text-[22px]"
+			>
+				MiMi<span className="transition-colors duration-301 text-foreground">Smart</span>
+			</Link>
+
+			{currentRoute && (
+				<>
+					<RightArrowIcon className="w-4.5 h-4.5" />
+					<span className="text-[13px]">
+						{currentRoute.title}
+					</span>
+				</>
+			)}
+		</div>
+	)
+}
+
 export default function Footer() {
 	const phoneClean = contacts.phone.replace(/[^\d]/g, "")
 	return (
 		<footer className="bg-[#efefef] py-10">
 			<div className="max-w-308 mx-auto px-4">
 				<div className="border-t border-[#d9d9d9] pt-6 pb-10">
-					<div className="mb-10 flex font-helvetica gap-5 items-center">
-						<Link href="/" className="font-bold tracking-[0.01em] text-[#00d0ff] text-[20px] md:text-[22px]">
-							MiMi<span className="transition-colors duration-301 text-foreground">Smart</span>
-						</Link>
-						{/* <RightArrowIcon className="w-4.5 h-4.5"></RightArrowIcon>
-						<span className="text-[13px]">О компании</span> */}
-					</div>
+					<Breadcrumbs />
 					<div className="columns-2 space-y-10 md:space-y-6 md:columns-3 lg:columns-5 gap-10">
 						{footerColumns.map(column => (
 							<FooterColumn
@@ -98,7 +119,7 @@ export default function Footer() {
 				</div>
 				<div className="font-helvetica text-[#0a051a] border-t text-[13px] border-[#d9d9d9] pt-6 flex flex-col justify-between items-start gap-2.5 md:gap-4 md:flex-row md:items-center">
 					<p>&copy; 2025 MiMiSmart. All rights reserved.</p>
-					<Link href={`${routes.privacy}`} className="text-brand-light-gray/60 transition-colors hover:text-brand-light-gray">Политика конфиденциальности</Link>
+					<Link href={`${routes.privacy.path}`} className="text-brand-light-gray/60 transition-colors hover:text-brand-light-gray">Политика конфиденциальности</Link>
 				</div>
 			</div>
 		</footer>

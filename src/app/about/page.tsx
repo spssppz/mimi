@@ -6,10 +6,11 @@ import Team from "@/components/sections/About/Team";
 import Certificates from "@/components/sections/About/Certificates";
 import Contacts from "@/components/sections/common/Contacts";
 import Footer from "@/components/layout/Footer";
+import { routes } from "@/config/routes";
 
 
 export const metadata = {
-	title: 'О компании'
+	title: routes.about.title
 }
 
 export default function AboutPage() {

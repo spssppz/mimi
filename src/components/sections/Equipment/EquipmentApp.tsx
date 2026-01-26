@@ -7,8 +7,8 @@ export default function EquipmentApp() {
 			<div className="max-w-236 mx-auto px-4 -tracking-[0.01em]">
 				<div className="mb-10 md:mb-20 lg:mb-30">
 					<div className="font-helvetica font-bold text-[18px] md:text-[24px] lg:text-[32px] leading-tight">Приложение</div>
-					<h2 className="mb-6 font-helvetica tracking-0 font-bold text-[64px] md:text-[100px] lg:text-[140px] xl:text-[220px] bg-[linear-gradient(180deg,#7748aa_0%,#ff1457_100%)] bg-clip-text text-transparent leading-tight">
-						Система <br />
+					<h2 className="mb-6 font-helvetica tracking-0 font-bold text-[64px] md:text-[100px] lg:text-[140px] xl:text-[220px] bg-[linear-gradient(180deg,#7748aa_0%,#ff1457_100%)] bg-clip-text text-transparent leading-tight flex flex-col">
+						Система
 						<span className="text-[40px] md:text-[60px] lg:text-[80px] xl:text-[100px]">умного дома.</span>
 					</h2>
 					<div className="text-[17px] leading-tight max-w-143">

@@ -3,9 +3,10 @@ import SolutionsHero from "@/components/sections/Solutions/SolutionsHero";
 import Improvement from "@/components/sections/Solutions/Improvement";
 import Contacts from "@/components/sections/common/Contacts";
 import Footer from "@/components/layout/Footer";
+import { routes } from "@/config/routes";
 
 export const metadata = {
-	title: 'Готовые решения'
+	title: routes.solutions.title
 }
 
 export default function SolutionsPage() {

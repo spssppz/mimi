@@ -187,7 +187,7 @@ export default function Comfort() {
 		if (!titleRef.current) return
 
 		gsap.to(titleRef.current, {
-			color: '#0b0d10',
+			color: '#8f8f90',
 			scrollTrigger: {
 				trigger: titleRef.current,
 				start: 'top 75%',
@@ -208,12 +208,12 @@ export default function Comfort() {
 				<div className="grid md:grid-cols-2 gap-20 md:gap-5">
 
 					<div className="overflow-hidden relative rounded-[20px] bg-[#d8d8d8] p-5 md:p-7 lg:p-8 min-h-111.5 lg:min-h-auto">
-						{/* <Image
-							src="/images/comfort/bg-1.svg"
+						<Image
+							src="/images/comfort/bg-1.png"
 							alt="bg"
 							fill
 							className="object-cover"
-						/> */}
+						/>
 
 
 						<h2

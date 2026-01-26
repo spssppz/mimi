@@ -223,7 +223,7 @@ export default function Capabilities() {
 							</span>
 						</div>
 
-						<h3 className="relative font-bold text-[100px] leading-none tracking-[-0.04em] bg-[radial-gradient(50%_50%_at_50%_50%,#f4e3c2_0%,#f0c88f_50%,#d9a663_100%)] bg-clip-text text-transparent opacity-40">Мультирум</h3>
+						<h3 className="relative font-bold text-[100px] leading-tight tracking-[-0.04em] bg-[radial-gradient(50%_50%_at_50%_50%,#f4e3c2_0%,#f0c88f_50%,#d9a663_100%)] bg-clip-text text-transparent opacity-40">Мультирум</h3>
 						<div className="relative flex justify-between gap-4 items-end">
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#92969d]">
 								Своя музыка в каждой комнате, AirPlay, следящая музыка, звуковые оповещения
@@ -488,7 +488,7 @@ export default function Capabilities() {
 										– Дети, все к столу!
 									</span>
 								</div>
-								<h3 className="relative font-bold text-[40px] sm:text-[60px] md:text-[80px] leading-none tracking-[-0.04em] bg-[radial-gradient(50%_50%_at_50%_50%,#f4e3c2_0%,#f0c88f_50%,#d9a663_100%)] bg-clip-text text-transparent opacity-40">Мультирум</h3>
+								<h3 className="relative font-bold text-[40px] sm:text-[60px] md:text-[80px] leading-tight tracking-[-0.04em] bg-[radial-gradient(50%_50%_at_50%_50%,#f4e3c2_0%,#f0c88f_50%,#d9a663_100%)] bg-clip-text text-transparent opacity-40">Мультирум</h3>
 								<div className="relative flex justify-between gap-4 items-start sm:items-end flex-col sm:flex-row">
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#92969d]">
 										Своя музыка в каждой комнате, AirPlay, следящая музыка, звуковые оповещения

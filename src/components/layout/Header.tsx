@@ -296,7 +296,6 @@ export default function Header() {
 						})}
 					</div>
 				</div>
-				{/* дальше */}
 			</div>
 		</header>
 	);

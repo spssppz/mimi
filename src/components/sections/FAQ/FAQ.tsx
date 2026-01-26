@@ -54,7 +54,7 @@ export default function FAQ() {
 				</div>
 				<div className="flex-auto lg:mr-15">
 					<Title className="mb-10 xl:max-w-[70%]">Ответим на все вопросы</Title>
-					<Button className="lg:min-w-80 mb-4 justify-center">Связаться с нами</Button>
+					<Button className="lg:min-w-80 mb-4 justify-between">Связаться с нами</Button>
 					<div className='mb-10 flex items-center gap-2 text-[14px] text-[#acacac] -tracking-[0.01em] leading-normal pl-6'>
 						<span>Мы на связи сейчас</span>
 						<span className='w-2 h-2 rounded-full bg-[#27ca40] box-shadow: 0 4px 4px 0 rgba(39, 202, 64, 0.25);'></span>

@@ -2,9 +2,10 @@ import Header from "@/components/layout/Header";
 import Contacts from "@/components/sections/common/Contacts";
 import Showroom from "@/components/sections/common/Showroom";
 import Footer from "@/components/layout/Footer";
+import { routes } from "@/config/routes";
 
 export const metadata = {
-	title: 'Контакты'
+	title: routes.contacts.title
 }
 
 export default function ContactsPage() {

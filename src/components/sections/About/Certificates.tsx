@@ -1,13 +1,53 @@
 "use client"
 
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useRef, useLayoutEffect } from "react"
 
 import { Title } from "@/components/UI/Title";
 import { certificates } from "@/data/certificates";
 import Image from "next/image";
 import { CertificatesModal } from "./CertificatesModal";
 import { useState } from "react";
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Certificates() {
+
+	const sectionRef = useRef<HTMLElement>(null)
+	const titleRef = useRef<HTMLHeadingElement>(null)
+	const itemsRef = useRef<HTMLLIElement[]>([])
+
+	useLayoutEffect(() => {
+		const ctx = gsap.context(() => {
+			// Заголовок
+			gsap.from(titleRef.current, {
+				y: 40,
+				opacity: 0,
+				duration: 0.6,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: titleRef.current,
+					start: "top 80%",
+				},
+			})
+
+			// Карточки
+			gsap.from(itemsRef.current, {
+				y: 60,
+				opacity: 0,
+				duration: 0.6,
+				stagger: 0.15,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: sectionRef.current,
+					start: "top 70%",
+				},
+			})
+		}, sectionRef)
+
+		return () => ctx.revert()
+	}, [])
+
 	const [isOpen, setIsOpen] = useState(false)
 	const [activeIndex, setActiveIndex] = useState(0)
 
@@ -16,12 +56,17 @@ export default function Certificates() {
 		setIsOpen(true)
 	}
 	return (
-		<section className="py-22.5 lg:py-30">
+		<section ref={sectionRef} className="py-22.5 lg:py-30">
 			<div className="max-w-308 mx-auto px-4">
-				<Title className="mb-10">Сертификаты</Title>
+				<div ref={titleRef}>
+					<Title className="mb-10">Сертификаты</Title>
+				</div>
 				<ul className="grid items-start sm:grid-cols-2 lg:grid-cols-3 gap-x-20 lg:gap-x-10 gap-y-20">
 					{certificates.map((certificate, index) => (
 						<li
+							ref={(el) => {
+								if (el) itemsRef.current[index] = el
+							}}
 							key={certificate.id}
 							className="relative flex justify-center pb-13.5 sm:even:pt-20 lg:even:pt-0 lg:nth-[3n+2]:pt-20 lg:nth-[3n]:pt-40"
 						>

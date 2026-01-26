@@ -1,12 +1,12 @@
 import { Title } from "@/components/UI/Title";
 import Image from "next/image";
-// achievements
+
 export default function HeroAbout() {
 	return (
 		<section className="pt-15 md:pt-22.5 lg:pt-28 pb-22.5 md:pb-28 lg:pb-58.5">
 			<div className="max-w-308 mx-auto px-4 flex gap-10 xl:gap-30">
 
-				<div className="hidden lg:block relative w-82.5 shrink-0 grow-0 basis-82.5">
+				<div className="hidden -ml-9 px-3.5 lg:block relative w-82.5 shrink-0 grow-0 basis-82.5">
 					<Image
 						src='/images/faq/left-bg.png'
 						alt="background image"
