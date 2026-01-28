@@ -235,7 +235,10 @@ export default function SmartHome() {
 						<Image src="/images/smarthome/cctv.png" width={85} height={78} alt="" />
 					</span>
 
-					<span className={`car transition-all duration-400 ${enabled && 'brightness-30'}`}>
+					<span className={`car transition-all duration-400 ${!enabled && 'opacity-0'}`}>
+						<Image src="/images/smarthome/car-dark.png" fill alt="" />
+					</span>
+					<span className={`car transition-all duration-400 ${enabled && 'opacity-0'}`}>
 						<Image src="/images/smarthome/car.png" fill alt="" />
 					</span>
 				</div>
