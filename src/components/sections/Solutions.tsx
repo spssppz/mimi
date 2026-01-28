@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import { Title } from '../UI/Title';
 import { RightArrowIcon } from '@/icons/RightArrowIcon';
+import GlowBackground from './GlowBackground';
 
 export default function Solutions() {
 	return (
 
-		<section className="bg-foreground py-30 overflow-hidden">
+		<section className="bg-foreground py-30 overflow-hidden relative">
+			<div className="dots-pattern" />
 			<div className="max-w-308 mx-auto px-4">
 
 				<Title className="text-white mb-20">Комплексные решения</Title>
@@ -13,14 +15,10 @@ export default function Solutions() {
 				<ul className="grid md:grid-cols-2 gap-6 md:gap-5">
 
 					<li className="relative">
-						<div className='absolute -left-[15%] -top-[18%] bottom-0 right-0'>
-							<Image
-								src="/images/solutions/decor-1.png"
-								alt="bg"
-								fill
-							/>
-						</div>
-						<div className='relative bg-foreground border border-[#5A5D64] min-h-76 md:min-h-89 rounded-xl p-8 flex flex-col justify-center items-center text-center'>
+
+						<GlowBackground />
+
+						<div className='relative z-10 bg-foreground border border-[#5A5D64] min-h-76 md:min-h-89 rounded-xl p-8 flex flex-col justify-center items-center text-center'>
 							<div className="mb-4">
 
 								<Image
@@ -43,14 +41,10 @@ export default function Solutions() {
 						</div>
 					</li>
 					<li className="relative">
-						<div className='absolute top-0 left-0 -right-[20%] -bottom-[30%]'>
-							<Image
-								src="/images/solutions/decor-2.png"
-								alt="bg"
-								fill
-							/>
-						</div>
-						<div className='relative bg-foreground border border-[#5A5D64] min-h-76 md:min-h-89 rounded-xl p-8 flex flex-col justify-center items-center text-center'>
+
+						<GlowBackground />
+
+						<div className='relative z-10 bg-foreground border border-[#5A5D64] min-h-76 md:min-h-89 rounded-xl p-8 flex flex-col justify-center items-center text-center'>
 							<div className="mb-4">
 								<Image
 									src="/images/solutions/2.png"

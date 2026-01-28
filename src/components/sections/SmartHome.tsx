@@ -7,56 +7,73 @@ import { useEffect } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 
 function LivingRoom() {
-	const { enabled } = useTheme()
+	const { enabled } = useTheme();
+
 	useEffect(() => {
-		// ищем контейнер зоны и датчик
-		const zone = document.querySelector<HTMLDivElement>('.living-zone')
-		const sensor = document.getElementById('motion-sensor') as HTMLElement | null
+		// Теперь следим за всем разделом или родительским контейнером
+		const zone = document.querySelector<HTMLDivElement>('section');
+		const sensor = document.getElementById('motion-sensor') as HTMLElement | null;
 
-		if (!zone || !sensor) return
+		if (!zone || !sensor) return;
 
-		// обработчик движения мыши
+		let lastMousePos = { x: 0, y: 0 };
+		let lastTimestamp = 0;
+
 		const onMove = (event: MouseEvent) => {
-			const sensorRect = sensor.getBoundingClientRect()
-			const mouseX = event.clientX
-			const mouseY = event.clientY
+			const sensorRect = sensor.getBoundingClientRect();
+			const mouseX = event.clientX;
+			const mouseY = event.clientY;
+			const now = performance.now();
 
-			const sensorX = sensorRect.left + sensorRect.width / 2
-			const sensorY = sensorRect.top + sensorRect.height / 2
+			// --- Расчет расстояния (для размера/силы волн) ---
+			const sensorX = sensorRect.left + sensorRect.width / 2;
+			const sensorY = sensorRect.top + sensorRect.height / 2;
+			const dx = mouseX - sensorX;
+			const dy = mouseY - sensorY;
+			const distance = Math.sqrt(dx * dx + dy * dy);
 
-			const dx = mouseX - sensorX
-			const dy = mouseY - sensorY
-			const distance = Math.sqrt(dx * dx + dy * dy)
+			// --- Расчет скорости (для частоты пульсации) ---
+			const dt = now - lastTimestamp;
+			const distanceMoved = Math.sqrt(
+				Math.pow(mouseX - lastMousePos.x, 2) + Math.pow(mouseY - lastMousePos.y, 2)
+			);
+			const speed = dt > 0 ? distanceMoved / dt : 0;
 
-			const maxDistance = 300 // радиус реакции
+			// Обновляем предыдущие значения
+			lastMousePos = { x: mouseX, y: mouseY };
+			lastTimestamp = now;
 
-			if (distance < maxDistance) {
-				const intensity = 1 - distance / maxDistance
-				const speed = 1.8 - intensity * 1.2 // от 1.8s до 0.6s
-				sensor.style.setProperty('--pulse-speed', `${speed}s`)
-				sensor.classList.add('active')
-			} else {
-				sensor.classList.remove('active')
-			}
-		}
+			// 1. Интенсивность (чем ближе, тем больше масштаб волн)
+			// Ограничим радиус влияния, например, 800px
+			const maxRange = 800;
+			const intensity = Math.max(0, 1 - distance / maxRange);
 
-		// когда курсор покидает зону
+			// 2. Скорость пульсации (зависит от скорости мыши)
+			// Базовая скорость 2с, при быстром движении ускоряем до 0.3с
+			const pulseDuration = Math.max(0.3, 2 - speed * 0.5);
+
+			// Применяем CSS переменные
+			sensor.style.setProperty('--pulse-intensity', intensity.toString());
+			sensor.style.setProperty('--pulse-speed', `${pulseDuration}s`);
+
+			// Датчик всегда "активен", пока мышь в секции
+			sensor.classList.add('active');
+		};
+
 		const onLeave = () => {
-			sensor.classList.remove('active')
-		}
+			sensor.classList.remove('active');
+		};
 
-		zone.addEventListener('mousemove', onMove)
-		zone.addEventListener('mouseleave', onLeave)
+		zone.addEventListener('mousemove', onMove);
+		zone.addEventListener('mouseleave', onLeave);
 
 		return () => {
-			zone.removeEventListener('mousemove', onMove)
-			zone.removeEventListener('mouseleave', onLeave)
-		}
-	}, [])
-
-
+			zone.removeEventListener('mousemove', onMove);
+			zone.removeEventListener('mouseleave', onLeave);
+		};
+	}, []);
 	return (
-		<div className="living-zone">
+		<div className={`living-zone ${enabled && 'dark-theme'}`}>
 			<span className={`living-cctv transition-all duration-400 ${enabled && 'brightness-30'}`}>
 				<Image src="/images/smarthome/cctv.png" width={85} height={78} alt="" />
 			</span>
@@ -127,19 +144,19 @@ export default function SmartHome() {
 				/>
 
 			</div>
-			<div className="absolute -top-13.75 left-3 sm:left-1/2 sm:-translate-x-1/2 w-360 aspect-1440/820">
+			<div className="absolute -top-13.75 left-3 sm:left-1/2 sm:-translate-x-1/2 w-360 aspect-1440/820 ">
 				<Image
 					src='/images/smarthome/bg.png'
 					alt="background image"
 					fill
-					className={`object-cover transition-opacity duration-400 ${enabled && 'opacity-0'}`}
+					className={`object-cover transition duration-400 ${enabled && 'brightness-20'}`}
 				/>
-				<Image
+				{/* <Image
 					src='/images/smarthome/bg-dark.png'
 					alt="background image"
 					fill
 					className={`left-1.75! top-0.5! object-cover transition-opacity duration-400 ${!enabled && 'opacity-0'}`}
-				/>
+				/> */}
 				<LivingRoom />
 
 				<div className={`bedroom-zone ${enabled && 'dark-theme'}`}>
@@ -174,8 +191,12 @@ export default function SmartHome() {
 				</div>
 
 				<div className="garage-zone">
-					<span className={`garage-cctv transition-all duration-400 ${enabled && 'brightness-30'}`}>
+					<span className={`garage-cctv transition-all duration-400 ${enabled ? 'brightness-30' : ''}`}>
 						<Image src="/images/smarthome/cctv.png" width={85} height={78} alt="" />
+					</span>
+
+					<span className={`car transition-all duration-400 ${enabled && 'brightness-30'}`}>
+						<Image src="/images/smarthome/car.png" fill alt="" />
 					</span>
 				</div>
 				<div className="sitting-zone">

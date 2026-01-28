@@ -9,9 +9,10 @@ import Signaling from "@/components/sections/Security/Signaling";
 import SmartSockets from "@/components/sections/Security/SmartSockets";
 import Showroom from "@/components/sections/common/Showroom";
 import Footer from "@/components/layout/Footer";
+import { routes } from "@/config/routes";
 
 export const metadata = {
-	title: 'Безопасный дом'
+	title: routes.security.title
 }
 
 export default function SecurityPage() {

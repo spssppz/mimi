@@ -7,23 +7,53 @@ import { Navigation } from "swiper/modules";
 
 import "swiper/css";
 import { RightArrowIcon } from "@/icons/RightArrowIcon";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import gsap from "gsap";
 
 const tabs = [
 	{
 		label: "Без умного дома",
-		image: "/images/lightning-page/way/2.png",
+		image: {
+			url: "/images/lightning-page/way/2.png",
+			width: 664,
+			height: 402,
+		},
 		text: "Выключатели множатся: на каждой стене — пианино из клавиш. Каждый управляет только одной группой света. Никаких сцен — только вкл/выкл. Чтобы приглушить свет или закрыть все — приходится обходить комнаты и нажимать по очереди. Итог: 10+ выключателей, путаешься, где что включается, и лишние отверстия в стенах."
 	},
 	{
 		label: "С умным домом",
-		image: "/images/lightning-page/way/1.jpg",
+		image: {
+			url: "/images/lightning-page/way/1.jpg",
+			width: 285,
+			height: 285,
+		},
 		text: "С умным домом вы управляете группой света через одно нажатие, сценарии включения и выключения становятся полностью автоматическими, а количество физических выключателей минимально."
 	}
 ]
 
 export default function LightningWay() {
+	const [activeTab, setActiveTab] = useState(0)
+	const imageRef = useRef<HTMLDivElement>(null)
+	const textRef = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		if (!imageRef.current || !textRef.current) return
+
+		// Анимация картинки сверху
+		gsap.fromTo(
+			imageRef.current,
+			{ y: -50, opacity: 0 },
+			{ y: 0, opacity: 1, duration: 0.6 }
+		)
+
+		// Анимация текста снизу
+		gsap.fromTo(
+			textRef.current,
+			{ y: 50, opacity: 0 },
+			{ y: 0, opacity: 1, duration: 0.6 }
+		)
+	}, [activeTab])
 
 	return (
 		<section className="py-22.5 text-center">
@@ -33,19 +63,32 @@ export default function LightningWay() {
 					<span className="bg-[linear-gradient(180deg,#422e0c_0%,#ffc96e_100%)] bg-clip-text text-transparent">Управляйте группой света</span>
 				</Title>
 				<div className="max-w-125 mx-auto -tracking-[0.01em] flex flex-col items-center">
-					<Image
-						src="/images/lightning-page/way/1.jpg"
-						className="lg:mb-35 md:mb-30 mb-25"
-						width={285}
-						alt=""
-						height={285}
-					/>
-					<div className="mb-10 bg-white flex justify-center gap-2 p-1 rounded-[50px] font-helvetica font-medium leading-normal">
-						<button type="button" className="py-2.5 px-5 rounded-[50px]">Без умного дома</button>
-						<button type="button" className="py-2.5 px-5 bg-foreground text-white rounded-[50px]">С умным домом</button>
+					<div ref={imageRef} className="flex items-center justify-center min-h-80">
+						<Image
+							src={tabs[activeTab].image.url}
+							width={tabs[activeTab].image.width}
+							height={tabs[activeTab].image.height}
+							alt=""
+							className="lg:mb-35 md:mb-30 mb-25"
+						/>
 					</div>
-					<div className="text-[17px] leading-tight">Сокращаем количество выключателей в среднем в 2 раза. Итого у вас теперь 3-5 выключателей вместо 10.
-						Но каждой кнопке на выключателе будет присвоено не одно действие вкл/выкл, а управление группой света или сценарием.</div>
+
+					<div className="mb-10 bg-white flex justify-center gap-2 p-1 rounded-[50px] font-helvetica font-medium leading-normal">
+						{tabs.map((tab, i) => (
+							<button
+								key={i}
+								type="button"
+								onClick={() => setActiveTab(i)}
+								className={`cursor-pointer hover:bg-foreground hover:text-white py-2.5 px-5 rounded-[50px] transition-colors duration-300 ${activeTab === i ? "bg-foreground text-white" : ""
+									}`}
+							>
+								{tab.label}
+							</button>
+						))}
+					</div>
+					<div ref={textRef} className="text-[17px] leading-tight">
+						{tabs[activeTab].text}
+					</div>
 				</div>
 			</div>
 		</section>

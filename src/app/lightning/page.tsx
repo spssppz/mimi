@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import LightningHero from "@/components/sections/Lightning/LightningHero";
 import LightningTypes from "@/components/sections/Lightning/LightningTypes";
 import LightningWay from "@/components/sections/Lightning/LightningWay";
+import LightningDecor from "@/components/sections/Lightning/LightningDecor";
 // 
 import Features from "@/components/sections/Features";
 import LightningBio from "@/components/sections/Lightning/LightningBio";
@@ -21,6 +22,7 @@ export default function LightningPage() {
 				<LightningHero></LightningHero>
 				<LightningTypes></LightningTypes>
 				<LightningWay></LightningWay>
+				<LightningDecor></LightningDecor>
 				{/*  */}
 				<Features title="Удобное управление" />
 				<LightningBio></LightningBio>

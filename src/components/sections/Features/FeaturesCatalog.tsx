@@ -1,3 +1,4 @@
+import { Button } from "@/components/UI/Button";
 import { Title } from "@/components/UI/Title";
 import { RightArrowIcon } from "@/icons/RightArrowIcon";
 import Image from "next/image";
@@ -80,7 +81,7 @@ export default function FeaturesCatalog() {
 						</li>
 					</ul>
 				</div>
-				<ul className="grid gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+				<ul className="grid mb-22.5 gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
 					{catalog.map((item, i) => (
 						<li key={i} className="flex aspect-square lg:aspect-auto lg:min-h-47.5 rounded-xl bg-white p-2 lg:p-3 flex-col items-center justify-center gap-2.5 font-medium text-[15px] -tracking-[0.01em] text-center">
 							<Image
@@ -92,6 +93,29 @@ export default function FeaturesCatalog() {
 							<a href="">{item.description}</a>
 						</li>
 					))}
+				</ul>
+				<ul>
+					<li>
+						<div className="mb-6 flex gap-2 font-helvetica font-bold text-[24px] md:text-[26px] lg:text-[28px] -tracking-[0.01em]">
+							<h3></h3>
+							<div className="text-[#acacac]"></div>
+						</div>
+						<div className="rounded-[20px] bg-white p-10 shadow-[0_0_24px_0_rgba(0,0,0,0.04)]">
+							<div className="flex flex-col items-start gap-5">
+								<div>
+									<Image
+										src='/images/features-page/catalog/1/decor.jpg'
+										width={140}
+										height={140}
+										preload
+										alt=""
+									/>
+								</div>
+								<div className="text-[17px] -tracking-[0.01em] flex-auto leading-tight"></div>
+								<Button className="justify-center">Узнать больше</Button>
+							</div>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</section>

@@ -5,9 +5,10 @@ import ClimateFeatures from "@/components/sections/Climate/ClimateFeatures";
 import Features from "@/components/sections/Features";
 import Showroom from "@/components/sections/common/Showroom";
 import Footer from "@/components/layout/Footer";
+import { routes } from "@/config/routes";
 
 export const metadata = {
-	title: 'Климат-контроль'
+	title: routes.climate.title
 }
 
 export default function ClimatePage() {

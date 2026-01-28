@@ -175,12 +175,8 @@
   width: 24px;
   height: 24px;
   pointer-events: none;
-  overflow: visible;
-}
-
-.sensor-icon {
-  position: relative;
-  z-index: 5;
+  --pulse-intensity: 0;
+  --pulse-speed: 2s;
 }
 
 .pulse {
@@ -190,40 +186,42 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 1px solid #fff;
-  transform: translate(-50%, -50%) scale(1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* Немного прозрачности */
+  transform: translate(-50%, -50%);
   opacity: 0;
-  transform-origin: center;
+  pointer-events: none;
 }
 
-@keyframes pulse-anim {
+/* Анимация запускается только когда мышь в зоне */
+.sensor.active .pulse {
+  animation: ripple var(--pulse-speed) infinite linear;
+}
+
+.pulse2 {
+  animation-delay: calc(var(--pulse-speed) / 3) !important;
+}
+
+.pulse3 {
+  animation-delay: calc(var(--pulse-speed) / 1.5) !important;
+}
+
+@keyframes ripple {
   0% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 0.6;
   }
 
   100% {
-    transform: translate(-50%, -50%) scale(2.5);
+    /* Чем выше интенсивность (ближе мышь), тем больше радиус (до 4 раз) */
+    transform: translate(-50%, -50%) scale(calc(1 + (var(--pulse-intensity) * 4)));
     opacity: 0;
   }
 }
 
-.sensor.active .pulse1 {
-  animation: pulse-anim var(--pulse-speed, 1.5s) infinite;
-  animation-delay: 0s;
-  opacity: 1;
-}
-
-.sensor.active .pulse2 {
-  animation: pulse-anim var(--pulse-speed, 1.5s) infinite;
-  animation-delay: 0.3s;
-  opacity: 1;
-}
-
-.sensor.active .pulse3 {
-  animation: pulse-anim var(--pulse-speed, 1.5s) infinite;
-  animation-delay: 0.6s;
-  opacity: 1;
+/* Инверсия цвета для темной темы */
+.dark-theme .pulse {
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* CCTV */
@@ -428,6 +426,16 @@
   height: 66.9%;
 }
 
+.car {
+  display: block;
+  position: absolute;
+
+  top: 6.8%;
+  left: 15.9%;
+  width: 70.9%;
+  aspect-ratio: 142/310;
+}
+
 .garage-cctv {
   position: absolute;
   top: -2.8%;
@@ -435,27 +443,38 @@
   display: block;
   transform-origin: calc(100% - 22px) 11px;
   pointer-events: none;
+
+  /* 1. Анимация всегда привязана к элементу */
+  animation: garage-cctv-anim 4s ease-in-out infinite;
+
+  /* 2. НО в обычном состоянии она стоит на паузе */
+  animation-play-state: paused;
+
+  /* 3. Переход для плавного возврата */
+  transition: transform 1s var(--ease-soft);
+
+  /* Исходная точка */
   transform: scaleX(-1) rotate(-10deg) translate(0, 0);
 }
 
 .garage-zone:hover .garage-cctv {
-  animation: garage-cctv-anim 4s linear forwards;
+  /* 4. При наведении запускаем анимацию с того же места, где она замерла */
+  animation-play-state: running;
 }
 
 @keyframes garage-cctv-anim {
-  0% {
+
+  0%,
+  100% {
+    /* Должно совпадать с исходной точкой выше */
     transform: scaleX(-1) rotate(-10deg) translate(0, 0);
   }
 
   50% {
+    /* Крайняя точка поворота */
     transform: scaleX(-1) rotate(-40deg) translate(-5px, 1px);
   }
-
-  100% {
-    transform: scaleX(-1) rotate(-10deg) translate(0, 0);
-  }
 }
-
 
 .sitting-zone {
   position: absolute;
@@ -464,7 +483,6 @@
   top: 16.2%;
   right: 14.6%;
 }
-
 
 .sitting-zone .curtain {
   display: block;
@@ -803,4 +821,94 @@
       transparent 75%);
   bottom: -10%;
   left: 20%;
+}
+
+.glow-block {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+}
+
+.rect {
+  position: absolute;
+  width: 60%;
+  height: 40%;
+  top: 50%;
+  left: 50%;
+  border-radius: 24px;
+  /* ИЗМЕНЕНО: Сильно увеличил блюр для мягкости */
+  filter: blur(7px);
+  mix-blend-mode: hard-light;
+  opacity: 0.7;
+  /* Добавлено для мягкости */
+}
+
+.shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.shine-core {
+  /* ИЗМЕНЕНО: Сделал белое ядро прозрачнее */
+  background: rgba(255, 255, 255, 0.3);
+  filter: blur(25px);
+  mix-blend-mode: plus-lighter;
+}
+
+.shine-glow {
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(15px);
+  mix-blend-mode: overlay;
+}
+
+/* ИЗМЕНЕНО: Цвета заменены на более глубокие (из Figma) */
+.rect-1 {
+
+  background: linear-gradient(92.16deg, rgba(255, 245, 153, 0) 0.4%, rgba(255, 245, 153, 0.2) 59.39%, #9D7F46 109.14%);
+  /* Deep Blue */
+}
+
+.rect-2 {
+  background: linear-gradient(92.12deg, #AECDFA 0.75%, rgba(71, 139, 235, 0.2) 49.68%, rgba(71, 139, 235, 0) 107.68%);
+  /* Soft Orange */
+}
+
+.rect-3 {
+  background: linear-gradient(92.16deg, rgba(255, 245, 153, 0) 0.4%, rgba(255, 245, 153, 0.2) 59.39%, #9D7F46 109.14%);
+  opacity: .7;
+  filter: blur(20px);
+  /* ИЗМЕНЕНО: Увеличен блюр */
+}
+
+.rect-4 {
+  background: linear-gradient(92.12deg, #AECDFA 0.75%, rgba(71, 139, 235, 0.2) 49.68%, rgba(71, 139, 235, 0) 107.68%);
+  opacity: .7;
+  filter: blur(20px);
+  /* ИЗМЕНЕНО: Увеличен блюр */
+}
+
+.rect-5 {
+  background: linear-gradient(92.16deg, rgba(255, 245, 153, 0) 0.4%, rgba(255, 245, 153, 0.2) 59.39%, #9D7F46 109.14%);
+  opacity: .5;
+  filter: blur(10px);
+  /* ИЗМЕНЕНО: Увеличен блюр */
+}
+
+.rect-6 {
+  background: linear-gradient(92.12deg, #AECDFA 0.75%, rgba(71, 139, 235, 0.2) 49.68%, rgba(71, 139, 235, 0) 107.68%);
+  filter: blur(10px);
+  /* ИЗМЕНЕНО: Увеличен блюр */
+}
+
+.dots-pattern {
+  position: absolute;
+  inset: 0;
+  /* ИЗМЕНЕНО: Точки стали чуть тусклее (0.15 вместо 0.3) */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px,
+      transparent 1px);
+  background-size: 15px 15px;
+  z-index: 5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }

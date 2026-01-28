@@ -35,4 +35,17 @@ export const routes = {
 		path: '/lightning',
 		title: 'Умный свет',
 	},
+	// 
+	features: {
+		path: '/features',
+		title: 'Функционал',
+	},
+	security: {
+		path: '/security',
+		title: 'Безопасный дом',
+	},
+	climate: {
+		path: '/climate',
+		title: 'Климат-контроль',
+	},
 } as const
