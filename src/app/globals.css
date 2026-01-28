@@ -83,37 +83,107 @@
 
 /* ноги */
 .step-left {
-  top: 30%;
   transform: rotate(-6deg) translateY(6px);
 }
 
+.kitchen-zone .step-left {
+  top: 57%;
+}
+
+.bedroom-zone .step-left {
+  top: 10%;
+}
+
+.living-zone .step-left {
+  top: 30%;
+}
+
 .step-right {
-  top: 40%;
   transform: rotate(6deg) translateY(6px);
 }
 
+.kitchen-zone .step-right {
+  top: 64%;
+}
+
+.bedroom-zone .step-right {
+  top: 20%;
+}
+
+.living-zone .step-right {
+  top: 40%;
+}
+
 /* позиции по X */
-.step-1 {
+.kitchen-zone .step-1 {
+  left: 47%;
+}
+
+.kitchen-zone .step-2 {
+  left: 53%;
+}
+
+.kitchen-zone .step-3 {
+  left: 59%;
+}
+
+.kitchen-zone .step-4 {
+  left: 65%;
+}
+
+.kitchen-zone .step-5 {
+  left: 71%;
+}
+
+.kitchen-zone .step-6 {
+  left: 77%;
+}
+
+.bedroom-zone .step-1 {
+  left: 57%;
+}
+
+.bedroom-zone .step-2 {
+  left: 60%;
+}
+
+.bedroom-zone .step-3 {
+  left: 63%;
+}
+
+.bedroom-zone .step-4 {
+  left: 66%;
+}
+
+.bedroom-zone .step-5 {
+  left: 69%;
+}
+
+.bedroom-zone .step-6 {
+  left: 72%;
+}
+
+.living-zone .step-1 {
   left: 28%;
 }
 
-.step-2 {
+.living-zone .step-2 {
   left: 35%;
 }
 
-.step-3 {
+.living-zone .step-3 {
   left: 42%;
 }
 
-.step-4 {
+.living-zone .step-4 {
   left: 49%;
 }
 
-.step-5 {
+.living-zone .step-5 {
   left: 56%;
 }
 
-.step-6 {
+.living-zone .step-6 {
   left: 63%;
 }
 
@@ -126,48 +196,63 @@
   height: 19.5%;
 }
 
+.kitchen-zone:hover .step,
+.bedroom-zone:hover .step,
 .living-zone:hover .step {
   transform: rotate(0deg) translateY(0);
 }
 
 /* последовательность + прозрачность */
+.kitchen-zone:hover .step-1,
+.bedroom-zone:hover .step-1,
 .living-zone:hover .step-1 {
   opacity: 0.25;
   transition-delay: 0ms;
 }
 
+.kitchen-zone:hover .step-2,
+.bedroom-zone:hover .step-2,
 .living-zone:hover .step-2 {
   opacity: 0.35;
   transition-delay: 120ms;
 }
 
+.kitchen-zone:hover .step-3,
+.bedroom-zone:hover .step-3,
 .living-zone:hover .step-3 {
   opacity: 0.5;
   transition-delay: 240ms;
 }
 
+.kitchen-zone:hover .step-4,
+.bedroom-zone:hover .step-4,
 .living-zone:hover .step-4 {
   opacity: 0.7;
   transition-delay: 360ms;
 }
 
+.kitchen-zone:hover .step-5,
+.bedroom-zone:hover .step-5,
 .living-zone:hover .step-5 {
   opacity: 0.85;
   transition-delay: 480ms;
 }
 
+.kitchen-zone:hover .step-6,
+.bedroom-zone:hover .step-6,
 .living-zone:hover .step-6 {
   opacity: 1;
   transition-delay: 600ms;
 }
 
 /* сброс задержки при уходе */
+.kitchen-zone .step,
+.bedroom-zone .step,
 .living-zone .step {
   transition-delay: 0ms;
 }
 
 /* Анимация датчика в прихожей */
-
 .sensor {
   position: absolute;
   bottom: 2%;
@@ -208,13 +293,12 @@
 
 @keyframes ripple {
   0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(calc(1 + var(--pulse-intensity)));
+    opacity: calc(0.3 + var(--pulse-energy));
   }
 
   100% {
-    /* Чем выше интенсивность (ближе мышь), тем больше радиус (до 4 раз) */
-    transform: translate(-50%, -50%) scale(calc(1 + (var(--pulse-intensity) * 4)));
+    transform: translate(-50%, -50%) scale(calc(2.5 + var(--pulse-intensity) * 3));
     opacity: 0;
   }
 }

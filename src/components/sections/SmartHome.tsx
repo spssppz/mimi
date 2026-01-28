@@ -8,70 +8,62 @@ import { useTheme } from '@/context/ThemeContext';
 
 function LivingRoom() {
 	const { enabled } = useTheme();
-
 	useEffect(() => {
-		// Теперь следим за всем разделом или родительским контейнером
-		const zone = document.querySelector<HTMLDivElement>('section');
-		const sensor = document.getElementById('motion-sensor') as HTMLElement | null;
+		const zone = document.querySelector<HTMLDivElement>('section')
+		const sensor = document.getElementById('motion-sensor')
 
-		if (!zone || !sensor) return;
+		if (!zone || !sensor) return
 
-		let lastMousePos = { x: 0, y: 0 };
-		let lastTimestamp = 0;
+		let lastX = 0
+		let lastY = 0
+		let lastTime = performance.now()
 
-		const onMove = (event: MouseEvent) => {
-			const sensorRect = sensor.getBoundingClientRect();
-			const mouseX = event.clientX;
-			const mouseY = event.clientY;
-			const now = performance.now();
+		const onMove = (e: MouseEvent) => {
+			const rect = sensor.getBoundingClientRect()
+			const cx = rect.left + rect.width / 2
+			const cy = rect.top + rect.height / 2
 
-			// --- Расчет расстояния (для размера/силы волн) ---
-			const sensorX = sensorRect.left + sensorRect.width / 2;
-			const sensorY = sensorRect.top + sensorRect.height / 2;
-			const dx = mouseX - sensorX;
-			const dy = mouseY - sensorY;
-			const distance = Math.sqrt(dx * dx + dy * dy);
+			const dx = e.clientX - cx
+			const dy = e.clientY - cy
+			const distance = Math.hypot(dx, dy)
 
-			// --- Расчет скорости (для частоты пульсации) ---
-			const dt = now - lastTimestamp;
-			const distanceMoved = Math.sqrt(
-				Math.pow(mouseX - lastMousePos.x, 2) + Math.pow(mouseY - lastMousePos.y, 2)
-			);
-			const speed = dt > 0 ? distanceMoved / dt : 0;
+			const now = performance.now()
+			const dt = now - lastTime
+			const speed = Math.hypot(
+				e.clientX - lastX,
+				e.clientY - lastY
+			) / dt
 
-			// Обновляем предыдущие значения
-			lastMousePos = { x: mouseX, y: mouseY };
-			lastTimestamp = now;
+			lastX = e.clientX
+			lastY = e.clientY
+			lastTime = now
 
-			// 1. Интенсивность (чем ближе, тем больше масштаб волн)
-			// Ограничим радиус влияния, например, 800px
-			const maxRange = 800;
-			const intensity = Math.max(0, 1 - distance / maxRange);
+			// 🔥 Интенсивность (никогда не 0)
+			const maxRange = 800
+			const intensity = Math.max(0.25, 1 - distance / maxRange)
 
-			// 2. Скорость пульсации (зависит от скорости мыши)
-			// Базовая скорость 2с, при быстром движении ускоряем до 0.3с
-			const pulseDuration = Math.max(0.3, 2 - speed * 0.5);
+			// 🔥 Скорость пульса — но БЕЗ перезапуска анимации
+			const energy = Math.min(1, speed * 0.8)
 
-			// Применяем CSS переменные
-			sensor.style.setProperty('--pulse-intensity', intensity.toString());
-			sensor.style.setProperty('--pulse-speed', `${pulseDuration}s`);
+			sensor.style.setProperty('--pulse-intensity', intensity.toString())
+			sensor.style.setProperty('--pulse-energy', energy.toString())
 
-			// Датчик всегда "активен", пока мышь в секции
-			sensor.classList.add('active');
-		};
+			sensor.classList.add('active')
+		}
 
 		const onLeave = () => {
-			sensor.classList.remove('active');
-		};
+			sensor.classList.remove('active')
+		}
 
-		zone.addEventListener('mousemove', onMove);
-		zone.addEventListener('mouseleave', onLeave);
+		zone.addEventListener('mousemove', onMove)
+		zone.addEventListener('mouseleave', onLeave)
 
 		return () => {
-			zone.removeEventListener('mousemove', onMove);
-			zone.removeEventListener('mouseleave', onLeave);
-		};
-	}, []);
+			zone.removeEventListener('mousemove', onMove)
+			zone.removeEventListener('mouseleave', onLeave)
+		}
+	}, [])
+
 	return (
 		<div className={`living-zone ${enabled && 'dark-theme'}`}>
 			<span className={`living-cctv transition-all duration-400 ${enabled && 'brightness-30'}`}>
@@ -149,17 +141,41 @@ export default function SmartHome() {
 					src='/images/smarthome/bg.png'
 					alt="background image"
 					fill
-					className={`object-cover transition duration-400 ${enabled && 'brightness-20'}`}
+					className={`object-cover transition-opacity duration-400 ${enabled && 'opacity-0'}`}
 				/>
-				{/* <Image
+				<Image
 					src='/images/smarthome/bg-dark.png'
 					alt="background image"
 					fill
 					className={`left-1.75! top-0.5! object-cover transition-opacity duration-400 ${!enabled && 'opacity-0'}`}
-				/> */}
+				/>
 				<LivingRoom />
 
 				<div className={`bedroom-zone ${enabled && 'dark-theme'}`}>
+
+					<span className="step step-left step-1">
+						<Image src="/images/smarthome/step-left.png" width={28} height={19} alt="" />
+					</span>
+
+					<span className="step step-right step-2">
+						<Image src="/images/smarthome/step-right.png" width={28} height={19} alt="" />
+					</span>
+
+					<span className="step step-left step-3">
+						<Image src="/images/smarthome/step-left.png" width={28} height={19} alt="" />
+					</span>
+
+					<span className="step step-right step-4">
+						<Image src="/images/smarthome/step-right.png" width={28} height={19} alt="" />
+					</span>
+
+					<span className="step step-left step-5">
+						<Image src="/images/smarthome/step-left.png" width={28} height={19} alt="" />
+					</span>
+
+					<span className="step step-right step-6">
+						<Image src="/images/smarthome/step-right.png" width={28} height={19} alt="" />
+					</span>
 					<span className='curtain curtain-open'>
 						<Image src="/images/smarthome/curtain-open.png" width={193} height={186} alt="" />
 					</span>
@@ -174,6 +190,30 @@ export default function SmartHome() {
 					</span>
 				</div>
 				<div className={`kitchen-zone ${enabled && 'dark-theme'}`}>
+
+					<span className="step step-left step-1">
+						<Image src="/images/smarthome/step-left.png" width={28} height={19} alt="" />
+					</span>
+
+					<span className="step step-right step-2">
+						<Image src="/images/smarthome/step-right.png" width={28} height={19} alt="" />
+					</span>
+
+					<span className="step step-left step-3">
+						<Image src="/images/smarthome/step-left.png" width={28} height={19} alt="" />
+					</span>
+
+					<span className="step step-right step-4">
+						<Image src="/images/smarthome/step-right.png" width={28} height={19} alt="" />
+					</span>
+
+					<span className="step step-left step-5">
+						<Image src="/images/smarthome/step-left.png" width={28} height={19} alt="" />
+					</span>
+
+					<span className="step step-right step-6">
+						<Image src="/images/smarthome/step-right.png" width={28} height={19} alt="" />
+					</span>
 					<div className='kitchen-zone-2'>
 						<span className={`conditioner conditioner-off ${enabled && 'brightness-30'}`}>
 							<Image src="/images/smarthome/conditioner-off.png" width={100.8} height={121.8} alt="" />
