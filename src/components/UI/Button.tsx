@@ -12,99 +12,145 @@ interface ButtonProps {
 export const Button = ({ children, className = '' }: ButtonProps) => {
 	const buttonRef = useRef<HTMLButtonElement>(null)
 	const circleRef = useRef<HTMLSpanElement>(null)
-	const leaveTimeout = useRef<gsap.core.Tween | null>(null)
+	const leftGlowRef = useRef<HTMLSpanElement>(null)
+	const rightGlowRef = useRef<HTMLSpanElement>(null)
+	const leaveTimeline = useRef<gsap.core.Timeline | null>(null)
 
-	// 👉 начальная позиция — сразу справа, без дерганий
+	// 🔧 НАСТРОЙКИ ДЛЯ "НЕЖНОСТИ"
+	const CIRCLE_SIZE = 120 // Увеличили размер для мягкости
+	const SIDE_GLOW_SIZE = 100
+	const RETURN_DELAY = 0.3
+
 	useLayoutEffect(() => {
-		if (!buttonRef.current || !circleRef.current) return
+		if (!buttonRef.current) return
 
-		const rect = buttonRef.current.getBoundingClientRect()
-		const size = 45
-
+		// Начальное положение: свечение справа
 		gsap.set(circleRef.current, {
-			left: rect.width - 1 - size / 2,
-			top: rect.height / 2,
-			width: size,
-			height: size,
+			xPercent: -50,
+			yPercent: -50,
+			left: '90%',
+			top: '50%',
+			opacity: 0.6
 		})
+
+		gsap.set(rightGlowRef.current, { opacity: 0.5, scale: 1 })
+		gsap.set(leftGlowRef.current, { opacity: 0, scale: 0.8 })
 	}, [])
 
 	const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-		if (!buttonRef.current || !circleRef.current) return
+		if (!buttonRef.current) return
 
-		if (leaveTimeout.current) {
-			leaveTimeout.current.kill()
-			leaveTimeout.current = null
+		if (leaveTimeline.current) {
+			leaveTimeline.current.kill()
 		}
 
 		const rect = buttonRef.current.getBoundingClientRect()
+		const x = e.clientX - rect.left
+		const progressX = x / rect.width
 
-		const minX = 1 + 45 / 2
-		const maxX = rect.width - 1 - 45 / 2
-
-		let x = e.clientX - rect.left
-		if (x < minX) x = minX
-		if (x > maxX) x = maxX
-
-		const y = rect.height / 2
-
-		const mid = rect.width / 2
-		const distance = Math.abs(x - mid)
-		const size = 40 + (45 - 40) * (distance / mid)
-
+		// 1. Движение внутреннего круга (сделали плавнее через duration и ease)
 		gsap.to(circleRef.current, {
 			left: x,
-			top: y,
-			width: size,
-			height: size,
-			duration: 0.4,
-			ease: 'power3.out',
+			top: '50%',
+			opacity: 1,
+			duration: 0.8, // Больше времени на доводку = плавнее
+			ease: 'power2.out',
+		})
+
+		// 2. Внешние свечения
+		const edgeThreshold = 0.3
+
+		// Левое: плавно проявляется при подходе к краю
+		const leftOpacity = progressX < edgeThreshold ? (1 - progressX / edgeThreshold) : 0
+		gsap.to(leftGlowRef.current, {
+			opacity: leftOpacity * 0.8,
+			scale: 0.8 + leftOpacity * 0.4,
+			duration: 0.5
+		})
+
+		// Правое: плавно проявляется при подходе к краю
+		const rightOpacity = progressX > (1 - edgeThreshold) ? (progressX - (1 - edgeThreshold)) / edgeThreshold : 0
+		gsap.to(rightGlowRef.current, {
+			opacity: rightOpacity * 0.8,
+			scale: 0.8 + rightOpacity * 0.4,
+			duration: 0.5
 		})
 	}
 
 	const handleMouseLeave = () => {
-		if (!buttonRef.current || !circleRef.current) return
-
+		if (!buttonRef.current) return
 		const rect = buttonRef.current.getBoundingClientRect()
-		const size = 45
 
-		leaveTimeout.current = gsap.delayedCall(1, () => {
-			gsap.to(circleRef.current!, {
-				left: rect.width - 1 - size / 2,
-				top: rect.height / 2,
-				width: size,
-				height: size,
-				duration: 0.5,
-				ease: 'power3.out',
-			})
-		})
+		leaveTimeline.current = gsap.timeline({ delay: RETURN_DELAY })
+			// Синхронно возвращаем всё вправо
+			.to(circleRef.current, {
+				left: rect.width * 0.9,
+				opacity: 0.6,
+				duration: 1,
+				ease: 'power3.inOut',
+			}, 0)
+			.to(rightGlowRef.current, {
+				opacity: 0.5,
+				scale: 1,
+				duration: 1,
+				ease: 'power3.inOut',
+			}, 0)
+			.to(leftGlowRef.current, {
+				opacity: 0,
+				scale: 0.8,
+				duration: 0.8,
+			}, 0)
+	}
+
+	// Очень мягкий градиент
+	const glowStyle = {
+		background: 'radial-gradient(circle, rgba(196, 249, 252, 0.8) 0%, rgba(196, 249, 252, 0.3) 40%, rgba(196, 249, 252, 0) 75%)',
 	}
 
 	return (
-		<button
-			ref={buttonRef}
-			onMouseMove={handleMouseMove}
-			onMouseLeave={handleMouseLeave}
-			className={`group relative cursor-pointer bg-[#f8f9fa] 
-				shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] 
-				rounded-[50px] flex px-6 py-2.5 border border-white 
-				items-center uppercase gap-1.5 font-semibold text-[13px] 
-				min-w-62.25 tracking-[-0.02em] text-[#00576b] 
-				transition-all duration-300 ${className}`}
-		>
+		<div className="relative inline-block group">
+			{/* СЛОЙ 1: ВНЕШНИЕ СВЕЧЕНИЯ (за границами) */}
 			<span
-				ref={circleRef}
-				className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 rounded-full"
-				style={{
-					background:
-						'radial-gradient(50% 50% at 50% 50%, rgb(224, 232, 235) 0%, rgb(196, 249, 252) 100%)',
-					filter: 'blur(6px)',
-					zIndex: 0,
-				}}
+				ref={leftGlowRef}
+				className="absolute -left-6 top-1/2 -translate-y-1/2 pointer-events-none blur-xl"
+				style={{ ...glowStyle, width: SIDE_GLOW_SIZE, height: SIDE_GLOW_SIZE, zIndex: 0 }}
+			/>
+			<span
+				ref={rightGlowRef}
+				className="absolute -right-6 top-1/2 -translate-y-1/2 pointer-events-none blur-xl"
+				style={{ ...glowStyle, width: SIDE_GLOW_SIZE, height: SIDE_GLOW_SIZE, zIndex: 0 }}
 			/>
 
-			<span className="relative z-10">{children}</span>
-			<BtnArrowIcon className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
-		</button>
+			<button
+				ref={buttonRef}
+				onMouseMove={handleMouseMove}
+				onMouseLeave={handleMouseLeave}
+				className={`group relative cursor-pointer bg-[#f8f9fa]
+          shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea]
+          rounded-[50px] flex px-8 py-3 border border-white
+          items-center uppercase gap-1.5 font-semibold text-[13px]
+          min-w-62.25 tracking-[-0.02em] text-[#00576b]
+          transition-all duration-300 overflow-hidden ${className}`}
+			>
+				{/* СЛОЙ 2: ВНУТРЕННИЙ КРУГ (под блюром) */}
+				<span
+					ref={circleRef}
+					className="absolute pointer-events-none rounded-full"
+					style={{
+						...glowStyle,
+						width: CIRCLE_SIZE,
+						height: CIRCLE_SIZE,
+						zIndex: 1,
+					}}
+				/>
+
+				{/* СЛОЙ 3: МЯГКИЙ БЛЮР ПОВЕРХ КРУГА */}
+				<div className="absolute inset-0 z-[2] backdrop-blur-[10px] pointer-events-none rounded-[50px]" />
+
+				{/* СЛОЙ 4: КОНТЕНТ */}
+				<span className="relative z-10">{children}</span>
+				<BtnArrowIcon className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+			</button>
+		</div>
 	)
 }
