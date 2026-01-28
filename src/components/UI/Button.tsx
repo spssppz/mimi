@@ -1,8 +1,8 @@
 "use client"
 
+import { useRef, useEffect } from 'react'
+import { gsap } from 'gsap'
 import { BtnArrowIcon } from '@/icons/BtnArrowIcon'
-import gsap from 'gsap'
-import { useRef, useLayoutEffect } from 'react'
 
 interface ButtonProps {
 	children: React.ReactNode
@@ -10,144 +10,121 @@ interface ButtonProps {
 }
 
 export const Button = ({ children, className = '' }: ButtonProps) => {
+	const spotlightRef = useRef<HTMLDivElement>(null) // Внутренний
+	const staticGlowRef = useRef<HTMLDivElement>(null) // Внешний справа
 	const buttonRef = useRef<HTMLButtonElement>(null)
-	const circleRef = useRef<HTMLSpanElement>(null)
-	const leftGlowRef = useRef<HTMLSpanElement>(null)
-	const rightGlowRef = useRef<HTMLSpanElement>(null)
-	const leaveTimeline = useRef<gsap.core.Timeline | null>(null)
 
-	// 🔧 НАСТРОЙКИ ДЛЯ "НЕЖНОСТИ"
-	const CIRCLE_SIZE = 120 // Увеличили размер для мягкости
-	const SIDE_GLOW_SIZE = 100
-	const RETURN_DELAY = 0.3
-
-	useLayoutEffect(() => {
-		if (!buttonRef.current) return
-
-		// Начальное положение: свечение справа
-		gsap.set(circleRef.current, {
-			xPercent: -50,
+	useEffect(() => {
+		// Внутренний круг — начальная позиция справа внутри
+		gsap.set(spotlightRef.current, {
+			left: "100%",
+			xPercent: -100,
+			x: -2,
+			top: "50%",
 			yPercent: -50,
-			left: '90%',
-			top: '50%',
-			opacity: 0.6
+			opacity: 0.5
 		})
 
-		gsap.set(rightGlowRef.current, { opacity: 0.5, scale: 1 })
-		gsap.set(leftGlowRef.current, { opacity: 0, scale: 0.8 })
+		// Внешний круг — всегда зафиксирован справа
+		gsap.set(staticGlowRef.current, {
+			right: "-5px", // Слегка вылезает за кнопку
+			top: "50%",
+			yPercent: -50,
+			opacity: 1
+		})
 	}, [])
 
-	const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-		if (!buttonRef.current) return
-
-		if (leaveTimeline.current) {
-			leaveTimeline.current.kill()
-		}
+	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+		if (!buttonRef.current || !spotlightRef.current || !staticGlowRef.current) return
 
 		const rect = buttonRef.current.getBoundingClientRect()
 		const x = e.clientX - rect.left
-		const progressX = x / rect.width
 
-		// 1. Движение внутреннего круга (сделали плавнее через duration и ease)
-		gsap.to(circleRef.current, {
-			left: x,
-			top: '50%',
-			opacity: 1,
-			duration: 0.8, // Больше времени на доводку = плавнее
+		// 1. Внутренний круг: Бегает за мышью (твой старый рабочий код)
+		gsap.killTweensOf(spotlightRef.current)
+		gsap.to(spotlightRef.current, {
+			x: x,
+			left: 0,
+			xPercent: -50,
+			duration: 0.4,
 			ease: 'power2.out',
+			opacity: 1
 		})
 
-		// 2. Внешние свечения
-		const edgeThreshold = 0.3
+		// 2. Внешний круг: Не двигается, но меняет прозрачность
+		// Чем ближе мышь к правому краю (rect.width), тем он ярче
+		const progress = x / rect.width
+		const glowOpacity = Math.max(0.2, progress) // минимум 0.2, максимум 1
 
-		// Левое: плавно проявляется при подходе к краю
-		const leftOpacity = progressX < edgeThreshold ? (1 - progressX / edgeThreshold) : 0
-		gsap.to(leftGlowRef.current, {
-			opacity: leftOpacity * 0.8,
-			scale: 0.8 + leftOpacity * 0.4,
-			duration: 0.5
-		})
-
-		// Правое: плавно проявляется при подходе к краю
-		const rightOpacity = progressX > (1 - edgeThreshold) ? (progressX - (1 - edgeThreshold)) / edgeThreshold : 0
-		gsap.to(rightGlowRef.current, {
-			opacity: rightOpacity * 0.8,
-			scale: 0.8 + rightOpacity * 0.4,
-			duration: 0.5
+		gsap.to(staticGlowRef.current, {
+			opacity: glowOpacity,
+			duration: 0.3
 		})
 	}
 
 	const handleMouseLeave = () => {
-		if (!buttonRef.current) return
-		const rect = buttonRef.current.getBoundingClientRect()
+		// Возвращаем внутренний блик на место через секунду
+		gsap.to(spotlightRef.current, {
+			left: "100%",
+			xPercent: -100,
+			x: -2,
+			duration: 0.6,
+			delay: 1,
+			ease: 'power3.inOut',
+			opacity: 0.5
+		})
 
-		leaveTimeline.current = gsap.timeline({ delay: RETURN_DELAY })
-			// Синхронно возвращаем всё вправо
-			.to(circleRef.current, {
-				left: rect.width * 0.9,
-				opacity: 0.6,
-				duration: 1,
-				ease: 'power3.inOut',
-			}, 0)
-			.to(rightGlowRef.current, {
-				opacity: 0.5,
-				scale: 1,
-				duration: 1,
-				ease: 'power3.inOut',
-			}, 0)
-			.to(leftGlowRef.current, {
-				opacity: 0,
-				scale: 0.8,
-				duration: 0.8,
-			}, 0)
-	}
-
-	// Очень мягкий градиент
-	const glowStyle = {
-		background: 'radial-gradient(circle, rgba(196, 249, 252, 0.8) 0%, rgba(196, 249, 252, 0.3) 40%, rgba(196, 249, 252, 0) 75%)',
+		// Внешний возвращаем к базовой тусклости
+		gsap.to(staticGlowRef.current, {
+			opacity: 0.3,
+			duration: 0.6
+		})
 	}
 
 	return (
-		<div className="relative inline-block group">
-			{/* СЛОЙ 1: ВНЕШНИЕ СВЕЧЕНИЯ (за границами) */}
-			<span
-				ref={leftGlowRef}
-				className="absolute -left-6 top-1/2 -translate-y-1/2 pointer-events-none blur-xl"
-				style={{ ...glowStyle, width: SIDE_GLOW_SIZE, height: SIDE_GLOW_SIZE, zIndex: 0 }}
-			/>
-			<span
-				ref={rightGlowRef}
-				className="absolute -right-6 top-1/2 -translate-y-1/2 pointer-events-none blur-xl"
-				style={{ ...glowStyle, width: SIDE_GLOW_SIZE, height: SIDE_GLOW_SIZE, zIndex: 0 }}
+		// Ограничение 8px снаружи (p-2 дает около 8px отступа от краев overflow-hidden)
+		<div
+			className="relative inline-block group/wrap"
+			onMouseMove={handleMouseMove}
+			onMouseLeave={handleMouseLeave}
+		>
+			{/* ВНЕШНИЙ КРУГ (Статичный справа) */}
+			<div
+				ref={staticGlowRef}
+				className="pointer-events-none absolute"
+				style={{
+					width: '110px',
+					height: '50px',
+					background: '#C4F9FC',
+					borderRadius: '90% 50px 50px 90%',
+					filter: 'blur(6px)',
+					zIndex: 0,
+				}}
 			/>
 
 			<button
 				ref={buttonRef}
-				onMouseMove={handleMouseMove}
-				onMouseLeave={handleMouseLeave}
 				className={`group relative cursor-pointer bg-[#f8f9fa]
           shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea]
           rounded-[50px] flex px-8 py-3 border border-white
           items-center uppercase gap-1.5 font-semibold text-[13px]
           min-w-62.25 tracking-[-0.02em] text-[#00576b]
-          transition-all duration-300 overflow-hidden ${className}`}
+          transition-all duration-300 overflow-hidden z-10 ${className}`}
 			>
-				{/* СЛОЙ 2: ВНУТРЕННИЙ КРУГ (под блюром) */}
-				<span
-					ref={circleRef}
-					className="absolute pointer-events-none rounded-full"
+				{/* ВНУТРЕННИЙ КРУГ (Бегающий) */}
+				<div
+					ref={spotlightRef}
+					className="pointer-events-none absolute"
 					style={{
-						...glowStyle,
-						width: CIRCLE_SIZE,
-						height: CIRCLE_SIZE,
+						width: '80px',
+						height: '60px',
+						background: 'radial-gradient(circle, #fff 0%, #fff 25%, #78f3fa 100%)',
+						borderRadius: '40%',
+						filter: 'blur(10px)',
 						zIndex: 1,
 					}}
 				/>
 
-				{/* СЛОЙ 3: МЯГКИЙ БЛЮР ПОВЕРХ КРУГА */}
-				<div className="absolute inset-0 z-[2] backdrop-blur-[10px] pointer-events-none rounded-[50px]" />
-
-				{/* СЛОЙ 4: КОНТЕНТ */}
 				<span className="relative z-10">{children}</span>
 				<BtnArrowIcon className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
 			</button>
