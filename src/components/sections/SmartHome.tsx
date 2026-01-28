@@ -66,7 +66,7 @@ function LivingRoom() {
 
 	return (
 		<div className={`living-zone ${enabled && 'dark-theme'}`}>
-			<span className={`living-cctv transition-all duration-400 ${enabled && 'brightness-30'}`}>
+			<span className={`living-cctv transition-all duration-400 ${enabled && 'brightness-50'}`}>
 				<Image src="/images/smarthome/cctv.png" width={85} height={78} alt="" />
 			</span>
 
@@ -231,7 +231,7 @@ export default function SmartHome() {
 				</div>
 
 				<div className="garage-zone">
-					<span className={`garage-cctv transition-all duration-400 ${enabled ? 'brightness-30' : ''}`}>
+					<span className={`garage-cctv transition-all duration-400 ${enabled ? 'brightness-50' : ''}`}>
 						<Image src="/images/smarthome/cctv.png" width={85} height={78} alt="" />
 					</span>
 
