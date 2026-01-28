@@ -10,12 +10,13 @@ interface ButtonProps {
 }
 
 export const Button = ({ children, className = '' }: ButtonProps) => {
-	const spotlightRef = useRef<HTMLDivElement>(null) // Внутренний
+	const spotlightRef = useRef<HTMLDivElement>(null)
 	const staticGlowRef = useRef<HTMLDivElement>(null) // Внешний справа
+	const staticGlowLeftRef = useRef<HTMLDivElement>(null) // Внешний слева
 	const buttonRef = useRef<HTMLButtonElement>(null)
 
 	useEffect(() => {
-		// Внутренний круг — начальная позиция справа внутри
+		// Внутренний круг — начальная позиция справа
 		gsap.set(spotlightRef.current, {
 			left: "100%",
 			xPercent: -100,
@@ -25,22 +26,30 @@ export const Button = ({ children, className = '' }: ButtonProps) => {
 			opacity: 0.5
 		})
 
-		// Внешний круг — всегда зафиксирован справа
+		// Внешний круг справа — СВЕТИТСЯ при старте
 		gsap.set(staticGlowRef.current, {
-			right: "-5px", // Слегка вылезает за кнопку
+			right: "-5px",
 			top: "50%",
 			yPercent: -50,
 			opacity: 1
 		})
+
+		// Внешний круг слева — ТУСКЛЫЙ при старте
+		gsap.set(staticGlowLeftRef.current, {
+			left: "-5px",
+			top: "50%",
+			yPercent: -50,
+			opacity: 0.2
+		})
 	}, [])
 
 	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (!buttonRef.current || !spotlightRef.current || !staticGlowRef.current) return
+		if (!buttonRef.current || !spotlightRef.current || !staticGlowRef.current || !staticGlowLeftRef.current) return
 
 		const rect = buttonRef.current.getBoundingClientRect()
 		const x = e.clientX - rect.left
 
-		// 1. Внутренний круг: Бегает за мышью (твой старый рабочий код)
+		// 1. Внутренний круг бегает за мышью
 		gsap.killTweensOf(spotlightRef.current)
 		gsap.to(spotlightRef.current, {
 			x: x,
@@ -51,44 +60,68 @@ export const Button = ({ children, className = '' }: ButtonProps) => {
 			opacity: 1
 		})
 
-		// 2. Внешний круг: Не двигается, но меняет прозрачность
-		// Чем ближе мышь к правому краю (rect.width), тем он ярче
-		const progress = x / rect.width
-		const glowOpacity = Math.max(0.2, progress) // минимум 0.2, максимум 1
+		// 2. Логика свечения боковых бликов
+		const progressRight = x / rect.width
+		const progressLeft = 1 - (x / rect.width)
 
 		gsap.to(staticGlowRef.current, {
-			opacity: glowOpacity,
+			opacity: Math.max(0, progressRight),
+			duration: 0.3
+		})
+
+		gsap.to(staticGlowLeftRef.current, {
+			opacity: Math.max(0, progressLeft),
 			duration: 0.3
 		})
 	}
 
 	const handleMouseLeave = () => {
-		// Возвращаем внутренний блик на место через секунду
+		// Возвращаем внутренний блик направо
 		gsap.to(spotlightRef.current, {
 			left: "100%",
 			xPercent: -100,
 			x: -2,
 			duration: 0.6,
-			delay: 1,
+			delay: 0.2, // Уменьшил задержку для отзывчивости
 			ease: 'power3.inOut',
 			opacity: 0.5
 		})
 
-		// Внешний возвращаем к базовой тусклости
+		// Правый блик снова загорается, левый тухнет
 		gsap.to(staticGlowRef.current, {
-			opacity: 0.3,
-			duration: 0.6
+			opacity: 1,
+			duration: 0.6,
+			delay: 0.55,
+		})
+
+		gsap.to(staticGlowLeftRef.current, {
+			opacity: 0,
+			duration: 0.6,
+			delay: 0.4,
 		})
 	}
 
 	return (
-		// Ограничение 8px снаружи (p-2 дает около 8px отступа от краев overflow-hidden)
 		<div
-			className="relative inline-block group/wrap"
+			className="relative inline-block"
 			onMouseMove={handleMouseMove}
 			onMouseLeave={handleMouseLeave}
 		>
-			{/* ВНЕШНИЙ КРУГ (Статичный справа) */}
+			{/* ВНЕШНИЙ КРУГ СЛЕВА */}
+			<div
+				ref={staticGlowLeftRef}
+				className="pointer-events-none absolute"
+				style={{
+					width: '110px',
+					height: '50px',
+					background: '#C4F9FC',
+					borderRadius: '50px 90% 90% 50px',
+					filter: 'blur(6px)',
+					zIndex: 0,
+				}}
+			/>
+
+			{/* ВНЕШНИЙ КРУГ СПРАВА */}
 			<div
 				ref={staticGlowRef}
 				className="pointer-events-none absolute"
@@ -111,7 +144,6 @@ export const Button = ({ children, className = '' }: ButtonProps) => {
           min-w-62.25 tracking-[-0.02em] text-[#00576b]
           transition-all duration-300 overflow-hidden z-10 ${className}`}
 			>
-				{/* ВНУТРЕННИЙ КРУГ (Бегающий) */}
 				<div
 					ref={spotlightRef}
 					className="pointer-events-none absolute"
@@ -126,7 +158,7 @@ export const Button = ({ children, className = '' }: ButtonProps) => {
 				/>
 
 				<span className="relative z-10">{children}</span>
-				<BtnArrowIcon className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+				<BtnArrowIcon className="w-6 h-6 relative z-10 transition-transform duration-300" />
 			</button>
 		</div>
 	)
