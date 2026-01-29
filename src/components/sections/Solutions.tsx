@@ -17,14 +17,14 @@ interface CardProps {
 const SolutionCard = ({ title, description, image, imgWidth, glowColor }: CardProps) => {
 	const cardRef = useRef<HTMLLIElement>(null);
 	const glowRef = useRef<HTMLDivElement>(null);
-	const OFFSET = 10;
+	const OFFSET = -5;
 
 	const handleMouseMove = (e: React.MouseEvent) => {
 		if (!cardRef.current || !glowRef.current) return;
 
 		const rect = cardRef.current.getBoundingClientRect();
-		const glowW = rect.width * 0.6;
-		const glowH = rect.height * 0.6;
+		const glowW = rect.width * 0.7;
+		const glowH = rect.height * 0.7;
 
 		const centerX = rect.left + rect.width / 2;
 		const centerY = rect.top + rect.height / 2;
@@ -34,12 +34,11 @@ const SolutionCard = ({ title, description, image, imgWidth, glowColor }: CardPr
 
 		const targetX = isLeft ? -OFFSET : (rect.width - glowW + OFFSET);
 		const targetY = isTop ? -OFFSET : (rect.height - glowH + OFFSET);
+		let skewX = 6
+		let skewY = 6
+		if (!isLeft && isTop) { skewX = skewY = -6 }
+		if (isLeft && !isTop) { skewX = skewY = -6 }
 
-		// Подбираем углы для градиента
-		let angle = 155;
-		if (isTop && !isLeft) angle = 210;
-		else if (!isTop && isLeft) angle = 25;
-		else if (!isTop && !isLeft) angle = 320;
 
 		gsap.to(glowRef.current, {
 			x: targetX,
@@ -47,13 +46,11 @@ const SolutionCard = ({ title, description, image, imgWidth, glowColor }: CardPr
 			width: glowW,
 			height: glowH,
 			// Динамически подставляем цвет из пропсов
-			background: `linear-gradient(${angle}deg, ${glowColor} 0%, rgba(255, 255, 255, 0) 70%)`,
-			duration: 0.9,
-			// ease: "expo.out",
-			ease: "power1.out",   // мягкое замедление
-			// ease: "power2.out",   // чуть плавнее
-			// ease: "sine.out",     // очень плавно
-			// ease: "power1.inOut", // плавное ускорение + замедление
+			background: glowColor,
+			skewX,
+			skewY,
+			duration: 1,
+			ease: "power1.out",
 			opacity: 1,
 			overwrite: "auto"
 		});
@@ -75,7 +72,7 @@ const SolutionCard = ({ title, description, image, imgWidth, glowColor }: CardPr
 		>
 			<div
 				ref={glowRef}
-				className="absolute pointer-events-none blur-[11px] opacity-0 z-0"
+				className="absolute pointer-events-none blur-[15px] opacity-0 z-0"
 				style={{ willChange: 'transform, background' }}
 			/>
 
