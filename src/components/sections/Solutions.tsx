@@ -48,8 +48,12 @@ const SolutionCard = ({ title, description, image, imgWidth, glowColor }: CardPr
 			height: glowH,
 			// Динамически подставляем цвет из пропсов
 			background: `linear-gradient(${angle}deg, ${glowColor} 0%, rgba(255, 255, 255, 0) 70%)`,
-			duration: 0.7,
-			ease: "expo.out",
+			duration: 0.9,
+			// ease: "expo.out",
+			ease: "power1.out",   // мягкое замедление
+			// ease: "power2.out",   // чуть плавнее
+			// ease: "sine.out",     // очень плавно
+			// ease: "power1.inOut", // плавное ускорение + замедление
 			opacity: 1,
 			overwrite: "auto"
 		});
