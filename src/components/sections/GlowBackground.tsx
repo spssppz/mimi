@@ -4,7 +4,8 @@ import { useEffect, useRef } from 'react'
 
 export default function GlowBackground() {
 	const blockRef = useRef<HTMLDivElement>(null)
-	const rectsRef = useRef<HTMLDivElement[]>([])
+	// Важно: инициализируем массив нужной длины
+	const rectsRef = useRef<(HTMLDivElement | null)[]>([])
 
 	useEffect(() => {
 		const block = blockRef.current
@@ -12,16 +13,16 @@ export default function GlowBackground() {
 
 		let currentAngle = 0
 		let targetAngle = 0
+		let frameId: number
 
 		const VISIBLE_OFFSET = 20
-		const SMOOTHING = 0.02
+		const SMOOTHING = 0.05
 
 		const onMouseMove = (e: MouseEvent) => {
 			const rect = block.getBoundingClientRect()
-
+			// Считаем от центра блока
 			const x = e.clientX - (rect.left + rect.width / 2)
 			const y = e.clientY - (rect.top + rect.height / 2)
-
 			targetAngle = Math.atan2(y, x)
 		}
 
@@ -34,11 +35,16 @@ export default function GlowBackground() {
 
 			const blockW = block.offsetWidth
 			const blockH = block.offsetHeight
-			const rectEl = rectsRef.current[0]
-			if (!rectEl) return
 
-			const rectW = rectEl.offsetWidth
-			const rectH = rectEl.offsetHeight
+			// Ищем первый живой элемент для расчетов
+			const firstRect = rectsRef.current[0]
+			if (!firstRect) {
+				frameId = requestAnimationFrame(animate)
+				return
+			}
+
+			const rectW = firstRect.offsetWidth
+			const rectH = firstRect.offsetHeight
 
 			const limitX = blockW / 2 - rectW / 2 + VISIBLE_OFFSET
 			const limitY = blockH / 2 - rectH / 2 + VISIBLE_OFFSET
@@ -54,35 +60,38 @@ export default function GlowBackground() {
 			const y = dist * sin
 
 			rectsRef.current.forEach((el, i) => {
+				if (!el) return
 				const invert = i % 2 === 1
 				el.style.transform = `
-					translate(-50%, -50%)
-					translate(${invert ? -x : x}px, ${invert ? -y : y}px)
-				`
+          translate(-50%, -50%)
+          translate(${invert ? -x : x}px, ${invert ? -y : y}px)
+        `
 			})
 
-			requestAnimationFrame(animate)
+			frameId = requestAnimationFrame(animate)
 		}
 
-		block.addEventListener('mousemove', onMouseMove)
-		requestAnimationFrame(animate)
+		// Вешаем на window, чтобы мышь подхватывалась мгновенно
+		window.addEventListener('mousemove', onMouseMove)
+		frameId = requestAnimationFrame(animate)
 
 		return () => {
-			block.removeEventListener('mousemove', onMouseMove)
+			window.removeEventListener('mousemove', onMouseMove)
+			cancelAnimationFrame(frameId) // Обязательно останавливаем цикл!
 		}
 	}, [])
 
 	return (
-		<div ref={blockRef} className="glow-block">
-			{[1, 2, 3, 4, 5, 6].map((i) => (
+		<div ref={blockRef} className="glow-block absolute inset-0 pointer-events-none">
+			{[1, 2, 3, 4, 5, 6].map((i, index) => (
 				<div
 					key={i}
 					ref={(el) => {
-						if (el && !rectsRef.current.includes(el)) {
-							rectsRef.current.push(el)
-						}
+						// Привязываем строго по индексу, чтобы не было дублей
+						rectsRef.current[index] = el
 					}}
-					className={`rect rect-${i}`}
+					className={`rect rect-${i} absolute`}
+					style={{ left: '50%', top: '50%' }}
 				>
 					<div className="shine shine-core" />
 					<div className="shine shine-glow" />
