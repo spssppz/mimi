@@ -29,7 +29,7 @@ export const Title = ({ children, className = "" }: TitleProps) => {
 					// ВКЛ
 					gsap.to(bulbRef.current, {
 						opacity: 1,
-						delay: 1,
+						delay: 0.4,
 						filter: "brightness(1)",
 						boxShadow:
 							"0 1px 12px 0 #ffc599, 2px 2px 3px 0 rgba(0,0,0,0.26)",

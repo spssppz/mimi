@@ -117,6 +117,7 @@ export const Button = ({ children, className = '' }: ButtonProps) => {
 					background: '#C4F9FC',
 					borderRadius: '50px 90% 90% 50px',
 					filter: 'blur(6px)',
+					opacity: 0,
 					zIndex: 0,
 				}}
 			/>
@@ -132,6 +133,7 @@ export const Button = ({ children, className = '' }: ButtonProps) => {
 					borderRadius: '90% 50px 50px 90%',
 					filter: 'blur(6px)',
 					zIndex: 0,
+					opacity: 1,
 				}}
 			/>
 
@@ -148,6 +150,10 @@ export const Button = ({ children, className = '' }: ButtonProps) => {
 					ref={spotlightRef}
 					className="pointer-events-none absolute"
 					style={{
+						left: '100%',
+						transform: 'translate(-100%, -50%)',
+						top: '50%',
+						opacity: 0.5,
 						width: '80px',
 						height: '60px',
 						background: 'radial-gradient(circle, #fff 0%, #fff 25%, #78f3fa 100%)',

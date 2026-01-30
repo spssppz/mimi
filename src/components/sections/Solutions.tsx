@@ -49,7 +49,7 @@ const SolutionCard = ({ title, description, image, imgWidth, glowColor }: CardPr
 			background: glowColor,
 			skewX,
 			skewY,
-			duration: 1,
+			duration: 1.5,
 			ease: "power1.out",
 			opacity: 1,
 			overwrite: "auto"
