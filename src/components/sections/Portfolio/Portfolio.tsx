@@ -58,13 +58,22 @@ export default function Portfolio() {
 					</button>
 					{categories.map(cat => {
 						const isActive = activeCat === cat.label
+
+						const hasCases = cases.some(item =>
+							item.tags.includes(cat.label)
+						)
 						const IconComponent = cat.icon
 						return (
 							<button
 								key={cat.label}
-								onClick={() => setActiveCat(cat.label)}
-								className={`cursor-pointer flex items-center gap-2.5 py-2.5 px-4 rounded-full text-[14px] font-medium transition ${isActive ? 'bg-brand-blue text-white' : 'bg-[#fcfdff]'
-									}`}
+								onClick={() => hasCases && setActiveCat(cat.label)}
+								className={`flex items-center gap-2.5 py-2.5 px-4 rounded-full text-[14px] font-medium transition
+										${isActive ? 'bg-brand-blue text-white'
+										: hasCases
+											? 'cursor-pointer bg-[#fcfdff] text-foreground hover:opacity-80 transition-opacity duration-200'
+											: 'bg-transparent text-brand-gray'
+									}
+									 `}
 							>
 								<IconComponent className="w-4.5 h-4.5" />
 								{cat.label}

@@ -29,7 +29,7 @@ export default function HeroAbout() {
 					<Title className="mb-8.5"><span className="text-[#00d0ff]">MiMi</span>Smart</Title>
 					<div className="mb-8.5 font-helvetica text-[18px] lg:text-[20px] tracking-[-0.01em] space-y-8.5">
 						<p>Крупнейший <span className="text-[#ce5941]">(ТОП-1)</span> российский производитель <br />премиальных систем умный дом.</p>
-						<p className="relative">
+						<div className="relative">
 							<div className="absolute top-0 -left-1 -right-1 h-full -z-1 bg-[#ffeba4]">
 								<div className="absolute top-0 -left-0.5 w-0.5 h-7 bg-black">
 									<span className="absolute bottom-full left-1/2 w-2 h-2 rounded-full bg-black -translate-x-1/2"></span>
@@ -38,8 +38,8 @@ export default function HeroAbout() {
 									<span className="absolute top-full left-1/2 w-2 h-2 rounded-full bg-black -translate-x-1/2"></span>
 								</div>
 							</div>
-							Система MiMiSmart начала свою историю в 2004 году, когда один из наших основателей делал ремонт в своем большом загородном доме.
-						</p>
+							<p>Система MiMiSmart начала свою историю в 2004 году, когда один из наших основателей делал ремонт в своем большом загородном доме.</p>
+						</div>
 						<p>В проекте было множество групп освещения, кондиционеров, теплые полы, радиаторы. И управлять этим без единой, слаженной системы – очевидно невозможно.</p>
 						<p>Так появилась система MiMiSmart.</p>
 						<div className="rounded-2xl lg:rounded-[20px] overflow-hidden relative aspect-690/400">
