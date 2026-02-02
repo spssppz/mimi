@@ -24,31 +24,34 @@ const SolutionCard = ({ title, description, image, imgWidth, glowColor }: CardPr
 
 		const rect = cardRef.current.getBoundingClientRect();
 
-		// Центр и нормализация (-1 до 1)
-		const relativeX = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
-		const relativeY = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+		// 1. Координаты и нормализация
+		const centerX = rect.left + rect.width / 2;
+		const centerY = rect.top + rect.height / 2;
+		const relativeX = (e.clientX - centerX) / (rect.width / 2);
+		const relativeY = (e.clientY - centerY) / (rect.height / 2);
 
+		// 2. Размеры (возвращаем их в строй)
 		const glowW = rect.width * 0.7;
 		const glowH = rect.height * 0.7;
 
-		// Позиция свечения
-		const targetX = (rect.width - glowW) / 2 + (relativeX * (rect.width - glowW) / 2);
-		const targetY = (rect.height - glowH) / 2 + (relativeY * (rect.height - glowH) / 2);
+		// 3. Позиция (центрирование + смещение по осям)
+		const moveRangeX = rect.width - glowW;
+		const moveRangeY = rect.height - glowH;
+		const targetX = (moveRangeX / 2) + (relativeX * (moveRangeX / 2));
+		const targetY = (moveRangeY / 2) + (relativeY * (moveRangeY / 2));
 
-		// Ваша специфическая логика Skew:
-		// Перемножаем оси, чтобы получить нужный знак в углах
-		const multiplier = relativeX * relativeY;
+		// 4. Ваша логика Skew (перемножение осей для знаков 8 и -8)
 		const maxSkew = 6;
-
-		// Вычисляем финальный skew
-		// Clamp (ограничение), чтобы при резких движениях не вылетало за пределы 8
-		const dynamicSkew = Math.max(-maxSkew, Math.min(maxSkew, multiplier * maxSkew * 1.5));
+		const calculatedSkew = relativeX * relativeY * maxSkew;
 
 		gsap.to(glowRef.current, {
 			x: targetX,
 			y: targetY,
-			skewX: dynamicSkew,
-			skewY: dynamicSkew,
+			width: glowW,   // Применяем ширину
+			height: glowH,  // Применяем высоту
+			skewX: calculatedSkew,
+			skewY: calculatedSkew,
+			background: glowColor,
 			duration: 1.2,
 			ease: "power2.out",
 			opacity: 1,
