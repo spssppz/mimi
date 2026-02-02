@@ -8,6 +8,7 @@ import { EffectFade, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Link from "next/link";
+import { RightArrowIcon } from "@/icons/RightArrowIcon";
 
 const features = [
 	{
@@ -112,15 +113,15 @@ export default function CinemaFeatures() {
 					<div className="py-15 pl-20 flex-none w-[37%] relative">
 						<ul className="space-y-6 leading-snug -tracking-[0.01em]">
 							{features.map((item, idx) => (
-								<li key={item.id} className={`${activeIndex === idx && "bg-background rounded-[20px] p-6"}`}>
+								<li key={item.id} className={`${activeIndex === idx && "bg-black rounded-[20px] p-6"}`}>
 									<button
 										onClick={() => handleSelect(idx)}
-										className={`cursor-pointer text-left font-semibold font-helvetica ${activeIndex === idx ? 'text-foreground' : 'text-foreground/60'}`}
+										className={`cursor-pointer text-left font-semibold font-helvetica ${activeIndex === idx ? 'text-white' : 'text-white/60'}`}
 									>
 										{item.title}
 									</button>
 									{activeIndex === idx && item.content && (
-										<div className="pt-4 space-y-4">
+										<div className="pt-4 space-y-4 text-white">
 											{item.content.text && (
 												<p>{item.content.text}</p>
 											)}
@@ -135,7 +136,11 @@ export default function CinemaFeatures() {
 													</ul>
 												)}
 											{item.content.link &&
-												(<Link href={item.content.link.url}>{item.content.link.text}</Link>)
+												(<Link className="text-brand-blue flex hover:text-white transition-colors duration-300 items-center gap-1 text-[15px] font-medium group" href={item.content.link.url}>
+													{item.content.link.text}
+
+													<RightArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+												</Link>)
 											}
 										</div>
 									)}

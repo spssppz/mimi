@@ -18,7 +18,7 @@ export default function CinemaPage() {
 			<Header />
 			<main>
 				<CinemaHero></CinemaHero>
-				{/* <CinemaFeatures></CinemaFeatures> */}
+				<CinemaFeatures></CinemaFeatures>
 				<CinemaAdvantages></CinemaAdvantages>
 				<Features title="Удобное управление" />
 				<CinemaText></CinemaText>

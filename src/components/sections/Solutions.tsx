@@ -23,34 +23,34 @@ const SolutionCard = ({ title, description, image, imgWidth, glowColor }: CardPr
 		if (!cardRef.current || !glowRef.current) return;
 
 		const rect = cardRef.current.getBoundingClientRect();
+
+		// Центр и нормализация (-1 до 1)
+		const relativeX = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+		const relativeY = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+
 		const glowW = rect.width * 0.7;
 		const glowH = rect.height * 0.7;
 
-		const centerX = rect.left + rect.width / 2;
-		const centerY = rect.top + rect.height / 2;
+		// Позиция свечения
+		const targetX = (rect.width - glowW) / 2 + (relativeX * (rect.width - glowW) / 2);
+		const targetY = (rect.height - glowH) / 2 + (relativeY * (rect.height - glowH) / 2);
 
-		const isLeft = e.clientX < centerX;
-		const isTop = e.clientY < centerY;
+		// Ваша специфическая логика Skew:
+		// Перемножаем оси, чтобы получить нужный знак в углах
+		const multiplier = relativeX * relativeY;
+		const maxSkew = 6;
 
-		const targetX = isLeft ? -OFFSET : (rect.width - glowW + OFFSET);
-		const targetY = isTop ? -OFFSET : (rect.height - glowH + OFFSET);
-		let skewX = 6
-		let skewY = 6
-		if (!isLeft && isTop) { skewX = skewY = -6 }
-		if (isLeft && !isTop) { skewX = skewY = -6 }
-
+		// Вычисляем финальный skew
+		// Clamp (ограничение), чтобы при резких движениях не вылетало за пределы 8
+		const dynamicSkew = Math.max(-maxSkew, Math.min(maxSkew, multiplier * maxSkew * 1.5));
 
 		gsap.to(glowRef.current, {
 			x: targetX,
 			y: targetY,
-			width: glowW,
-			height: glowH,
-			// Динамически подставляем цвет из пропсов
-			background: glowColor,
-			skewX,
-			skewY,
-			duration: 1.5,
-			ease: "power1.out",
+			skewX: dynamicSkew,
+			skewY: dynamicSkew,
+			duration: 1.2,
+			ease: "power2.out",
 			opacity: 1,
 			overwrite: "auto"
 		});
