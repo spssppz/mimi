@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
+import { RightArrowIcon } from "@/icons/RightArrowIcon";
 
 const features = [
 	{
@@ -80,8 +81,20 @@ const features = [
 ]
 
 export default function ClimateFeatures() {
-	const [activeIndex, setActiveIndex] = useState(1); // По умолчанию открыта влажность
+	const [activeIndex, setActiveIndex] = useState(1);
 	const swiperRef = useRef<any>(null);
+	const total = features.length
+	const handlePrev = () => {
+		if (activeIndex > 0) {
+			swiperRef.current?.slidePrev()
+		}
+	}
+
+	const handleNext = () => {
+		if (activeIndex < total - 1) {
+			swiperRef.current?.slideNext()
+		}
+	}
 
 	const handleSelect = (index: number) => {
 		setActiveIndex(index);
@@ -93,6 +106,25 @@ export default function ClimateFeatures() {
 			<div className="max-w-348 mx-auto px-4">
 				<div className="rounded-3xl overflow-hidden bg-white min-h-152.5 items-center gap-30 lg:flex hidden">
 					<div className="py-15 pl-20 flex-none w-[37%] relative">
+
+						<div className="hidden lg:flex absolute top-1/2 left-5 -translate-y-1/2 flex-col gap-4 text-[#acacac]">
+							<button
+
+								onClick={handlePrev}
+								disabled={activeIndex === 0}
+								className="w-9 h-9 rounded-full bg-background flex items-center justify-center cursor-pointer hover:opacity-80 rotate-90 transition-opacity duration-300 disabled:opacity-20 disabled:cursor-default"
+							>
+								<RightArrowIcon className="rotate-180 w-5 h-5"></RightArrowIcon>
+							</button>
+							<button
+
+								onClick={handleNext}
+								disabled={activeIndex === total - 1}
+								className="rotate-90 w-9 h-9 rounded-full bg-background flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity duration-300 disabled:opacity-20 disabled:cursor-default"
+							>
+								<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
+							</button>
+						</div>
 						<ul className="space-y-6 leading-snug -tracking-[0.01em]">
 							{features.map((item, idx) => (
 								<li key={item.id} className={`${activeIndex === idx && "bg-background rounded-[20px] p-6"}`}>

@@ -9,26 +9,26 @@ import gsap from "gsap";
 
 const tabs = [
 	{
-		label: "Без умного дома",
+		label: "Горизонтальные жалюзи",
 		image: {
-			url: "/images/lightning-page/way/2.png",
-			width: 664,
-			height: 402,
+			url: "/images/curtains-page/tabs/2.png",
+			width: 454,
+			height: 462,
 		},
-		text: "Выключатели множатся: на каждой стене — пианино из клавиш. Каждый управляет только одной группой света. Никаких сцен — только вкл/выкл. Чтобы приглушить свет или закрыть все — приходится обходить комнаты и нажимать по очереди. Итог: 10+ выключателей, путаешься, где что включается, и лишние отверстия в стенах."
+		text: "Классический и самый распространенный вариант. Перемещаются с помощью электропривода и каретки с петлями."
 	},
 	{
-		label: "С умным домом",
+		label: "Вертикальные жалюзи",
 		image: {
-			url: "/images/lightning-page/way/1.jpg",
-			width: 285,
-			height: 285,
+			url: "/images/curtains-page/tabs/1.png",
+			width: 600,
+			height: 500,
 		},
 		text: "С умным домом вы управляете группой света через одно нажатие, сценарии включения и выключения становятся полностью автоматическими, а количество физических выключателей минимально."
 	}
 ]
 
-export default function LightningWay() {
+export default function CurtainsTabs() {
 	const [activeTab, setActiveTab] = useState(0)
 	const imageRef = useRef<HTMLDivElement>(null)
 	const textRef = useRef<HTMLDivElement>(null)
@@ -54,18 +54,14 @@ export default function LightningWay() {
 	return (
 		<section className="py-22.5 text-center">
 			<div className="max-w-308 mx-auto px-4">
-				<Title className="mb-30 lg:mb-40">
-					Два способа. <br />
-					<span className="bg-[linear-gradient(180deg,#422e0c_0%,#ffc96e_100%)] bg-clip-text text-transparent">Управляйте группой света</span>
-				</Title>
+				<Title className="mb-10">Вертикальные жалюзи</Title>
 				<div className="max-w-125 mx-auto -tracking-[0.01em] flex flex-col items-center">
-					<div ref={imageRef} className="flex items-center justify-center min-h-80">
+					<div ref={imageRef} className="flex items-center justify-center min-h-125 mb-15">
 						<Image
 							src={tabs[activeTab].image.url}
 							width={tabs[activeTab].image.width}
 							height={tabs[activeTab].image.height}
 							alt=""
-							className="lg:mb-35 md:mb-30 mb-25"
 						/>
 					</div>
 

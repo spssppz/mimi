@@ -2,7 +2,7 @@ import Header from "@/components/layout/Header";
 import EquipmentHero from "@/components/sections/Equipment/EquipmentHero";
 import EquipmentFeatures from "@/components/sections/Equipment/EquipmentFeatures";
 import EquipmentControlls from "@/components/sections/Equipment/EquipmentControlls";
-// 
+import EquipmentSensors from "@/components/sections/Equipment/EquipmentSensors";
 import EquipmentReserve from "@/components/sections/Equipment/EquipmentReserve";
 import EquipmentApp from "@/components/sections/Equipment/EquipmentApp";
 import EquipmentCatalog from "@/components/sections/Equipment/EquipmentCatalog";
@@ -22,7 +22,7 @@ export default function EquipmentPage() {
 				<EquipmentHero></EquipmentHero>
 				<EquipmentFeatures></EquipmentFeatures>
 				<EquipmentControlls></EquipmentControlls>
-				{/*  */}
+				<EquipmentSensors></EquipmentSensors>
 				<EquipmentReserve></EquipmentReserve>
 				<EquipmentApp></EquipmentApp>
 				<EquipmentCatalog></EquipmentCatalog>

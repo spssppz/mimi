@@ -23,7 +23,7 @@ export default function SecurityPage() {
 				<SecurityHero />
 				<WaterProtection></WaterProtection>
 				<VideoControl></VideoControl>
-				{/* <AccessControl></AccessControl> */}
+				<AccessControl></AccessControl>
 				<FireSafety></FireSafety>
 				<Intercom></Intercom>
 				<Signaling></Signaling>
