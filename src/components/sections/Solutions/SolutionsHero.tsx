@@ -1,22 +1,83 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { Title } from "@/components/UI/Title";
 import Image from "next/image";
+import { gsap } from "gsap";
 
 export default function SolutionsHero() {
+	const rootRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const ctx = gsap.context(() => {
+			const tl = gsap.timeline({
+				defaults: {
+					ease: "power2.out",
+					duration: 2.5 // Сделал значительно медленнее
+				}
+			});
+
+			// Анимируем появление градиента
+			tl.to(".hero-bg-gradient", {
+				opacity: 1,
+				duration: 3
+			})
+				// Анимируем элементы: из CSS-состояния (opacity: 0) в нормальное
+				.to(".animate-fade-up", {
+					y: 0,
+					opacity: 1,
+					stagger: 0.4, // Медленная очередность
+				}, "-=2"); // Начинаем чуть раньше завершения фона
+
+		}, rootRef);
+
+		return () => ctx.revert();
+	}, []);
+
 	return (
-		<section className="pt-15 pb-22.5 lg:pb-0">
+		<section ref={rootRef} className="relative pt-15 pb-22.5 lg:pb-0">
+			{/* Критически важно: добавляем класс opacity-0 и translate-y-10 прямо в HTML.
+         Это гарантирует, что элементы не "прыгнут" при загрузке.
+      */}
+			<style jsx>{`
+        .animate-fade-up {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        .hero-bg-gradient {
+          opacity: 0;
+        }
+      `}</style>
+
+			{/* Градиент: сверху голубой, к середине прозрачный, высота 50% */}
+			<div
+				className="hero-bg-gradient absolute top-0 left-0 w-full h-1/2 -z-10 pointer-events-none"
+				style={{
+					background: "linear-gradient(180deg, #478BEB 0%, rgba(71, 139, 235, 0.4) 40%, rgba(255, 255, 255, 0) 100%)"
+				}}
+			/>
+
 			<div className="mb-30 lg:mb-5">
 				<div className="max-w-248 mx-auto px-4">
-					<Title className="mb-4 lg:mb-2">Готовые решения</Title>
-					<div className="text-[17px] leading-snug tracking-[-0.01em] md:max-w-115 mb-10 lg:mb-8">Настоящий умный дом - это система слаженного автоматизированного управления всеми инженерными системами дома</div>
-					<div className="relative aspect-939/639">
+					<div className="animate-fade-up">
+						<Title className="mb-4 lg:mb-2">Готовые решения</Title>
+					</div>
+
+					<div className="animate-fade-up text-[17px] leading-snug tracking-[-0.01em] md:max-w-115 mb-10 lg:mb-8">
+						Настоящий умный дом - это система слаженного автоматизированного управления всеми инженерными системами дома
+					</div>
+
+					<div className="animate-fade-up relative aspect-939/639">
 						<Image
 							src="/images/solutions-page/hero/1.png"
 							fill
+							priority
 							alt=""
 						/>
 					</div>
 				</div>
 			</div>
+
 			<div className="lg:py-30 lg:relative">
 				<Image
 					src="/images/solutions-page/hero/bg.png"
@@ -25,9 +86,14 @@ export default function SolutionsHero() {
 					className="object-cover hidden lg:block"
 				/>
 				<div className="relative max-w-248 mx-auto px-4 tracking-[-0.01em]">
-					<h3 className="mb-4 font-bold text-[24px] md:text-[28px] lg:text-[32px]">В современном доме действительно нужна централизованная система управления умный дом, которая не только принесет комфорт и уют.</h3>
-					<div className="mb-10 lg:mb-38 text-[17px] leading-tight md:max-w-115">Настоящий умный дом - это система слаженного автоматизированного управления всеми инженерными системами дома</div>
-					<ul className="grid md:grid-cols-2 gap-10 text-[15px] lg:text-[16px]">
+					<h3 className="animate-fade-up mb-4 font-bold text-[24px] md:text-[28px] lg:text-[32px]">
+						В современном доме действительно нужна централизованная система управления умный дом, которая не только принесет комфорт и уют.
+					</h3>
+					<div className="animate-fade-up mb-10 lg:mb-38 text-[17px] leading-tight md:max-w-115">
+						Настоящий умный дом - это система слаженного автоматизированного управления всеми инженерными системами дома
+					</div>
+
+					<ul className="animate-fade-up grid md:grid-cols-2 gap-10 text-[15px] lg:text-[16px]">
 						<li className="max-w-88">
 							<Image
 								src="/images/about-hero/icons/1.svg"
@@ -36,9 +102,7 @@ export default function SolutionsHero() {
 								alt=""
 								className="mb-4"
 							/>
-							<p>
-								Соединяет освещение, климат, мультимедиа и безопасность в единую логику
-							</p>
+							<p>Соединяет освещение, климат, мультимедиа и безопасность в единую логику</p>
 						</li>
 						<li className="tracking-[-0.01em] max-w-88">
 							<Image
@@ -48,9 +112,7 @@ export default function SolutionsHero() {
 								alt=""
 								className="mb-4"
 							/>
-							<p>
-								Автоматизирует рутину, чтобы дом подстраивался под вас
-							</p>
+							<p>Автоматизирует рутину, чтобы дом подстраивался под вас</p>
 						</li>
 					</ul>
 				</div>

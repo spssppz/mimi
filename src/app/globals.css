@@ -999,3 +999,34 @@
   mix-blend-mode: overlay;
   pointer-events: none;
 }
+
+.typewriter-decor {
+  position: relative;
+}
+
+/* <div className="caret-start absolute -left-0.5 top-0 w-0.5 h-7 bg-black z-10 opacity-0">
+								<span className="absolute bottom-full left-1/2 w-2 h-2 rounded-full bg-black -translate-x-1/2"></span>
+							</div> */
+
+.typewriter-decor span {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 2px);
+  width: 2px;
+  height: 28px;
+  background: #000;
+
+}
+
+.typewriter-decor span::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #000;
+
+}

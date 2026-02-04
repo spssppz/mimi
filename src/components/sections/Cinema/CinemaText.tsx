@@ -1,6 +1,3 @@
-import { Title } from "@/components/UI/Title";
-import Image from "next/image";
-
 export default function CinemaText() {
 	return (
 		<section className="pt-10 md:pt-15 lg:pt-22.5 pb-22.5 md:pb-25 lg:pb-30">
