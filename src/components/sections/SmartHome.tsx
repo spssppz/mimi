@@ -174,6 +174,7 @@ export default function SmartHome() {
 				<div id="steps-container" className="absolute inset-0 pointer-events-none z-10" />
 				<Image
 					src='/images/smarthome/bg.png'
+					priority
 					alt="background image"
 					fill
 					className={`object-cover z-10 transition-opacity duration-400 ${enabled && 'opacity-0'}`}

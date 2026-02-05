@@ -94,7 +94,7 @@ export default function Advantages() {
 
 					{/* Карточка 2 */}
 					<li className="lg:w-[42.75%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#0f1015] overflow-hidden relative">
-						<Image src="/images/advantages/2.png" alt="background" fill className="object-cover" />
+						<Image quality={90} src="/images/advantages/2.png" alt="background" fill className="object-cover" />
 						<h3 className="relative mb-1 font-medium text-white text-[16px]">Произведение искусства.</h3>
 						<p className="relative font-helvetica text-[15px] text-brand-gray">Самые миниатюрные и технологичные датчики для автоматизации в мире.</p>
 						<PlusButton onClick={() => setActiveId(2)} />
@@ -107,7 +107,7 @@ export default function Advantages() {
 
 					{/* Карточка 3 */}
 					<li className="lg:ml-auto lg:w-[22%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#0f1015] overflow-hidden relative">
-						<Image src="/images/advantages/3.png" alt="background" fill className="object-cover" />
+						<Image quality={90} src="/images/advantages/3.png" alt="background" fill className="object-cover" />
 						<h3 className="relative mb-1 font-medium text-white text-[16px]">5000+ объектов.</h3>
 						<p className="relative font-helvetica text-[15px] text-brand-gray">53 представительства по всему Миру.</p>
 						<PlusButton onClick={() => setActiveId(3)} />
@@ -115,7 +115,7 @@ export default function Advantages() {
 
 					{/* Карточка 4 */}
 					<li className="lg:w-[22%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
-						<Image src="/images/advantages/4.png" alt="background" fill className="object-cover" />
+						<Image quality={90} src="/images/advantages/4.png" alt="background" fill className="object-cover" />
 						<h3 className="relative mb-1 font-medium text-[16px]">Децентрализация.</h3>
 						<p className="relative font-helvetica text-[15px] text-brand-gray">Высокая надежность при любых авариях.</p>
 						<PlusButton onClick={() => setActiveId(4)} />
@@ -123,7 +123,7 @@ export default function Advantages() {
 
 					{/* Карточка 5 */}
 					<li className="relative lg:w-[32%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden">
-						<Image src="/images/advantages/5.png" alt="background" fill className="object-cover" />
+						<Image quality={90} src="/images/advantages/5.png" alt="background" fill className="object-cover" />
 						<h3 className="relative mb-1 font-medium text-[16px]">Гибкость.</h3>
 						<p className="relative font-helvetica text-[15px] text-brand-gray">Подключаем выключатели и оборудование любых брендов.</p>
 						<PlusButton onClick={() => setActiveId(5)} />

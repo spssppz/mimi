@@ -132,6 +132,7 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/3.png"
+							quality={90}
 							alt="Фон"
 							fill
 						/>
@@ -158,6 +159,7 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/4.png"
+							quality={90}
 							alt="Фон"
 							fill
 						/>
@@ -184,6 +186,7 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/5.png"
+							quality={90}
 							alt="Фон"
 							fill
 						/>
@@ -210,6 +213,7 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/6.png"
+							quality={90}
 							alt="Фон"
 							fill
 						/>
@@ -236,6 +240,7 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/7.png"
+							quality={90}
 							alt="Фон"
 							fill
 						/>
@@ -262,6 +267,7 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/8.png"
+							quality={90}
 							alt="Фон"
 							fill
 						/>
@@ -398,6 +404,7 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/3.png"
+									quality={90}
 									alt="Фон"
 									fill
 								/>
@@ -437,6 +444,7 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/4.png"
+									quality={90}
 									alt="Фон"
 									fill
 								/>
@@ -476,6 +484,7 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/5.png"
+									quality={90}
 									alt="Фон"
 									fill
 								/>
@@ -515,6 +524,7 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/6.png"
+									quality={90}
 									alt="Фон"
 									fill
 								/>
@@ -554,6 +564,7 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/7.png"
+									quality={90}
 									alt="Фон"
 									fill
 								/>
@@ -593,6 +604,7 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/8.png"
+									quality={90}
 									alt="Фон"
 									fill
 								/>
