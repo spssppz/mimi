@@ -139,14 +139,13 @@ function TabsCard() {
 
 
 
-				<div className="flex items-center justify-center relative w-20 lg:w-25 aspect-square rounded-full bg-[radial-gradient(53.7%_53.7%_at_30.56%_38.36%,rgba(207,231,247,0.2)_0%,rgba(121,111,17,0.1)_100%)] shadow-[0px_54px_15px_rgba(0,0,0,0.02),0px_34px_14px_rgba(0,0,0,0.15),0px_19px_12px_rgba(18,18,18,0.5),0px_2px_5px_rgba(0,0,0,0.98),inset_0px_-2px_1px_rgba(0,0,0,0.55)]">
+				<div className="flex items-center -mt-5 -mr-5 lg:-mt-6.25 lg:-mr-6.25 justify-center relative w-30 lg:w-37.5 aspect-square">
 					<Image
 						ref={iconRef}
 						src={Tabs[activeTab].icon}
 						alt={Tabs[activeTab].title}
-						width={Tabs[activeTab].iconWidth}
-						height={Tabs[activeTab].iconHeight}
-						className="max-w-full max-h-full w-auto h-auto"
+						width={150}
+						height={150}
 						quality={95}
 					/>
 

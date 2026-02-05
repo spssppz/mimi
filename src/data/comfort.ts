@@ -5,8 +5,6 @@ export const Tabs: Record<TabKey, Tab> = {
 	morning: {
 		title: 'Наступило утро',
 		icon: '/images/comfort/icon-1.png',
-		iconWidth: 114,
-		iconHeight: 114,
 		items: [
 			'За час начнут прогреваться теплые полы',
 			'Отопление перейдет в дневной режим',
@@ -17,8 +15,6 @@ export const Tabs: Record<TabKey, Tab> = {
 	away: {
 		title: 'Я ушел или пришел',
 		icon: '/images/comfort/icon-2.png',
-		iconWidth: 85,
-		iconHeight: 100,
 		items: [
 			'Выключает весь забытый свет',
 			'Переводит датчики присутствия в режим охраны',
@@ -28,8 +24,6 @@ export const Tabs: Record<TabKey, Tab> = {
 	leak: {
 		title: 'Случилась протечка',
 		icon: '/images/comfort/icon-3.png',
-		iconWidth: 89,
-		iconHeight: 76,
 		items: [
 			'При попадании воды перекрываются клапана',
 			'Уведомление на телефоне сообщит, в каком именно помещении произошла утечка',
