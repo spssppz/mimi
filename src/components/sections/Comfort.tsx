@@ -209,7 +209,7 @@ export default function Comfort() {
 
 					<div className="overflow-hidden relative rounded-[20px] bg-[#d8d8d8] p-5 md:p-7 lg:p-8 min-h-111.5 lg:min-h-auto">
 						<Image
-							src="/images/comfort/bg-1.svg"
+							src="/images/comfort/bg-1.png"
 							alt="bg"
 							fill
 							className="object-cover"

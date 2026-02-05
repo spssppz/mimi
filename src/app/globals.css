@@ -70,123 +70,6 @@
 }
 
 
-/* ===== базовое ===== */
-.step {
-  position: absolute;
-  opacity: 0;
-  transform: translateY(6px);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-  pointer-events: none;
-}
-
-/* ноги */
-.step-left {
-  transform: rotate(-6deg) translateY(6px);
-}
-
-.kitchen-zone .step-left {
-  top: 57%;
-}
-
-.bedroom-zone .step-left {
-  top: 10%;
-}
-
-.living-zone .step-left {
-  top: 30%;
-}
-
-.step-right {
-  transform: rotate(6deg) translateY(6px);
-}
-
-.kitchen-zone .step-right {
-  top: 64%;
-}
-
-.bedroom-zone .step-right {
-  top: 20%;
-}
-
-.living-zone .step-right {
-  top: 40%;
-}
-
-/* позиции по X */
-.kitchen-zone .step-1 {
-  left: 47%;
-}
-
-.kitchen-zone .step-2 {
-  left: 53%;
-}
-
-.kitchen-zone .step-3 {
-  left: 59%;
-}
-
-.kitchen-zone .step-4 {
-  left: 65%;
-}
-
-.kitchen-zone .step-5 {
-  left: 71%;
-}
-
-.kitchen-zone .step-6 {
-  left: 77%;
-}
-
-.bedroom-zone .step-1 {
-  left: 57%;
-}
-
-.bedroom-zone .step-2 {
-  left: 60%;
-}
-
-.bedroom-zone .step-3 {
-  left: 63%;
-}
-
-.bedroom-zone .step-4 {
-  left: 66%;
-}
-
-.bedroom-zone .step-5 {
-  left: 69%;
-}
-
-.bedroom-zone .step-6 {
-  left: 72%;
-}
-
-.living-zone .step-1 {
-  left: 28%;
-}
-
-.living-zone .step-2 {
-  left: 35%;
-}
-
-.living-zone .step-3 {
-  left: 42%;
-}
-
-.living-zone .step-4 {
-  left: 49%;
-}
-
-.living-zone .step-5 {
-  left: 56%;
-}
-
-.living-zone .step-6 {
-  left: 63%;
-}
-
 /* hover */
 .living-zone {
   position: absolute;
@@ -194,12 +77,6 @@
   left: 0.1%;
   width: 15.4%;
   height: 19.5%;
-}
-
-.kitchen-zone:hover .step,
-.bedroom-zone:hover .step,
-.living-zone:hover .step {
-  transform: rotate(0deg) translateY(0);
 }
 
 /* последовательность + прозрачность */
@@ -243,13 +120,6 @@
 .living-zone:hover .step-6 {
   opacity: 1;
   transition-delay: 600ms;
-}
-
-/* сброс задержки при уходе */
-.kitchen-zone .step,
-.bedroom-zone .step,
-.living-zone .step {
-  transition-delay: 0ms;
 }
 
 /* Анимация датчика в прихожей */
@@ -1029,4 +899,56 @@
   border-radius: 50%;
   background: #000;
 
+}
+
+/* Контейнер-подложка для шагов */
+#steps-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* Чтобы не мешал кликать по кнопкам */
+  z-index: 10;
+  /* Слой 1: выше фона, но ниже всего остального */
+  overflow: hidden;
+  /* Чтобы шаги не вылезали за границы дома */
+}
+
+/* Сами шаги */
+.dynamic-step {
+  position: absolute;
+  /* Привязываемся к координатам #steps-container */
+  width: 28px;
+  height: 19px;
+  pointer-events: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform-origin: center center;
+  /* Анимация затухания */
+  animation: stepLife 3s linear forwards;
+}
+
+/* Стадии прозрачности, как ты просил */
+@keyframes stepLife {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0.8;
+  }
+
+  /* 80% сразу */
+  30% {
+    opacity: 0.5;
+  }
+
+  /* 50% позже */
+  60% {
+    opacity: 0.2;
+  }
+
+  /* 20% в конце */
+  100% {
+    opacity: 0;
+  }
 }

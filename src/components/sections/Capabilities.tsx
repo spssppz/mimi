@@ -135,7 +135,7 @@ export default function Capabilities() {
 							alt="Фон"
 							fill
 						/>
-						<div className="pl-1 pt-3">
+						<div className="pl-1 pt-3 relative">
 							<Image
 								src="/images/capabilities/titles/3.svg"
 								alt="Фон"
