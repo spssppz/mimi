@@ -93,6 +93,7 @@ export default function Capabilities() {
 						<span className="absolute w-[44%] top-0 -right-7.25 aspect-584/500">
 
 							<Image
+								quality={95}
 								src="/images/capabilities/decor/1.png"
 								alt="Фон"
 								fill
@@ -122,6 +123,7 @@ export default function Capabilities() {
 						<span className="absolute w-80.5 top-7 right-6 aspect-322/303">
 
 							<Image
+								quality={95}
 								src="/images/capabilities/decor/2.png"
 								alt="Фон"
 								fill
@@ -132,7 +134,8 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/3.png"
-							quality={90}
+							quality={95}
+
 							alt="Фон"
 							fill
 						/>
@@ -159,7 +162,8 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/4.png"
-							quality={90}
+							quality={95}
+
 							alt="Фон"
 							fill
 						/>
@@ -186,7 +190,8 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/5.png"
-							quality={90}
+							quality={95}
+
 							alt="Фон"
 							fill
 						/>
@@ -213,7 +218,8 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/6.png"
-							quality={90}
+							quality={95}
+
 							alt="Фон"
 							fill
 						/>
@@ -240,7 +246,8 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/7.png"
-							quality={90}
+							quality={95}
+
 							alt="Фон"
 							fill
 						/>
@@ -267,12 +274,14 @@ export default function Capabilities() {
 						<Image
 							className="object-cover"
 							src="/images/capabilities/bg/8.png"
-							quality={90}
+							quality={95}
+
 							alt="Фон"
 							fill
 						/>
 						<div className="absolute bottom-[17.7%] right-[27%] w-[18.83%] aspect-square font-medium text-[15px] text-white tracking-[-0.01em]">
 							<Image
+								quality={95}
 								src="/images/capabilities/decor/8.png"
 								alt="Фон"
 								fill
@@ -349,6 +358,7 @@ export default function Capabilities() {
 								<span className="absolute w-98 top-0 -right-20 sm:-right-5 aspect-233/200">
 
 									<Image
+										quality={95}
 										src="/images/capabilities/decor/1.png"
 										alt="Лампа"
 										fill
@@ -392,6 +402,7 @@ export default function Capabilities() {
 								<span className="absolute w-60 md:w-70 top-7 right-6 aspect-322/303">
 
 									<Image
+										quality={95}
 										src="/images/capabilities/decor/2.png"
 										alt="Фон"
 										fill
@@ -404,7 +415,8 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/3.png"
-									quality={90}
+									quality={95}
+
 									alt="Фон"
 									fill
 								/>
@@ -444,7 +456,8 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/4.png"
-									quality={90}
+									quality={95}
+
 									alt="Фон"
 									fill
 								/>
@@ -484,7 +497,8 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/5.png"
-									quality={90}
+									quality={95}
+
 									alt="Фон"
 									fill
 								/>
@@ -524,7 +538,8 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/6.png"
-									quality={90}
+									quality={95}
+
 									alt="Фон"
 									fill
 								/>
@@ -564,7 +579,8 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/7.png"
-									quality={90}
+									quality={95}
+
 									alt="Фон"
 									fill
 								/>
@@ -604,12 +620,14 @@ export default function Capabilities() {
 								<Image
 									className="object-cover"
 									src="/images/capabilities/bg/8.png"
-									quality={90}
+									quality={95}
+
 									alt="Фон"
 									fill
 								/>
 								<div className="absolute bottom-[19%] sm:bottom-[18%] md:bottom-[18.6%] right-[27%] w-[28%] sm:w-[18.83%] aspect-square font-medium text-[14px] sm:text-[15px] text-white tracking-[-0.01em]">
 									<Image
+										quality={95}
 										src="/images/capabilities/decor/8.png"
 										alt="Фон"
 										fill
