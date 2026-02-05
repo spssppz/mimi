@@ -74,7 +74,8 @@ export default function Capabilities() {
 
 						<div className="pl-1 pt-3">
 							<Image
-								src="/images/capabilities/titles/1.svg"
+								src="/images/capabilities/titles/1.png"
+								quality={95}
 								alt="Фон"
 								width={548}
 								height={90}
@@ -103,7 +104,8 @@ export default function Capabilities() {
 					<li className="sticky top-6 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-15 px-20 bg-[#adafbb] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
 						<div className="pl-1 pt-3">
 							<Image
-								src="/images/capabilities/titles/2.svg"
+								src="/images/capabilities/titles/2.png"
+								quality={95}
 								alt="Фон"
 								width={351}
 								height={74}
@@ -141,7 +143,8 @@ export default function Capabilities() {
 						/>
 						<div className="pl-1 pt-3 relative">
 							<Image
-								src="/images/capabilities/titles/3.svg"
+								src="/images/capabilities/titles/3.png"
+								quality={95}
 								alt="Фон"
 								width={585}
 								height={67}
@@ -169,7 +172,8 @@ export default function Capabilities() {
 						/>
 						<div className="pl-1 pt-3">
 							<Image
-								src="/images/capabilities/titles/4.svg"
+								src="/images/capabilities/titles/4.png"
+								quality={95}
 								alt="Фон"
 								width={334}
 								height={94}
@@ -197,7 +201,8 @@ export default function Capabilities() {
 						/>
 						<div className="pl-1 pt-3">
 							<Image
-								src="/images/capabilities/titles/5.svg"
+								src="/images/capabilities/titles/5.png"
+								quality={95}
 								alt="Фон"
 								width={584}
 								height={189}
@@ -225,7 +230,8 @@ export default function Capabilities() {
 						/>
 						<div className="pl-1 pt-3">
 							<Image
-								src="/images/capabilities/titles/6.svg"
+								src="/images/capabilities/titles/6.png"
+								quality={95}
 								alt="Фон"
 								width={503}
 								height={95}
@@ -253,7 +259,8 @@ export default function Capabilities() {
 						/>
 						<div className="pl-1 pt-3">
 							<Image
-								src="/images/capabilities/titles/7.svg"
+								src="/images/capabilities/titles/7.png"
+								quality={95}
 								alt="Фон"
 								width={496}
 								height={94}
@@ -297,7 +304,8 @@ export default function Capabilities() {
 
 						<div className="pl-1 pt-3">
 							<Image
-								src="/images/capabilities/titles/8.svg"
+								src="/images/capabilities/titles/8.png"
+								quality={95}
 								alt="Фон"
 								width={530}
 								height={94}
@@ -328,7 +336,8 @@ export default function Capabilities() {
 							<div className="relative lg:sticky lg:top-3 bg-[linear-gradient(225deg,#f4dbc5_0%,#f4f4f4_48.56%,#d1a683_100%)] shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-10 px-6 md:py-8 md:px-12 gap-4 min-h-125 overflow-hidden flex flex-col justify-between">
 								<div className="h-9 md:h-12">
 									<Image
-										src="/images/capabilities/titles/1.svg"
+										src="/images/capabilities/titles/1.png"
+										quality={95}
 										alt="Фон"
 										width={548}
 										height={90}
@@ -371,7 +380,8 @@ export default function Capabilities() {
 
 								<div className="h-9 md:h-12">
 									<Image
-										src="/images/capabilities/titles/2.svg"
+										src="/images/capabilities/titles/2.png"
+										quality={95}
 										alt="Фон"
 										width={548}
 										height={90}
@@ -422,7 +432,8 @@ export default function Capabilities() {
 								/>
 								<div className="h-9 md:h-12">
 									<Image
-										src="/images/capabilities/titles/3.svg"
+										src="/images/capabilities/titles/3.png"
+										quality={95}
 										alt="Фон"
 										width={548}
 										height={90}
@@ -463,7 +474,8 @@ export default function Capabilities() {
 								/>
 								<div className="h-9 md:h-12">
 									<Image
-										src="/images/capabilities/titles/4.svg"
+										src="/images/capabilities/titles/4.png"
+										quality={95}
 										alt="Фон"
 										width={548}
 										height={90}
@@ -504,7 +516,8 @@ export default function Capabilities() {
 								/>
 								<div className="h-18 md:h-24">
 									<Image
-										src="/images/capabilities/titles/5.svg"
+										src="/images/capabilities/titles/5.png"
+										quality={95}
 										alt="Фон"
 										width={548}
 										height={90}
@@ -545,7 +558,8 @@ export default function Capabilities() {
 								/>
 								<div className="h-9 md:h-12">
 									<Image
-										src="/images/capabilities/titles/6.svg"
+										src="/images/capabilities/titles/6.png"
+										quality={95}
 										alt="Фон"
 										width={548}
 										height={90}
@@ -586,7 +600,8 @@ export default function Capabilities() {
 								/>
 								<div className="h-9 md:h-12">
 									<Image
-										src="/images/capabilities/titles/7.svg"
+										src="/images/capabilities/titles/7.png"
+										quality={95}
 										alt="Фон"
 										width={548}
 										height={90}
@@ -642,7 +657,8 @@ export default function Capabilities() {
 								</div>
 								<div className="h-9 md:h-12">
 									<Image
-										src="/images/capabilities/titles/8.svg"
+										src="/images/capabilities/titles/8.png"
+										quality={95}
 										alt="Фон"
 										width={548}
 										height={90}
