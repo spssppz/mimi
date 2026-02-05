@@ -4,4 +4,6 @@ export type Tab = {
 	title: string
 	icon: string
 	items: string[]
+	iconWidth: number
+	iconHeight: number
 }

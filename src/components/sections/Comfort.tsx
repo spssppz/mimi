@@ -144,8 +144,10 @@ function TabsCard() {
 						ref={iconRef}
 						src={Tabs[activeTab].icon}
 						alt={Tabs[activeTab].title}
-						width={76}
-						height={76}
+						width={Tabs[activeTab].iconWidth}
+						height={Tabs[activeTab].iconHeight}
+						className="max-w-full max-h-full w-auto h-auto"
+						quality={95}
 					/>
 
 				</div>
