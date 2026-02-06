@@ -459,7 +459,7 @@
 
 .blur-anim div {
   position: absolute;
-  width: 10%;
+  width: calc(10% + 1px);
   bottom: -10px;
   backdrop-filter: blur(2px);
   background: linear-gradient(270deg,
