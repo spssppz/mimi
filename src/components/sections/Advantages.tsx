@@ -83,6 +83,7 @@ export default function Advantages() {
 				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap">
 					{/* Карточка 1 */}
 					<li className="shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_rgba(0,0,0,0.06)] tracking-[-0.01em] lg:w-[32%] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
+						<Image src="/images/advantages/1.jpg" quality={95} alt="background" fill className="object-cover" />
 						<span className="absolute bottom-3 left-4 leading-tight font-bold text-[64px] text-black">Навсегда</span>
 						<div className="blur-anim" ref={blurRef}>
 							{[...Array(10)].map((_, i) => <div key={i}></div>)}
