@@ -55,7 +55,7 @@ function LivingRoom() {
 	}, []);
 
 	return (
-		<div className={`living-zone relative z-20 ${enabled && 'dark-theme'}`}>
+		<div className={`living-zone relative lg:z-20 ${enabled && 'dark-theme'}`}>
 			<span className={`living-cctv transition-all duration-400 ${enabled && 'brightness-50'}`}>
 				<Image src="/images/smarthome/cctv.png" width={85} height={78} alt="" />
 			</span>
@@ -187,7 +187,7 @@ export default function SmartHome() {
 				/>
 				<LivingRoom />
 
-				<div className={`bedroom-zone relative z-20 ${enabled && 'dark-theme'}`}>
+				<div className={`bedroom-zone relative lg:z-20 ${enabled && 'dark-theme'}`}>
 
 					<span className='curtain curtain-open'>
 						<Image src="/images/smarthome/curtain-open.png" width={193} height={186} alt="" />
@@ -202,7 +202,7 @@ export default function SmartHome() {
 						<Image src="/images/smarthome/lamp-on.png" width={89} height={80} alt="" />
 					</span>
 				</div>
-				<div className={`kitchen-zone relative z-20 ${enabled && 'dark-theme'}`}>
+				<div className={`kitchen-zone relative lg:z-20 ${enabled && 'dark-theme'}`}>
 
 					<div className='kitchen-zone-2'>
 						<span className={`conditioner conditioner-off ${enabled && 'brightness-30'}`}>
@@ -242,7 +242,7 @@ export default function SmartHome() {
 				</div>
 			</div>
 
-			<div className="max-w-308 mx-auto px-4">
+			<div className="max-w-308 mx-auto relative z-10 lg:static px-4">
 				<div className='pt-13.5 lg:pl-36 lg:pt-30'>
 					<button
 						type="button"
