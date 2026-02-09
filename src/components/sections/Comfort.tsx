@@ -221,7 +221,7 @@ export default function Comfort() {
 							ref={titleRef}
 							className="text-[#a8a8a9] relative mb-3 lg:mb-6 text-[32px] md:text-[36px] lg:text-[44px] font-bold tracking-[-0.05em]"
 						>
-							Управляйте климатом, освещением, шторами и другим:
+							Управляйте климатом, освещением, шторами и&nbsp;другим:
 						</h2>
 
 						<p className="relative font-helvetica text-[15px] leading-snug text-[#a8a8a9] tracking-[-0.01em] max-w-58">

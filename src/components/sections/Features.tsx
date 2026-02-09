@@ -53,6 +53,7 @@ export default function Features({ title }: { title: string }) {
 									fill
 									className="object-cover"
 									draggable={false}
+									quality={95}
 								/>
 							</a>
 
