@@ -80,9 +80,9 @@ export default function Advantages() {
 					<RightArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
 				</a>
 
-				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap">
+				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap relative">
 					{/* Карточка 1 */}
-					<li className="shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_rgba(0,0,0,0.06)] tracking-[-0.01em] lg:w-[32%] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
+					<li className="shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_rgba(0,0,0,0.06)] lg:z-10 tracking-[-0.01em] lg:w-[32%] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
 						<Image src="/images/advantages/1.jpg" quality={95} alt="background" fill className="object-cover" />
 						<span className="absolute bottom-3 left-4 leading-tight font-bold text-[64px] text-black">Навсегда</span>
 						<div className="blur-anim" ref={blurRef}>
@@ -107,7 +107,7 @@ export default function Advantages() {
 					</li>
 
 					{/* Карточка 3 */}
-					<li className="lg:ml-auto lg:w-[22%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#0f1015] overflow-hidden relative">
+					<li className="lg:ml-auto lg:w-[22%] lg:z-10 tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#0f1015] overflow-hidden relative">
 						<Image src="/images/advantages/3.png" quality={95} alt="background" fill className="object-cover" />
 						<h3 className="relative mb-1 font-medium text-white text-[16px]">5000+ объектов.</h3>
 						<p className="relative font-helvetica text-[15px] text-brand-gray">53 представительства по всему Миру.</p>
@@ -128,6 +128,14 @@ export default function Advantages() {
 						<h3 className="relative mb-1 font-medium text-[16px]">Гибкость.</h3>
 						<p className="relative font-helvetica text-[15px] text-brand-gray">Подключаем выключатели и оборудование любых брендов.</p>
 						<PlusButton onClick={() => setActiveId(5)} />
+					</li>
+
+					{/* Декор */}
+					<li className="aspect-285/327 absolute w-[23.8%] hidden lg:block -left-7.5 top-65">
+						<Image src="/images/advantages/decor-2.png" quality={95} alt="background" fill className="object-cover" />
+					</li>
+					<li className="aspect-390/314 lg:hidden relative -mx-4 -mt-4">
+						<Image src="/images/advantages/decor-3.png" quality={95} alt="background" fill className="object-cover" />
 					</li>
 				</ul>
 			</div>

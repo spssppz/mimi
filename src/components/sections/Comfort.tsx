@@ -106,7 +106,7 @@ function TabsCard() {
 
 
 	return (
-		<div className="relative overflow-hidden lg:min-h-98 rounded-[20px] bg-[#121212] px-5 lg:px-8 pt-6 lg:pt-7 min-h-102 flex flex-col">
+		<div className="relative overflow-hidden lg:min-h-105 rounded-[20px] bg-[#121212] px-5 lg:px-8 pt-6 lg:pt-7 min-h-106 flex flex-col">
 			<div ref={blobsRef} className="absolute inset-0 overflow-hidden">
 				<div className="blob blob-1" />
 				<div className="blob blob-2" />
@@ -219,11 +219,21 @@ export default function Comfort() {
 
 						<h2
 							ref={titleRef}
-							className="text-[#a8a8a9] relative mb-3 lg:mb-6 text-[32px] md:text-[36px] lg:text-[44px] font-bold tracking-[-0.05em]"
+							className="text-[#a8a8a9] relative mb-3 lg:mb-6 text-[32px] md:text-[36px] lg:text-[44px] font-bold tracking-[-0.05em] hidden"
 						>
 							Управляйте климатом, освещением, шторами и&nbsp;другим:
 						</h2>
-
+						<div className="mb-6">
+							<Image
+								src="/images/comfort/title.png"
+								quality={95}
+								alt="Колонки Алиса"
+								// fill
+								width={504}
+								height={132}
+								className="max-w-full"
+							/>
+						</div>
 						<p className="relative font-helvetica text-[15px] leading-snug text-[#a8a8a9] tracking-[-0.01em] max-w-58">
 							с помощью голоса, смартфона, привычных выключателей или полностью автоматической системы.
 						</p>
