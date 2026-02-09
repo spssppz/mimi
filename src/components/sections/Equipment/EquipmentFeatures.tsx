@@ -39,7 +39,7 @@ export default function EquipmentFeatures() {
 								key={i}
 								className={`p-5 flex-auto lg:p-6 relative min-h-89.5 rounded-2xl lg:rounded-[20px] overflow-hidden lg:min-h-100 flex flex-col justify-end ${widthClass}`}
 							>
-								<Image src={col.image} fill alt="" />
+								<Image src={col.image} quality={95} fill alt="" />
 								<h3 className="relative mb-1 font-helvetica font-medium text-white leading-tight">{col.cap}</h3>
 								<div className="relative text-[15px] text-[#95979e] -tracking-[0.01em]">{col.descr}</div>
 							</li>

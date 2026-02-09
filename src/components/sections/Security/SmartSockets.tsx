@@ -117,6 +117,7 @@ export default function SmartSockets() {
 								<SwiperSlide className="mr-4 md:mr-10" key={i}>
 									<div className="mb-4 relative bg-white overflow-hidden rounded-[20px] aspect-540/400">
 										<Image
+											quality={95}
 											src={slide.image}
 											fill
 											className="object-cover"

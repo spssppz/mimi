@@ -23,6 +23,7 @@ export default function LightningBio() {
 					<div className="relative min-h-70 mb-2.5 lg:mb-0 overflow-hidden rounded-[20px] lg:rounded-none py-6 lg:py-0 px-5 lg:min-h-auto lg:px-0 text-[17px] text-white lg:max-w-115">
 						<Image
 							src="/images/lightning-page/bio/bg-mob.jpg"
+							quality={95}
 							fill
 							alt=""
 							className="object-cover lg:hidden"

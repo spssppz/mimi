@@ -70,6 +70,7 @@ export default function SolutionsHero() {
 					<div className="animate-fade-up relative aspect-939/639">
 						<Image
 							src="/images/solutions-page/hero/1.png"
+							quality={95}
 							fill
 							priority
 							alt=""

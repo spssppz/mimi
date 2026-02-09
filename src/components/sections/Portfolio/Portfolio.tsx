@@ -121,7 +121,7 @@ export default function Portfolio() {
 							</div>
 
 							<div className="relative rounded-xl overflow-hidden flex-auto aspect-774/430">
-								<Image src={item.imageMain} alt={item.title} fill className="object-cover" />
+								<Image quality={95} src={item.imageMain} alt={item.title} fill className="object-cover" />
 							</div>
 						</li>
 					))}

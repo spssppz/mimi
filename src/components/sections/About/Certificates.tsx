@@ -73,6 +73,7 @@ export default function Certificates() {
 							<div className="relative">
 								<Image
 									src={certificate.image}
+									quality={95}
 									width={156}
 									height={222}
 									alt=""

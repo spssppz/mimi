@@ -81,6 +81,7 @@ export default function HeroAbout() {
 								src="/images/about-hero/01.png"
 								width={386}
 								height={468}
+								quality={95}
 								alt="default"
 								className="absolute top-0 left-1/2 -translate-x-1/2 transition-opacity duration-500 ease-in-out opacity-100 scale-100 z-10"
 							/>
@@ -108,6 +109,7 @@ export default function HeroAbout() {
 								src="/images/about-hero/main.jpg"
 								fill
 								alt=""
+								quality={95}
 							/>
 						</div>
 						<div>С тех времен мы прошли <span className="typewriter-decor text-[#acacac]">

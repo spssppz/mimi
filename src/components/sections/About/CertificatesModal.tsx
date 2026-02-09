@@ -93,6 +93,7 @@ export function CertificatesModal({ certificates, activeIndex, onClose }: Certif
 									<Image
 										src={item.image}
 										fill
+										quality={95}
 										alt=""
 									/>
 								</div>

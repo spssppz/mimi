@@ -20,6 +20,7 @@ export default function FAQ() {
 				<div className="hidden lg:block relative w-82.5 shrink-0 grow-0 basis-82.5">
 					<Image
 						src='/images/faq/left-bg.png'
+						quality={95}
 						alt="background image"
 						fill
 						className="object-cover"
@@ -30,6 +31,7 @@ export default function FAQ() {
 								const isOpen = openIndex === idx
 								return (
 									<Image
+										quality={95}
 										key={idx}
 										src={item.image}
 										alt={item.title}
@@ -43,6 +45,7 @@ export default function FAQ() {
 							{openIndex === null && (
 								<Image
 									src="/images/faq/11.png"
+									quality={95}
 									width={386}
 									height={468}
 									alt="default"
@@ -86,12 +89,14 @@ export default function FAQ() {
 										<div className="relative lg:hidden flex justify-center">
 											<Image
 												src='/images/faq/left-bg.png'
+												quality={95}
 												alt="background image"
 												fill
 												className="object-cover"
 											/>
 											<Image
 												src={item.image}
+												quality={95}
 												width={386}
 												height={468}
 												className="max-w-55 relative"

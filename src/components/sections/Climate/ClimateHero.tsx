@@ -56,7 +56,7 @@ export default function ClimateHero() {
 
 				<div ref={cardRef} className="mb-22.5 bg-[#f8f8f8] text-center relative overflow-hidden rounded-3xl opacity-0">
 					<div className="hidden lg:block absolute top-0 right-0 w-94 aspect-376/444">
-						<Image src="/images/climate-page/hero/dots.png" fill alt="" />
+						<Image quality={95} src="/images/climate-page/hero/dots.png" fill alt="" />
 					</div>
 
 					<div className="lg:relative pt-10 px-4 mb-4.5">
@@ -73,6 +73,7 @@ export default function ClimateHero() {
 						<Image
 							src="/images/climate-page/hero/decor.png"
 							alt=""
+							quality={95}
 							className="hidden sm:block"
 							width={1200}
 							height={550}

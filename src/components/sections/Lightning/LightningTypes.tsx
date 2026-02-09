@@ -20,6 +20,7 @@ export default function LightningTypes() {
 				<ul className="hidden mb-10 lg:grid grid-cols-3 gap-5 text-white">
 					<li className="flex flex-col tracking-[-0.01em] p-5 rounded-[20px] overflow-hidden relative aspect-387/600">
 						<Image
+							quality={95}
 							src='/images/lightning-page/types/1.jpg'
 							fill
 							alt="Раздвижные шторы"
@@ -32,6 +33,7 @@ export default function LightningTypes() {
 					</li>
 					<li className="flex flex-col tracking-[-0.01em] p-5 rounded-[20px] overflow-hidden relative aspect-387/600">
 						<Image
+							quality={95}
 							src='/images/lightning-page/types/2.jpg'
 							fill
 							alt="Подъемные шторы"
@@ -44,6 +46,7 @@ export default function LightningTypes() {
 					</li>
 					<li className="flex flex-col tracking-[-0.01em] p-5 rounded-[20px] overflow-hidden relative aspect-387/600">
 						<Image
+							quality={95}
 							src='/images/lightning-page/types/3.jpg'
 							fill
 							alt="Рулонные"
