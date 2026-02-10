@@ -277,18 +277,19 @@ export default function Capabilities() {
 							</button>
 						</div>
 					</li>
-					<li className="sticky top-24 bg-[radial-gradient(50%_50%_at_50%_50%,#462925_0%,#000000_100%)] shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-15 px-20 bg-[#0f1015] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
-						<div className="blur-el">
-							{[...Array(10)].map((_, i) => <div key={i}></div>)}
-						</div>
+					<li className="sticky top-24 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-15 px-20 bg-[#0f1015] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
+
 						<Image
 							className="object-cover z-10"
-							src="/images/capabilities/bg/8.png"
+							src="/images/capabilities/bg/8-pc.jpg"
 							quality={95}
 							alt="Фон"
 							fill
 						/>
-						<div className="absolute bottom-[17.7%] right-[27%] w-[18.83%] aspect-square font-medium text-[15px] text-white tracking-[-0.01em] z-10">
+						<div className="blur-el hidden">
+							{[...Array(10)].map((_, i) => <div key={i}></div>)}
+						</div>
+						<div className="absolute bottom-[17.7%] right-[27%] w-[18.83%] aspect-square font-medium text-[15px] text-white tracking-[-0.01em] z-20">
 							<Image
 								quality={95}
 								src="/images/capabilities/decor/8.png"
@@ -304,7 +305,7 @@ export default function Capabilities() {
 							</span>
 						</div>
 
-						<div className="pl-1 pt-3">
+						<div className="pl-1 pt-3 relative z-20">
 							<Image
 								src="/images/capabilities/titles/8.png"
 								quality={95}
@@ -314,7 +315,7 @@ export default function Capabilities() {
 							/>
 						</div>
 						<h3 className="hidden">Мультирум</h3>
-						<div className="relative flex justify-between gap-4 items-end">
+						<div className="relative flex justify-between gap-4 items-end z-20">
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#92969d]">
 								Своя музыка в каждой комнате, AirPlay, следящая музыка, звуковые оповещения
 							</p>
