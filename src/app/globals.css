@@ -981,7 +981,7 @@
   /* ИЗМЕНЕНО: Точки стали чуть тусклее (0.15 вместо 0.3) */
   background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px,
       transparent 1px);
-  background-size: 10px 10px;
+  background-size: 6px 6px;
   z-index: 5;
   mix-blend-mode: overlay;
   pointer-events: none;
