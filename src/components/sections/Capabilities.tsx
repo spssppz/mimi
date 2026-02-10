@@ -278,15 +278,17 @@ export default function Capabilities() {
 						</div>
 					</li>
 					<li className="sticky top-24 bg-[radial-gradient(50%_50%_at_50%_50%,#462925_0%,#000000_100%)] shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-15 px-20 bg-[#0f1015] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
+						<div className="blur-el">
+							{[...Array(10)].map((_, i) => <div key={i}></div>)}
+						</div>
 						<Image
-							className="object-cover"
+							className="object-cover z-10"
 							src="/images/capabilities/bg/8.png"
 							quality={95}
-
 							alt="Фон"
 							fill
 						/>
-						<div className="absolute bottom-[17.7%] right-[27%] w-[18.83%] aspect-square font-medium text-[15px] text-white tracking-[-0.01em]">
+						<div className="absolute bottom-[17.7%] right-[27%] w-[18.83%] aspect-square font-medium text-[15px] text-white tracking-[-0.01em] z-10">
 							<Image
 								quality={95}
 								src="/images/capabilities/decor/8.png"

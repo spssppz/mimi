@@ -73,13 +73,19 @@ const SolutionCard = ({ title, description, image, imgWidth, glowColor, mousePos
 	}, [mousePos, glowColor]);
 
 	return (
-		<li ref={cardRef} className="relative group list-none  rounded-xl">
+		<li ref={cardRef} className="relative group list-none rounded-xl">
 			{/* Добавлен overflow-hidden на li, чтобы края блюра не "мазали" соседние блоки */}
 			<div
 				ref={glowRef}
-				className="absolute pointer-events-none blur-[30px] z-0"
+				className="absolute pointer-events-none blur-[8px] z-0 rounded-3xl"
 				style={{ willChange: 'transform' }}
-			/>
+			>
+				{/* Ребенок с большим блюром (мягкий ореол) */}
+				<div
+					className="absolute -inset-3 rounded-3xl blur-[20px] opacity-70"
+					style={{ background: 'inherit' }}
+				/>
+			</div>
 
 			<div className="relative z-10 bg-foreground border border-[#5A5D64] min-h-76 md:min-h-89 rounded-xl p-8 flex flex-col justify-center items-center text-center backdrop-blur-3xl">
 				<div className="mb-4">
