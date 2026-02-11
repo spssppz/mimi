@@ -286,10 +286,10 @@ export default function Capabilities() {
 							alt="Фон"
 							fill
 						/>
-						<div className="blur-el hidden">
+						{/* <div className="blur-el hidden">
 							{[...Array(10)].map((_, i) => <div key={i}></div>)}
-						</div>
-						<div className="absolute bottom-[17.7%] right-[27%] w-[18.83%] aspect-square font-medium text-[15px] text-white tracking-[-0.01em] z-20">
+						</div> */}
+						{/* <div className="absolute bottom-[17.7%] right-[27%] w-[18.83%] aspect-square font-medium text-[15px] text-white tracking-[-0.01em] z-20">
 							<Image
 								quality={95}
 								src="/images/capabilities/decor/8.png"
@@ -303,7 +303,7 @@ export default function Capabilities() {
 							<span ref={phrase2Ref} className="absolute left-1/2 bottom-[calc(100%+10px)] -translate-x-1/2 whitespace-nowrap opacity-30">
 								– Дети, все к столу!
 							</span>
-						</div>
+						</div> */}
 
 						<div className="pl-1 pt-3 relative z-20">
 							<Image
