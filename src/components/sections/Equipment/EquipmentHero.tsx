@@ -49,6 +49,7 @@ export default function EquipmentHero() {
 					<Image
 						src="/images/equipment-page/hero/decor.png"
 						fill
+						quality={95}
 						alt=""
 					/>
 				</div>
@@ -62,6 +63,7 @@ export default function EquipmentHero() {
 						<Image
 							src="/images/equipment-page/hero/main.jpg"
 							fill
+							quality={95}
 							className="object-cover"
 							alt=""
 						/>

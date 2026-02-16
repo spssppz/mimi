@@ -59,13 +59,12 @@ export default function LightningWay() {
 					<span className="bg-[linear-gradient(180deg,#422e0c_0%,#ffc96e_100%)] bg-clip-text text-transparent">Управляйте группой света</span>
 				</Title>
 				<div className="max-w-125 mx-auto -tracking-[0.01em] flex flex-col items-center">
-					<div ref={imageRef} className="flex items-center justify-center min-h-80">
+					<div ref={imageRef} className="flex items-center justify-center min-h-80 lg:mb-35 md:mb-30 mb-25">
 						<Image
 							src={tabs[activeTab].image.url}
 							width={tabs[activeTab].image.width}
 							height={tabs[activeTab].image.height}
 							alt=""
-							className="lg:mb-35 md:mb-30 mb-25"
 						/>
 					</div>
 
@@ -82,7 +81,7 @@ export default function LightningWay() {
 							</button>
 						))}
 					</div>
-					<div ref={textRef} className="text-[17px] leading-tight">
+					<div ref={textRef} className="text-[17px] leading-tight min-h-32">
 						{tabs[activeTab].text}
 					</div>
 				</div>

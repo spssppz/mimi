@@ -9,7 +9,7 @@ const rightCol = TeamList.filter((_, i) => i % 2 !== 0)
 function TeamCard({ name, position, image }: Team) {
 	return (
 		<li className="min-w-65 lg:min-w-0 relative flex flex-col items-start justify-end px-4 py-3 aspect-260/290 tracking-[-0.01em] rounded-xl overflow-hidden">
-			<Image src={image} fill alt={name} />
+			<Image src={image} quality={95} fill alt={name} />
 			<div className="bg-linear-to-b from-transparent to-black absolute bottom-0 left-0 w-full aspect-260/81" />
 			<div className="relative font-medium text-[17px] text-white mb-1.5">
 				{name}

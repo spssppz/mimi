@@ -53,7 +53,7 @@ export default function SolutionsHero() {
 			<div
 				className="hero-bg-gradient absolute top-0 left-0 w-full h-1/2 -z-10 pointer-events-none"
 				style={{
-					background: "linear-gradient(180deg, #478BEB 0%, rgba(71, 139, 235, 0.4) 40%, rgba(255, 255, 255, 0) 100%)"
+					background: "linear-gradient(0deg, rgb(244, 244, 244, 0) 0%, rgb(186, 183, 178) 100%)"
 				}}
 			/>
 

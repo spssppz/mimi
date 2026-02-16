@@ -60,7 +60,7 @@ export default function EquipmentSensors() {
 				</div>
 				<ul className="text-white -tracking-[0.01em] grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-6 lg:gap-x-8.5 lg:gap-y-8.5 ">
 					{cols.map((col, i) => (
-						<li>
+						<li key={i}>
 							<Image
 								src={col.icon}
 								width={col.iconWidth}

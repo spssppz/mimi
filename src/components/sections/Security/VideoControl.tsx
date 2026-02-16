@@ -21,6 +21,7 @@ export default function VideoControl() {
 					src="/images/security-page/video-control/main.png"
 					width={1200}
 					height={715}
+					quality={95}
 					alt=""
 					className="mb-6 md:mb-8 lg:mb-10 hidden sm:block"
 				/>
@@ -28,6 +29,7 @@ export default function VideoControl() {
 					<Image
 						src="/images/security-page/video-control/main-mob.png"
 						fill
+						quality={95}
 						alt=""
 					/>
 				</div>

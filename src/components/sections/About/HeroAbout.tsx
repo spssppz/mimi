@@ -73,6 +73,7 @@ export default function HeroAbout() {
 						src='/images/faq/left-bg.png'
 						alt="background image"
 						fill
+						quality={95}
 						className="object-cover"
 					/>
 					<div className="sticky top-10">

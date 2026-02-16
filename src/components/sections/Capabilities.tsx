@@ -297,7 +297,7 @@ export default function Capabilities() {
 								fill
 							/>
 
-							<span ref={phrase1Ref} className="absolute left-1/2 bottom-[calc(100%+37px)] -translate-x-1/2 whitespace-nowrap">
+							<span ref={phrase1Ref} className="absolute left-1/2 bottom-[calc(100%+37px)] -translate-x-1/2 whitespace-nowrap"> 
 								Алиса, включи музыку на кухне
 							</span>
 							<span ref={phrase2Ref} className="absolute left-1/2 bottom-[calc(100%+10px)] -translate-x-1/2 whitespace-nowrap opacity-30">

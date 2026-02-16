@@ -7,7 +7,7 @@ export default function LightningSettings() {
 	return (
 		<section className="py-22.5">
 			<div className="max-w-235.5 mx-auto px-4">
-				<Title className="bg-[linear-gradient(180deg,#422e0c_0%,#ffc96e_100%)] bg-clip-text text-transparent lg:mb-32 mb-28.75">Вы всегда можете изменить настройки в пару кликов</Title>
+				<Title className="bg-[linear-gradient(180deg,#422e0c_0%,#ffc96e_100%)] lg:max-w-215 bg-clip-text text-transparent lg:mb-32 mb-28.75">Вы всегда можете изменить настройки в пару кликов</Title>
 				<div className="flex items-center gap-29 lg:flex-row flex-col">
 					<div className="max-w-67.5 mx-auto md:max-w-none flex-none lg:w-80">
 						<Image

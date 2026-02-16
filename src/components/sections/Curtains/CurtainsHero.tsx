@@ -8,6 +8,7 @@ export default function CurtainsHero() {
 			<Image
 				src="/images/curtains-page/hero-bg.jpg"
 				fill
+				quality={95}
 				alt=""
 				className="object-cover"
 			/>

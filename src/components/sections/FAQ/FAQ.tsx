@@ -36,7 +36,11 @@ export default function FAQ() {
 										src={item.image}
 										alt={item.title}
 										fill
-										className={`transition-opacity duration-400 ease-in-out ${isOpen ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0'}`}
+										// Для активной картинки
+										className={`transition-all duration-700 ease-out ${isOpen
+											? 'opacity-100 translate-y-0 scale-100'
+											: 'opacity-0 translate-y-4 scale-95'
+											}`}
 									/>
 								)
 							})}

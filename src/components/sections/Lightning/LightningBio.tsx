@@ -17,6 +17,7 @@ export default function LightningBio() {
 					<Image
 						src="/images/lightning-page/bio/bg.jpg"
 						fill
+						quality={95}
 						alt=""
 						className="hidden lg:block object-cover"
 					/>

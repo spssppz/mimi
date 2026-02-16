@@ -8,6 +8,7 @@ export default function LightningHero() {
 					src="/images/lightning-page/hero/decor.png"
 					fill
 					alt=""
+					quality={95}
 				/>
 			</div>
 			<div className="max-w-308 mx-auto px-4 flex flex-col items-center text-center w-full lg:relative">
@@ -38,7 +39,7 @@ export default function LightningHero() {
 						</defs>
 					</svg>
 				</div>
-				<h1 className="mb-auto font-helvetica font-bold text-[40px] md:text-[60px] lg:text-[84px] max-w-169 leading-none bg-[linear-gradient(180deg,#422e0c_0%,#ffc96e_100%)] bg-clip-text text-transparent">
+				<h1 className="mb-auto font-helvetica font-bold text-[40px] md:text-[60px] lg:text-[84px] max-w-169 leading-tight bg-[linear-gradient(180deg,#422e0c_0%,#ffc96e_100%)] bg-clip-text text-transparent">
 					Подсвети свое
 					пространство
 				</h1>

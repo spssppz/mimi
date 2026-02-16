@@ -89,6 +89,7 @@ export default function Contacts() {
 					src="/images/contacts/decor.png"
 					alt="Декор"
 					fill
+					quality={95}
 					className="object-cover"
 				/>
 			</span>

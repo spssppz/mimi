@@ -101,6 +101,18 @@ export default function CinemaFeatures() {
 	const [activeIndex, setActiveIndex] = useState(1);
 	const swiperRef = useRef<any>(null);
 
+	const total = features.length
+	const handlePrev = () => {
+		if (activeIndex > 0) {
+			swiperRef.current?.slidePrev()
+		}
+	}
+
+	const handleNext = () => {
+		if (activeIndex < total - 1) {
+			swiperRef.current?.slideNext()
+		}
+	}
 	const handleSelect = (index: number) => {
 		setActiveIndex(index);
 		swiperRef.current?.slideTo(index);
@@ -109,8 +121,26 @@ export default function CinemaFeatures() {
 		<section className="py-22.5 md:py-25 lg:py-30 overflow-hidden bg-black">
 			<Title className="max-w-308 mb-6 text-[#acacac] md:mb-8 lg:mb-10 mx-auto px-4">Функционал</Title>
 			<div className="max-w-348 mx-auto px-4">
-				<div className="bg-foreground rounded-3xl overflow-hidden min-h-152.5 items-center gap-30 lg:flex hidden">
+				<div className="bg-foreground rounded-3xl overflow-hidden min-h-150 items-center gap-30 lg:flex hidden">
 					<div className="py-15 pl-20 flex-none w-[37%] relative">
+						<div className="hidden lg:flex absolute top-1/2 left-5 -translate-y-1/2 flex-col gap-4 text-[#acacac]">
+							<button
+
+								onClick={handlePrev}
+								disabled={activeIndex === 0}
+								className="w-9 h-9 rounded-full bg-black flex items-center justify-center cursor-pointer hover:opacity-80 rotate-90 transition-opacity duration-300 disabled:opacity-20 disabled:cursor-default"
+							>
+								<RightArrowIcon className="rotate-180 w-5 h-5"></RightArrowIcon>
+							</button>
+							<button
+
+								onClick={handleNext}
+								disabled={activeIndex === total - 1}
+								className="rotate-90 w-9 h-9 rounded-full bg-black flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity duration-300 disabled:opacity-20 disabled:cursor-default"
+							>
+								<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
+							</button>
+						</div>
 						<ul className="space-y-6 leading-snug -tracking-[0.01em]">
 							{features.map((item, idx) => (
 								<li key={item.id} className={`${activeIndex === idx && "bg-black rounded-[20px] p-6"}`}>

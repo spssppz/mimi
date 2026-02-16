@@ -44,7 +44,8 @@ const catalog = [
 
 export default function FeaturesCatalog() {
 	return (
-		<section className="pt-30 pb-22.5 lg:pb-11.25">
+		<section className="pt-30 pb-22.5 lg:pb-11.25 relative overflow-hidden">
+			<div className="absolute -top-22.5 left-0 w-full h-24.5 bg-[linear-gradient(90deg,#478BEB_0%,#64A3C4_28.13%,#FFC96E_49.82%,#EB477B_73.92%,#478BEB_100%)] blur-[30px]"></div>
 			<div className="max-w-308 mx-auto px-4">
 				<div className="mb-10 flex lg:flex-row flex-col gap-10 lg:items-end lg:justify-between">
 					<Title>Функционал</Title>
@@ -94,7 +95,7 @@ export default function FeaturesCatalog() {
 						</li>
 					))}
 				</ul>
-				<ul className="hidden lg:block">
+				<ul>
 					<li className="py-7.5 lg:py-11.25">
 						<div className="mb-6 flex lg:gap-2 font-helvetica font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
 							<h3>Освещение.</h3>
@@ -113,7 +114,7 @@ export default function FeaturesCatalog() {
 								<div className="text-[17px] -tracking-[0.01em] flex-auto leading-tight">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
 								<Button className="justify-center">Узнать больше</Button>
 							</div>
-							<div className="absolute right-7 top-0 aspect-square w-[45.33%]">
+							<div className="absolute right-0 top-0 aspect-672/600 w-[45.33%]">
 								<Image
 									src='/images/features-page/catalog/1/main.png'
 									fill
@@ -123,11 +124,18 @@ export default function FeaturesCatalog() {
 						</div>
 					</li>
 					<li className="py-7.5 lg:py-11.25">
-						<div className="mb-6 flex lg:gap-2 font-helvetica font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
+						<div className="mb-6 flex lg:gap-2 font-helvetica font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em]">
 							<h3>Климат контроль.</h3>
 							<div className="text-[#acacac]">То, что стоит рассматривать в первую очередь.</div>
 						</div>
-						<div className="rounded-[20px] bg-[#f8f8f8]] px-5.5 py-10 lg:px-10 shadow-[0_0_24px_0_rgba(0,0,0,0.04)] min-h-150 flex justify-between gap-10">
+						<div className="rounded-[20px] bg-[#f8f8f8]] px-5.5 py-10 lg:px-10 shadow-[0_0_24px_0_rgba(0,0,0,0.04)] min-h-150 flex justify-between gap-10 relative">
+							<div className="absolute bottom-0 right-0 w-136 aspect-544/491">
+								<Image
+									src='/images/features-page/catalog/2/dots.png'
+									fill
+									alt=""
+								/>
+							</div>
 							<div className="flex flex-col items-start gap-5 flex-none lg:w-110">
 								<div>
 									<Image
@@ -141,7 +149,7 @@ export default function FeaturesCatalog() {
 								<div className="text-[17px] -tracking-[0.01em] flex-auto leading-tight">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
 								<Button className="justify-center">Узнать больше</Button>
 							</div>
-							<ul className="flex-none w-100  flex-col gap-2 hidden lg:flex">
+							<ul className="relative flex-none w-100  flex-col gap-2 hidden lg:flex">
 								<li className="flex-auto">
 									<div className="-tracking-[0.01em] rounded-2xl p-4 overflow-hidden relative flex items-end text-[14px] text-white h-full">
 										<Image
@@ -257,11 +265,11 @@ export default function FeaturesCatalog() {
 						</div>
 						<div className="relative overflow-hidden rounded-[20px] bg-white px-5.5 py-10 lg:px-10 shadow-[0_0_24px_0_rgba(0,0,0,0.04)] min-h-150 flex">
 							<div className="flex flex-col items-start gap-5 flex-none lg:w-110 relative z-10">
-								<div>
+								<div className="-ml-13.5">
 									<Image
-										src='/images/features-page/catalog/1/decor.jpg'
-										width={140}
-										height={140}
+										src='/images/features-page/catalog/6/decor.png'
+										width={279}
+										height={150}
 										preload
 										alt=""
 									/>
