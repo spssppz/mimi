@@ -22,7 +22,7 @@ export default function CinemaPage() {
 				<CinemaAdvantages></CinemaAdvantages>
 				<Features title="Удобное управление" />
 				<CinemaText></CinemaText>
-				{/* <CinemaTV></CinemaTV> */}
+				<CinemaTV></CinemaTV>
 			</main>
 			<Footer />
 		</>
