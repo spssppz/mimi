@@ -3,22 +3,23 @@ import Image from "next/image";
 
 export default function CinemaTV() {
 	return (
-		<section className="pt-43 relative min-h-211 lg:min-h-250 py-10 bg-foreground text-center overflow-hidden">
+		<section className="pt-43 relative min-h-211 lg:min-h-250 py-10 bg-black text-center overflow-hidden">
 			<div className="absolute top-10 md:top-14.5 left-1/2 -translate-x-1/2 w-[130%] md:w-[83.33%] aspect-1200/54">
-				<Image
-					src="/images/cinema-page/tv/top-decor.png"
-					fill
-					alt="decor"
-				/>
-				<div className="absolute top-0 left-0 w-full aspect-1200/302">
-
+				<div className="absolute top-[63%] left-0 w-full aspect-1200/302">
 					<Image
 						src="/images/cinema-page/tv/top-decor-gradient.png"
 						fill
+						quality={95}
 						className="object-cover"
 						alt="decor"
 					/>
 				</div>
+				<Image
+					src="/images/cinema-page/tv/top-decor.png"
+					fill
+					quality={95}
+					alt="decor"
+				/>
 			</div>
 			<div className="absolute bottom-0  min-w-3xl left-1/2 -translate-x-1/2 w-full aspect-1440/179">
 				<Image
