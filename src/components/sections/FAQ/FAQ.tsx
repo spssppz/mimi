@@ -15,9 +15,9 @@ export default function FAQ() {
 		setOpenIndex(openIndex === index ? null : index)
 	}
 	return (
-		<section className="pt-12.5 lg:pt-22.5 pb-30 lg:pb-37.5">
+		<section className="pt-12.5 lg:pt-17 pb-30 lg:pb-37.5">
 			<div className="max-w-308 mx-auto px-4 flex gap-10 xl:gap-30">
-				<div className="hidden lg:block relative w-82.5 shrink-0 grow-0 basis-82.5">
+				<div className="hidden lg:block relative w-82.5 mt-34 shrink-0 grow-0 basis-82.5">
 					<Image
 						src='/images/faq/left-bg.png'
 						quality={95}
@@ -61,8 +61,8 @@ export default function FAQ() {
 				</div>
 				<div className="flex-auto lg:mr-15">
 					<Title className="mb-10 xl:max-w-[70%]">Ответим на все вопросы</Title>
-					<Button className="lg:min-w-80 mb-4 justify-between">Связаться с нами</Button>
-					<div className='mb-10 flex items-center gap-2 text-[14px] text-[#acacac] -tracking-[0.01em] leading-normal pl-6'>
+					<Button className="lg:min-w-80 mb-3 justify-between sm:py-1.5 sm:px-5">Связаться с нами</Button>
+					<div className='mb-8 flex items-center gap-1 text-[14px] text-[#acacac] -tracking-[0.01em] leading-normal pl-6'>
 						<span>Мы на связи сейчас</span>
 						<span className='w-2 h-2 rounded-full bg-[#27ca40] box-shadow: 0 4px 4px 0 rgba(39, 202, 64, 0.25);'></span>
 					</div>
@@ -88,7 +88,7 @@ export default function FAQ() {
 									}}
 									className="overflow-hidden font-helvetica text-[17px] text-brand-gray"
 								>
-									<div className="pt-3 pb-6">
+									<div className="pb-2">
 										<div className="mb-3 lg:mb-0">{item.description}</div>
 										<div className="relative lg:hidden flex justify-center">
 											<Image

@@ -26,17 +26,32 @@ export default function HeroAbout() {
 				line.style.width = 'auto';
 				line.style.position = 'relative'; // Важно для позиционирования каретки
 
+				// Устанавливаем размер отступа (например, 8px)
+				const paddingX = '5px';
+
 				line.innerHTML = `
-        <span class="line-wrapper" style="position: relative; display: inline-block; width: 100%;">
-          <span class="line-bg" style="position: absolute; inset: 0; background: #ffeba4; z-index: -1; transform-origin: left; transform: scaleX(0);"></span>
+        <span class="line-wrapper" style="
+            position: relative; 
+            display: inline-block; 
+            padding: 0 ${paddingX}; 
+            margin-left: -${paddingX};
+        ">
+          <span class="line-bg" style="
+            position: absolute; 
+            inset: 0; 
+            background: #ffeba4; 
+            z-index: -1; 
+            transform-origin: left; 
+            transform: scaleX(0);
+          "></span>
           ${lineContent}
           ${isLast ? `
-            <div class="caret-end absolute -right-px top-0 w-0.5 h-full bg-black opacity-0 translate-x-full">
+            <div class="caret-end absolute -right-1 top-0 w-0.5 h-full bg-black opacity-0">
               <span class="absolute top-full left-1/2 w-2 h-2 rounded-full bg-black -translate-x-1/2"></span>
             </div>
           ` : ''}
         </span>
-      `;
+    `;
 			});
 		}
 
@@ -67,7 +82,6 @@ export default function HeroAbout() {
 			className="pt-15 md:pt-22.5 lg:pt-28 pb-22.5 md:pb-28 lg:pb-58.5"
 		>
 			<div className="max-w-308 mx-auto px-4 flex gap-10 xl:gap-30">
-
 				<div className="hidden -ml-9 px-3.5 lg:block relative w-82.5 shrink-0 grow-0 basis-82.5">
 					<Image
 						src='/images/faq/left-bg.png'
@@ -77,7 +91,7 @@ export default function HeroAbout() {
 						className="object-cover"
 					/>
 					<div className="sticky top-10">
-						<div className="relative top-10 aspect-386/468">
+						<div className="relative -top-6 aspect-386/468">
 							<Image
 								src="/images/about-hero/01.png"
 								width={386}
@@ -89,23 +103,25 @@ export default function HeroAbout() {
 						</div>
 					</div>
 				</div>
-				<div className="xl:mr-24 flex-auto">
+				<div className="xl:mr-24 flex-auto leading-[1.4]">
 					<Title className="mb-8.5"><span className="text-[#00d0ff]">MiMi</span>Smart</Title>
-					<div className="mb-8.5 font-helvetica text-[18px] lg:text-[20px] tracking-[-0.01em] space-y-8.5">
-						<p>Крупнейший <span className="text-[#ce5941]">(ТОП-1)</span> российский производитель <br />премиальных систем умный дом.</p>
-						<div className="relative flex flex-col items-start">
-							{/* Каретка в начале (верхний левый угол) */}
-							<div className="caret-start absolute -left-0.5 top-0 w-0.5 h-7 bg-black z-10 opacity-0">
-								<span className="absolute bottom-full left-1/2 w-2 h-2 rounded-full bg-black -translate-x-1/2"></span>
-							</div>
+					<div className="mb-8.5 font-helvetica text-[18px] lg:text-[20px] tracking-[-0.01em]">
+						<div className="lg:pr-11 mb-8.5">
+							<p className="mb-9.5">Крупнейший <span className="text-[#ce5941]">(ТОП-1)</span> российский производитель <br />премиальных систем умный дом.</p>
+							<div className="relative flex flex-col items-start mb-5">
+								{/* Каретка в начале (верхний левый угол) */}
+								<div className="caret-start absolute -left-1.5 top-0 w-0.5 h-7 bg-black z-10 opacity-0">
+									<span className="absolute bottom-full left-1/2 w-2 h-2 rounded-full bg-black -translate-x-1/2"></span>
+								</div>
 
-							<p ref={textRef} className="relative z-0">
-								Система MiMiSmart начала свою историю в 2004 году, когда один из наших основателей делал ремонт в своем большом загородном доме.
-							</p>
+								<p ref={textRef} className="relative z-0">
+									Система MiMiSmart начала свою историю в 2004 году, когда один из наших основателей делал ремонт в своем большом загородном доме.
+								</p>
+							</div>
+							<p className="mb-5">В проекте было множество групп освещения, кондиционеров, теплые полы, радиаторы. И управлять этим без единой, слаженной системы – очевидно невозможно.</p>
+							<p className="mb-8.5">Так появилась система MiMiSmart.</p>
 						</div>
-						<p>В проекте было множество групп освещения, кондиционеров, теплые полы, радиаторы. И управлять этим без единой, слаженной системы – очевидно невозможно.</p>
-						<p>Так появилась система MiMiSmart.</p>
-						<div className="rounded-2xl lg:rounded-[20px] overflow-hidden relative aspect-690/400">
+						<div className="rounded-2xl lg:rounded-[20px] overflow-hidden relative aspect-690/400 mb-8.5">
 							<Image
 								src="/images/about-hero/main.jpg"
 								fill

@@ -111,7 +111,7 @@ export default function Portfolio() {
 								<h3 className="font-helvetica text-[18px] md:text-[20px] tracking-[-0.01em] mb-3 font-medium leading-tight">
 									{item.title}
 								</h3>
-								<p className="text-brand-gray text-[15px] md:text-[16px] mb-4 md:mb-5 tracking-[-0.01em] leading-snug">
+								<p className="text-brand-gray text-[15px] md:text-[16px] mb-4 md:mb-3 tracking-[-0.01em] leading-snug">
 									{item.description}
 								</p>
 								<a href="#" className="text-brand-blue inline-flex items-center gap-1 leading-tight">

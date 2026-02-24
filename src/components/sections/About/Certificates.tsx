@@ -61,7 +61,7 @@ export default function Certificates() {
 				<div ref={titleRef}>
 					<Title className="mb-10">Сертификаты</Title>
 				</div>
-				<ul className="grid items-start sm:grid-cols-2 lg:grid-cols-3 gap-x-20 lg:gap-x-10 gap-y-20">
+				<ul className="grid items-start sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-20 gap-y-10">
 					{certificates.map((certificate, index) => (
 						<li
 							ref={(el) => {

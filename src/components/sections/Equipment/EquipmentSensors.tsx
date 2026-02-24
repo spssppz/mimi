@@ -42,8 +42,8 @@ const cols = [
 
 export default function EquipmentSensors() {
 	return (
-		<section className="py-22.5 lg:py-30 bg-foreground">
-			<div className="max-w-235.5 mx-auto px-4 -tracking-[0.01em]">
+		<section className="py-22.5 lg:py-27 bg-foreground">
+			<div className="max-w-235.5 mx-auto px-4 tracking-[0.05em]">
 				<div className="mb-20 md:mb-25 lg:mb-30">
 					<div className="text-white font-helvetica font-bold text-[18px] md:text-[24px] lg:text-[32px] leading-tight">Датчики</div>
 					<h2 className="mb-6 font-helvetica tracking-0 font-bold text-[86px] md:text-[100px] lg:text-[140px] xl:text-[220px] bg-[linear-gradient(180deg,#fff_0%,#516076_100%)] bg-clip-text text-transparent leading-tight flex flex-col">

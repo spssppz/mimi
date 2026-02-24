@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+import Header from "@/components/layout/DarkHeader";
 import EquipmentHero from "@/components/sections/Equipment/EquipmentHero";
 import EquipmentFeatures from "@/components/sections/Equipment/EquipmentFeatures";
 import EquipmentControlls from "@/components/sections/Equipment/EquipmentControlls";

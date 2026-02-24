@@ -73,7 +73,7 @@ export default function OurFuture() {
 		<section ref={sectionRef} className="py-22.5 overflow-hidden">
 			<div className="max-w-308 mx-auto px-4">
 				<div ref={titleRef} className="mb-10">
-					<Title>
+					<Title className="sm:tracking-[0em]">
 						Будущее нашей компании
 					</Title>
 				</div>
@@ -94,7 +94,7 @@ export default function OurFuture() {
 					>
 						{isDesktop && (
 							<SwiperSlide className="flex-none mr-4 md:mr-5 lg:mr-10">
-								<div className="font-bold flex items-center justify-center text-[32px] text-[#acacac] aspect-375/465 rounded-[20px] bg-[#ededed] p-20">
+								<div className="font-bold flex items-center justify-center q-tight text-[32px] text-[#acacac] aspect-375/465 rounded-[20px] bg-[#ededed] p-20">
 									<span className="max-w-40 text-center">Дальше больше...</span>
 								</div>
 							</SwiperSlide>
@@ -123,7 +123,7 @@ export default function OurFuture() {
 
 				<div ref={navRef}>
 					<SliderNavigation
-						className="justify-end mt-10"
+						className="justify-end mt-14"
 						setPrev={setPrevEl}
 						setNext={setNextEl}
 					/>

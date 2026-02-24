@@ -33,7 +33,7 @@ export default function EquipmentFeatures() {
 				<ul className="gap-4 lg:gap-5 flex flex-wrap">
 					{cols.map((col, i) => {
 						// На десктопе 2-й и 3-й li будут 70%
-						const widthClass = (i === 1 || i === 2) ? 'lg:w-[64%]' : 'lg:w-[34%]'
+						const widthClass = (i === 1 || i === 2) ? 'lg:w-[65%]' : 'lg:w-[33%]'
 						return (
 							<li
 								key={i}
@@ -41,13 +41,13 @@ export default function EquipmentFeatures() {
 							>
 								<Image src={col.image} quality={95} fill alt="" />
 								<h3 className="relative mb-1 font-helvetica font-medium text-white leading-tight">{col.cap}</h3>
-								<div className="relative text-[15px] text-[#95979e] -tracking-[0.01em]">{col.descr}</div>
+								<div className={`${i === 0 ? 'max-w-[80%]' : ''} ${i === 2 ? 'max-w-[85%]' : ''}  relative text-[15px] text-[#95979e] -tracking-[0.2px]`}>{col.descr}</div>
 							</li>
 						)
 					})}
 				</ul>
 
 			</div>
-		</section>
+		</section >
 	)
 }

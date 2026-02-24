@@ -76,8 +76,8 @@ export default function Contacts() {
 						)
 					})}
 				</nav>
-				<Button className='lg:min-w-80 justify-between mb-4'>Связаться с нами</Button>
-				<div className='flex items-center gap-2 text-[14px] text-[#acacac] -tracking-[0.01em] leading-normal pl-6'>
+				<Button className='lg:min-w-80 sm:py-1.75 sm:px-6 justify-between mb-2.5'>Связаться с нами</Button>
+				<div className='flex items-center gap-1 text-[14px] text-[#acacac] -tracking-[0.01em] leading-normal pl-6'>
 					<span>Мы на связи сейчас</span>
 					<span className='w-2 h-2 rounded-full bg-[#27ca40] box-shadow: 0 4px 4px 0 rgba(39, 202, 64, 0.25);'></span>
 				</div>

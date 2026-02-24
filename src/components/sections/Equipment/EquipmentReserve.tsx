@@ -5,7 +5,7 @@ export default function EquipmentReserve() {
 	return (
 		<section className="pt-22.5 lg:pt-27.5 bg-white">
 			<div className="max-w-236 mx-auto px-4 -tracking-[0.01em]">
-				<div className="mb-10 md:mb-20 lg:mb-30">
+				<div className="mb-4">
 					<div className="font-helvetica font-bold text-[18px] md:text-[24px] lg:text-[32px] leading-tight">Бесперебойное электроснабжение</div>
 					<h2 className="mb-6 font-helvetica tracking-0 font-bold text-[64px] md:text-[100px] lg:text-[140px] xl:text-[220px] bg-[linear-gradient(180deg,#0b0d10_0%,#6bf980_100%)] bg-clip-text text-transparent leading-tight flex flex-col">
 						Резерв
@@ -16,7 +16,7 @@ export default function EquipmentReserve() {
 					</div>
 				</div>
 				<div className="flex lg:items-center lg:flex-row flex-col-reverse gap-15 lg:gap-20">
-					<div className="relative flex-none sm:w-88.25 aspect-488/630">
+					<div className="relative flex-none sm:w-122 lg:-ml-30 aspect-488/630">
 						<Image
 							src="/images/equipment-page/reserve/main.png"
 							fill
