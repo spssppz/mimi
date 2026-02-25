@@ -277,7 +277,7 @@ export default function FeaturesCatalog() {
 							<h3>Управление розетками.</h3>
 							<div className="text-[#acacac]">То, что стоит рассматривать в первую очередь.</div>
 						</div>
-						<div className="relative overflow-hidden rounded-[20px] bg-white px-5.5 py-10 lg:px-10 shadow-[0_0_24px_0_rgba(0,0,0,0.04)] min-h-150 flex">
+						<div className="relative overflow-hidden rounded-[20px] bg-white px-5.5 py-10 lg:px-10 shadow-[0_0_24px_0_rgba(0,0,0,0.04)] h-150 lg:flex-row flex-col flex gap-10 justify-between">
 							<div className="flex flex-col items-start gap-5 lg:flex-none lg:w-110 relative z-10">
 								<div className="-ml-13.5 hidden lg:block">
 									<Image
@@ -288,16 +288,57 @@ export default function FeaturesCatalog() {
 										alt=""
 									/>
 								</div>
-								<div className="text-[17px] -tracking-[0.01em] flex-auto leading-tight font-helvetica">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
-								<Button className="justify-center sm:py-1.75">Узнать больше</Button>
+								<div className="text-[17px] -tracking-[0.01em] lg:flex-auto leading-tight font-helvetica">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
+								<Button className="justify-center py-1.75!">Узнать больше</Button>
 							</div>
-
-							<Image
-								src='/images/features-page/catalog/6/bg.jpg'
-								fill
-								className="object-cover hidden lg:block"
-								alt=""
-							/>
+							<div className="grid lg:mx-0 -mx-5.5 lg:-my-10 lg:grid-cols-2 gap-2.5 flex-none h-62.75 lg:h-auto lg:w-115.5">
+								<div className="grid gap-2 grid-cols-3 lg:block lg:space-y-2.5 lg:-mt-14.75">
+									<div className="relative aspect-square">
+										<Image
+											src="/images/features-page/catalog/6/sockets/1.png"
+											fill
+											alt=""
+										/>
+									</div>
+									<div className="relative aspect-square">
+										<Image
+											src="/images/features-page/catalog/6/sockets/2.png"
+											fill
+											alt=""
+										/>
+									</div>
+									<div className="relative aspect-square">
+										<Image
+											src="/images/features-page/catalog/6/sockets/3.png"
+											fill
+											alt=""
+										/>
+									</div>
+								</div>
+								<div className="grid gap-2 grid-cols-3 lg:block space-y-2.5 lg:-mt-9">
+									<div className="relative aspect-square">
+										<Image
+											src="/images/features-page/catalog/6/sockets/4.png"
+											fill
+											alt=""
+										/>
+									</div>
+									<div className="relative aspect-square">
+										<Image
+											src="/images/features-page/catalog/6/sockets/5.png"
+											fill
+											alt=""
+										/>
+									</div>
+									<div className="relative aspect-square">
+										<Image
+											src="/images/features-page/catalog/6/sockets/6.png"
+											fill
+											alt=""
+										/>
+									</div>
+								</div>
+							</div>
 						</div>
 					</li>
 				</ul>
