@@ -16,7 +16,7 @@ export default function LightningTypes() {
 	return (
 		<section className="lg:py-22.5 md:py-16 py-10 overflow-hidden">
 			<div className="max-w-308 mx-auto px-4">
-				<Title className="mb-6 md:mb-8 lg:mb-10">Типы освещения.</Title>
+				<Title className="md:max-w-none max-w-[80%] mb-6 md:mb-8 lg:mb-10">Типы освещения.</Title>
 				<ul className="hidden mb-10 lg:grid grid-cols-3 gap-5 text-white">
 					<li className="flex flex-col tracking-[-0.01em] p-5 rounded-[20px] overflow-hidden relative aspect-387/600">
 						<Image
@@ -28,7 +28,7 @@ export default function LightningTypes() {
 						/>
 						<div className="mt-auto">
 							<h3 className="relative font-medium text-[17px] mb-2">Общий свет</h3>
-							<p className="relative text-[15px]">Это главный источник света в помещении, который заполняет все пространство.</p>
+							<p className="relative text-[15px] font-helvetica">Это главный источник света в помещении, который заполняет все пространство.</p>
 						</div>
 					</li>
 					<li className="flex flex-col tracking-[-0.01em] p-5 rounded-[20px] overflow-hidden relative aspect-387/600">
@@ -41,7 +41,7 @@ export default function LightningTypes() {
 						/>
 						<div className="mt-auto">
 							<h3 className="relative font-medium text-[17px] mb-2">Локальное освещение</h3>
-							<p className="relative text-[15px]">Используется для освещения отдельной зоны и решения отдельных задач.</p>
+							<p className="relative text-[15px] font-helvetica">Используется для освещения отдельной зоны и решения отдельных задач.</p>
 						</div>
 					</li>
 					<li className="flex flex-col tracking-[-0.01em] p-5 rounded-[20px] overflow-hidden relative aspect-387/600">
@@ -54,7 +54,7 @@ export default function LightningTypes() {
 						/>
 						<div className="mt-auto">
 							<h3 className="relative font-medium text-[17px] mb-2">Декоративное освещение</h3>
-							<p className="relative text-[15px]">Используется для создания приятной атмосферы и подчеркивают дизайн.</p>
+							<p className="relative text-[15px] font-helvetica">Используется для создания приятной атмосферы и подчеркивают дизайн.</p>
 						</div>
 					</li>
 				</ul>
@@ -86,7 +86,7 @@ export default function LightningTypes() {
 							/>
 							<div className="mt-auto">
 								<h3 className="relative font-medium text-[17px] mb-2">Общий свет</h3>
-								<p className="relative text-[15px]">Это главный источник света в помещении, который заполняет все пространство.</p>
+								<p className="relative text-[15px] font-helvetica">Это главный источник света в помещении, который заполняет все пространство.</p>
 							</div>
 						</SwiperSlide>
 						<SwiperSlide className="tracking-[-0.01em] flex! flex-col p-5 rounded-[20px] overflow-hidden relative aspect-342/540">
@@ -98,7 +98,7 @@ export default function LightningTypes() {
 							/>
 							<div className="mt-auto">
 								<h3 className="relative font-medium text-[17px] mb-2">Локальное освещение</h3>
-								<p className="relative text-[15px]">Используется для освещения отдельной зоны и решения отдельных задач.</p>
+								<p className="relative text-[15px] font-helvetica">Используется для освещения отдельной зоны и решения отдельных задач.</p>
 							</div>
 						</SwiperSlide>
 						<SwiperSlide className="tracking-[-0.01em] flex! flex-col p-5 rounded-[20px] overflow-hidden relative aspect-342/540">
@@ -110,7 +110,7 @@ export default function LightningTypes() {
 							/>
 							<div className="mt-auto">
 								<h3 className="relative font-medium text-[17px] mb-2">Декоративное освещение</h3>
-								<p className="relative text-[15px]">Используется для создания приятной атмосферы и подчеркивают дизайн.</p>
+								<p className="relative text-[15px] font-helvetica">Используется для создания приятной атмосферы и подчеркивают дизайн.</p>
 							</div>
 						</SwiperSlide>
 					</Swiper>

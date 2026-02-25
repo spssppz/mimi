@@ -65,7 +65,7 @@ export default function CurtainsTabs() {
 						/>
 					</div>
 
-					<div className="mb-10 bg-white flex justify-center gap-2 p-1 rounded-[50px] font-helvetica font-medium leading-normal">
+					<div className="mb-10 bg-white flex justify-center gap-2 p-1 rounded-[50px] font-medium leading-normal">
 						{tabs.map((tab, i) => (
 							<button
 								key={i}
@@ -78,7 +78,7 @@ export default function CurtainsTabs() {
 							</button>
 						))}
 					</div>
-					<div ref={textRef} className="text-[17px] leading-tight">
+					<div ref={textRef} className="text-[17px] font-helvetica leading-tight">
 						{tabs[activeTab].text}
 					</div>
 				</div>

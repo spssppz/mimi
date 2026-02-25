@@ -58,7 +58,7 @@ export default function LightningHero() {
 						<div className="absolute top-0 right-0 h-full w-1/2 bg-[#aba068]"></div>
 					</li>
 				</ul>
-				<div className="text-[17px] leading-tight -leading-[0.01em] max-w-114">
+				<div className="text-[17px] leading-tight font-helvetica -leading-[0.01em] max-w-114">
 					<p>Настоящий умный дом - это система слаженного автоматизированного управления всеми инженерными системами дома</p>
 				</div>
 			</div>

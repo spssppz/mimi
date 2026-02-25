@@ -8,7 +8,7 @@ export default function EquipmentHero() {
 			<div className="max-w-238 mx-auto px-4 text-center">
 				<Title className="mb-4 lg:mb-7">Оборудование</Title>
 				<ul className="flex gap-2 max-w-114.5 mx-auto justify-center flex-wrap mb-15 lg:mb-20">
-					<li className="py-1.5 px-3 rounded-[50px] bg-foreground flex items-center gap-2 font-helvetica text-[15px] -tracking-[0.01em] leading-normal">
+					<li className="py-1.5 px-3 rounded-[50px] bg-foreground flex items-center gap-2 text-[15px] -tracking-[0.01em] leading-normal">
 						<Image
 							src="/images/icons/equipment-check.svg"
 							width={18}
@@ -17,7 +17,7 @@ export default function EquipmentHero() {
 						/>
 						Контроллеры
 					</li>
-					<li className="py-1.5 px-3 rounded-[50px] bg-foreground flex items-center gap-2 font-helvetica text-[15px] -tracking-[0.01em] leading-normal">
+					<li className="py-1.5 px-3 rounded-[50px] bg-foreground flex items-center gap-2 text-[15px] -tracking-[0.01em] leading-normal">
 						<Image
 							src="/images/icons/equipment-check.svg"
 							width={18}
@@ -26,7 +26,7 @@ export default function EquipmentHero() {
 						/>
 						Датчики
 					</li>
-					<li className="py-1.5 px-3 rounded-[50px] bg-foreground flex items-center gap-2 font-helvetica text-[15px] -tracking-[0.01em] leading-normal">
+					<li className="py-1.5 px-3 rounded-[50px] bg-foreground flex items-center gap-2 text-[15px] -tracking-[0.01em] leading-normal">
 						<Image
 							src="/images/icons/equipment-check.svg"
 							width={18}
@@ -35,7 +35,7 @@ export default function EquipmentHero() {
 						/>
 						Бесперебойное электроснабжение
 					</li>
-					<li className="py-1.5 px-3 rounded-[50px] bg-foreground flex items-center gap-2 font-helvetica text-[15px] -tracking-[0.01em] leading-normal">
+					<li className="py-1.5 px-3 rounded-[50px] bg-foreground flex items-center gap-2 text-[15px] -tracking-[0.01em] leading-normal">
 						<Image
 							src="/images/icons/equipment-check.svg"
 							width={18}

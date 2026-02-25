@@ -113,7 +113,7 @@ export default function OurFuture() {
 								</div>
 
 								<h3 className="text-[17px] font-medium mb-2">{item.title}</h3>
-								<p className="text-[15px] leading-snug text-brand-gray">
+								<p className="text-[15px] leading-snug font-helvetica text-brand-gray">
 									{item.description}
 								</p>
 							</SwiperSlide>

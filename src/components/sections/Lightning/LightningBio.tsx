@@ -7,7 +7,7 @@ export default function LightningBio() {
 		<section className="pb-22.5 lg:pt-15 pt-11.25">
 			<div className="max-w-308 mx-auto px-4">
 				<div className="mb-10 lg:justify-between lg:flex lg:items-end lg:gap-10">
-					<Title>Биодинамическое освещение.</Title>
+					<Title><span className="text-[32px] md:text-[40px] lg:text-[64px]">Биодинамическое освещение.</span></Title>
 					<a href="#" className="lg:inline-flex tracking-[-0.01e] hidden items-center gap-1 text-[15px] text-brand-blue whitespace-nowrap">
 						Узнать большое про Биодинамику
 						<RightArrowIcon className="w-5 h-5"></RightArrowIcon>
@@ -29,7 +29,7 @@ export default function LightningBio() {
 							alt=""
 							className="object-cover lg:hidden"
 						/>
-						<div className="space-y-3 relative">
+						<div className="space-y-3 relative font-helvetica">
 
 							<p>Биодинамическое освещение создано, чтобы имитировать естественное освещение.</p>
 							<p>Стандартное освещение в квартире – нарушает генетически заложенные внутренние часы человека.</p>
@@ -37,21 +37,21 @@ export default function LightningBio() {
 					</div>
 					<ul className="relative sm:flex-row flex-col flex gap-2.5 -tracking-[0.01em]">
 						<li className="rounded-[20px] px-5 md:px-6 py-6 bg-white">
-							<div className="mb-2 font-helvetica font-medium text-[17px]">Есть природа</div>
-							<ul className="text-[15px] text-brand-gray">
-								<li>Утром солнце встает </li>
-								<li>Днем солнце в зените</li>
-								<li>Вечером солнце заходит </li>
-								<li>Ночью солнца нет</li>
+							<div className="mb-2 font-medium text-[17px]">Есть природа</div>
+							<ul className="text-[15px] text-brand-gray font-helvetica">
+								<li><span className="mr-2 text-current">•</span> Утром солнце встает </li>
+								<li><span className="mr-2 text-current">•</span> Днем солнце в зените</li>
+								<li><span className="mr-2 text-current">•</span> Вечером солнце заходит </li>
+								<li><span className="mr-2 text-current">•</span> Ночью солнца нет</li>
 							</ul>
 						</li>
 						<li className="rounded-[20px] p-6 bg-white">
-							<div className="mb-2 font-helvetica font-medium text-[17px]">Проецируем в квартиру:</div>
-							<ul className="text-[15px] text-brand-gray">
-								<li>Плавное пробуждение теплым светом.</li>
-								<li>Днем яркий белый свет</li>
-								<li>Вечером приглушенный теплый свет</li>
-								<li>Ночью нет света, только тусклая подсветка.</li>
+							<div className="mb-2 font-medium text-[17px]">Проецируем в квартиру:</div>
+							<ul className="text-[15px] text-brand-gray font-helvetica">
+								<li><span className="mr-2 text-current">•</span> Плавное пробуждение теплым светом.</li>
+								<li><span className="mr-2 text-current">•</span> Днем яркий белый свет</li>
+								<li><span className="mr-2 text-current">•</span> Вечером приглушенный теплый свет</li>
+								<li><span className="mr-2 text-current">•</span> Ночью нет света, только тусклая подсветка.</li>
 							</ul>
 						</li>
 					</ul>

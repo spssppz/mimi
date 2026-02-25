@@ -7,12 +7,13 @@ export default function VideoControl() {
 		<section className="py-22.5">
 			<div className="max-w-308 mx-auto px-4">
 				<div className="mb-6 md:mb-8 lg:mb-10 flex flex-col items-center text-center">
-					<Title className="mb-6">Видеонаблюдение</Title>
-					<div className="text-[17px] leading-tight -tracking-[0.01em] mb-6 max-w-140">
+					<Title className="mb-6 lg:block hidden">Видеонаблюдение</Title>
+					<Title className="lg:hidden">Видео- наблюдение</Title>
+					<div className="text-[17px] lg:block hidden leading-tight font-helvetica -tracking-[0.01em] mb-6 max-w-140">
 						Система видеонаблюдения позволяет удобно следить за тем,
 						что происходит у вас дома.
 					</div>
-					<a href="#" className="-tracking-[0.01em] font-helvetica inline-flex items-center gap-1 text-[15px] font-medium text-brand-blue group">
+					<a href="#" className="-tracking-[0.01em] lg:inline-flex hidden font-helvetica items-center gap-1 text-[15px] font-medium text-brand-blue group">
 						Узнать больше
 						<RightArrowIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></RightArrowIcon>
 					</a>
@@ -23,9 +24,9 @@ export default function VideoControl() {
 					height={715}
 					quality={95}
 					alt=""
-					className="mb-6 md:mb-8 lg:mb-10 hidden sm:block"
+					className="mb-6 md:mb-8 lg:mb-0 hidden sm:block"
 				/>
-				<div className="mb-6 sm:hidden -mx-4 aspect-390/581 relative">
+				<div className="mb-2 sm:hidden -mx-4 aspect-390/581 relative">
 					<Image
 						src="/images/security-page/video-control/main-mob.png"
 						fill
@@ -41,8 +42,8 @@ export default function VideoControl() {
 							height={42}
 							alt=""
 						/>
-						<div className="font-helvetica font-semibold">Удобный контроль.</div>
-						<div className="text-[15px]">Отображение информации с камер в приложении в режиме реального времени.</div>
+						<div className="font-semibold">Удобный контроль.</div>
+						<div className="font-helvetica text-[15px]">Отображение информации с камер в приложении в режиме реального времени.</div>
 					</li>
 					<li className="space-y-3 lg:space-y-4 -tracking-[0.01em] text-center flex flex-col items-center">
 						<Image
@@ -51,8 +52,8 @@ export default function VideoControl() {
 							height={42}
 							alt=""
 						/>
-						<div className="font-helvetica font-semibold">Комплексное решение.</div>
-						<div className="text-[15px]">Интеграция камер с системами контроля доступа, освещением, сигнализацией.</div>
+						<div className="font-semibold">Комплексное решение.</div>
+						<div className="font-helvetica text-[15px]">Интеграция камер с системами контроля доступа, освещением, сигнализацией.</div>
 					</li>
 					<li className="space-y-3 lg:space-y-4 -tracking-[0.01em] text-center flex flex-col items-center">
 						<Image
@@ -61,8 +62,8 @@ export default function VideoControl() {
 							height={42}
 							alt=""
 						/>
-						<div className="font-helvetica font-semibold">Архив записей.</div>
-						<div className="text-[15px]">Все записи хранятся на вашем внутреннем защищенном сервере. Также возможно облачное хранение.</div>
+						<div className="font-semibold">Архив записей.</div>
+						<div className="font-helvetica text-[15px]">Все записи хранятся на вашем внутреннем защищенном сервере. Также возможно облачное хранение.</div>
 					</li>
 					<li className="space-y-3 lg:space-y-4 -tracking-[0.01em] text-center flex flex-col items-center">
 						<Image
@@ -71,8 +72,8 @@ export default function VideoControl() {
 							height={42}
 							alt=""
 						/>
-						<div className="font-helvetica font-semibold">Управление камерами.</div>
-						<div className="text-[15px]">Из приложения возможно управлять камерами с поворотным механизмом.</div>
+						<div className="font-semibold">Управление камерами.</div>
+						<div className="font-helvetica text-[15px]">Из приложения возможно управлять камерами с поворотным механизмом.</div>
 					</li>
 				</ul>
 			</div>

@@ -25,8 +25,8 @@ export default function CinemaHero() {
 
 			</div>
 			<div className="max-w-308 mx-auto px-4 relative">
-				<Title className="mb-2 text-white">Мультимедиа</Title>
-				<div className="font-helvetica text-[17px] max-w-143 text-[#acacac] leading-tight -tracking-[0.01em]">Продуманная до мелочей система, которая позволяет вам погрузиться в просмотр кино, почувствовать атмосферу, которую задумал режиссер фильма и направить все чувства в тот, кинематографический мир.</div>
+				<Title className="mb-4 md:mb-2 text-white z-10">Мультимедиа</Title>
+				<div className="md:mb-0 mb-10 font-helvetica text-[17px] max-w-143 relative z-10 text-[#acacac] leading-tight -tracking-[0.01em]">Продуманная до мелочей система, которая позволяет вам погрузиться в просмотр кино, почувствовать атмосферу, которую задумал режиссер фильма и направить все чувства в тот, кинематографический мир.</div>
 				<div className="lg:hidden aspect-390/426 relative -mx-4">
 
 					<Image

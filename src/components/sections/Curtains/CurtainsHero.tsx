@@ -24,11 +24,11 @@ export default function CurtainsHero() {
 						/>
 						Электрошторы
 					</div>
-					<div className="font-helvetica font-bold text-[20px] md:text-[24px] lg:text-[28px]">Удобство без лишних действий. </div>
-					<div className="text-[15px] leading-normal">Открываются сами, когда нужно</div>
+					<div className="font-bold text-[20px] md:text-[24px] lg:text-[28px]">Удобство без лишних действий. </div>
+					<div className="font-helvetica text-[15px] leading-normal">Открываются сами, когда нужно</div>
 				</div>
 				<div>
-					<Button className="justify-center">Узнать больше</Button>
+					<Button className="justify-center py-1.75!">Узнать больше</Button>
 				</div>
 			</div>
 		</section>

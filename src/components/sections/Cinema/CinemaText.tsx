@@ -41,7 +41,7 @@ export default function CinemaText() {
 		<section className="pt-10 md:pt-15 lg:pt-22.5 pb-22.5 md:pb-25 lg:pb-30 overflow-hidden">
 			<div
 				ref={containerRef}
-				className="leading-[1.2] space-y-8 max-w-308 mx-auto px-4 font-helvetica font-semibold text-[28px] sm:text-[40px] md:text-[50px] lg:text-[64px]"
+				className="leading-[1.2] space-y-8 max-w-308 mx-auto px-4 font-semibold text-[28px] sm:text-[40px] md:text-[50px] lg:text-[64px]"
 			>
 				{/* Каждую строку кладем в обертку line-wrapper */}
 				<div className="line-wrapper">

@@ -36,7 +36,7 @@ export default function Intercom() {
 			<div className="max-w-235.5 mx-auto px-4">
 				<div className="flex flex-col text-center gap-6 items-center">
 					<Title>Домофон.</Title>
-					<div className="text-[17px] leading-tight -tracking-[0.01em] lg:max-w-153">
+					<div className="text-[17px] font-helvetica leading-tight -tracking-[0.01em] lg:max-w-153">
 						Изображение с камер выводится напрямую в приложение. Вы с телефона, компьютера или планшета увидете кто пришел, можете принять вызов, поговорить с гостем и в один клик откроете дверь гостю.
 					</div>
 					<a href="#" className="mb-10 inline-flex items-center gap-1 -tracking-[0.01em] text-[15px] font-medium text-brand-blue group">
@@ -53,8 +53,8 @@ export default function Intercom() {
 								alt=""
 								className="object-cover"
 							/>
-							<h3 className="relative font-helvetica font-semibold mb-2">{item.title}</h3>
-							<div className="relative text-[15px]">{item.description}</div>
+							<h3 className="relative font-semibold mb-2">{item.title}</h3>
+							<div className="relative font-helvetica text-[15px]">{item.description}</div>
 						</li>
 					))}
 				</ul>

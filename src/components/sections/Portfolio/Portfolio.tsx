@@ -45,8 +45,15 @@ export default function Portfolio() {
 	return (
 		<section className="pt-15 pb-22.5 lg:pb-30 overflow-hidden">
 			<div className="max-w-348 mx-auto px-4">
-				<Title className="mb-10 xl:px-20">Проекты</Title>
-
+				<div className="mb-10 xl:px-20 sm:flex-row flex-col flex items-start sm:justify-between sm:items-end gap-10">
+					<Title>Проекты</Title>
+					<div className='-tracking-[0.01em] flex-row-reverse sm:flex-row flex items-center gap-2 text-[15px] text-brand-blue'>
+						<span>Москва</span>
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M16.6666 8.33332C16.6666 12.4942 12.0508 16.8275 10.5008 18.1658C10.3564 18.2744 10.1806 18.3331 9.99998 18.3331C9.81931 18.3331 9.64354 18.2744 9.49915 18.1658C7.94915 16.8275 3.33331 12.4942 3.33331 8.33332C3.33331 6.56521 4.03569 4.86952 5.28593 3.61928C6.53618 2.36904 8.23187 1.66666 9.99998 1.66666C11.7681 1.66666 13.4638 2.36904 14.714 3.61928C15.9643 4.86952 16.6666 6.56521 16.6666 8.33332Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</div>
+				</div>
 				{/* Фильтр */}
 				<div className="flex flex-wrap gap-3 lg:mb-10 xl:px-20">
 					<button
@@ -99,7 +106,7 @@ export default function Portfolio() {
 										return (
 											<div
 												key={`${tag}-${i}`}
-												className="font-helvetica py-1.5 border border-[#d9d9d9] rounded-[50px] px-3 font-medium flex items-center gap-2.5 text-[13px] text-brand-gray tracking-[-0.02em]"
+												className="py-1 md:py-1.5 border border-[#d9d9d9] rounded-[50px] px-3 font-medium flex items-center gap-2.5 text-[13px] text-brand-gray tracking-[-0.02em]"
 											>
 												{Icon && <Icon className="w-4 h-4" />}
 												<span>{tag}</span>
@@ -108,10 +115,10 @@ export default function Portfolio() {
 									})}
 								</div>
 
-								<h3 className="font-helvetica text-[18px] md:text-[20px] tracking-[-0.01em] mb-3 font-medium leading-tight">
+								<h3 className="text-[18px] md:text-[20px] tracking-[-0.01em] mb-3 font-medium leading-tight">
 									{item.title}
 								</h3>
-								<p className="text-brand-gray text-[15px] md:text-[16px] mb-4 md:mb-3 tracking-[-0.01em] leading-snug">
+								<p className="font-helvetica text-brand-gray text-[15px] md:text-[16px] mb-3 tracking-[-0.01em] leading-snug">
 									{item.description}
 								</p>
 								<a href="#" className="text-brand-blue inline-flex items-center gap-1 leading-tight">

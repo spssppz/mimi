@@ -60,10 +60,10 @@ export default function SolutionsHero() {
 			<div className="mb-30 lg:mb-5">
 				<div className="max-w-235 mx-auto px-4">
 					<div className="animate-fade-up">
-						<Title className="mb-4 lg:mb-2">Готовые решения</Title>
+						<Title className="md:max-w-none max-w-[80%] mb-4 lg:mb-2">Готовые решения</Title>
 					</div>
 
-					<div className="animate-fade-up text-[17px] leading-[1.3] tracking-[-0.01em] md:max-w-115 mb-10 lg:mb-8">
+					<div className="font-helvetica animate-fade-up text-[17px] leading-[1.3] tracking-[-0.01em] md:max-w-115 mb-10 lg:mb-8">
 						Настоящий умный дом - это система слаженного автоматизированного управления всеми инженерными системами дома
 					</div>
 
@@ -90,11 +90,11 @@ export default function SolutionsHero() {
 					<h3 className="animate-fade-up leading-tight mb-4 font-bold text-[24px] md:text-[28px] lg:text-[32px]">
 						В современном доме действительно нужна централизованная система управления умный дом, которая не только принесет комфорт и уют.
 					</h3>
-					<div className="animate-fade-up mb-10 lg:mb-38 -tracking-[0.035em] text-[17px] leading-tight md:max-w-116">
+					<div className="font-helvetica animate-fade-up mb-10 lg:mb-38 -tracking-[0.035em] text-[17px] leading-tight md:max-w-116">
 						Настоящий умный дом - это система слаженного автоматизированного управления всеми инженерными системами дома
 					</div>
 
-					<ul className="animate-fade-up grid md:grid-cols-2 gap-10 text-[15px] lg:text-[16px] -tracking-[0.035em]">
+					<ul className="animate-fade-up font-helvetica grid md:grid-cols-2 gap-10 text-[15px] lg:text-[16px] -tracking-[0.035em]">
 						<li className="max-w-88">
 							<Image
 								src="/images/about-hero/icons/1.svg"

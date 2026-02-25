@@ -18,7 +18,7 @@ export default function BodyImpact() {
 									fill
 								/>
 							</div>
-							<p className="font-semibold text-[16px] md:text-[18px] lg:text-[20px] -tracking-[0.01em]">{item.text}</p>
+							<p className="font-semibold font-helvetica text-[16px] md:text-[18px] lg:text-[20px] -tracking-[0.01em]">{item.text}</p>
 						</li>
 					))}
 				</ul>

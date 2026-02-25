@@ -54,16 +54,16 @@ export default function ClimateHero() {
 		<section ref={sectionRef} className="pt-13 lg:pt-10 pb-22.5 bg-white overflow-hidden">
 			<div className="max-w-308 mx-auto px-4">
 
-				<div ref={cardRef} className="mb-22.5 bg-[#f8f8f8] text-center relative overflow-hidden rounded-3xl opacity-0">
+				<div ref={cardRef} className="mb-10 md:mb-15 lg:mb-22.5 bg-[#f8f8f8] text-center relative overflow-hidden rounded-3xl opacity-0">
 					<div className="hidden lg:block absolute top-0 right-0 w-94 aspect-376/444">
 						<Image quality={95} src="/images/climate-page/hero/dots.png" fill alt="" />
 					</div>
 
-					<div className="lg:relative pt-10 px-4 mb-4.5">
+					<div className="lg:relative pt-10 px-4 mb-10 md:mb-4.5">
 						<div ref={addToContentItems}>
-							<Title className="mb-4">Климат-контроль</Title>
+							<Title className="mb-2 md:mb-4">Климат-контроль</Title>
 						</div>
-						<div ref={addToContentItems} className="text-[17px] leading-tight tracking-[-0.01em] max-w-lg mx-auto">
+						<div ref={addToContentItems} className="text-[17px] font-helvetica leading-[1.3] -tracking-[-0.01em] max-w-127.5 mx-auto">
 							Система сама знает, когда включить кондиционер, а когда теплые полы.
 							Влажность всегда будет в норме, показатели углекислого газа – не превысят критического значения.
 						</div>
@@ -85,12 +85,11 @@ export default function ClimateHero() {
 					</div>
 				</div>
 
-				<div ref={footerTextRef} className="font-helvetica font-bold text-[32px] text-[#acacac] opacity-0">
+				<div ref={footerTextRef} className="font-bold text-[24px] md:txt-[28px] lg:text-[32px] text-[#acacac] opacity-0 leading-[1.2]">
 					<span className="text-foreground">
-						Правильный микроклимат в квартире благоприятно сказывается на здоровье
+						Правильный микроклимат в квартире благоприятно сказывается на здоровье.
 					</span>
-					. Есть сотни исследований подтверждающих это. Но кроме этого вы и сами могли
-					наблюдать, что в некоторых помещениях комфортно находиться.
+					Есть сотни исследований подтверждающих это. Но кроме этого вы и сами могли наблюдать, что в некоторых помещениях комфортно находиться, работать, спать. А из некоторых хочется всегда выйти проветриться.
 				</div>
 			</div>
 		</section>

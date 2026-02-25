@@ -57,8 +57,8 @@ export default function AccessControl() {
 								height={col.iconHeight}
 								alt=""
 							/>
-							<h3 className="font-helvetica font-semibold">{col.title}</h3>
-							<p className="text-[15px]">{col.description}</p>
+							<h3 className="font-semibold">{col.title}</h3>
+							<p className="font-helvetica text-[15px]">{col.description}</p>
 						</li>
 					))}
 				</ul>

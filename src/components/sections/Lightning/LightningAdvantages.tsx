@@ -15,12 +15,12 @@ export default function LightningAdvantages() {
 							height={42}
 							className="mb-4"
 						/>
-						<div className="mb-4 font-helvetica font-semibold">Способы управления:</div>
-						<ul>
-							<li>Голосовое управление</li>
-							<li>Приложение</li>
-							<li>Датчики движения</li>
-							<li>Настенные выключатели</li>
+						<div className="mb-4 font-semibold">Способы управления:</div>
+						<ul className="font-helvetica">
+							<li className="flex items-start"><span className="mr-2">•</span> Голосовое управление</li>
+							<li className="flex items-start"><span className="mr-2">•</span> Приложение</li>
+							<li className="flex items-start"><span className="mr-2">•</span> Датчики движения</li>
+							<li className="flex items-start"><span className="mr-2">•</span> Настенные выключатели</li>
 						</ul>
 					</li>
 					<li className="bg-white rounded-[20px] p-6 text-[15px] -tracking-[0.01em]">
@@ -31,12 +31,12 @@ export default function LightningAdvantages() {
 							height={42}
 							className="mb-4"
 						/>
-						<div className="mb-4 font-helvetica font-semibold">Чем сможете управлять:</div>
-						<ul>
-							<li>Шторы</li>
-							<li>Светильники</li>
-							<li>Наружное освещение</li>
-							<li>Аварийное освещение</li>
+						<div className="mb-4 font-semibold">Чем сможете управлять:</div>
+						<ul className="font-helvetica">
+							<li className="flex items-start"><span className="mr-2">•</span>Шторы</li>
+							<li className="flex items-start"><span className="mr-2">•</span>Светильники</li>
+							<li className="flex items-start"><span className="mr-2">•</span>Наружное освещение</li>
+							<li className="flex items-start"><span className="mr-2">•</span>Аварийное освещение</li>
 						</ul>
 					</li>
 					<li className="bg-white rounded-[20px] p-6 text-[15px] -tracking-[0.01em]">
@@ -47,19 +47,19 @@ export default function LightningAdvantages() {
 							height={42}
 							className="mb-4"
 						/>
-						<div className="mb-4 font-helvetica font-semibold">Контроль света по:</div>
-						<ul>
-							<li>Яркость</li>
-							<li>Цвет</li>
-							<li>Плавность включения</li>
+						<div className="mb-4 font-semibold">Контроль света по:</div>
+						<ul className="font-helvetica">
+							<li className="flex items-start"><span className="mr-2">•</span>Яркость</li>
+							<li className="flex items-start"><span className="mr-2">•</span>Цвет</li>
+							<li className="flex items-start"><span className="mr-2">•</span>Плавность включения</li>
 						</ul>
 					</li>
 				</ul>
 				<div className="rounded-[20px] p-6 bg-white flex flex-col md:flex-row gap-4 lg:gap-2.5 md:items-center items-start">
-					<div className="flex-auto text-[15px] leading-normal -tracking-[0.01em]">
+					<div className="flex-auto font-helvetica text-[15px] leading-normal -tracking-[0.01em]">
 						Отправляйте нам дизайн проект с расстановкой мебели и света – мы предложим варианты, как преобразовать обычное освещение в современную электрику.
 					</div>
-					<Button className="justify-center">Оставить заявку</Button>
+					<Button className="justify-center sm:py-1.75">Оставить заявку</Button>
 				</div>
 			</div>
 		</div>

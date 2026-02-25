@@ -8,7 +8,7 @@ export default function CinemaAdvantages() {
 	return (
 		<section className="pt-30 pb-22.5">
 			<div className="max-w-308 mx-auto px-4">
-				<Title className="mb-10">Преимущества умного <br />
+				<Title className="mb-4 md:mb-10">Преимущества умного <br />
 					дома MiMiSmart</Title>
 				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap">
 					<li className="shadow-[0_1px_2px_0_rgba(0,0,0,0.06),0_1px_3px_0_rgba(0,0,0,0.1)] tracking-[-0.01em] lg:w-[32%] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
@@ -84,6 +84,12 @@ export default function CinemaAdvantages() {
 						<p className="relative font-helvetica text-[15px] text-[#95979e]">
 							Проектируем систему с учётом геометрии и отделки, калибруем звук под реальные места.
 						</p>
+					</li>
+					<li className="aspect-285/327 absolute w-[23.8%] hidden lg:block -left-7.5 top-65">
+						<Image src="/images/advantages/decor-2.png" quality={95} alt="background" fill className="object-cover" />
+					</li>
+					<li className="aspect-390/314 lg:hidden relative -mx-4 -mt-4">
+						<Image src="/images/advantages/decor-3.png" quality={95} alt="background" fill className="object-cover" />
 					</li>
 				</ul>
 			</div>

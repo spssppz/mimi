@@ -55,7 +55,7 @@ export default function LightningWay() {
 		<section className="py-22.5 text-center">
 			<div className="max-w-308 mx-auto px-4">
 				<Title className="mb-30 lg:mb-40">
-					Два способа. <br />
+					<span className="text-[24px] md:text-[40px] lg:text-[64px]">Два способа.</span> <br />
 					<span className="bg-[linear-gradient(180deg,#422e0c_0%,#ffc96e_100%)] bg-clip-text text-transparent">Управляйте группой света</span>
 				</Title>
 				<div className="max-w-125 mx-auto -tracking-[0.01em] flex flex-col items-center">
@@ -68,7 +68,7 @@ export default function LightningWay() {
 						/>
 					</div>
 
-					<div className="mb-10 bg-white flex justify-center gap-2 p-1 rounded-[50px] font-helvetica font-medium leading-normal">
+					<div className="mb-10 bg-white flex justify-center gap-2 p-1 rounded-[50px] font-medium leading-normal">
 						{tabs.map((tab, i) => (
 							<button
 								key={i}
@@ -81,7 +81,7 @@ export default function LightningWay() {
 							</button>
 						))}
 					</div>
-					<div ref={textRef} className="text-[17px] leading-tight min-h-32">
+					<div ref={textRef} className="text-[17px] font-helvetica leading-tight min-h-32">
 						{tabs[activeTab].text}
 					</div>
 				</div>

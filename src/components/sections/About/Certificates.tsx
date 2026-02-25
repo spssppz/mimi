@@ -61,14 +61,14 @@ export default function Certificates() {
 				<div ref={titleRef}>
 					<Title className="mb-10">Сертификаты</Title>
 				</div>
-				<ul className="grid items-start sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-20 gap-y-10">
+				<ul className="grid items-start sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-20 gap-y-21 lg:gap-y-10">
 					{certificates.map((certificate, index) => (
 						<li
 							ref={(el) => {
 								if (el) itemsRef.current[index] = el
 							}}
 							key={certificate.id}
-							className="relative flex justify-center pb-13.5 sm:even:pt-20 lg:even:pt-0 lg:nth-[3n+2]:pt-20 lg:nth-[3n]:pt-40"
+							className="max-w-[97%] sm:max-w-none relative flex justify-center pb-13.5 sm:even:pt-20 lg:even:pt-0 lg:nth-[3n+2]:pt-20 lg:nth-[3n]:pt-40"
 						>
 							<div className="relative">
 								<Image

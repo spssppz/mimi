@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function CinemaTV() {
 	return (
-		<section className="pt-43 relative min-h-211 lg:min-h-250 py-10 bg-black text-center overflow-hidden">
+		<section className="pt-30 md:pt-43 relative min-h-211 lg:min-h-250 py-10 bg-black text-center overflow-hidden">
 			<div className="absolute top-10 md:top-14.5 left-1/2 -translate-x-1/2 w-[130%] md:w-[83.33%] aspect-1200/54">
 				<div className="absolute top-[63%] left-0 w-full aspect-1200/302">
 					<Image
@@ -63,20 +63,13 @@ export default function CinemaTV() {
 					>
 						<source src="/videos/showroom.mp4" type="video/mp4" />
 					</video>
-					{/* <Image
-						src="/images/cinema-page/tv/placeholder.jpg"
-						fill
-						alt="bg"
-						quality={95}
-						className="object-cover"
-					/> */}
 				</div>
 			</div>
 
 
 			<div className="max-w-308 mx-auto px-4 relative flex flex-col items-center">
-				<Title className="mb-4 text-white">Эстетика</Title>
-				<div className="max-w-143 text-[17px] leading-tight -tracking-[0.01em] text-brand-gray">
+				<Title className="mb-4 text-white relative z-10">Эстетика</Title>
+				<div className="max-w-143 relative z-10 text-[17px] leading-tight -tracking-[0.01em] text-brand-gray font-helvetica">
 					Несмотря на большое количество колонок, вы не увидите в интерьере ничего лишнего. Все оборудование и коммуникации скрыты от глаз или хорошо сочетается с интерьером.
 				</div>
 			</div>

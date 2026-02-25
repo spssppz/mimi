@@ -61,7 +61,7 @@ export default function SmartSockets() {
 				<div className="xl:pl-36.25">
 					<div className="sm:max-w-142.5 mb-20 lg:mb-30">
 						<Title className="mb-6">Управляемые розетки</Title>
-						<div className="mb-6 md:mb-4 text-[17px] leading-tight -tracking-[0.01em]">
+						<div className="mb-6 md:mb-4 font-helvetica text-[17px] leading-tight -tracking-[0.01em]">
 							Сигнализация в системе Умный дом реализуется за счет комплекса датчиков, которые покрывают всю охраняемую площадь.
 						</div>
 						<a href="#" className="inline-flex hover:text-foreground transition-colors duration-300 items-center gap-1 text-[15px] font-helvetica font-medium text-brand-blue group">
@@ -70,18 +70,18 @@ export default function SmartSockets() {
 						</a>
 					</div>
 					<div className="mb-32.5 lg:mb-30 flex flex-col lg:flex-row  items-center gap-20 lg:gap-28">
-						<div className="max-w-71.5 sm:max-w-none">
+						<div className="w-85.75 sm:max-w-none flex-none aspect-square relative">
 							<Image
+
 								src="/images/security-page/smart-sockets/socket.jpg"
 								alt=""
-								width={343}
-								height={343}
+								fill
 								className="rounded-[5px] shadow-[-24px_-24px_16px_0_rgba(0,0,0,0.09),-8px_-8px_16px_0_rgba(0,0,0,0.09),-4px_-4px_16px_0_rgba(0,0,0,0.09),-2px_-2px_16px_0_rgba(0,0,0,0.09)]"
 							/>
 						</div>
 						<ul className="grid sm:grid-cols-2 gap-5">
 							{cols.map((col, i) =>
-								<li key={i} className="sm:min-h-61 flex flex-col justify-between gap-4 rounded-[20px] p-6 bg-white font-helvetica font-semibold -tracking-[0.01em]">
+								<li key={i} className="sm:min-h-61 flex flex-col justify-between gap-4 rounded-[20px] p-6 bg-white font-semibold -tracking-[0.01em]">
 									<Image
 										src={col.icon}
 										alt=""
@@ -124,11 +124,11 @@ export default function SmartSockets() {
 											alt=""
 										/>
 									</div>
-									<div className="text-[15px] -tracking-[0.01em]">{slide.description}</div>
+									<div className="text-[15px] font-helvetica -tracking-[0.01em]">{slide.description}</div>
 								</SwiperSlide>
 							)}
 						</Swiper>
-						<SliderNavigation className="justify-end mt-10" setPrev={setPrevEl} setNext={setNextEl} />
+						<SliderNavigation className="justify-end mt-15 lg:mr-16" setPrev={setPrevEl} setNext={setNextEl} />
 					</div>
 				</div>
 			</div>

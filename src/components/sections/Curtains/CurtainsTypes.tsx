@@ -33,7 +33,7 @@ export default function CurtainsTypes() {
 						/>
 						<div className="mt-auto max-w-[68%]">
 							<h3 className="relative font-medium text-[17px] mb-2">Раздвижные шторы</h3>
-							<p className="relative text-[15px]">Классический и самый распространенный вариант. Перемещаются с помощью электропривода и каретки с петлями.</p>
+							<p className="relative text-[15px] font-helvetica">Классический и самый распространенный вариант. Перемещаются с помощью электропривода и каретки с петлями.</p>
 						</div>
 					</li>
 					<li className="flex flex-col tracking-[-0.01em] p-5 rounded-[20px] overflow-hidden relative aspect-387/600">
@@ -45,7 +45,7 @@ export default function CurtainsTypes() {
 						/>
 						<div className="mt-auto">
 							<h3 className="relative font-medium text-[17px] mb-2">Подъемные шторы</h3>
-							<p className="relative text-[15px]">Используется для освещения отдельной зоны и решения отдельных задач.</p>
+							<p className="relative text-[15px] font-helvetica">Используется для освещения отдельной зоны и решения отдельных задач.</p>
 						</div>
 					</li>
 					<li className="flex flex-col tracking-[-0.01em] p-5 rounded-[20px] overflow-hidden relative aspect-387/600">
@@ -57,7 +57,7 @@ export default function CurtainsTypes() {
 						/>
 						<div className="mt-auto">
 							<h3 className="relative font-medium text-[17px] mb-2">Рулонные</h3>
-							<p className="relative text-[15px]">Используется для создания приятной атмосферы и подчеркивают дизайн.</p>
+							<p className="relative text-[15px] font-helvetica">Используется для создания приятной атмосферы и подчеркивают дизайн.</p>
 						</div>
 					</li>
 				</ul>
@@ -89,7 +89,7 @@ export default function CurtainsTypes() {
 							/>
 							<div className="mt-auto max-w-[68%]">
 								<h3 className="relative font-medium text-[17px] mb-2">Раздвижные шторы</h3>
-								<p className="relative text-[15px]">Классический и самый распространенный вариант. Перемещаются с помощью электропривода и каретки с петлями.</p>
+								<p className="relative text-[15px] font-helvetica">Классический и самый распространенный вариант. Перемещаются с помощью электропривода и каретки с петлями.</p>
 							</div>
 						</SwiperSlide>
 						<SwiperSlide className="tracking-[-0.01em] flex! flex-col p-5 rounded-[20px] overflow-hidden relative aspect-342/540">
@@ -101,7 +101,7 @@ export default function CurtainsTypes() {
 							/>
 							<div className="mt-auto">
 								<h3 className="relative font-medium text-[17px] mb-2">Подъемные шторы</h3>
-								<p className="relative text-[15px]">Используется для освещения отдельной зоны и решения отдельных задач.</p>
+								<p className="relative text-[15px] font-helvetica">Используется для освещения отдельной зоны и решения отдельных задач.</p>
 							</div>
 						</SwiperSlide>
 						<SwiperSlide className="tracking-[-0.01em] flex! flex-col p-5 rounded-[20px] overflow-hidden relative aspect-342/540">
@@ -113,7 +113,7 @@ export default function CurtainsTypes() {
 							/>
 							<div className="mt-auto">
 								<h3 className="relative font-medium text-[17px] mb-2">Рулонные</h3>
-								<p className="relative text-[15px]">Используется для создания приятной атмосферы и подчеркивают дизайн.</p>
+								<p className="relative text-[15px] font-helvetica">Используется для создания приятной атмосферы и подчеркивают дизайн.</p>
 							</div>
 						</SwiperSlide>
 					</Swiper>
@@ -128,7 +128,7 @@ export default function CurtainsTypes() {
 						alt=""
 						className="mb-10 lg:mb-6"
 					/>
-					<div className="max-w-207.5 font-helvetica font-semibold text-[17px] leading-snug tracking-[-0.01em]">
+					<div className="max-w-207.5 font-semibold text-[17px] leading-snug tracking-[-0.01em]">
 						<p>Работает система за счет электропривода, который вмонтирован в карниз.
 							Помимо стандартного открытия и закрытия, в системе умный дом есть возможность настройки определенного положения ламелей для пропуска строго определенного количества света.</p>
 					</div>

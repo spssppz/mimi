@@ -40,8 +40,8 @@ export default function EquipmentFeatures() {
 								className={`p-5 flex-auto lg:p-6 relative min-h-89.5 rounded-2xl lg:rounded-[20px] overflow-hidden lg:min-h-100 flex flex-col justify-end ${widthClass}`}
 							>
 								<Image src={col.image} quality={95} fill alt="" />
-								<h3 className="relative mb-1 font-helvetica font-medium text-white leading-tight">{col.cap}</h3>
-								<div className={`${i === 0 ? 'max-w-[80%]' : ''} ${i === 2 ? 'max-w-[85%]' : ''}  relative text-[15px] text-[#95979e] -tracking-[0.2px]`}>{col.descr}</div>
+								<h3 className="relative mb-1 font-medium text-white leading-tight">{col.cap}</h3>
+								<div className={`${i === 0 ? 'max-w-[80%]' : ''} ${i === 2 ? 'max-w-[85%]' : ''}  relative text-[15px] text-[#95979e] font-helvetica -tracking-[0.2px]`}>{col.descr}</div>
 							</li>
 						)
 					})}

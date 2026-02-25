@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+import Header from "@/components/layout/WhiteHeader";
 import ClimateHero from "@/components/sections/Climate/ClimateHero";
 import ClimateFunctions from "@/components/sections/Climate/ClimateFunctions";
 import ClimateFeatures from "@/components/sections/Climate/ClimateFeatures";

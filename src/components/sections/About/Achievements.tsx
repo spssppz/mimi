@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Achievements() {
 	return (
-		<section className="pt-22.5 lg:py-30 relative bg-white">
+		<section className="py-22.5 lg:py-30 relative bg-white">
 			<div className="hidden lg:block absolute top-0 right-0 w-129.5 aspect-518/392">
 				<Image
 					src="/images/achievements/decor.png"
@@ -24,7 +24,7 @@ export default function Achievements() {
 								<div className="absolute top-1/2 -right-1.5 -translate-y-1/2 border-t-[5px] border-b-[5px] border-l-[5px] border-t-transparent border-b-transparent border-l-[#d9d9d9]"></div>
 							</div>
 							<div className="font-bold text-[44px] md:text-[54px] leading-tight">5000+</div>
-							<p className="font-helvetica tracking-[0.01em] text-[15px]">реализованных проектов по всему миру на начало 2025 года</p>
+							<p className="max-w-[70%] font-helvetica tracking-[0.01em] text-[15px]">реализованных проектов по всему миру на начало 2025 года</p>
 						</li>
 						<li className="py-3.75 pl-32 relative">
 							<div className="absolute top-0 left-0 w-full border-b border-dashed border-[#d9d9d9] mr-1.5">
@@ -38,7 +38,7 @@ export default function Achievements() {
 								<div className="absolute top-1/2 -right-1.5 -translate-y-1/2 border-t-[5px] border-b-[5px] border-l-[5px] border-t-transparent border-b-transparent border-l-[#d9d9d9]"></div>
 							</div>
 							<div className="font-bold text-[44px] md:text-[54px] leading-tight">250+</div>
-							<p className="font-helvetica tracking-[0.01em] text-[15px]">cпециалистов работают над развитием продукта MimiSmart</p>
+							<p className="max-w-[80%] font-helvetica tracking-[0.01em] text-[15px]">cпециалистов работают над развитием продукта MimiSmart</p>
 						</li>
 						<li className="py-3.75 pl-32 relative">
 							<div className="absolute top-0 left-0 w-full border-b border-dashed border-[#d9d9d9] mr-1.5">
@@ -54,7 +54,7 @@ export default function Achievements() {
 						<span className='w-2 h-2 rounded-full bg-[#27ca40] box-shadow: 0 4px 4px 0 rgba(39, 202, 64, 0.25);'></span>
 					</div>
 				</div>
-				<div className="lg:flex relative">
+				<div className="hidden lg:flex relative">
 					<div className="absolute top-0 left-0 w-full border-b border-dashed border-[#d9d9d9] mr-1.5">
 						<div className="absolute top-1/2 -right-1.5 -translate-y-1/2 border-t-[5px] border-b-[5px] border-l-[5px] border-t-transparent border-b-transparent border-l-[#d9d9d9]"></div>
 					</div>
