@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function EquipmentHero() {
 	return (
-		<section className="bg-black pb-25 text-white pt-74 lg:pb-30 overflow-hidden relative">
+		<section className="bg-black pb-25 text-white pt-80 lg:pt-74 lg:pb-30 overflow-hidden relative">
 			<div className="max-w-238 mx-auto px-4 text-center">
 				<Title className="mb-4 lg:mb-7">Оборудование</Title>
 				<ul className="flex gap-2 max-w-114.5 mx-auto justify-center flex-wrap mb-15 lg:mb-20">
@@ -45,7 +45,7 @@ export default function EquipmentHero() {
 						Приложение
 					</li>
 				</ul>
-				<div className="absolute -top-20 left-1/2 -translate-x-1/2 w-335 aspect-1340/650">
+				<div className="absolute -top-14 lg:-top-20 left-1/2 -translate-x-1/2 w-335 aspect-1340/650">
 					<Image
 						src="/images/equipment-page/hero/decor.png"
 						fill

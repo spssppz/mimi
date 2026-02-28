@@ -5,11 +5,11 @@ export default function EquipmentControlls() {
 	return (
 		<section className="pt-22.5 lg:pt-27.5 bg-white">
 			<div className="max-w-236 mx-auto px-4 -tracking-[0.01em]">
-				<div className="mb-4">
+				<div className="mb-10 lg:mb-4">
 					<div className="font-bold tracking-[0.05em] text-[18px] md:text-[24px] lg:text-[32px] leading-tight">Контроллеры</div>
-					<h2 className="mb-6 tracking-0 font-bold text-[64px] md:text-[100px] lg:text-[140px] xl:text-[220px] bg-[linear-gradient(180deg,#0b0d10_0%,#516076_100%)] bg-clip-text text-transparent leading-tight flex flex-col">
+					<h2 className="mb-6 tracking-0 font-bold text-[86px] md:text-[100px] lg:text-[140px] xl:text-[220px] bg-[linear-gradient(180deg,#0b0d10_0%,#516076_100%)] bg-clip-text text-transparent leading-tight flex flex-col">
 						Основа
-						<span className="-mt-4 text-[40px] md:text-[60px] lg:text-[80px] xl:text-[100px]">автоматизации.</span>
+						<span className="lg:-mt-10 -mt-4 text-[40px] md:text-[60px] lg:text-[80px] xl:text-[100px]">автоматизации.</span>
 					</h2>
 					<div className="text-[17px] font-helvetica leading-tight max-w-143">Система децентрализована, не имеет "центрального мозга", что позволяет поднять надежность системы на новый уровень.</div>
 				</div>
@@ -18,6 +18,7 @@ export default function EquipmentControlls() {
 						<Image
 							src="/images/equipment-page/controlls/main.png"
 							fill
+							quality={95}
 							alt=""
 						/>
 					</div>

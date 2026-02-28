@@ -42,13 +42,22 @@ const cols = [
 
 export default function EquipmentSensors() {
 	return (
-		<section className="py-22.5 lg:py-27 bg-foreground">
-			<div className="max-w-235.5 mx-auto px-4 tracking-[0.05em]">
+		<section className="py-22.5 lg:py-27 bg-foreground relative overflow-hidden">
+			<div className="absolute top-0 left-1/2 -translate-x-1/2 max-w-full w-360 aspect-1440/1173">
+
+				<Image
+					fill
+					alt=""
+					src="/images/equipment-page/sensors/bg.jpg"
+					quality={95}
+				/>
+			</div>
+			<div className="max-w-235.5 mx-auto px-4 tracking-[0.05em] relative">
 				<div className="mb-20 md:mb-25 lg:mb-30">
 					<div className="text-white font-bold text-[18px] md:text-[24px] lg:text-[32px] leading-tight">Датчики</div>
 					<h2 className="mb-6 tracking-0 font-bold text-[86px] md:text-[100px] lg:text-[140px] xl:text-[220px] bg-[linear-gradient(180deg,#fff_0%,#516076_100%)] bg-clip-text text-transparent leading-tight flex flex-col">
 						Уют
-						<span className="text-[40px] md:text-[60px] lg:text-[80px] xl:text-[100px]">в каждой детали вашего дома.</span>
+						<span className="lg:-mt-10 -mt-4 text-[40px] md:text-[60px] lg:text-[80px] xl:text-[100px]">в каждой детали вашего дома.</span>
 					</h2>
 					<div className="text-[17px] font-helvetica leading-tight max-w-143 mb-4 text-white">
 						Умный Дом MiMiSmart ведет статистику и накапливает показания всех датчиков в системе ежесекундно. Все показания вы контролируете в online режиме с приложения.

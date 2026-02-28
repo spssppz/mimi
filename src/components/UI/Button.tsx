@@ -140,7 +140,7 @@ export const Button = ({ children, className = '' }: ButtonProps) => {
 			<button
 				ref={buttonRef}
 				className={`group relative cursor-pointer bg-[#f8f9fa]
-          shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea]
+          shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea,0_4px_6px_-2px_rgba(0,0,0,0.05),0_10px_15px_-3px_rgba(0,0,0,0.1)]
           rounded-[50px] flex px-8 py-3 border border-white
           items-center uppercase gap-1.5 font-semibold text-[13px]
           min-w-62.25 tracking-[-0.02em] text-[#00576b]

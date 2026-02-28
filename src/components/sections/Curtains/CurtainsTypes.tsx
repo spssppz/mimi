@@ -17,7 +17,7 @@ export default function CurtainsTypes() {
 		<section className="pb-22.5 pt-22.5 lg:pb-30 overflow-hidden">
 			<div className="max-w-308 mx-auto px-4">
 				<div className="mb-6 md:mb-8 lg:mb-10 justify-between lg:flex lg:items-end lg:gap-10">
-					<Title>Типы штор.</Title>
+					<Title>Типы штор</Title>
 					<a href="#" className="lg:inline-flex tracking-[-0.01e] hidden items-center gap-1 text-[15px] text-brand-blue group">
 						Узнать больше
 						<RightArrowIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></RightArrowIcon>

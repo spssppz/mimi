@@ -82,7 +82,7 @@ export default function FeaturesCatalog() {
 						</li>
 					</ul>
 				</div>
-				<ul className="grid mb-10 gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+				<ul className="grid mb-30 gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
 					{catalog.map((item, i) => (
 						<li key={i} className="flex aspect-square lg:aspect-auto lg:min-h-47.5 rounded-xl bg-white p-2 lg:p-3 flex-col items-center justify-center gap-2.5 font-medium text-[15px] -tracking-[0.01em] text-center">
 							<div className="min-h-18 flex items-center justify-center">
@@ -100,14 +100,14 @@ export default function FeaturesCatalog() {
 					))}
 				</ul>
 				<ul>
-					<li className="py-7.5 lg:py-11.25">
-						<div className="mb-6 flex lg:gap-2 font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
+					<li className="py-15 lg:py-11.25">
+						<div className="mb-6 flex lg:gap-2 leading-[1.2] font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
 							<h3>Освещение.</h3>
 							<div className="text-[#acacac]">То, что стоит рассматривать в первую очередь.</div>
 						</div>
 						<div className="relative rounded-[20px] bg-white px-5.5 py-10 lg:px-10 shadow-[0_0_24px_0_rgba(0,0,0,0.04)] min-h-150 flex">
-							<div className="flex flex-col items-start gap-5 lg:flex-none lg:w-110 relative z-10">
-								<div className="w-full max-w-100 aspect-314/300 lg:hidden -mt-10 relative">
+							<div className="flex flex-col items-start gap-10 lg:gap-5 lg:flex-none lg:w-110 relative z-10">
+								<div className="w-[calc(100%+44px)] -mx-5.5 max-w-100 aspect-314/300 lg:hidden -mt-10 relative">
 
 									<Image
 										src='/images/features-page/catalog/1/main-1-mob.png'
@@ -126,7 +126,7 @@ export default function FeaturesCatalog() {
 									alt=""
 								/>
 								<div className="text-[17px] -tracking-[0.01em] mt-auto lg:mt-0 lg:flex-auto leading-tight font-helvetica">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
-								<Button className="justify-center sm:py-1.75">Узнать больше</Button>
+								<Button className="justify-center py-1.75!">Узнать больше</Button>
 							</div>
 							<div className="hidden lg:block absolute right-0 top-0 aspect-672/600 h-full">
 								<Image
@@ -137,12 +137,12 @@ export default function FeaturesCatalog() {
 							</div>
 						</div>
 					</li>
-					<li className="py-7.5 lg:py-11.25">
-						<div className="mb-6 flex lg:gap-2 font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em]">
+					<li className="py-15 lg:py-11.25">
+						<div className="mb-6 flex lg:gap-2 leading-[1.2] font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em]">
 							<h3>Климат контроль.</h3>
 							<div className="text-[#acacac]">То, что стоит рассматривать в первую очередь.</div>
 						</div>
-						<div className="rounded-[20px] bg-[#f8f8f8]] px-5.5 py-10 lg:px-10 shadow-[0_0_24px_0_rgba(0,0,0,0.04)] min-h-150 flex justify-between gap-10 relative">
+						<div className="rounded-[20px] bg-white lg:bg-[#f8f8f8]] px-5.5 py-10 lg:px-10 shadow-[0_0_24px_0_rgba(0,0,0,0.04)] min-h-150 flex justify-between gap-10 relative">
 							<div className="lg:absolute lg:bottom-0 lg:right-0 w-136 hidden lg:block aspect-544/491">
 								<Image
 									src='/images/features-page/catalog/2/dots.png'
@@ -150,7 +150,7 @@ export default function FeaturesCatalog() {
 									alt=""
 								/>
 							</div>
-							<div className="flex flex-col items-start gap-5 lg:flex-none lg:w-110">
+							<div className="flex flex-col items-start gap-10 lg:gap-5 lg:flex-none lg:w-110">
 								<div>
 									<Image
 										src='/images/features-page/catalog/2/decor.png'
@@ -161,7 +161,7 @@ export default function FeaturesCatalog() {
 									/>
 								</div>
 								<div className="text-[17px] mt-auto lg:mt-0 -tracking-[0.01em] lg:flex-auto leading-tight font-helvetica">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
-								<Button className="justify-center sm:py-1.75">Узнать больше</Button>
+								<Button className="justify-center py-1.75!">Узнать больше</Button>
 							</div>
 							<ul className="relative flex-none w-100 flex-col gap-2 hidden lg:flex">
 								<li className="flex-auto">
@@ -198,8 +198,8 @@ export default function FeaturesCatalog() {
 							</ul>
 						</div>
 					</li>
-					<li className="py-7.5 lg:py-11.25">
-						<div className="mb-6 flex lg:gap-2 font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
+					<li className="py-15 lg:py-11.25">
+						<div className="mb-6 flex lg:gap-2 leading-[1.2] font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
 							<h3>Мультимедиа.</h3>
 							<div className="text-[#acacac]">То, что стоит рассматривать в первую очередь.</div>
 						</div>
@@ -214,8 +214,17 @@ export default function FeaturesCatalog() {
 										alt=""
 									/>
 								</div>
-								<div className="text-[17px] -tracking-[0.01em] lg:mt-0 mt-auto lg:flex-auto leading-tight font-helvetica">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
+								<div className="text-[17px] -tracking-[0.01em] lg:mt-0 lg:mt-auto lg:flex-auto leading-tight font-helvetica">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
 								<Button className="justify-center py-1.75!">Узнать больше</Button>
+								<div className="relative w-84 aspect-336/300">
+
+									<Image
+										src='/images/features-page/catalog/4/decor-mob.png'
+										fill
+										className="lg:hidden"
+										alt=""
+									/>
+								</div>
 							</div>
 							<Image
 								src='/images/features-page/catalog/3/bg.png'
@@ -225,14 +234,14 @@ export default function FeaturesCatalog() {
 							/>
 						</div>
 					</li>
-					<li className="py-7.5 lg:py-11.25">
-						<div className="mb-6 flex lg:gap-2 font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
+					<li className="py-15 lg:py-11.25">
+						<div className="mb-6 flex lg:gap-2 leading-[1.2] font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
 							<h3>Безопасность и защита.</h3>
 							<div className="text-[#acacac]">То, что стоит рассматривать в первую очередь.</div>
 						</div>
 						<div className="relative rounded-[20px] bg-white px-5.5 py-10 lg:px-10 shadow-[0_0_24px_0_rgba(0,0,0,0.04)] min-h-150 flex">
 							<div className="flex relative z-10 flex-col items-start gap-5 lg:gap-12 lg:flex-none lg:w-110">
-								<div className="-ml-10 lg:mt-6">
+								<div className="-ml-10 lg:mt-6 hidden lg:block">
 									<Image
 										src='/images/features-page/catalog/4/decor.png'
 										width={479}
@@ -241,8 +250,18 @@ export default function FeaturesCatalog() {
 										alt=""
 									/>
 								</div>
-								<div className="text-[17px] -tracking-[0.01em] lg:mt-0 mt-auto lg:flex-auto leading-tight font-helvetica">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
+								<div className="relative w-84 aspect-314/300">
+
+									<Image
+										src='/images/features-page/catalog/5/decor-mob.png'
+										fill
+										className="lg:hidden"
+										alt=""
+									/>
+								</div>
+								<div className="text-[17px] -tracking-[0.01em] lg:flex-auto leading-tight font-helvetica">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
 								<Button className="justify-center py-1.75!">Узнать больше</Button>
+
 							</div>
 
 							<Image
@@ -253,8 +272,8 @@ export default function FeaturesCatalog() {
 							/>
 						</div>
 					</li>
-					<li className="py-7.5 lg:py-11.25">
-						<div className="mb-6 flex lg:gap-2 font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
+					<li className="py-15 lg:py-11.25">
+						<div className="mb-6 flex lg:gap-2 leading-[1.2] font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
 							<h3>Электрокарнизы.</h3>
 							<div className="text-[#acacac]">То, что стоит рассматривать в первую очередь.</div>
 						</div>
@@ -272,8 +291,8 @@ export default function FeaturesCatalog() {
 							/>
 						</div>
 					</li>
-					<li className="py-7.5 lg:py-11.25">
-						<div className="mb-6 flex lg:gap-2 font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
+					<li className="py-15 lg:py-11.25">
+						<div className="mb-6 flex lg:gap-2 leading-[1.2] font-bold text-[24px] md:text-[26px] flex-col lg:flex-row lg:text-[28px] -tracking-[0.01em] ">
 							<h3>Управление розетками.</h3>
 							<div className="text-[#acacac]">То, что стоит рассматривать в первую очередь.</div>
 						</div>

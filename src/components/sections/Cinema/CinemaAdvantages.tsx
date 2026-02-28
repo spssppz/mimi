@@ -10,7 +10,7 @@ export default function CinemaAdvantages() {
 			<div className="max-w-308 mx-auto px-4">
 				<Title className="mb-4 md:mb-10">Преимущества умного <br />
 					дома MiMiSmart</Title>
-				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap">
+				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap relative">
 					<li className="shadow-[0_1px_2px_0_rgba(0,0,0,0.06),0_1px_3px_0_rgba(0,0,0,0.1)] tracking-[-0.01em] lg:w-[32%] p-6 min-h-65 rounded-[20px] bg-[#d8d8d8] overflow-hidden relative">
 						<Image
 							src="/images/cinema-page/advantages/1.jpg"
@@ -46,7 +46,7 @@ export default function CinemaAdvantages() {
 							className="object-cover"
 						/>
 					</li>
-					<li className="lg:ml-auto lg:w-[22%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#0f1015] overflow-hidden relative">
+					<li className="lg:ml-auto lg:w-[22%] tracking-[-0.01em] p-6 min-h-65 rounded-[20px] bg-[#0f1015] overflow-hidden relative z-10">
 						<Image
 							src="/images/cinema-page/advantages/3.jpg"
 							quality={95}
