@@ -13,7 +13,7 @@ export default function EquipmentCatalog() {
 					</h2>
 					<div className="text-[17px] leading-tight max-w-143 font-helvetica">Система децентрализована, не имеет "центрального мозга", что позволяет поднять надежность системы на новый уровень.</div>
 				</div>
-				<div className="flex lg:items-center lg:flex-row flex-col-reverse gap-15 lg:gap-23">
+				<div className="flex xl:pr-7 lg:items-center lg:flex-row flex-col-reverse gap-15 lg:gap-23">
 					<div className="relative flex-none sm:w-88.25 aspect-353/478">
 						<Image
 							src="/images/equipment-page/catalog/main.png"

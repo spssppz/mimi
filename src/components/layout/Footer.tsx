@@ -68,7 +68,7 @@ export default function Footer() {
 			<div className="max-w-308 mx-auto px-4">
 				<div className="border-t border-[#d9d9d9] pt-6 pb-10">
 					<Breadcrumbs />
-					<div className="columns-2 space-y-10 md:space-y-6 md:columns-3 lg:columns-5 gap-10">
+					<div className="columns-2 space-y-10 md:columns-3 lg:columns-5 gap-10">
 						{footerColumns.map(column => (
 							<FooterColumn
 								key={column.title}

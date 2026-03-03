@@ -33,7 +33,7 @@ export default function HeroAbout() {
         <span class="line-wrapper" style="
             position: relative; 
             display: inline-block; 
-            padding: 0 ${paddingX}; 
+            padding: 2px ${paddingX}; 
             margin-left: -${paddingX};
         ">
           <span class="line-bg" style="
@@ -90,7 +90,7 @@ export default function HeroAbout() {
 						quality={95}
 						className="object-cover"
 					/>
-					<div className="sticky top-10">
+					<div className="sticky top-[25%]">
 						<div className="relative -top-6 aspect-386/468">
 							<Image
 								src="/images/about-hero/01.png"
@@ -107,7 +107,7 @@ export default function HeroAbout() {
 					<Title className="mb-8.5"><span className="text-[#00d0ff]">MiMi</span>Smart</Title>
 					<div className="mb-8.5 font-helvetica text-[18px] lg:text-[20px] tracking-[-0.01em]">
 						<div className="lg:pr-11 mb-8.5">
-							<p className="mb-9.5">Крупнейший <span className="text-[#ce5941]">(ТОП-1)</span> российский производитель <br />премиальных систем умный дом.</p>
+							<p className="mb-9.5">Крупнейший <span className="text-[#ce5941] font-bold">(ТОП-1)</span> российский производитель <br />премиальных систем умный дом.</p>
 							<div className="relative flex flex-col items-start mb-5">
 								{/* Каретка в начале (верхний левый угол) */}
 								<div className="caret-start absolute -left-1.5 top-0 w-0.5 h-7 bg-black z-10 opacity-0">

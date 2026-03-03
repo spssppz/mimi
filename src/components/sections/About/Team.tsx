@@ -26,7 +26,7 @@ export default function Team() {
 	return (
 
 		<section className="bg-foreground overflow-hidden relative">
-			<div className="absolute top-0 left-0 w-61.5 h-full hidden lg:block">
+			<div className="absolute top-0 -left-7.5 w-61.5 h-full hidden lg:block">
 				<Image
 					src="/images/team/decor.png"
 					quality={95}
