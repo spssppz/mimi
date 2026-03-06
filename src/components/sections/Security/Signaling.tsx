@@ -65,6 +65,8 @@ export default function Signaling() {
 				</a>
 			</div>
 			<Swiper
+				initialSlide={Math.floor(slides.length / 2)}
+
 				centeredSlides={true}
 				spaceBetween={40}
 				breakpoints={{

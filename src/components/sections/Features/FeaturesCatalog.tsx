@@ -216,7 +216,7 @@ export default function FeaturesCatalog() {
 								</div>
 								<div className="text-[17px] -tracking-[0.01em] mt-0 lg:mt-auto lg:flex-auto leading-tight font-helvetica">Плавная регулировка яркости от ночника до рабочего уровня без рывков и мерцания. Мягкое включение и затухание, равномерные переходы, управление с кнопки, панели или голосом.</div>
 								<Button className="justify-center py-1.75!">Узнать больше</Button>
-								<div className="relative w-84 aspect-336/300 lg:hidden">
+								<div className="relative w-full sm:w-84 aspect-336/300 lg:hidden">
 
 									<Image
 										src='/images/features-page/catalog/4/decor-mob.png'
@@ -249,7 +249,7 @@ export default function FeaturesCatalog() {
 										alt=""
 									/>
 								</div>
-								<div className="relative w-84 aspect-314/300">
+								<div className="relative w-full sm:w-84 aspect-314/300">
 
 									<Image
 										src='/images/features-page/catalog/5/decor-mob.png'

@@ -46,13 +46,15 @@ export default function Intercom() {
 				</div>
 				<ul className="grid md:grid-cols-2 gap-5">
 					{items.map(item => (
-						<li key={item.id} className="aspect-358/600 md:aspect-444/600 relative rounded-[20px] -tracking-[0.01em] overflow-hidden bg-white px-5 py-6 lg:px-6 lg:py-6">
-							<Image
-								src={item.image}
-								fill
-								alt=""
-								className="object-cover"
-							/>
+						<li key={item.id} className="aspect-444/600 relative rounded-[20px] -tracking-[0.01em] overflow-hidden bg-white px-5 py-6 lg:px-6 lg:py-6">
+							<div className="absolute top-0 left-0 w-full h-full">
+								<Image
+									src={item.image}
+									fill
+									alt=""
+									className="object-cover"
+								/>
+							</div>
 							<h3 className="relative font-semibold mb-2">{item.title}</h3>
 							<div className="relative font-helvetica text-[15px]">{item.description}</div>
 						</li>
