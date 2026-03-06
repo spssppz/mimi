@@ -7,7 +7,7 @@ export default function LightningBio() {
 		<section className="pb-22.5 lg:pt-15 pt-11.25">
 			<div className="max-w-308 mx-auto px-4">
 				<div className="mb-10 lg:justify-between lg:flex lg:items-end lg:gap-10">
-					<Title><span className="text-[32px] md:text-[40px] lg:text-[64px]">Биодинамическое освещение.</span></Title>
+					<Title><span className="text-[32px] md:text-[40px] lg:text-[64px]">Биодинамическое освещение</span></Title>
 					<a href="#" className="lg:inline-flex tracking-[-0.01e] hidden items-center gap-1 text-[15px] text-brand-blue whitespace-nowrap">
 						Узнать большое про Биодинамику
 						<RightArrowIcon className="w-5 h-5"></RightArrowIcon>

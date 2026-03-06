@@ -4,6 +4,15 @@ import Image from "next/image";
 export default function CinemaHero() {
 	return (
 		<section className="relative min-h-205 pt-17 pb-10 bg-black overflow-hidden">
+			{/* <div className="absolute -top-[15%] left-0 w-full aspect-1440/1110">
+
+				<Image
+					src="/images/cinema-page/hero/gradient.png"
+					fill
+					alt="bg"
+					quality={95}
+				/>
+			</div> */}
 			<div className="hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2 w-360 aspect-1440/692">
 
 				<Image
@@ -47,6 +56,6 @@ export default function CinemaHero() {
 					</div>
 				</div>
 			</div>
-		</section >
+		</section>
 	);
 }

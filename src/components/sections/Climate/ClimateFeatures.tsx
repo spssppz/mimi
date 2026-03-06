@@ -102,7 +102,7 @@ export default function ClimateFeatures() {
 	};
 	return (
 		<section className="pt-22.5 lg:pt-30 pb-22.5 overflow-hidden">
-			<Title className="max-w-308 mb-6 md:mb-8 lg:mb-10 mx-auto px-4">Особенности системы.</Title>
+			<Title className="max-w-308 mb-6 md:mb-8 lg:mb-10 mx-auto px-4">Особенности системы</Title>
 			<div className="max-w-348 mx-auto px-4">
 				<div className="rounded-3xl overflow-hidden bg-white min-h-152.5 items-center gap-30 lg:flex hidden">
 					<div className="py-15 pl-20 flex-none w-[37%] relative">
@@ -180,7 +180,7 @@ export default function ClimateFeatures() {
 						slidesPerView={1}
 					>
 						{features.map((item, idx) => (
-							<SwiperSlide key={idx} className="p-4 rounded-3xl bg-white mr-4">
+							<SwiperSlide key={idx} className="p-4 rounded-3xl bg-white mr-4 min-h-182">
 								<div className="rounded-[20px] mb-4 p-6 bg-background leading-snug -tracking-[0.01em]">
 									<div className="mb-4 font-helvetica font-semibold">{item.title}</div>
 									<div>

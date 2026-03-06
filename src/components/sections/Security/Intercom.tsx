@@ -35,7 +35,7 @@ export default function Intercom() {
 		<section className="py-22.5">
 			<div className="max-w-235.5 mx-auto px-4">
 				<div className="flex flex-col text-center gap-6 items-center">
-					<Title>Домофон.</Title>
+					<Title>Домофон</Title>
 					<div className="text-[17px] font-helvetica leading-tight -tracking-[0.01em] lg:max-w-153">
 						Изображение с камер выводится напрямую в приложение. Вы с телефона, компьютера или планшета увидете кто пришел, можете принять вызов, поговорить с гостем и в один клик откроете дверь гостю.
 					</div>

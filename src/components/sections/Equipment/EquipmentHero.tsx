@@ -14,6 +14,7 @@ export default function EquipmentHero() {
 							width={18}
 							height={18}
 							alt=""
+							className="shadow-[0_4px_4px_0_rgba(0,208,255,0.25)] rounded-full"
 						/>
 						Контроллеры
 					</li>
@@ -23,6 +24,7 @@ export default function EquipmentHero() {
 							width={18}
 							height={18}
 							alt=""
+							className="shadow-[0_4px_4px_0_rgba(0,208,255,0.25)] rounded-full"
 						/>
 						Датчики
 					</li>
@@ -32,6 +34,7 @@ export default function EquipmentHero() {
 							width={18}
 							height={18}
 							alt=""
+							className="shadow-[0_4px_4px_0_rgba(0,208,255,0.25)] rounded-full"
 						/>
 						Бесперебойное электроснабжение
 					</li>
@@ -41,6 +44,7 @@ export default function EquipmentHero() {
 							width={18}
 							height={18}
 							alt=""
+							className="shadow-[0_4px_4px_0_rgba(0,208,255,0.25)] rounded-full"
 						/>
 						Приложение
 					</li>

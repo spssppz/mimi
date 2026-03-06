@@ -85,7 +85,7 @@ export default function WaterProtection() {
 	return (
 		<section className="pt-22.5 lg:pt-30 pb-22.5 overflow-hidden">
 			<div className="max-w-308 mb-10 mx-auto px-4 flex md:flex-row flex-col items-start gap-10 justify-between md:items-end">
-				<Title>Защита от протечек воды.</Title>
+				<Title>Защита от протечек воды</Title>
 				<a href="#" className="font-helvetica inline-flex lg:items-center gap-1 -tracking-[0.01em] text-[15px] font-medium text-brand-blue group whitespace-nowrap">
 					Узнать больше
 					<RightArrowIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></RightArrowIcon>
@@ -167,7 +167,7 @@ export default function WaterProtection() {
 						slidesPerView={1}
 					>
 						{features.map((item, idx) => (
-							<SwiperSlide key={idx} className="p-4 rounded-3xl bg-white mr-4">
+							<SwiperSlide key={idx} className="min-h-148 p-4 rounded-3xl bg-white mr-4">
 								<div className="rounded-[20px] mb-4 p-6 bg-background leading-snug -tracking-[0.01em]">
 									<div className="mb-4 font-helvetica font-semibold">{item.title}</div>
 									<div>

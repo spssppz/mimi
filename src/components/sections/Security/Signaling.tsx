@@ -14,19 +14,19 @@ const items = [
 	},
 	{
 		id: 1,
-		image: '/images/security-page/signaling/icons/1.svg',
+		image: '/images/security-page/signaling/icons/2.svg',
 		title: 'Разграничение уровней доступа',
 		description: 'Обслуживающему персоналу выдаются отдельные доступы, не позволяющие отключать систему безопасности.',
 	},
 	{
 		id: 2,
-		image: '/images/security-page/signaling/icons/1.svg',
+		image: '/images/security-page/signaling/icons/3.svg',
 		title: '“Имитацией присутствия”',
 		description: 'Активация на колонках лая собак, включение освещения в комнатах, блокировка дверей.',
 	},
 	{
 		id: 3,
-		image: '/images/security-page/signaling/icons/1.svg',
+		image: '/images/security-page/signaling/icons/4.svg',
 		title: 'Тревожная кнопка.',
 		description: 'При реальной угрозе вы сможете вызвать соответствующие органы, нажав одну кнопку в приложении.',
 	},

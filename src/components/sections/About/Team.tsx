@@ -9,13 +9,13 @@ const rightCol = TeamList.filter((_, i) => i % 2 !== 0)
 function TeamCard({ name, position, image }: Team) {
 	return (
 		<li className="min-w-65 lg:min-w-0 relative flex flex-col items-start justify-end px-4 py-3 aspect-260/294 md:aspect-260/290 tracking-[-0.01em] rounded-xl overflow-hidden">
-			<Image src={image} quality={95} fill alt={name} />
+			<Image src={image} quality={95} fill alt={name} className="object-cover" />
 			<div className="bg-linear-to-b from-transparent to-black absolute bottom-0 left-0 w-full aspect-260/81" />
 			<div className="relative font-medium text-[17px] text-white mb-0.5">
 				{name}
 			</div>
 			<div className="relative font-helvetica text-[#acacac] backdrop-blur-sm bg-[rgba(63,63,63)]/50 rounded-[50px] py-1 px-3 text-[14px]">
-				{position}
+				{position}font-bold tracking-[0.01em] text-[#00d0ff] text-[20px] md:text-[22px]
 			</div>
 		</li>
 	)

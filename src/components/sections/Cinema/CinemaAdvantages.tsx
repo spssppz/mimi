@@ -19,7 +19,7 @@ export default function CinemaAdvantages() {
 							fill
 							className="object-cover"
 						/>
-						<h3 className="relative mb-1 font-medium text-[16px]">Продумываем сценарии использования.</h3>
+						<h3 className="relative mb-1 font-medium text-[16px] -mr-3 md:mr-0">Продумываем сценарии использования.</h3>
 						<p className="relative font-helvetica text-[15px] text-brand-gray">
 							Кино и Вечеринка запускаются одной кнопкой, свет шторы и звук работают синхронно.
 						</p>

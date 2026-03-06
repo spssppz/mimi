@@ -49,6 +49,11 @@
   padding: 20px;
 }
 
+.cinema-features .swiper-pagination {
+  backdrop-filter: blur(2px);
+  background: rgba(38, 38, 38, 0.9);
+}
+
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
@@ -57,9 +62,18 @@
   transition: width .3s ease, background .3s ease;
 }
 
+
+.cinema-features .swiper-pagination-bullet {
+  background: #3c3c3c;
+}
+
 .swiper-pagination-bullet-active {
   width: 40px;
   background: #0a051a;
+}
+
+.cinema-features .swiper-pagination-bullet-active {
+  background: white;
 }
 
 /* styles/globals.css или отдельный файл */

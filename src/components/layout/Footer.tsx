@@ -52,7 +52,7 @@ export const Breadcrumbs = () => {
 			{currentRoute && (
 				<>
 					<RightArrowIcon className="w-4.5 h-4.5" />
-					<span className="text-[13px]">
+					<span className="text-[13px] leading-none">
 						{currentRoute.title}
 					</span>
 				</>

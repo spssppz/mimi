@@ -60,14 +60,18 @@ export const Title = ({ children, className = "" }: TitleProps) => {
 			className={`text-[40px] md:text-[52px] lg:text-[64px] font-bold tracking-[-0.01em] leading-tight ${className}`}
 		>
 			{children}
-			<Image
-				ref={bulbRef}
-				src="/images/icons/title-decor.svg"
-				alt="Title decor"
-				width={11}
-				height={11}
-				className="inline-block ml-1 align-baseline rounded-full"
-			/>
+
+			<span className="whitespace-nowrap">
+				{" "}
+				<Image
+					ref={bulbRef}
+					src="/images/icons/title-decor.svg"
+					alt="Title decor"
+					width={11}
+					height={11}
+					className="inline-block align-baseline rounded-full"
+				/>
+			</span>
 		</h2>
 	)
 }

@@ -6,7 +6,7 @@ export default function ClimateFunctions() {
 	return (
 		<section className="py-22.5 hidden lg:block">
 			<div className="max-w-235.5 mx-auto px-4">
-				<Title className="text-center mb-10">Основные функции.</Title>
+				<Title className="text-center mb-10">Основные функции</Title>
 				<ul className="grid grid-cols-2 gap-5">
 					<li className="px-15 py-9 min-h-150 -leading-[0.01em] bg-white overflow-hidden rounded-[20px] relative">
 						<Image

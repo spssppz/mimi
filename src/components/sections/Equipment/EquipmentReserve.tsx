@@ -83,7 +83,7 @@ export default function EquipmentReserve() {
 		<section ref={sectionRef} className="pt-22.5 lg:pt-27.5 bg-white overflow-hidden">
 			<div className="max-w-236 mx-auto px-4 -tracking-[0.01em]">
 
-				<div className="lg:mb-4">
+				<div className="mb-10 lg:mb-4">
 					<div className="font-bold text-[18px] md:text-[24px] lg:text-[32px] leading-tight">
 						Бесперебойное электроснабжение
 					</div>

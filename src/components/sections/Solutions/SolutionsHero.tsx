@@ -84,7 +84,7 @@ export default function SolutionsHero() {
 					src="/images/solutions-page/hero/bg.png"
 					fill
 					alt=""
-					className="object-cover hidden lg:block"
+					className="object-cover hidden lg:block xl:object-[center_80%]"
 				/>
 				<div className="relative max-w-236 mx-auto px-4 tracking-[-0.01em]">
 					<h3 className="animate-fade-up leading-tight mb-4 font-bold text-[24px] md:text-[28px] lg:text-[32px]">

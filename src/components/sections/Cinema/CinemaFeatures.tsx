@@ -118,7 +118,7 @@ export default function CinemaFeatures() {
 		swiperRef.current?.slideTo(index);
 	};
 	return (
-		<section className="py-22.5 md:py-25 lg:py-30 overflow-hidden bg-black">
+		<section className="cinema-features pt-5 pb-22.5 md:pt-25 md:pb-25 lg:pb-30 lg:pt-30 overflow-hidden bg-black">
 			<Title className="max-w-308 mb-6 text-[#acacac] md:mb-8 lg:mb-10 mx-auto px-4">Функционал</Title>
 			<div className="max-w-348 mx-auto px-4">
 				<div className="bg-foreground rounded-3xl overflow-hidden min-h-150 items-center gap-30 lg:flex hidden">
@@ -208,8 +208,8 @@ export default function CinemaFeatures() {
 						slidesPerView={1}
 					>
 						{features.map((item, idx) => (
-							<SwiperSlide key={idx} className="p-4 rounded-3xl bg-white mr-4">
-								<div className="rounded-[20px] mb-4 p-6 bg-background leading-snug -tracking-[0.01em]">
+							<SwiperSlide key={idx} className="p-4 rounded-3xl bg-foreground mr-4">
+								<div className="rounded-[20px] mb-4 p-6 text-white bg-black leading-snug -tracking-[0.01em]">
 									<div className="mb-4 font-helvetica font-semibold">{item.title}</div>
 									<div>
 										{item.content.text && (

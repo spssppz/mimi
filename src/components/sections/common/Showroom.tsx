@@ -56,7 +56,7 @@ export default function Showroom() {
 					className="object-cover"
 				/>
 			</div>
-			<span className='absolute bottom-15 left-0 w-full aspect-390/516 -z-1 sm:hidden'>
+			<span className='absolute bottom-22 left-0 w-full aspect-390/516 -z-1 sm:hidden'>
 				<Image
 					src='/images/showroom/bg-mob.png'
 					alt="background image"

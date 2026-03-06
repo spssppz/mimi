@@ -54,12 +54,12 @@ export default function LightningWay() {
 	return (
 		<section className="py-22.5 text-center">
 			<div className="max-w-308 mx-auto px-4">
-				<Title className="mb-30 lg:mb-40">
+				<Title className="mb-10 lg:mb-40">
 					<span className="text-[24px] md:text-[40px] lg:text-[64px]">Два способа.</span> <br />
 					<span className="bg-[linear-gradient(180deg,#422e0c_0%,#ffc96e_100%)] bg-clip-text text-transparent">Управляйте группой света</span>
 				</Title>
 				<div className="max-w-125 mx-auto -tracking-[0.01em] flex flex-col items-center">
-					<div ref={imageRef} className="flex items-center justify-center min-h-80 lg:mb-35 md:mb-30 mb-25">
+					<div ref={imageRef} className="flex items-center justify-center min-h-80 lg:mb-35 md:mb-30 mb-10">
 						<Image
 							src={tabs[activeTab].image.url}
 							width={tabs[activeTab].image.width}
@@ -74,7 +74,7 @@ export default function LightningWay() {
 								key={i}
 								type="button"
 								onClick={() => setActiveTab(i)}
-								className={`cursor-pointer hover:bg-foreground hover:text-white py-2.5 px-5 rounded-[50px] transition-colors duration-300 ${activeTab === i ? "bg-foreground text-white" : ""
+								className={`cursor-pointer hover:bg-foreground hover:text-white py-2.5 px-4 md:px-5 rounded-[50px] transition-colors duration-300 ${activeTab === i ? "bg-foreground text-white" : ""
 									}`}
 							>
 								{tab.label}
