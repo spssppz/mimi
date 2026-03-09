@@ -3,7 +3,7 @@ import CurtainsHero from "@/components/sections/Curtains/CurtainsHero";
 import CurtainsText from "@/components/sections/Curtains/CurtainsText";
 import CurtainsTypes from "@/components/sections/Curtains/CurtainsTypes";
 import CurtainsTabs from "@/components/sections/Curtains/CurtainsTabs";
-import CurtainsScripts from "@/components/sections/Curtains/CurtainsScripts";
+import Scripts from "@/components/sections/common/Scripts";
 import Features from "@/components/sections/Features";
 import Footer from "@/components/layout/Footer";
 
@@ -20,7 +20,7 @@ export default function CurtainsPage() {
 				<CurtainsText></CurtainsText>
 				<CurtainsTypes></CurtainsTypes>
 				<CurtainsTabs></CurtainsTabs>
-				<CurtainsScripts></CurtainsScripts>
+				<Scripts></Scripts>
 				<Features title="Как управлять шторами?" />
 			</main>
 			<Footer />

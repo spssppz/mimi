@@ -48,4 +48,36 @@ export const routes = {
 		path: '/climate',
 		title: 'Климат-контроль',
 	},
+	designing: {
+		path: '/designing',
+		title: 'Проектирование',
+	},
+	services: {
+		path: '/services',
+		title: 'Полный цикл',
+	},
+	electricLock: {
+		path: '/electric-lock',
+		title: 'Электрозамок',
+	},
+	ElectricCurtains: {
+		path: '/electric-curtains',
+		title: 'Электрошторы',
+	},
+	Projector: {
+		path: '/projector',
+		title: 'Проектор',
+	},
+	Tv: {
+		path: '/tv',
+		title: 'TV',
+	},
+	Audio: {
+		path: '/audio',
+		title: 'Аудио',
+	},
+	Customization: {
+		path: '/customization',
+		title: 'Монтаж и установка',
+	},
 } as const

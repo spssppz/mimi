@@ -44,7 +44,7 @@ const features = [
 	},
 ]
 
-export default function CurtainsScripts() {
+export default function Scripts() {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const swiperRef = useRef<any>(null);
 	const containerRef = useRef<HTMLDivElement>(null);

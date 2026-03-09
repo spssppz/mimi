@@ -15,7 +15,7 @@ function TeamCard({ name, position, image }: Team) {
 				{name}
 			</div>
 			<div className="relative font-helvetica text-[#acacac] backdrop-blur-sm bg-[rgba(63,63,63)]/50 rounded-[50px] py-1 px-3 text-[14px]">
-				{position}font-bold tracking-[0.01em] text-[#00d0ff] text-[20px] md:text-[22px]
+				{position}
 			</div>
 		</li>
 	)

@@ -1,5 +1,5 @@
 import Header from "@/components/layout/Header";
-import Contacts from "@/components/sections/common/Contacts";
+import Contacts from "@/components/sections/Contacts/Contacts";
 import Showroom from "@/components/sections/common/Showroom";
 import Footer from "@/components/layout/Footer";
 import { routes } from "@/config/routes";
