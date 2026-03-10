@@ -47,6 +47,12 @@ export default function PagesPage() {
 						<li><Link href="/services" className="transition-colors hover:text-brand-blue duration-300">Монтаж и настройка</Link></li>
 						<li><Link href="/designing" className="transition-colors hover:text-brand-blue duration-300">Проектирование</Link></li>
 						<li><Link href="/customization" className="transition-colors hover:text-brand-blue duration-300">Монтаж и установка</Link></li>
+						<li><Link href="/maintenance" className="transition-colors hover:text-brand-blue duration-300">Гарантия</Link></li>
+						<li><Link href="/power-supply" className="transition-colors hover:text-brand-blue duration-300">Бесперебойное электроснабжение</Link></li>
+						<li><Link href="/window-blind" className="transition-colors hover:text-brand-blue duration-300">Жалюзи</Link></li>
+						<li><Link href="/himidity" className="transition-colors hover:text-brand-blue duration-300">Влажность</Link></li>
+						<li><Link href="/heating" className="transition-colors hover:text-brand-blue duration-300">Отопление</Link></li>
+						<li><Link href="/underfloor-heating" className="transition-colors hover:text-brand-blue duration-300">Теплый пол</Link></li>
 					</ul>
 				</div>
 			</div>

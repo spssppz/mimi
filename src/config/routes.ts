@@ -80,4 +80,28 @@ export const routes = {
 		path: '/customization',
 		title: 'Монтаж и установка',
 	},
+	Maintenance: {
+		path: '/maintenance',
+		title: 'Гарантия',
+	},
+	PowerSupply: {
+		path: '/power-supply',
+		title: 'Бесперебойное электроснабжение',
+	},
+	WindowBlind: {
+		path: '/window-blind',
+		title: 'Жалюзи',
+	},
+	Himidity: {
+		path: '/himidity',
+		title: 'Влажность',
+	},
+	Heating: {
+		path: '/heating',
+		title: 'Отопление',
+	},
+	UnderfloorHeating: {
+		path: '/underfloor-heating',
+		title: 'Теплый пол',
+	},
 } as const
