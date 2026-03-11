@@ -64,7 +64,7 @@ export const metadata = {
 	title: routes.UnderfloorHeating.title
 }
 
-export default function UnderfloorHeating() {
+export default function UnderfloorHeatingPage() {
 	return (
 		<>
 			<Header />

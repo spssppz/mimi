@@ -53,6 +53,12 @@ export default function PagesPage() {
 						<li><Link href="/himidity" className="transition-colors hover:text-brand-blue duration-300">Влажность</Link></li>
 						<li><Link href="/heating" className="transition-colors hover:text-brand-blue duration-300">Отопление</Link></li>
 						<li><Link href="/underfloor-heating" className="transition-colors hover:text-brand-blue duration-300">Теплый пол</Link></li>
+						<li><Link href="/dimming" className="transition-colors hover:text-brand-blue duration-300">Диммирование</Link></li>
+						<li><Link href="/control-access" className="transition-colors hover:text-brand-blue duration-300">Контроль доступа</Link></li>
+						<li><Link href="/multiroom" className="transition-colors hover:text-brand-blue duration-300">Мультирум</Link></li>
+						<li><Link href="/сatalog" className="transition-colors hover:text-brand-blue duration-300">Каталог</Link></li>
+						<li><Link href="/card" className="transition-colors hover:text-brand-blue duration-300">Оборудование</Link></li>
+						{/* +3 */}
 					</ul>
 				</div>
 			</div>

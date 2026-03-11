@@ -104,4 +104,25 @@ export const routes = {
 		path: '/underfloor-heating',
 		title: 'Теплый пол',
 	},
+	Dimming: {
+		path: '/dimming',
+		title: 'Диммирование',
+	},
+	// +3
+	ControlAccess: {
+		path: '/control-access',
+		title: 'Контроль доступа',
+	},
+	Multiroom: {
+		path: '/multiroom',
+		title: 'Мультирум',
+	},
+	Catalog: {
+		path: '/сatalog',
+		title: 'Каталог',
+	},
+	Card: {
+		path: '/card',
+		title: 'Оборудование',
+	},
 } as const

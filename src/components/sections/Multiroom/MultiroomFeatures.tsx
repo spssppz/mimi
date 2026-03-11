@@ -13,6 +13,54 @@ import { RightArrowIcon } from "@/icons/RightArrowIcon";
 const features = [
 	{
 		id: 0,
+		title: 'Отправка голосовых сообщений',
+		content: {
+			text: "Отправляйте голосовые оповещения в любую комнату, просто произнеся сообщение в телефон. Например, позовите детей к столу, когда они заигрались в детской.",
+		},
+		image: '/images/multiroom-page/features/1.png',
+	},
+	{
+		id: 1,
+		title: 'Следящая музыка',
+		content: {
+			text: "Вам не придется отрываться от прослушивания любимой композиции только потому, что нужно пойти в другую комнату. Система создает эффект следования музыки за вами, получая данные с датчиков движения. ",
+			link: {
+				text: 'Узнать больше про аудио',
+				url: '/',
+			}
+		},
+		image: '/images/multiroom-page/features/2.png',
+	},
+	{
+		id: 2,
+		title: 'Оповещение в экстренных ситуациях',
+		content: {
+			text: "В случае попытки взлома или, например, аварийной протечки труб на кухне включаются колонки аудиосистемы мультирум и оповещают всех, кто находится в доме. Это позволяет быстро среагировать и своевременно принять меры в любой экстренной ситуации.",
+			link: {
+				text: 'Узнать больше про датчики',
+				url: '/',
+			}
+		},
+		image: '/images/multiroom-page/features/3.png',
+	},
+	{
+		id: 3,
+		title: 'Календарь',
+		content: {
+			text: "Поставьте напоминание в свой календарь и система напомнит о предстоящих делах. Вы точно не забудете про день рождения друга!",
+		},
+		image: '/images/multiroom-page/features/4.png',
+	},
+	{
+		id: 4,
+		title: 'Синхронизация с устройствами',
+		content: {
+			text: 'Воспроизводите музыку, которая находится на телефоне или добавьте атмосферности при просмотра кино на телевизоре.',
+		},
+		image: '/images/multiroom-page/features/5.png',
+	},
+	{
+		id: 5,
 		title: 'Домашний кинотеатр',
 		content: {
 			list: [
@@ -23,81 +71,15 @@ const features = [
 				"Часто все элементы скрыты и выезжают при необходимости",
 			],
 			link: {
-				text: 'Домашний кинотеатр',
+				text: 'Узнать больше',
 				url: '/',
 			}
 		},
-		image: '/images/cinema-page/features/1.png',
-	},
-	{
-		id: 1,
-		title: 'Мультирум',
-		content: {
-			list: [
-				"Планируем размещение акустики",
-				"Грамотно располагаем свет",
-				"Планируем работу микроклимата",
-				"Подбираем проектор и экран",
-				"Часто все элементы скрыты и выезжают при необходимости",
-			],
-			link: {
-				text: 'Мультирум',
-				url: '/',
-			}
-		},
-		image: '/images/cinema-page/features/2.png',
-	},
-	{
-		id: 2,
-		title: 'Проекторы',
-		content: {
-			list: [
-				"Планируем размещение акустики",
-				"Грамотно располагаем свет",
-				"Планируем работу микроклимата",
-				"Подбираем проектор и экран",
-				"Часто все элементы скрыты и выезжают при необходимости",
-			],
-			link: {
-				text: 'Проекторы',
-				url: '/',
-			}
-		},
-		image: '/images/cinema-page/features/3.png',
-	},
-	{
-		id: 3,
-		title: 'Телевизоры',
-		content: {
-			list: [
-				"Планируем размещение акустики",
-				"Грамотно располагаем свет",
-				"Планируем работу микроклимата",
-				"Подбираем проектор и экран",
-				"Часто все элементы скрыты и выезжают при необходимости",
-			],
-			link: {
-				text: 'Телевизоры',
-				url: '/',
-			}
-		},
-		image: '/images/cinema-page/features/4.png',
-	},
-	{
-		id: 4,
-		title: 'Аудио',
-		content: {
-			text: 'Вам не придется отрываться от прослушивания любимой композиции только потому, что нужно пойти в другую комнату. Система создает эффект следования музыки за вами, получая данные с датчиков движения.',
-			link: {
-				text: 'Узнать больше про аудио',
-				url: '/',
-			}
-		},
-		image: '/images/cinema-page/features/5.png',
+		image: '/images/multiroom-page/features/6.png',
 	},
 ]
 
-export default function CinemaFeatures() {
+export default function MultiroomFeatures() {
 	const [activeIndex, setActiveIndex] = useState(1);
 	const swiperRef = useRef<any>(null);
 
@@ -118,8 +100,8 @@ export default function CinemaFeatures() {
 		swiperRef.current?.slideTo(index);
 	};
 	return (
-		<section className="pt-5 pb-22.5 md:pt-25 md:pb-25 lg:pb-30 lg:pt-30 overflow-hidden bg-black">
-			<Title className="max-w-308 mb-6 text-[#acacac] md:mb-8 lg:mb-10 mx-auto px-4">Функционал</Title>
+		<section className="pt-5 pb-22.5 md:pt-25 md:pb-25 lg:pb-30 lg:pt-30 overflow-hidden">
+			<Title className="max-w-308 mb-6 md:mb-8 lg:mb-10 mx-auto px-4">Функционал</Title>
 			<div className="max-w-348 mx-auto px-4">
 				<div className="bg-foreground rounded-3xl overflow-hidden min-h-150 items-center gap-30 lg:flex hidden">
 					<div className="py-15 pl-20 flex-none w-[37%] relative">
@@ -192,7 +174,7 @@ export default function CinemaFeatures() {
 										src={item.image}
 										fill
 										alt={item.title}
-										className="w-full h-auto object-cover bg-white"
+										className="w-full h-auto object-cover bg-foreground"
 									/>
 								</SwiperSlide>
 							))}
