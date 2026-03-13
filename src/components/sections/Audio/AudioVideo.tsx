@@ -8,7 +8,7 @@ export default function AudioVideo() {
 			<Image
 				fill
 				src="/images/audio-page/video/bg.jpg"
-				className="object-cover"
+				className="object-cover object-[37%_50%]"
 				quality={95}
 				alt="bg"
 			/>

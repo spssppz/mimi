@@ -190,7 +190,7 @@ export default function MultiroomFeatures() {
 						slidesPerView={1}
 					>
 						{features.map((item, idx) => (
-							<SwiperSlide key={idx} className="p-4 rounded-3xl bg-foreground mr-4">
+							<SwiperSlide key={idx} className="px-4 pt-4 rounded-3xl bg-foreground mr-4 overflow-hidden flex! flex-col min-h-165">
 								<div className="rounded-[20px] mb-4 p-6 text-white bg-black leading-snug -tracking-[0.01em]">
 									<div className="mb-4 font-helvetica font-semibold">{item.title}</div>
 									<div>
@@ -212,7 +212,7 @@ export default function MultiroomFeatures() {
 										}
 									</div>
 								</div>
-								<div className="relative aspect-735/610 max-w-120 mx-auto">
+								<div className="relative mt-auto -mx-4 aspect-735/610 sm:max-w-120 sm:mx-auto">
 									<Image
 										src={item.image}
 										fill

@@ -75,7 +75,7 @@ export default function ProjectorTypes() {
 								/>
 							</a>
 
-							<h3 className="text-[24px] font-bold mb-2 bg-linear-to-r from-[#fec78e] via-[#f77b2e] to-[#bc3e03] bg-clip-text text-transparent">{item.title}</h3>
+							<h3 className="inline-block text-[24px] font-bold mb-2 bg-linear-to-r from-[#fec78e] via-[#f77b2e] to-[#bc3e03] bg-clip-text text-transparent">{item.title}</h3>
 							<p className="leading-snug text-[15px] text-brand-gray font-helvetica">
 								{item.description}
 							</p>

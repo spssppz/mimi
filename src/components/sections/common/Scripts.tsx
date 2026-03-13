@@ -78,10 +78,10 @@ export default function Scripts() {
 			<div className="max-w-308 px-4 mx-auto mb-10 flex items-start gap-10 flex-col md:flex-row md:items-end md:justify-between">
 				<Title>Сценарии</Title>
 
-				<a href="#" className="inline-flex hover:text-foreground transition-colors duration-300 items-center gap-1 text-[15px] font-medium text-brand-blue group cursor-pointer">
+				{/* <a href="#" className="inline-flex hover:text-foreground transition-colors duration-300 items-center gap-1 text-[15px] font-medium text-brand-blue group cursor-pointer">
 					Узнать больше
 					<RightArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-				</a>
+				</a> */}
 			</div>
 
 			<div className="max-w-348 mx-auto px-4" ref={containerRef}>

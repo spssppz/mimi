@@ -8,7 +8,7 @@ export default function ProjectorHero() {
 			<div className="max-w-308 px-4 mx-auto text-center flex flex-col items-center">
 				<Title className="mb-6">Короткий слоган</Title>
 				<Button className="justify-center py-1.75! mb-5 lg:mb-15">Подобрать проектор</Button>
-				<div className="relative w-200 sm:w-300 aspect-1200/500">
+				<div className="relative w-160 sm:w-300 aspect-1200/500">
 
 					<Image
 						fill

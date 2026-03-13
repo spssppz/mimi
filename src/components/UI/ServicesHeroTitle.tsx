@@ -57,7 +57,7 @@ export const Title = ({ children }: TitleProps) => {
 	return (
 		<h1
 			ref={titleRef}
-			className={`-mx-1 bg-linear-to-r mb-2.5 lg:mb-0 from-brand-blue to-foreground bg-clip-text text-transparent text-[52px] sm:text-[65px] md:text-[90px] lg:text-[120px] font-medium leading-[1.2]`}
+			className={`-mx-1 bg-linear-to-r mb-2.5 lg:mb-0 from-brand-blue to-foreground bg-clip-text text-transparent text-[50px] sm:text-[65px] md:text-[90px] lg:text-[120px] font-medium leading-[1.2]`}
 		>
 			{children}
 

@@ -16,7 +16,7 @@ const cols = [
 export default function HimidityTypes() {
 	return (
 		<section className="py-22.5 bg-white">
-			<div className="max-w-235.5 px-4 mx-auto relative">
+			<div className="max-w-308 px-4 mx-auto relative">
 				<Title className="mb-10">Типы систем</Title>
 				<ul className="grid md:grid-cols-2 gap-5">
 					{cols.map((col, i) => (

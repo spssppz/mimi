@@ -14,7 +14,8 @@ export default function PowerSupplyHero() {
 					alt=""
 					className="mb-5"
 				/>
-				<Title className="mb-6 max-md:break-all">Бесперебойное электроснабжение</Title>
+				<Title className="mb-6 max-md:break-all max-md:hidden">Бесперебойное электроснабжение</Title>
+				<Title className="mb-6 max-md:break-all md:hidden">Бесперебойное электро - снабжение.</Title>
 				<div className="font-helvetica text-[17px] leading-[1.3] -tracking-[0.01em] max-w-135.5 mb-6">
 					Дом остаётся на связи при отключении электричества.
 				</div>

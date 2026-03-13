@@ -43,7 +43,7 @@ export default function TvDiagonal() {
 					дистанция просмотра
 				</Title>
 
-				<div className="mb-10 w-119 aspect-476/540 relative">
+				<div className="mb-10 w-100 md:w-119 aspect-476/540 relative">
 					<Image
 						fill
 						alt=""
@@ -62,10 +62,10 @@ export default function TvDiagonal() {
 							type="button"
 							key={i}
 							onClick={() => setActiveTab(i)}
-							className={`max-md:bg-white cursor-pointer rounded-[50px] py-2.5 px-5 transition-colors duration-300 font-medium text-[15px] leading-normal text-center -tracking-[0.01em]
+							className={`cursor-pointer rounded-[50px] py-2.5 px-5 transition-colors duration-300 font-medium text-[15px] leading-normal text-center -tracking-[0.01em]
 								${activeTab === i
 									? "bg-foreground text-white"
-									: "hover:bg-foreground hover:text-white"
+									: "hover:bg-foreground max-md:bg-white hover:text-white"
 								}`}
 						>
 							{tab.title}

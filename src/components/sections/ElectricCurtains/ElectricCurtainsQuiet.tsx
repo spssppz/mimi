@@ -7,7 +7,7 @@ export default function ElectricCurtainsQuiet() {
 			<div className="max-w-235.5 px-4 mx-auto">
 				<Title className="mb-6">Тихий ход</Title>
 				<div className="font-helvetica leading-[1.3] -tracking-[0.01em] mb-10 lg:mb-25">
-					Рекомендуем устанавливать в каждую квартиру.
+					Рекомендуем устанавливать в каждую квартиру. <br />
 					Вы сможете снимать показания счетчиков просто со смартфона, не открывая ревизионные и монтажные шкафы.
 				</div>
 				<Image

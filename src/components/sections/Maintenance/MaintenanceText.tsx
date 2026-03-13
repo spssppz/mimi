@@ -1,16 +1,12 @@
 import { Button } from "@/components/UI/Button";
 import { Title } from "@/components/UI/Title";
-import { ApprovalIcon } from "@/icons/designing/ApprovalIcon";
-import { CostIcon } from "@/icons/designing/CostIcon";
-import { DocsIcon } from "@/icons/designing/DocsIcon";
-import { EstimationIcon } from "@/icons/designing/EstimationIcon";
-import { SubmissionIcon } from "@/icons/designing/SubmissionIcon";
+
 
 export default function MaintenanceText() {
 	return (
 		<section className="pt-22.5 pb-22.5 lg:pb-30 bg-white">
 			<div className="max-w-231.5 mx-auto px-4 relative">
-				<Title className="mb-10 md:mb-15 lg:mb-20 text-center">Текстовый блок.</Title>
+				<Title className="mb-10 md:mb-15 lg:mb-20 text-center">Текстовый блок</Title>
 				<div className="lg:py-22.5 py-15 lg:relative lg:flex lg:items-start lg:gap-46.75 border-t border-b border-[#d9d9d9]">
 					<ul className="flex-none hidden lg:sticky lg:top-5 lg:block w-60 -tracking-[0.01em] space-y-3">
 						<li>

@@ -50,7 +50,8 @@ export default function ControlAccessZones() {
 	return (
 		<section className="pt-22.5 lg:pt-30 pb-22.5 overflow-hidden">
 			<div className="max-w-308 px-4 mx-auto">
-				<Title className="mb-10">Зоны и точки.</Title>
+				<Title className="mb-10 max-lg:hidden">Зоны и точки</Title>
+				<Title className="mb-10 lg:hidden">Особенности</Title>
 
 				<Swiper
 					modules={[Navigation]}
