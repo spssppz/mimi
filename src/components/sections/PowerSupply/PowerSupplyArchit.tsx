@@ -8,8 +8,8 @@ export default function PowerSupplyArchit() {
 			<div className="max-w-235.5 px-4 mx-auto">
 				<Title className="text-center mb-15">Архитектурные решения</Title>
 				<ul className="grid md:grid-cols-2 gap-5">
-					<li className="bg-white rounded-[20px] max-md:justify-between px-6 max-md:py-6 lg:px-5 min-h-125 md:gap-10 md:col-span-2 overflow-hidden flex max-md:flex-col-reverse items-center">
-						<div className="relative md:grow-0 md:shrink-0 md:basis-138.75 w-[90%] md:w-auto aspect-1110/1000">
+					<li className="bg-white rounded-[20px] max-md:justify-between px-6 max-md:pt-6 lg:px-5 min-h-125 md:gap-10 md:col-span-2 overflow-hidden flex max-md:flex-col-reverse items-center">
+						<div className="max-md:-mr-[19%] relative md:grow-0 md:shrink-0 md:basis-138.75 w-[90%] md:w-auto aspect-1110/1000">
 							<Image
 
 								src="/images/power-supply-page/archit/1.png"
@@ -24,7 +24,7 @@ export default function PowerSupplyArchit() {
 							<p>Щиты.</p>
 						</div>
 					</li>
-					<li className="bg-white relative rounded-[20px] px-6 lg:px-15 pt-6 lg:py-9.25 min-h-125 md:min-h-150 flex overflow-hidden md:items-end font-semibold text-[22px] md:text-[26px] lg:text-[32px] leading-[1.3] -tracking-[0.01em]">
+					<li className="bg-white relative rounded-[20px] px-6 lg:px-15 py-6 lg:py-9.25 min-h-125 md:min-h-150 flex overflow-hidden md:items-end font-semibold text-[22px] md:text-[26px] lg:text-[32px] leading-[1.3] -tracking-[0.01em]">
 						<Image
 							src="/images/power-supply-page/archit/2.jpg"
 							fill

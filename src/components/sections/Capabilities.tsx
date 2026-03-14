@@ -390,7 +390,7 @@ export default function Capabilities() {
 										height={90}
 										className="max-h-full w-auto"
 									/>
-								</div>
+								</div>#
 								<div className="flex justify-between gap-4 items-start sm:items-end flex-col sm:flex-row">
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#303236]">
 										Автоматический климат-контроль: <br /> слаженная работа отопления, теплых полов, кондиционеров, вентиляции и увлажнения

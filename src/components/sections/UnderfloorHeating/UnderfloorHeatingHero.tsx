@@ -3,12 +3,18 @@ import Image from "next/image";
 
 export default function UnderfloorHeatingHero() {
 	return (
-		<section className="min-h-192 py-50 flex items-end relative bg-linear-to-b from-[#d3b291] to-white">
+		<section className="md:aspect-1440/820 max-md:h-215 py-50 flex items-end relative bg-linear-to-b from-[#d3b291] to-white">
 			<Image
 				fill
 				alt=""
 				src="/images/underfloor-heating-page/hero-bg.png"
-				className="object-cover"
+				className="object-cover max-md:hidden"
+			/>
+			<Image
+				fill
+				alt=""
+				src="/images/underfloor-heating-page/hero-bg-mob.png"
+				className="object-cover md:hidden"
 			/>
 
 			<div className="max-w-235.5 px-4 w-full mx-auto flex flex-col items-center text-center relative">

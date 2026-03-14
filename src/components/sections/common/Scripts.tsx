@@ -4,7 +4,7 @@ import { Title } from "@/components/UI/Title";
 import Image from "next/image";
 import { useRef, useState, useLayoutEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade } from 'swiper/modules';
+import { EffectFade, Pagination } from 'swiper/modules';
 import { RightArrowIcon } from "@/icons/RightArrowIcon";
 import gsap from "gsap";
 
@@ -93,14 +93,14 @@ export default function Scripts() {
 							<button
 								onClick={() => swiperRef.current?.slidePrev()}
 								disabled={activeIndex === 0}
-								className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-white/20 rotate-90 transition-all disabled:opacity-10 disabled:cursor-default"
+								className="w-9 h-9 rounded-full bg-black/40 flex items-center justify-center cursor-pointer hover:bg-black rotate-90 transition-all disabled:opacity-10 disabled:cursor-default"
 							>
 								<RightArrowIcon className="rotate-180 w-5 h-5" />
 							</button>
 							<button
 								onClick={() => swiperRef.current?.slideNext()}
 								disabled={activeIndex === features.length - 1}
-								className="rotate-90 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-white/20 transition-all disabled:opacity-10 disabled:cursor-default"
+								className="rotate-90 w-9 h-9 rounded-full bg-black/40 flex items-center justify-center cursor-pointer hover:bg-black transition-all disabled:opacity-10 disabled:cursor-default"
 							>
 								<RightArrowIcon className="w-5 h-5" />
 							</button>
@@ -165,6 +165,8 @@ export default function Scripts() {
 				{/* Мобильная версия */}
 				<div className="lg:hidden">
 					<Swiper
+						modules={[Pagination]}
+						pagination={{ clickable: true }}
 						spaceBetween={16}
 						slidesPerView={1}
 						onSlideChange={(s) => setActiveIndex(s.activeIndex)}
@@ -191,6 +193,7 @@ export default function Scripts() {
 							</SwiperSlide>
 						))}
 					</Swiper>
+
 				</div>
 			</div>
 		</section>

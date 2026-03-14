@@ -9,6 +9,7 @@ type AdvantageItem = {
 	cap: string
 	descr: string
 	theme: string
+	imageClasses?: string
 }
 
 type Props = {
@@ -37,7 +38,7 @@ export default function AdvantagesGrid({ title, items }: Props) {
 				key={index}
 				className={`tracking-[-0.01em] p-6 min-h-65 rounded-[20px] overflow-hidden relative ${lgWidth} '#d8d8d8'}`}
 			>
-				<Image src={item.image} quality={95} alt="" fill className="object-cover" />
+				<Image src={item.image} quality={95} alt="" fill className={`object-cover ${item.imageClasses}`} />
 				<h3 className={`relative mb-1 font-medium text-[16px] ${item.theme === 'light' ? 'text-white' : ''}`}>
 					{item.cap}
 				</h3>

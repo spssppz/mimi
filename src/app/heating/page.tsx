@@ -25,6 +25,7 @@ const FeaturesСols = [
 		image: '/images/heating-page/features/3.jpg',
 		cap: 'Индивидуальные настройки под рукой.',
 		descr: 'Специальная конструкция делает домофон устойчивым к любым погодным условиям.',
+		imageClasses: 'max-lg:object-[40%_center]'
 	},
 	{
 		image: '/images/heating-page/features/4.jpg',

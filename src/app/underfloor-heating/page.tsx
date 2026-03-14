@@ -20,11 +20,13 @@ const FeaturesСols = [
 		image: '/images/underfloor-heating-page/features/2.jpg',
 		cap: 'Работа в единой системе климата.',
 		descr: 'Пол согласован с радиаторами, кондиционером и вентиляцией - без перегревов и перепадов.',
+		imageClasses: 'max-lg:object-[0%_center]',
 	},
 	{
 		image: '/images/underfloor-heating-page/features/3.jpg',
 		cap: 'Автопрогрев по расписанию.',
 		descr: 'Пол заранее включается к нужному времени и отключается, когда вы ушли.',
+		imageClasses: 'max-lg:object-[right_center]',
 	},
 	{
 		image: '/images/underfloor-heating-page/features/4.jpg',
@@ -44,12 +46,14 @@ const AdvantagesСols = [
 		cap: 'Сценарии и расписания.',
 		descr: 'Пол заранее прогревает зоны к подъёму и снижает нагрев в отъезде и ночью.',
 		theme: 'light',
+		imageClasses: 'max-lg:object-[right_center]'
 	},
 	{
 		image: '/images/underfloor-heating-page/advantages/3.jpg',
 		cap: 'Равномерное тепло.',
 		descr: 'Тёплый пол прогревает помещение без сквозняков и перегрева у стен.',
 		theme: 'dark',
+		imageClasses: 'max-lg:object-[80%_center]'
 	},
 	{
 		image: '/images/underfloor-heating-page/advantages/4.jpg',
@@ -70,7 +74,7 @@ export default function UnderfloorHeatingPage() {
 			<Header />
 			<main>
 				<UnderfloorHeatingHero></UnderfloorHeatingHero>
-				<FeaturesGrid title="Возможности системы" items={FeaturesСols}></FeaturesGrid>
+				<FeaturesGrid sectionClasses="bg-white" title="Возможности системы" items={FeaturesСols}></FeaturesGrid>
 				<UnderfloorHeatingNeed></UnderfloorHeatingNeed>
 				<AdvantagesGrid title="Преимущества умного дома MiMiSmart" items={AdvantagesСols}></AdvantagesGrid>
 				<Features title="Удобное управление" />

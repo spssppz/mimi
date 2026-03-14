@@ -7,7 +7,7 @@ export default function ProjectorFlux() {
 			<Image
 				fill
 				src="/images/projector-page/flux/bg.jpg"
-				className="object-cover"
+				className="object-cover max-md:object-[40%_center]"
 				quality={95}
 				alt="bg"
 			/>

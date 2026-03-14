@@ -28,6 +28,7 @@ const FeaturesСols = [
 		image: '/images/control-access-page/features/3.jpg',
 		cap: 'Гостевой доступ по расписанию.',
 		descr: 'Специальная конструкция делает домофон устойчивым к любым погодным условиям.',
+		imageClasses: 'max-lg:object-[0%_center]',
 	},
 	{
 		image: '/images/control-access-page/features/4.jpg',
