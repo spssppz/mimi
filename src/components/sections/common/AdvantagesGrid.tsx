@@ -52,7 +52,7 @@ export default function AdvantagesGrid({ title, items }: Props) {
 	return (
 		<section className="pt-30 pb-22.5">
 			<div className="max-w-308 mx-auto px-4">
-				<Title className="mb-4 md:mb-10">{title}</Title>
+				<Title className="mb-4 md:mb-10 lg:max-w-200">{title}</Title>
 				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap relative">
 					{/* Рендерим карточки до второй */}
 					{items.slice(0, 2).map((item, index) => renderItem(item, index))}

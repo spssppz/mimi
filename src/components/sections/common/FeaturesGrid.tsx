@@ -13,13 +13,14 @@ type Props = {
 	title: string
 	items: FeatureItem[]
 	sectionClasses?: string
+	titleClasses?: string
 }
 
-export default function FeaturesGrid({ title, items, sectionClasses }: Props) {
+export default function FeaturesGrid({ title, items, sectionClasses, titleClasses }: Props) {
 	return (
 		<section className={`pt-22.5 lg:pt-30 pb-22.5 ${sectionClasses}`}>
 			<div className="max-w-308 mx-auto px-4">
-				<Title className="mb-6 md:mb-8 lg:mb-10">{title}</Title>
+				<Title className={`mb-6 md:mb-8 lg:mb-10 ${titleClasses}`}>{title}</Title>
 				<ul className="gap-4 lg:gap-5 flex flex-wrap">
 					{items.map((col, i) => {
 						const widthClass = (i === 1 || i === 2) ? 'lg:w-[65%]' : 'lg:w-[33%]'
