@@ -2,14 +2,11 @@
 import Header from "@/components/layout/Header";
 import CatalogHero from "@/components/sections/Catalog/CatalogHero";
 import CatalogItems from "@/components/sections/Catalog/CatalogItems";
+import CatalogBanner from "@/components/sections/Catalog/CatalogBanner";
+import Showroom from "@/components/sections/common/Showroom";
 import Footer from "@/components/layout/Footer";
 
 import { routes } from "@/config/routes";
-
-
-export const metadata = {
-	title: routes.Catalog.title
-}
 
 const items = [
 	{
@@ -163,20 +160,32 @@ const items = [
 		link: '/',
 	},
 ]
-export default function CatalogPage() {
+
+export const metadata = {
+	title: routes.controller.title
+}
+
+export default function ControllerPage() {
 	return (
 		<>
 			<Header />
 			<main>
 				<CatalogHero
-					title="Каталог"
+					title="Контроллеры"
 					description="Это мозг системы. Принимают сигналы от датчиков и панелей, запускают сценарии и управляют: светом, климатом, шторами и безопасностью. Работают локально даже без интернета."
-					image="/images/products/decor.png"
-					imageWidth={310}
-					imageHeight={359}
-					imageClassName="max-md:-mb-20"
+					image="/images/products/decor-1.png"
+					imageWidth={507}
+					imageHeight={450}
 				/>
-				<CatalogItems items={items}></CatalogItems>
+				<CatalogItems title="Все оборудование" items={items} />
+				<CatalogBanner
+					title="Щит автоматизации"
+					description="Каждая линия подписана, заложен резерв слотов и места под расширение. Аккуратный кабель-менеджмент, группировка автоматов и съёмные клеммы упрощают обслуживание; перед сдачей проводим тестирование под нагрузкой."
+					image="/images/products/decor-2.png"
+					imageWidth={500}
+					imageHeight={500}
+				/>
+				<Showroom></Showroom>
 			</main>
 			<Footer />
 		</>
