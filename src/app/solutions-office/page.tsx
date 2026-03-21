@@ -1,12 +1,16 @@
 import Header from "@/components/layout/Header"
-import OtherArticles from "@/components/sections/Article/OtherArticles"
-import Footer from "@/components/layout/Footer"
-import { routes } from "@/config/routes"
-import Image from "next/image"
-import { contacts } from "@/config/contacts"
-import Link from "next/link"
-import { LikeIcon } from "@/icons/LikeIcon"
+import SolutionsHero from "@/components/sections/SolutionsHero"
+import VentilationControl from "@/components/sections/Solutions/VentilationControl"
+import Capabilities from "@/components/sections/Capabilities"
+import SolutionsCase from "@/components/sections/Solutions/SolutionsCaseOffice"
+import SystemCase from "@/components/sections/Solutions/SystemCase"
+import Scripts from "@/components/sections/common/Scripts"
+import Features from "@/components/sections/Features"
 import Showroom from "@/components/sections/common/Showroom"
+import Footer from "@/components/layout/Footer"
+
+import { routes } from "@/config/routes"
+
 
 export const metadata = {
 	title: routes.solutionsOffice.title
@@ -18,7 +22,31 @@ export default function solutionsOfficePage() {
 			<Header />
 
 			<main>
-				{/* +7 */}
+				<SolutionsHero
+					image="/images/solutions-page/hero-bg-office.jpg"
+					title={
+						<>
+							<span className="text-[18px] md:text-[24px] lg:text-[28px]">
+								Готовые решения
+							</span>
+							<br />
+							В офис
+						</>
+					}
+				/>
+				<Capabilities />
+				<VentilationControl />
+				<SolutionsCase />
+				<SystemCase
+					title="Видеонаблюдение"
+					text="Одним из важных компонентов системы безопасности является видеонаблюдение."
+					link="#"
+					image="/images/solutions-page/system-case/1.jpg"
+					imageWidth={910}
+					imageHeight={540}
+				/>
+				<Scripts />
+				<Features title="Удобное управление" />
 				<Showroom />
 			</main>
 

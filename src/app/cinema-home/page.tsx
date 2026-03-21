@@ -2,9 +2,11 @@ import Header from "@/components/layout/Header"
 import CinemaHomeHero from "@/components/sections/CinemaHome/CinemaHomeHero"
 import CinemaHomeSlogan from "@/components/sections/CinemaHome/CinemaHomeSlogan"
 import CinemaHomeFeatures from "@/components/sections/CinemaHome/CinemaHomeFeatures"
-// 
+import CinemaHomeTV from "@/components/sections/CinemaHome/CinemaHomeTV"
+import CinemaHomeRemote from "@/components/sections/CinemaHome/CinemaHomeRemote"
 import Showroom from "@/components/sections/common/Showroom"
 import Footer from "@/components/layout/Footer"
+
 import { routes } from "@/config/routes"
 
 const featuresItems = [
@@ -41,7 +43,8 @@ export default function CinemaHomePage() {
 				<CinemaHomeFeatures
 					featuresItems={featuresItems}
 				/>
-				{/* +2 */}
+				<CinemaHomeTV />
+				<CinemaHomeRemote />
 				<Showroom />
 			</main>
 

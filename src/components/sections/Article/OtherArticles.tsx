@@ -1,61 +1,19 @@
 "use client"
 
-import Image from "next/image"
 import { useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper/modules"
 import "swiper/css"
 
 import { articles } from '@/data/articles'
-import type { Article } from "@/types/article"
-import Link from "next/link"
 import { RightArrowIcon } from "@/icons/RightArrowIcon"
 import { Title } from "@/components/UI/Title"
 import { SliderNavigation } from "@/components/UI/SliderNavigation"
+import { ArticleCard } from "@/components/UI/ArticleCard"
 
 /* =======================
 	 UI BLOCKS
 ======================= */
-
-function ArticleCard({ article, className }: { article: Article, className?: string }) {
-	return (
-		<div className={`group relative bg-white p-4 pt-5 md:p-5 md:pt-7.5 rounded-[20px] leading-tight font-semibold ${className}`}>
-
-			<div className="flex justify-between items-center mb-4 gap-3">
-				<span className="text-brand-blue text-[14px]">
-					{article.tag}
-				</span>
-
-				{article.isNew && (
-					<span className="bg-[#0a051a] text-white text-[13px] py-1 px-3 uppercase rounded-tl-[60px] rounded-tr-[50px] rounded-br-[50px] rounded-bl-sm">
-						Новое
-					</span>
-				)}
-			</div>
-
-			<h3 className="text-[20px] text-[#0a051a] mb-5 transition-colors duration-350 group-hover:text-brand-blue">
-				<Link href="">
-					{article.title}
-					<span className="absolute rounded-[20px] block top-0 left-0 w-full h-full"></span>
-				</Link>
-			</h3>
-
-			<p className="text-brand-gray font-helvetica text-[15px] font-normal leading-normal mb-6 line-clamp-2">
-				{article.description}
-			</p>
-
-			<div className="aspect-326/149 lg:aspect-273/125 rounded-2xl overflow-hidden mt-auto">
-				<Image
-					src={article.image}
-					alt={article.title}
-					width={273}
-					height={125}
-					className="w-full object-cover"
-				/>
-			</div>
-		</div>
-	)
-}
 
 function MoreSlide({ className }: { className?: string }) {
 	return (
@@ -112,6 +70,9 @@ export default function OtherArticles() {
 						breakpoints={{
 							768: {
 								slidesPerView: 2,
+							},
+							1024: {
+								slidesPerView: 3,
 							},
 						}}
 					>

@@ -1,5 +1,6 @@
-
 import Header from "@/components/layout/Header";
+import ForDesignersHero from "@/components/sections/ForDesigners/ForDesignersHero";
+import YouGet from "@/components/sections/ForDesigners/ForDesignersYouGet";
 // 
 import CompetitorsDif from "@/components/sections/CompetitorsDif";
 import Showroom from "@/components/sections/common/Showroom";
@@ -43,7 +44,9 @@ export default function ForDesignersPage() {
 		<>
 			<Header />
 			<main>
-				{/* +3 */}
+				<ForDesignersHero />
+				<YouGet />
+				{/*  */}
 				<CompetitorsDif
 					title="Что отличает нас от конкурентов?"
 					cols={competitorsList}
