@@ -1,5 +1,5 @@
 import Header from "@/components/layout/Header"
-// 
+import DetectorHero from "@/components/sections/Detector/DetectorHero"
 import DetectorExample from "@/components/sections/Detector/DetectorExample"
 import DetectorInfo from "@/components/sections/Detector/DetectorInfo"
 import DetectorSlider from "@/components/sections/Detector/DetectorSlider"
@@ -26,7 +26,7 @@ export default async function DetectorItemPage({ params }: Props) {
 		<>
 			<Header />
 			<main>
-				{/*  */}
+				{detector.hero && <DetectorHero hero={detector.hero} />}
 				{detector.detectorExample && <DetectorExample example={detector.detectorExample} />}
 				{detector.info && <DetectorInfo info={detector.info} />}
 				<DetectorSlider detectors={detectors} />

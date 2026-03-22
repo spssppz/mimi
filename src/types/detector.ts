@@ -4,6 +4,16 @@ export type InfoSection = {
 	list?: string[]
 }
 
+export type DetectorHero = {
+	title: string
+	text: string
+	image: string
+	imageWidth: number
+	imageHeight: number
+	sectionClasses?: string
+	imageWrapperClasses?: string
+}
+
 export type DetectorInfo = {
 	sections: InfoSection[]
 	theme?: 'dark' | 'light'
@@ -29,4 +39,5 @@ export type Detector = {
 	isWide?: boolean
 	detectorExample?: DetectorExampleData
 	info?: DetectorInfo
+	hero?: DetectorHero
 }

@@ -70,6 +70,16 @@ export const detectors: Detector[] = [
 			imageWidth: 448,
 			imageHeight: 438,
 		},
+
+		hero: {
+			title: 'Датчик влажности',
+			text: 'Отслеживает уровень влаги и автоматически включает увлажнение или вентиляцию.',
+			image: '/images/detector-page/hero/02.png',
+			imageWidth: 614,
+			imageHeight: 410,
+			sectionClasses: 'bg-[#99e1ff] max-lg:py-15 lg:min-h-112.5',
+			imageWrapperClasses: 'max-lg:max-w-100 lg:-mr-15',
+		},
 		info: {
 			sections: [
 				{
@@ -209,6 +219,15 @@ export const detectors: Detector[] = [
 			imageWidth: 390,
 			imageHeight: 500,
 		},
+		hero: {
+			title: 'Датчик открытия',
+			text: 'Фиксирует открытие дверей и окон, отправляет уведомление и при необходимости приостанавливает отопление/кондиционер.',
+			image: '/images/detector-page/hero/03.png',
+			imageWidth: 336,
+			imageHeight: 382,
+			imageWrapperClasses: 'max-md:max-w-84',
+			sectionClasses: 'pt-15 lg:pt-10',
+		},
 		info: {
 			sections: [
 				{
@@ -243,6 +262,16 @@ export const detectors: Detector[] = [
 			image: "/images/detector-page/example/7.png",
 			imageWidth: 483,
 			imageHeight: 390,
+		},
+
+		hero: {
+			title: 'Датчик протечки',
+			text: 'Обнаруживает воду, автоматически перекрывает подачу и отправляет уведомление.',
+			image: '/images/detector-page/hero/07.png',
+			imageWidth: 802,
+			imageHeight: 255,
+			imageWrapperClasses: 'max-md:self-end md:max-w-[55.7%] max-md:-mr-4 md:absolute md:right-0 md:bottom-0 max-md:w-200',
+			sectionClasses: 'max-md:pt-13.5 md:py-20 md:min-h-112.5 md:relative',
 		},
 		info: {
 			sections: [
