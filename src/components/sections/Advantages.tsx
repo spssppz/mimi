@@ -143,11 +143,11 @@ export default function Advantages() {
 			{/* MODAL WINDOW */}
 			{activeAdvantage && (
 				<div
-					className="fixed inset-0 z-[100] px-4 py-8 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in"
+					className="fixed inset-0 z-100 px-4 py-8 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in"
 					onClick={() => setActiveId(null)}
 				>
 					<div
-						className="bg-white max-w-150 p-8 md:p-12 w-full rounded-[32px] animate-scale-in relative shadow-2xl"
+						className="bg-white max-w-150 p-8 md:p-12 w-full rounded-4xl animate-scale-in relative shadow-2xl"
 						onClick={(e) => e.stopPropagation()}
 					>
 						<button

@@ -10,7 +10,7 @@ import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import { RightArrowIcon } from "@/icons/RightArrowIcon";
 
-type Slide = {
+export type Slide = {
 	image?: string
 	cap: string
 	descr: string

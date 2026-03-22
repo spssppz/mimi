@@ -1,11 +1,14 @@
 import Header from "@/components/layout/Header"
-
+import PartnersHero from "@/components/sections/Partners/PartnersHero"
+import PartnersForDealer from "@/components/sections/Partners/PartnersForDealer"
+import PartnersForDis from "@/components/sections/Partners/PartnersForDis"
+import PartnersForAgency from "@/components/sections/Partners/PartnersForAgency"
+import PartnersFeatures from "@/components/sections/Partners/PartnersFeatures"
 import Advantages from "@/components/sections/Advantages"
 import Showroom from "@/components/sections/common/Showroom"
 import Footer from "@/components/layout/Footer"
 
 import { routes } from "@/config/routes"
-import PartnersFeatures from "@/components/sections/Partners/PartnersFeatures"
 
 
 export const metadata = {
@@ -41,7 +44,10 @@ export default function PartnersPage() {
 			<Header />
 
 			<main>
-				{/* +4 */}
+				<PartnersHero />
+				<PartnersForDealer />
+				<PartnersForDis />
+				<PartnersForAgency />
 				<PartnersFeatures
 					title="Всем, кто «за» передовые технологии"
 					slides={featuresSlides}

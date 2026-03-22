@@ -29,32 +29,34 @@ const cols = [
 	},
 ]
 
-export default function ForDesignersHero() {
+export default function ForAgenciesHero() {
 	return (
 		<section className="bg-white pt-13.5 lg:pt-10 pb-30 overflow-hidden">
-			<div className="max-w-308 px-4 mx-auto flex flex-col items-center text-center">
-				<div className="mb-20 min-w-35.5">
-					<Image
-						src="/images/for-designers-page/hero/top-decor.png"
-						width={662}
-						height={248}
-						quality={95}
-						alt=""
-					/>
-				</div>
-				<Image
-					src="/images/for-designers-page/hero/icon-decor.svg"
-					width={132}
-					height={132}
-					alt=""
-					className="mb-6"
-				/>
-				<Title className="mb-6">Дизайнерам</Title>
-				<div className="font-helvetica text-[17px] leading-[1.3] -tracking-[0.01em] mb-10">
-					Умный дом как часть дизайна, а не отдельная инженерия
-				</div>
-				<div className="mb-35">
-					<Button className="justify-center py-1.75!">Партнерская программа</Button>
+			<div className="max-w-308 px-4 mx-auto text-center">
+				<div className="flex flex-col items-center mb-30">
+					<div className="-mb-58">
+						<Image
+							src="/images/for-agencies-page/hero-decor.png"
+							width={564}
+							height={532}
+							alt=""
+						/>
+
+					</div>
+					<div className="relative flex flex-col items-center">
+						<Image
+							src="/images/for-agencies-page/hero-icon.svg"
+							width={132}
+							height={132}
+							alt=""
+							className="mb-6"
+						/>
+						<Title className="mb-6">Агентствам</Title>
+						<div className="max-w-140 font-helvetica text-[17px] leading-[1.3] -tracking-[0.01em] mb-10">
+							Комиссия и готовые решения для объектов бизнес/премиум.
+						</div>
+						<Button className="justify-center py-1.75!">Партнерская программа</Button>
+					</div>
 				</div>
 				<ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-15">
 					{cols.map((col, i) => {
@@ -63,7 +65,7 @@ export default function ForDesignersHero() {
 						return (
 							<li key={i} className="max-sm:space-y-4 sm:flex sm:flex-col text-left sm:items-center sm:text-center gap-4 -tracking-[0.01em]">
 								<div>
-									<Icon className="text-[#F90B3A] w-10.5 h-10.5" />
+									<Icon className="text-[#00D0FF] w-10.5 h-10.5" />
 								</div>
 								<div className="font-semibold ">
 									{col.label}

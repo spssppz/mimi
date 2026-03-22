@@ -1,6 +1,7 @@
 
 import Header from "@/components/layout/Header";
-// 
+import ForDilersHero from "@/components/sections/ForDilers/ForDilersHero";
+import ForDilersYouGet from "@/components/sections/ForDilers/ForDilersYouGet";
 import CompetitorsDif from "@/components/sections/CompetitorsDif";
 import Showroom from "@/components/sections/common/Showroom";
 import Footer from "@/components/layout/Footer";
@@ -43,7 +44,8 @@ export default function ForDilersPage() {
 		<>
 			<Header />
 			<main>
-				{/* +2 */}
+				<ForDilersHero />
+				<ForDilersYouGet />
 				<CompetitorsDif
 					title="Что отличает нас от конкурентов?"
 					cols={competitorsList}
