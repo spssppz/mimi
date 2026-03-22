@@ -11,40 +11,20 @@ import gsap from "gsap";
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
-const features = [
-	{
-		id: 0,
-		title: 'Я пришел',
-		content: [
-			"За час начнут прогреваться теплые полы",
-			"Отопление перейдет в дневной режим",
-			"Плавно откроются шторы, естественно пробуждая солнечными лучами",
-			"Вместо будильника, тихая музыка аккуратно встретит с новым днем",
-		],
-	},
-	{
-		id: 1,
-		title: 'Я ушел',
-		content: [
-			"Выключается весь свет",
-			"Закрываются шторы",
-			"Выключается музыка",
-			"Климат-контроль переходит в энергосберегающий режим",
-		],
-	},
-	{
-		id: 2,
-		title: 'Вечеринка',
-		content: [
-			"За час начнут прогреваться теплые полы",
-			"Отопление перейдет в дневной режим",
-			"Плавно откроются шторы, естественно пробуждая солнечными лучами",
-			"Вместо будильника, тихая музыка аккуратно встретит с новым днем",
-		],
-	},
-]
+type Feature = {
+	id: number
+	title: string
+	content: string[]
+}
 
-export default function Scripts() {
+type Props = {
+	title: string
+	bgImage: string
+	bgImageMob: string
+	features: Feature[]
+}
+
+export default function Scripts({ title, bgImage, bgImageMob, features }: Props) {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const swiperRef = useRef<any>(null);
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -76,12 +56,7 @@ export default function Scripts() {
 	return (
 		<section className="py-22.5 overflow-hidden">
 			<div className="max-w-308 px-4 mx-auto mb-10 flex items-start gap-10 flex-col md:flex-row md:items-end md:justify-between">
-				<Title>Сценарии</Title>
-
-				{/* <a href="#" className="inline-flex hover:text-foreground transition-colors duration-300 items-center gap-1 text-[15px] font-medium text-brand-blue group cursor-pointer">
-					Узнать больше
-					<RightArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-				</a> */}
+				<Title>{title}</Title>
 			</div>
 
 			<div className="max-w-348 mx-auto px-4" ref={containerRef}>
@@ -151,7 +126,7 @@ export default function Scripts() {
 							{features.map((item, idx) => (
 								<SwiperSlide key={idx}>
 									<Image
-										src="/images/curtains-page/scripts/bg.jpg"
+										src={bgImage}
 										fill
 										alt=""
 										className="object-cover"
@@ -175,7 +150,7 @@ export default function Scripts() {
 						{features.map((item, idx) => (
 							<SwiperSlide key={idx} className="min-h-112.5 relative p-4 rounded-3xl overflow-hidden bg-black">
 								<Image
-									src="/images/curtains-page/scripts/bg-mob.jpg"
+									src={bgImageMob}
 									fill
 									alt=""
 									className="object-cover opacity-60"

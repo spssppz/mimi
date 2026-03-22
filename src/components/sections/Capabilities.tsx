@@ -11,7 +11,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Capabilities() {
+export default function Capabilities({ title }: { title: string }) {
 	const titleRef = useRef<HTMLHeadingElement | null>(null)
 	const phrase1Ref = useRef<HTMLSpanElement>(null)
 	const phrase2Ref = useRef<HTMLSpanElement>(null)
@@ -66,7 +66,7 @@ export default function Capabilities() {
 		<section className="pb-10 pt-22.5 md:pb-16 lg:py-22.5 overflow-hidden">
 			<div className="max-w-308 mx-auto px-4">
 				<div ref={titleRef}>
-					<Title className="mb-10 lg:max-w-150">Чем вы сможете управлять?</Title>
+					<Title className="mb-10 lg:max-w-150">{title}</Title>
 				</div>
 				<div>
 					<Swiper
