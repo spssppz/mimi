@@ -1,12 +1,11 @@
 import Header from "@/components/layout/Header"
-import OtherArticles from "@/components/sections/Article/OtherArticles"
-import Footer from "@/components/layout/Footer"
-import { routes } from "@/config/routes"
-import Image from "next/image"
-import { contacts } from "@/config/contacts"
-import Link from "next/link"
-import { LikeIcon } from "@/icons/LikeIcon"
+import AppHero from "@/components/sections/App/AppHero"
+import AppFunctions from "@/components/sections/App/AppFunctions"
+import AppBenefits from "@/components/sections/App/AppBenefits"
 import Showroom from "@/components/sections/common/Showroom"
+import Footer from "@/components/layout/Footer"
+
+import { routes } from "@/config/routes"
 
 export const metadata = {
 	title: routes.app.title
@@ -18,7 +17,9 @@ export default function AppPage() {
 			<Header />
 
 			<main>
-				{/* +3 */}
+				<AppHero />
+				<AppFunctions />
+				<AppBenefits />
 				<Showroom />
 			</main>
 

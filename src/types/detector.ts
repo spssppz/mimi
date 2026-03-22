@@ -1,11 +1,21 @@
+export type InfoSection = {
+	title: string
+	text?: string[]
+	list?: string[]
+}
+
+export type DetectorInfo = {
+	sections: InfoSection[]
+	theme?: 'dark' | 'light'
+}
+
 export type DetectorExampleData = {
-	bg?: string
-	bodyClasses?: string
 	title: string
 	text: string
 	image: string
 	imageWidth?: number
 	imageHeight?: number
+	theme?: 'dark' | 'light'
 }
 
 export type Detector = {
@@ -17,5 +27,6 @@ export type Detector = {
 	bg: string
 	linkHover: string
 	isWide?: boolean
-	DetectorExample?: DetectorExampleData
+	detectorExample?: DetectorExampleData
+	info?: DetectorInfo
 }

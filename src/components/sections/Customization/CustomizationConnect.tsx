@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/UI/Button";
 import { SliderNavigation } from "@/components/UI/SliderNavigation";
 import { Title } from "@/components/UI/Title";
 import Image from "next/image";

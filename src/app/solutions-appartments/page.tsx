@@ -62,7 +62,7 @@ export default function solutionsAppartmentsPage() {
 								Готовые решения
 							</span>
 							<br />
-							В жилой комплекс.
+							В жилой комплекс
 						</>
 					}
 				/>

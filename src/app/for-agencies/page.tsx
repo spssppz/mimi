@@ -2,7 +2,7 @@
 import Header from "@/components/layout/Header";
 import ForAgenciesHero from "@/components/sections/ForAgencies/ForAgenciesHero";
 import ForAgenciesYouGet from "@/components/sections/ForAgencies/ForAgenciesYouGet";
-// 
+import ForAgenciesFormat from "@/components/sections/ForAgencies/ForAgenciesFormat";
 import CompetitorsDif from "@/components/sections/CompetitorsDif";
 import Showroom from "@/components/sections/common/Showroom";
 import Footer from "@/components/layout/Footer";
@@ -47,7 +47,7 @@ export default function ForAgenciesPage() {
 			<main>
 				<ForAgenciesHero />
 				<ForAgenciesYouGet />
-				{/*  */}
+				<ForAgenciesFormat />
 				<CompetitorsDif
 					title="Что отличает нас от конкурентов?"
 					cols={competitorsList}

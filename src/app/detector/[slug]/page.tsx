@@ -1,9 +1,13 @@
 import Header from "@/components/layout/Header"
 // 
 import DetectorExample from "@/components/sections/Detector/DetectorExample"
+import DetectorInfo from "@/components/sections/Detector/DetectorInfo"
+import DetectorSlider from "@/components/sections/Detector/DetectorSlider"
 import Showroom from "@/components/sections/common/Showroom"
 import Footer from "@/components/layout/Footer"
+
 import { detectors } from "@/data/detectors"
+
 import { notFound } from "next/navigation"
 
 type Props = {
@@ -23,7 +27,9 @@ export default async function DetectorItemPage({ params }: Props) {
 			<Header />
 			<main>
 				{/*  */}
-				<DetectorExample example={detector.DetectorExample}></DetectorExample>
+				{detector.detectorExample && <DetectorExample example={detector.detectorExample} />}
+				{detector.info && <DetectorInfo info={detector.info} />}
+				<DetectorSlider detectors={detectors} />
 				<Showroom />
 			</main>
 			<Footer />
