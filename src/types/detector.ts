@@ -12,6 +12,7 @@ export type DetectorHero = {
 	imageHeight: number
 	sectionClasses?: string
 	imageWrapperClasses?: string
+	contentWrapperClasses?: string
 }
 
 export type DetectorInfo = {

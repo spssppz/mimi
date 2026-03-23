@@ -42,13 +42,12 @@ export function AdvantageModal({ title, description, onClose }: AdvantageModalPr
 	return (
 		<div
 			onClick={onOverlayClick}
-			className="fixed inset-0 z-[100] px-4 py-8 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in"
+			className="fixed inset-0 z-100 px-4 py-8 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in"
 		>
 			<div
 				ref={modalRef}
-				className="bg-white max-w-140 p-8 md:p-12 w-full rounded-[32px] animate-scale-in relative shadow-2xl"
+				className="bg-white max-w-140 p-8 md:p-12 w-full rounded-4xl animate-scale-in relative shadow-2xl"
 			>
-				{/* Кнопка закрытия в вашем стиле */}
 				<button
 					onClick={onClose}
 					className="absolute top-5 right-5 w-10 h-10 rounded-full bg-[#f5f5f7] flex items-center justify-center hover:bg-foreground hover:text-white transition-all duration-300 group"
@@ -60,7 +59,6 @@ export function AdvantageModal({ title, description, onClose }: AdvantageModalPr
 				</button>
 
 				<div className="flex flex-col gap-4">
-					{/* Декоративная иконка (как кавычки в сертификатах) */}
 					<div className="w-12 h-12 bg-brand-blue/10 rounded-2xl flex items-center justify-center text-brand-blue mb-2">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
 							<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>

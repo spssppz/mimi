@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/UI/Button";
 import { SliderNavigation } from "@/components/UI/SliderNavigation";
 import { Title } from "@/components/UI/Title";
 import Image from "next/image";
@@ -9,49 +8,34 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
-import { RightArrowIcon } from "@/icons/RightArrowIcon";
 
-const slides = [
-	{
-		image: '/images/control-access-page/zones/1.jpg',
-		cap: 'Подъезд/тамбур',
-		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
-	},
-	{
-		image: '/images/control-access-page/zones/2.jpg',
-		cap: 'Входная, калитка/ворота',
-		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
-	},
-	{
-		image: '/images/control-access-page/zones/3.jpg',
-		cap: 'Техпомещения',
-		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
-	},
-	{
-		image: '/images/control-access-page/zones/1.jpg',
-		cap: 'Подъезд/тамбур',
-		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
-	},
-	{
-		image: '/images/control-access-page/zones/2.jpg',
-		cap: 'Входная, калитка/ворота',
-		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
-	},
-	{
-		image: '/images/control-access-page/zones/3.jpg',
-		cap: 'Техпомещения',
-		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
-	},
-]
-export default function ControlAccessZones() {
+type SlideProps = {
+	image: string
+	cap: string
+	descr: string
+}
+
+type Props = {
+	title: string
+	titleOnMobile?: string
+	slides: SlideProps[]
+}
+
+export default function ControlAccessZones({ title, titleOnMobile, slides }: Props) {
 
 	const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null)
 	const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null)
 	return (
 		<section className="pt-22.5 lg:pt-30 pb-22.5 overflow-hidden">
 			<div className="max-w-308 px-4 mx-auto">
-				<Title className="mb-10 max-lg:hidden">Зоны и точки</Title>
-				<Title className="mb-10 lg:hidden">Особенности</Title>
+				{titleOnMobile ? (
+					<>
+						<Title className="mb-10 max-lg:hidden">{title}</Title>
+						<Title className="mb-10 lg:hidden">{titleOnMobile}</Title>
+					</>
+				) : (
+					<Title className="mb-10">{title}</Title>
+				)}
 
 				<Swiper
 					modules={[Navigation]}

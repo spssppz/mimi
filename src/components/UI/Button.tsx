@@ -4,12 +4,12 @@ import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { BtnArrowIcon } from '@/icons/BtnArrowIcon'
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	children: React.ReactNode
 	className?: string
 }
 
-export const Button = ({ children, className = '' }: ButtonProps) => {
+export const Button = ({ children, className = '', onClick, type = 'button', ...props }: ButtonProps) => {
 	const spotlightRef = useRef<HTMLDivElement>(null)
 	const staticGlowRef = useRef<HTMLDivElement>(null) // Внешний справа
 	const staticGlowLeftRef = useRef<HTMLDivElement>(null) // Внешний слева
@@ -138,13 +138,17 @@ export const Button = ({ children, className = '' }: ButtonProps) => {
 			/>
 
 			<button
+
 				ref={buttonRef}
+				type={type}
+				onClick={onClick}
 				className={`group relative cursor-pointer bg-[#f8f9fa]
-          shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea,0_4px_6px_-2px_rgba(0,0,0,0.05),0_10px_15px_-3px_rgba(0,0,0,0.1)]
-          rounded-[50px] flex px-8 py-3 border border-white
-          items-center uppercase gap-1.5 font-semibold text-[13px]
-          min-w-62.25 tracking-[-0.02em] text-[#00576b]
-          transition-all duration-300 overflow-hidden z-10 ${className}`}
+					shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea,0_4px_6px_-2px_rgba(0,0,0,0.05),0_10px_15px_-3px_rgba(0,0,0,0.1)]
+					rounded-[50px] flex px-8 py-3 border border-white
+					items-center uppercase gap-1.5 font-semibold text-[13px]
+					min-w-62.25 tracking-[-0.02em] text-[#00576b]
+					transition-all duration-300 overflow-hidden z-10 ${className}`}
+				{...props}
 			>
 				<div
 					ref={spotlightRef}

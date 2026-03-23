@@ -69,22 +69,60 @@ const features = [
 		],
 	},
 ]
+
+const slides = [
+	{
+		image: '/images/control-access-page/zones/1.jpg',
+		cap: 'Подъезд/тамбур',
+		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
+	},
+	{
+		image: '/images/control-access-page/zones/2.jpg',
+		cap: 'Входная, калитка/ворота',
+		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
+	},
+	{
+		image: '/images/control-access-page/zones/3.jpg',
+		cap: 'Техпомещения',
+		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
+	},
+	{
+		image: '/images/control-access-page/zones/1.jpg',
+		cap: 'Подъезд/тамбур',
+		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
+	},
+	{
+		image: '/images/control-access-page/zones/2.jpg',
+		cap: 'Входная, калитка/ворота',
+		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
+	},
+	{
+		image: '/images/control-access-page/zones/3.jpg',
+		cap: 'Техпомещения',
+		descr: 'Умные розетки могут отслеживать энергопотребление подключенных приборов.',
+	},
+]
+
 export default function ControlAccessPage() {
 	return (
 		<>
 			<Header />
 			<main>
-				<ControlAccessHero></ControlAccessHero>
-				<FeaturesGrid title="Возможности системы" items={FeaturesСols}></FeaturesGrid>
-				<ControlAccessZones></ControlAccessZones>
+				<ControlAccessHero />
+				<FeaturesGrid title="Возможности системы" items={FeaturesСols} />
+				<ControlAccessZones
+					title="Особенности"
+					titleOnMobile="Зоны и точки"
+					slides={slides}
+				/>
 				<Scripts
 					title="Сценарии"
 					bgImage="/images/curtains-page/scripts/bg.jpg"
 					bgImageMob="/images/curtains-page/scripts/bg-mob.jpg"
 					features={features}
 				/>
-				<ElectricLockIntegration></ElectricLockIntegration>
-				<Showroom></Showroom>
+				<ElectricLockIntegration />
+				<Showroom />
 			</main>
 			<Footer />
 		</>

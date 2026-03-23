@@ -17,6 +17,16 @@ export const detectors: Detector[] = [
 			imageHeight: 390,
 			theme: 'dark',
 		},
+		hero: {
+			title: 'Датчик дыма',
+			text: 'Обнаруживает задымление и мгновенно запускает безопасность: звуковой сигнал, уведомления, включение маршрутов света, остановка вентиляции и отключение некритичных линий.',
+			image: '/images/detector-page/hero/01.png',
+			imageWidth: 643,
+			imageHeight: 450,
+			contentWrapperClasses: 'max-md:self-start max-w-127.5',
+			imageWrapperClasses: 'max-md:-mr-10 max-md:self-end md:max-w-[53.6%] md:absolute md:right-0 md:bottom-0',
+			sectionClasses: 'py-30 md:relative max-md:pt-10 bg-black text-white',
+		},
 		info: {
 			sections: [
 				{
@@ -79,6 +89,7 @@ export const detectors: Detector[] = [
 			imageHeight: 410,
 			sectionClasses: 'bg-[#99e1ff] max-lg:py-15 lg:min-h-112.5',
 			imageWrapperClasses: 'max-lg:max-w-100 lg:-mr-15',
+			contentWrapperClasses: 'max-md:self-start max-w-97.5',
 		},
 		info: {
 			sections: [
@@ -117,6 +128,16 @@ export const detectors: Detector[] = [
 			imageWidth: 390,
 			imageHeight: 390,
 		},
+		hero: {
+			title: 'Датчик температуры',
+			text: 'Измеряет температуру и управляет отоплением, тёплыми полами и кондиционированием по заданным профилям и времени.',
+			image: '/images/detector-page/hero/05.png',
+			imageWidth: 251,
+			imageHeight: 251,
+			contentWrapperClasses: 'max-md:self-start max-w-127.5',
+			imageWrapperClasses: 'lg:mr-20',
+			sectionClasses: 'py-10 md:py-15',
+		},
 		info: {
 			sections: [
 				{
@@ -151,6 +172,16 @@ export const detectors: Detector[] = [
 			imageWidth: 410,
 			imageHeight: 288,
 		},
+		hero: {
+			title: 'Датчик движения',
+			text: 'Включает свет по присутствию (ночью — в мягком режиме), может запускать музыку в нужной зоне и ставить помещения на охрану при отсутствии людей.',
+			image: '/images/detector-page/hero/06.png',
+			imageWidth: 837,
+			imageHeight: 430,
+			contentWrapperClasses: 'max-md:self-start max-w-127.5',
+			imageWrapperClasses: 'max-md:max-w-200 -mr-30',
+			sectionClasses: 'pt-15 lg:pt-10',
+		},
 		info: {
 			sections: [
 				{
@@ -183,6 +214,17 @@ export const detectors: Detector[] = [
 			image: "/images/detector-page/example/4.png",
 			imageWidth: 400,
 			imageHeight: 390,
+		},
+
+		hero: {
+			title: 'Инфракрасные датчики',
+			text: 'Дублируют пульты и управляют техникой по ИК: кондиционером, ТВ, медиаплеером.',
+			image: '/images/detector-page/hero/04.png',
+			imageWidth: 532,
+			imageHeight: 420,
+			contentWrapperClasses: 'max-md:self-start max-w-127.5',
+			imageWrapperClasses: '',
+			sectionClasses: 'max-md:pt-10 bg-[#F8F8F8]',
 		},
 		info: {
 			sections: [
@@ -226,6 +268,7 @@ export const detectors: Detector[] = [
 			imageWidth: 336,
 			imageHeight: 382,
 			imageWrapperClasses: 'max-md:max-w-84',
+			contentWrapperClasses: 'max-md:self-start max-w-97.5',
 			sectionClasses: 'pt-15 lg:pt-10',
 		},
 		info: {
@@ -272,6 +315,7 @@ export const detectors: Detector[] = [
 			imageHeight: 255,
 			imageWrapperClasses: 'max-md:self-end md:max-w-[55.7%] max-md:-mr-4 md:absolute md:right-0 md:bottom-0 max-md:w-200',
 			sectionClasses: 'max-md:pt-13.5 md:py-20 md:min-h-112.5 md:relative',
+			contentWrapperClasses: 'max-md:self-start max-w-97.5',
 		},
 		info: {
 			sections: [

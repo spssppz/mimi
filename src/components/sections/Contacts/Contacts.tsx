@@ -16,7 +16,7 @@ export default function Contacts() {
 				<Title className="mb-10">Контакты</Title>
 				<div className='mb-6 space-y-6 leading-snug text-[15px] tracking-[-0.01em] font-helvetica'>
 					<div className="flex items-center gap-3">
-						<div className="w-12.5*4 h-12.5 bg-white rounded-[10px]">
+						<div className="w-12.5 h-12.5 bg-white rounded-[10px]">
 							<Image
 								src="/images/icons/address-decor.svg"
 								width={50}
