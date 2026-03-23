@@ -39,7 +39,7 @@ export default function AppHero() {
 					{contacts.apps?.map(app => {
 						const IconComponent = app.icon
 						return (
-							<div className="flex items-center gap-4">
+							<div key={app.label} className="flex items-center gap-4">
 								<IconComponent className="w-8 h-8 text-foreground" />
 								<div className="flex flex-col items-start gap-2">
 									<span className="font-bold text-[15px] -tracking-[0.01em]">{app.label}</span>

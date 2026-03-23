@@ -1,8 +1,8 @@
 import Header from "@/components/layout/DarkHeader"
 import FireHero from "@/components/sections/Fire/FireHero"
 import FeaturesGrid from "@/components/sections/common/FeaturesGrid"
-import FireReaction from "@/components/sections/Fire/FireReaction"
 import AdvantagesGrid from "@/components/sections/common/AdvantagesGrid"
+import FireReaction from "@/components/sections/Fire/FireReaction"
 import Showroom from "@/components/sections/common/Showroom"
 import Footer from "@/components/layout/Footer"
 
@@ -46,7 +46,10 @@ const AdvantagesСols = [
 		imageClasses: 'max-lg:object-[right_center]'
 	},
 	{
-		image: '/images/fire-page/advantages/3.jpg',
+		type: 'notification-anim',
+		notificationImage: '/images/fire-page/advantages/notification-decor.png',
+		notificationImageWidth: 332,
+		notificationImageHeight: 74,
 		cap: 'Контроль и оповещения.',
 		descr: 'Сирена в доме и уведомления всем пользователям одновременно.',
 		theme: 'light',

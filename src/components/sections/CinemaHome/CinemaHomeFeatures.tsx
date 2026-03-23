@@ -11,10 +11,10 @@ type Props = {
 
 export default function CinemaHomeFeatures({ featuresItems }: Props) {
 	return (
-		<section className="pb-22.5 lg:pb-30 pt-22.5 overflow-hidden">
+		<section className="pb-22.5 lg:pb-10 pt-22.5 lg:overflow-x-clip">
 			<div className="max-w-235.5 px-4 mx-auto">
 				<div className="lg:flex lg:items-start lg:justify-between">
-					<div className="lg:w-95.75 space-y-15 lg:space-y-30">
+					<div className="lg:w-95.75 lg:pb-20 space-y-15 lg:space-y-30">
 						{featuresItems.map((item, i) => (
 							<Fragment key={i}>
 								<article className="-tracking-[0.01em]">
@@ -49,7 +49,7 @@ export default function CinemaHomeFeatures({ featuresItems }: Props) {
 							</Fragment>
 						))}
 					</div>
-					<div className="max-lg:hidden relative -mr-[64%]">
+					<div className="max-lg:hidden lg:sticky top-10 relative -mr-[64%]">
 						<Image
 							width={989}
 							height={575}

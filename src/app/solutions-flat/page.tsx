@@ -59,6 +59,7 @@ export default function SolutionsFlatPage() {
 			<main>
 				<SolutionsHero
 					image="/images/solutions-page/hero-bg-flat.jpg"
+					withRadialReveal
 					title={
 						<>
 							<span className="text-[18px] md:text-[24px] lg:text-[28px]">

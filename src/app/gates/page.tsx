@@ -11,6 +11,10 @@ import { routes } from "@/config/routes"
 
 const AdvantagesСols = [
 	{
+		type: 'notification-anim',
+		notificationImage: '/images/gates-page/advantages/notification-decor.png',
+		notificationImageWidth: 332,
+		notificationImageHeight: 64,
 		image: '/images/gates-page/advantages/1.jpg',
 		cap: 'Автозакрытие.',
 		descr: 'Ворота закрываются после проезда и приходит уведомление.',

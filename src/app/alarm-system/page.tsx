@@ -35,6 +35,10 @@ const FeaturesСols = [
 const AdvantagesСols = [
 	{
 		image: '/images/alarm-system-page/advantages/1.jpg',
+		type: 'notification-anim',
+		notificationImage: '/images/alarm-system-page/advantages/decor-1.png',
+		notificationImageWidth: 332,
+		notificationImageHeight: 64,
 		cap: 'Мгновенные оповещения.',
 		descr: 'При тревоге сразу приходит уведомление с типом события и зоной.',
 		theme: 'dark',
@@ -65,6 +69,10 @@ const AdvantagesСols = [
 		cap: 'Подтверждение тревоги.',
 		descr: 'Тревогу удобно проверить по камере или домофону, а событие сохраняется в журнале.',
 		theme: 'dark',
+		type: 'notification-anim',
+		notificationImage: '/images/alarm-system-page/advantages/decor-2.png',
+		notificationImageWidth: 299,
+		notificationImageHeight: 87,
 	},
 ]
 
