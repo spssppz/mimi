@@ -18,10 +18,10 @@ export default function CustomizationPage() {
 		<>
 			<Header />
 			<main>
-				<CustomizationHero></CustomizationHero>
-				<CustomizationCom></CustomizationCom>
-				<CustomizationConnect></CustomizationConnect>
-				<Showroom></Showroom>
+				<CustomizationHero />
+				<CustomizationCom />
+				<CustomizationConnect />
+				<Showroom />
 			</main>
 			<Footer />
 		</>

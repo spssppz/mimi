@@ -18,10 +18,10 @@ export default function PowerSupplyPage() {
 		<>
 			<Header />
 			<main>
-				<PowerSupplyHero></PowerSupplyHero>
-				<PowerSupplyZones></PowerSupplyZones>
-				<PowerSupplyArchit></PowerSupplyArchit>
-				<Showroom></Showroom>
+				<PowerSupplyHero />
+				<PowerSupplyZones />
+				<PowerSupplyArchit />
+				<Showroom />
 			</main>
 			<Footer />
 		</>

@@ -53,10 +53,10 @@ export default function TvPage() {
 		<>
 			<Header />
 			<main>
-				<TvHero></TvHero>
-				<TvSelection></TvSelection>
-				<TvDiagonal></TvDiagonal>
-				<TvWiring></TvWiring>
+				<TvHero />
+				<TvSelection />
+				<TvDiagonal />
+				<TvWiring />
 				<Scripts
 					title="Сценарии"
 					bgImage="/images/curtains-page/scripts/bg.jpg"
@@ -64,7 +64,7 @@ export default function TvPage() {
 					features={features}
 				/>
 				<Features title="Удобное управление" />
-				<Showroom></Showroom>
+				<Showroom />
 			</main>
 			<Footer />
 		</>

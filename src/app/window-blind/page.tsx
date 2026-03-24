@@ -52,17 +52,17 @@ export default function WindowBlindPage() {
 		<>
 			<Header />
 			<main>
-				<WindowBlindHero></WindowBlindHero>
-				<ElectricCurtainsTypes></ElectricCurtainsTypes>
-				<WindowBlindEngine></WindowBlindEngine>
-				<ElectricCurtainsQuiet></ElectricCurtainsQuiet>
-					<Scripts
-									title="Сценарии"
-									bgImage="/images/curtains-page/scripts/bg.jpg"
-									bgImageMob="/images/curtains-page/scripts/bg-mob.jpg"
-									features={features}
-								/>
-				<Showroom></Showroom>
+				<WindowBlindHero />
+				<ElectricCurtainsTypes />
+				<WindowBlindEngine />
+				<ElectricCurtainsQuiet />
+				<Scripts
+					title="Сценарии"
+					bgImage="/images/curtains-page/scripts/bg.jpg"
+					bgImageMob="/images/curtains-page/scripts/bg-mob.jpg"
+					features={features}
+				/>
+				<Showroom />
 			</main>
 			<Footer />
 		</>

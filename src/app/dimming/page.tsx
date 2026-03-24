@@ -74,9 +74,9 @@ export default function DimmingPage() {
 		<>
 			<Header />
 			<main>
-				<DimmingHero></DimmingHero>
-				<FeaturesGrid title="Возможности системы" items={FeaturesСols}></FeaturesGrid>
-				<DimmingImplement></DimmingImplement>
+				<DimmingHero />
+				<FeaturesGrid title="Возможности системы" items={FeaturesСols} />
+				<DimmingImplement />
 				<Scripts
 					title="Сценарии"
 					bgImage="/images/curtains-page/scripts/bg.jpg"
@@ -84,7 +84,7 @@ export default function DimmingPage() {
 					features={features}
 				/>
 				<Features title="Удобное управление" />
-				<Showroom></Showroom>
+				<Showroom />
 			</main>
 			<Footer />
 		</>

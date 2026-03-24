@@ -50,16 +50,16 @@ export default function ElectricLockPage() {
 		<>
 			<Header />
 			<main>
-				<ElectricLockHero></ElectricLockHero>
-				<ElectricLockAccess></ElectricLockAccess>
-				<ElectricLockIntegration></ElectricLockIntegration>
+				<ElectricLockHero />
+				<ElectricLockAccess />
+				<ElectricLockIntegration />
 				<Scripts
 					title="Сценарии"
 					bgImage="/images/curtains-page/scripts/bg.jpg"
 					bgImageMob="/images/curtains-page/scripts/bg-mob.jpg"
 					features={features}
 				/>
-				<Showroom></Showroom>
+				<Showroom />
 			</main>
 			<Footer />
 		</>

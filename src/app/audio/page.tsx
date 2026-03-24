@@ -19,11 +19,11 @@ export default function AudioPage() {
 		<>
 			<Header />
 			<main>
-				<AudioHero></AudioHero>
-				<AudioAbout></AudioAbout>
-				<AudioComposition></AudioComposition>
-				<AudioVideo></AudioVideo>
-				<Showroom></Showroom>
+				<AudioHero />
+				<AudioAbout />
+				<AudioComposition />
+				<AudioVideo />
+				<Showroom />
 			</main>
 			<Footer />
 		</>

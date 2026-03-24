@@ -53,11 +53,11 @@ export default function ElectricCurtainsPage() {
 		<>
 			<Header />
 			<main>
-				<ElectricCurtainsHero></ElectricCurtainsHero>
-				<ElectricCurtainsTypes></ElectricCurtainsTypes>
-				<ElectricCurtainsPositioning></ElectricCurtainsPositioning>
-				<ElectricCurtainsEngine></ElectricCurtainsEngine>
-				<ElectricCurtainsQuiet></ElectricCurtainsQuiet>
+				<ElectricCurtainsHero />
+				<ElectricCurtainsTypes />
+				<ElectricCurtainsPositioning />
+				<ElectricCurtainsEngine />
+				<ElectricCurtainsQuiet />
 				<Scripts
 					title="Сценарии"
 					bgImage="/images/curtains-page/scripts/bg.jpg"
@@ -65,7 +65,7 @@ export default function ElectricCurtainsPage() {
 					features={features}
 				/>
 				<Features title="Удобное управление" />
-				<Showroom></Showroom>
+				<Showroom />
 			</main>
 			<Footer />
 		</>

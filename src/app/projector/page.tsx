@@ -53,10 +53,10 @@ export default function ProjectorPage() {
 		<>
 			<Header />
 			<main>
-				<ProjectorHero></ProjectorHero>
-				<ProjectorAdvantages></ProjectorAdvantages>
-				<ProjectorFlux></ProjectorFlux>
-				<ProjectorTypes></ProjectorTypes>
+				<ProjectorHero />
+				<ProjectorAdvantages />
+				<ProjectorFlux />
+				<ProjectorTypes />
 				<Scripts
 					title="Сценарии"
 					bgImage="/images/curtains-page/scripts/bg.jpg"
@@ -64,7 +64,7 @@ export default function ProjectorPage() {
 					features={features}
 				/>
 				<Features title="Удобное управление" />
-				<Showroom></Showroom>
+				<Showroom />
 			</main>
 			<Footer />
 		</>

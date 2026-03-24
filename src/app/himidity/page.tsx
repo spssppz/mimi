@@ -74,16 +74,16 @@ export default function HimidityPage() {
 		<>
 			<Header />
 			<main>
-				<HimidityHero></HimidityHero>
-				<FeaturesGrid title="Возможности системы" items={FeaturesСols}></FeaturesGrid>
-				<HimidityTypes></HimidityTypes>
+				<HimidityHero />
+				<FeaturesGrid title="Возможности системы" items={FeaturesСols} />
+				<HimidityTypes />
 				<Scripts
 					title="Сценарии"
 					bgImage="/images/curtains-page/scripts/bg.jpg"
 					bgImageMob="/images/curtains-page/scripts/bg-mob.jpg"
 					features={features}
 				/>
-				<Showroom></Showroom>
+				<Showroom />
 			</main>
 			<Footer />
 		</>

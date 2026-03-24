@@ -18,11 +18,11 @@ export default function ServicesPage() {
 		<>
 			<Header />
 			<main>
-				<ServicesHero></ServicesHero>
-				<ServicesDesigning></ServicesDesigning>
-				<ServicesMontage></ServicesMontage>
-				<ServicesService></ServicesService>
-				<Showroom></Showroom>
+				<ServicesHero />
+				<ServicesDesigning />
+				<ServicesMontage />
+				<ServicesService />
+				<Showroom />
 			</main>
 			<Footer />
 		</>
