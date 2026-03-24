@@ -22,7 +22,12 @@ export default function Home() {
         <Advantages />
         <Features title="Удобное управление" />
         <Showroom />
-        <Cases />
+        <Cases
+          title="Кейсы"
+          hasSliderNav
+          hasFilter
+          theme="dark"
+        />
         <Articles />
       </main>
       <Footer />

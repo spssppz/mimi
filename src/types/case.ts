@@ -6,6 +6,7 @@ export type CaseItem = {
 	image: string
 	imageMain: string
 	tags: string[]
+	link: string
 }
 
 export type Category = {

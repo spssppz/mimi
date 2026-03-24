@@ -7,6 +7,7 @@ export const cases: CaseItem[] = [
 		image: "/images/cases/1.jpg",
 		imageMain: "/images/cases/1-big.jpg",
 		tags: ["Мультимедиа", "Освещение", "Климат"],
+		link: '',
 	},
 	{
 		title: "3-х этажный дом. Поселок Park Avenue",
@@ -14,6 +15,7 @@ export const cases: CaseItem[] = [
 		image: "/images/cases/2.jpg",
 		imageMain: "/images/cases/1-big.jpg",
 		tags: ["Климат", "Мультимедиа", "Безопасность"],
+		link: '',
 	},
 	{
 		title: "Большой дом для всей семьи",
@@ -21,6 +23,7 @@ export const cases: CaseItem[] = [
 		image: "/images/cases/3.jpg",
 		imageMain: "/images/cases/1-big.jpg",
 		tags: ["Климат", "Безопасность"],
+		link: '',
 	},
 	{
 		title: "Высокие технологии в классическом исполнении",
@@ -28,6 +31,7 @@ export const cases: CaseItem[] = [
 		image: "/images/cases/1.jpg",
 		imageMain: "/images/cases/1-big.jpg",
 		tags: ["Мультимедиа", "Освещение"],
+		link: '',
 	},
 	{
 		title: "3-х этажный дом. Поселок Park Avenue",
@@ -35,6 +39,7 @@ export const cases: CaseItem[] = [
 		image: "/images/cases/2.jpg",
 		imageMain: "/images/cases/1-big.jpg",
 		tags: ["Климат", "Мультимедиа"],
+		link: '',
 	},
 	{
 		title: "Большой дом для всей семьи",
@@ -42,5 +47,6 @@ export const cases: CaseItem[] = [
 		image: "/images/cases/3.jpg",
 		imageMain: "/images/cases/1-big.jpg",
 		tags: ["Климат", "Безопасность", "Освещение", "Мультимедиа"],
+		link: '',
 	},
 ]
