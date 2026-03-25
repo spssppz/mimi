@@ -171,6 +171,13 @@ export const detectors: Detector[] = [
 			image: "/images/detector-page/example/6.png",
 			imageWidth: 410,
 			imageHeight: 288,
+			ruler: {
+				label: "16 мм",
+				x1: 110,
+				y1: 159,
+				x2: 196,
+				y2: 274,
+			},
 		},
 		hero: {
 			title: 'Датчик движения',
@@ -302,9 +309,16 @@ export const detectors: Detector[] = [
 		detectorExample: {
 			title: "WLS4",
 			text: "Одна из основных функций умного дома — использование датчиков протечки воды. Они популярны, но одновременно неудобны, если вы уже сталкивались с их работой — сразу все поймете.",
-			image: "/images/detector-page/example/7.png",
+			image: "/images/detector-page/example/07.png",
 			imageWidth: 483,
 			imageHeight: 390,
+			ruler: {
+				label: "20 мм",
+				x1: 50,
+				y1: 189,
+				x2: 152,
+				y2: 364,
+			},
 		},
 
 		hero: {

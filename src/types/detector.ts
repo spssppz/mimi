@@ -20,15 +20,27 @@ export type DetectorInfo = {
 	theme?: 'dark' | 'light'
 }
 
+export type DetectorExampleRuler = {
+	label: string
+	x1: number
+	y1: number
+	x2: number
+	y2: number
+	textOffset?: number
+	fontSize?: number
+	strokeWidth?: number
+	color?: string
+}
+
 export type DetectorExampleData = {
 	title: string
 	text: string
 	image: string
 	imageWidth?: number
 	imageHeight?: number
-	theme?: 'dark' | 'light'
+	theme?: 'light' | 'dark'
+	ruler?: DetectorExampleRuler
 }
-
 export type Detector = {
 	slug: string
 	title: string

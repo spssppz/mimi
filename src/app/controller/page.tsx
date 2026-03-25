@@ -1,4 +1,3 @@
-
 import Header from "@/components/layout/Header";
 import CatalogHero from "@/components/sections/Catalog/CatalogHero";
 import CatalogItems from "@/components/sections/Catalog/CatalogItems";
@@ -173,9 +172,9 @@ export default function ControllerPage() {
 				<CatalogHero
 					title="Контроллеры"
 					description="Это мозг системы. Принимают сигналы от датчиков и панелей, запускают сценарии и управляют: светом, климатом, шторами и безопасностью. Работают локально даже без интернета."
-					image="/images/products/decor-1.png"
-					imageWidth={507}
-					imageHeight={450}
+					image="/images/products/decor-4.png"
+					imageWidth={349}
+					imageHeight={438}
 				/>
 				<CatalogItems title="Все оборудование" items={items} />
 				<CatalogBanner
