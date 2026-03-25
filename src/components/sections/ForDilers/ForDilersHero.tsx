@@ -31,8 +31,9 @@ const cols = [
 
 export default function ForDilersHero() {
 	return (
-		<section className="bg-white pt-13.5 lg:pt-10 pb-30 overflow-hidden">
-			<div className="max-w-308 px-4 mx-auto text-center">
+		<section className="bg-white pt-13.5 lg:pt-10 pb-30 overflow-hidden relative">
+			<div className="absolute inset-0 bg-linear-to-b from-[#bab7b2] to-[#fff]" />
+			<div className="max-w-308 px-4 mx-auto text-center relative">
 				<div className="relative min-h-161.25 md:min-h-191.75 flex flex-col items-center mb-3">
 					<div className="absolute min-w-170 md:min-w-300 bottom-0 left-[35%] md:left-1/2 -translate-x-1/2 w-full aspect-1200/653">
 						<Image

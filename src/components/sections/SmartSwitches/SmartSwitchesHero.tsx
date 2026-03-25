@@ -5,21 +5,22 @@ import Image from "next/image"
 import { Title } from "@/components/UI/Title"
 import { Button } from "@/components/UI/Button"
 import gsap from "gsap"
+// 1440/934
 
 const heroImages = [
 	{
 		src: "/images/smart-switches-page/hero/1.png",
-		className: "top-[6.3%] left-[27.80%] w-[13.32%]",
+		className: "top-[6.3%] left-[33%] md:left-[27.80%] w-[11.875%] md:w-[13.32%]",
 		from: { x: -120, y: -90, rotate: -8, scale: 0.86 },
 	},
 	{
 		src: "/images/smart-switches-page/hero/2.png",
-		className: "top-[6.1%] left-[53.19%] w-[15.44%]",
+		className: "top-[9%] md:top-[6.1%] left-[53.19%] w-[11.6%] md:w-[15.44%]",
 		from: { x: 0, y: -130, rotate: 6, scale: 0.82 },
 	},
 	{
 		src: "/images/smart-switches-page/hero/3.png",
-		className: "top-[14.9%] right-[8.9%] w-[13.32%]",
+		className: "top-[14.9%] right-[12%] md:right-[8.9%] w-[13.32%]",
 		from: { x: 140, y: -70, rotate: 10, scale: 0.84 },
 	},
 	{
@@ -29,17 +30,17 @@ const heroImages = [
 	},
 	{
 		src: "/images/smart-switches-page/hero/5.png",
-		className: "bottom-[17.1%] right-[21.2%] w-[14.77%]",
+		className: "bottom-[15%] md:bottom-[17.1%] right-[33%] md:right-[21.2%] w-[13.125%] md:w-[14.77%]",
 		from: { x: 100, y: 120, rotate: 5, scale: 0.84 },
 	},
 	{
 		src: "/images/smart-switches-page/hero/6.png",
-		className: "bottom-[12.9%] left-[43.30%] w-[13.32%]",
+		className: "bottom-[12.9%] left-[38%] md:left-[43.30%] w-[11.875%] md:w-[13.32%]",
 		from: { x: 0, y: 130, rotate: -4, scale: 0.82 },
 	},
 	{
 		src: "/images/smart-switches-page/hero/7.png",
-		className: "bottom-[15.2%] left-[20.44%] w-[14.77%]",
+		className: "bottom-[18%] md:bottom-[15.2%] left-[21%] md:left-[20.44%] w-[13.125%] md:w-[14.77%]",
 		from: { x: -110, y: 120, rotate: -7, scale: 0.84 },
 	},
 	{
@@ -49,7 +50,7 @@ const heroImages = [
 	},
 	{
 		src: "/images/smart-switches-page/hero/9.png",
-		className: "top-[14.9%] left-[7.11%] w-[13.32%]",
+		className: "top-[14.9%] left-[15%] md:left-[7.11%] w-[12%] md:w-[13.32%]",
 		from: { x: -130, y: -80, rotate: -8, scale: 0.84 },
 	},
 ]
@@ -152,7 +153,7 @@ export default function SmartSwitchesHero() {
 		>
 			<div
 				ref={bgRef}
-				className="absolute top-1/2 -translate-y-1/2 left-1/2 min-w-[300%] md:min-w-[200%] lg:min-w-360 -translate-x-1/2 w-full max-w-414.5 aspect-1658/1082"
+				className="absolute top-1/2 -translate-y-1/2 left-1/2 md:min-w-[200%] min-w-360 -translate-x-1/2 w-full max-w-414.5 aspect-1658/1082"
 			>
 				{heroImages.map((item, index) => (
 					<div

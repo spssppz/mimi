@@ -34,7 +34,7 @@ const ADVANTAGES_DATA = [
 	},
 ];
 
-export default function Advantages() {
+export default function Advantages({ textLink }: { textLink?: string }) {
 	const blurRef = useRef<HTMLDivElement | null>(null);
 	const [activeId, setActiveId] = useState<number | null>(null);
 
@@ -76,7 +76,7 @@ export default function Advantages() {
 			<div className="max-w-308 mx-auto px-4">
 				<Title className="mb-10">Преимущества умного <br /> дома MiMiSmart</Title>
 				<a href="#" className="mb-10 inline-flex hover:text-foreground transition-colors duration-300 items-center gap-1 text-[15px] font-medium text-brand-blue group">
-					Узнать больше
+					{textLink ? textLink : 'Узнать больше'}
 					<RightArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
 				</a>
 

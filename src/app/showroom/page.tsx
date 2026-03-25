@@ -55,6 +55,7 @@ export default function ShowroomPage() {
 				<ShowroomAbout />
 				<Capabilities title="Что вы увидите?" />
 				<Scripts
+					isCircleChecks
 					title="Сценарии"
 					bgImage="/images/curtains-page/scripts/bg.jpg"
 					bgImageMob="/images/curtains-page/scripts/bg-mob.jpg"

@@ -87,6 +87,8 @@ export default function GatesPage() {
 				<GatesHero />
 				<GatesControl />
 				<Scripts
+					isLightNav
+					isCircleChecks
 					title="Сценарии"
 					bgImage="/images/gates-page/scripts-bg.jpg"
 					bgImageMob="/images/gates-page/scripts-bg-mob.jpg"

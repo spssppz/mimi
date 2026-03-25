@@ -17,15 +17,17 @@ export default function PartnersForAgency() {
 		const ctx = gsap.context(() => {
 			gsap.fromTo(
 				imageRef.current,
-				{ autoAlpha: 0 },
+				{
+					autoAlpha: 0,
+				},
 				{
 					autoAlpha: 1,
-					duration: 1.2,
-					ease: "power2.out",
+					ease: "none",
 					scrollTrigger: {
 						trigger: sectionRef.current,
-						start: "top 75%",
-						once: true,
+						start: "top 10%",
+						end: "bottom 90%",
+						scrub: true,
 					},
 				}
 			)
@@ -66,6 +68,7 @@ export default function PartnersForAgency() {
 						width={618}
 						height={583}
 						alt=""
+						className="opacity-0" // ← изначально скрыли
 					/>
 				</div>
 			</div>

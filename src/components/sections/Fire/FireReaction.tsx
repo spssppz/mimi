@@ -1,11 +1,11 @@
 "use client"
 
 import { Title } from "@/components/UI/Title"
-import { RightArrowIcon } from "@/icons/RightArrowIcon"
 import Image from "next/image"
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import ArrowLink from "@/components/UI/ArrowLink"
 
 export default function FireReaction() {
 	const sectionRef = useRef<HTMLElement | null>(null)
@@ -61,13 +61,21 @@ export default function FireReaction() {
 				</Title>
 
 				<div className="flex justify-end pr-27.5">
-					<Image
-						src="/images/fire-page/reaction/top-decor.png"
-						width={682}
-						height={40}
-						quality={95}
-						alt=""
-					/>
+					<div className="relative">
+						<div className="absolute top-[52.5%] left-[29.91%] w-[4.69%] border border-white/15 rounded-full aspect-square" />
+						<div className="absolute top-[27.5%] left-[28.44%] w-[7.47%] border border-white/10 rounded-full aspect-square" />
+						<div className="absolute top-[5%] left-[27.12%] w-[10.41%] border border-white/5 rounded-full aspect-square" />
+						<div className="absolute -top-[22.5%] left-[25.51%] w-[13.48%] border border-white/3 rounded-full aspect-square" />
+						<div className="absolute -top-[22.5%] left-[25.51%] w-[13.48%] bg-black aspect-2/1" />
+						<Image
+							src="/images/fire-page/reaction/top-decor.png"
+							width={682}
+							height={40}
+							quality={95}
+							alt=""
+							className="relative z-10"
+						/>
+					</div>
 				</div>
 
 				<div className="flex items-center max-md:flex-col justify-between gap-5">
@@ -93,13 +101,9 @@ export default function FireReaction() {
 						<div className="font-helvetica text-[17px] leading-[1.3] -tracking-[0.01em] text-white">
 							Пожарная сигнализация является неотъемлемой частью системы охраны и безопасности умного дома. Она предназначена для раннего обнаружения и предотвращения пожаров в жилых и коммерческих помещениях.
 						</div>
-						<a
-							href="#"
-							className="inline-flex hover:text-foreground transition-colors duration-300 items-center gap-1 text-[15px] font-medium text-brand-blue group"
-						>
-							Узнать больше
-							<RightArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-						</a>
+						<ArrowLink href="">
+							Узнать больше о сигнализации
+						</ArrowLink>
 					</div>
 				</div>
 			</div>

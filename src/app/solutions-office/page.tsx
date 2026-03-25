@@ -66,7 +66,10 @@ export default function solutionsOfficePage() {
 						</>
 					}
 				/>
-				<Capabilities title="Чем вы сможете управлять?" />
+				<Capabilities
+					title="Чем вы сможете управлять?"
+					items={['ventilation', 'lighting', 'climate', 'electric', 'surveillance']}
+				/>
 				<VentilationControl />
 				<SolutionsCase />
 				<SystemCase

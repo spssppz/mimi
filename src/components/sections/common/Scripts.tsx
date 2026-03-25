@@ -21,10 +21,12 @@ type Props = {
 	title: string
 	bgImage: string
 	bgImageMob: string
+	isLightNav?: boolean
+	isCircleChecks?: boolean
 	features: Feature[]
 }
 
-export default function Scripts({ title, bgImage, bgImageMob, features }: Props) {
+export default function Scripts({ title, bgImage, bgImageMob, features, isLightNav, isCircleChecks }: Props) {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const swiperRef = useRef<any>(null);
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -64,18 +66,18 @@ export default function Scripts({ title, bgImage, bgImageMob, features }: Props)
 
 					<div className="py-15 pl-20 flex-none w-[36%] relative z-20">
 						{/* Стрелки навигации */}
-						<div className="absolute top-1/2 left-5 -translate-y-1/2 flex flex-col gap-4 text-[#acacac]">
+						<div className={`${isLightNav ? 'text-brand-gray' : 'text-[#acacac]'} absolute top-1/2 left-5 -translate-y-1/2 flex flex-col gap-4`}>
 							<button
 								onClick={() => swiperRef.current?.slidePrev()}
 								disabled={activeIndex === 0}
-								className="w-9 h-9 rounded-full bg-black/40 flex items-center justify-center cursor-pointer hover:bg-black rotate-90 transition-all disabled:opacity-10 disabled:cursor-default"
+								className={`w-9 h-9 rounded-full opacity-40 hover:opacity-100 flex  items-center justify-center cursor-pointer rotate-90 transition-all disabled:opacity-10 disabled:cursor-default ${isLightNav ? 'bg-[#d9d9d9]' : 'bg-black'}`}
 							>
 								<RightArrowIcon className="rotate-180 w-5 h-5" />
 							</button>
 							<button
 								onClick={() => swiperRef.current?.slideNext()}
 								disabled={activeIndex === features.length - 1}
-								className="rotate-90 w-9 h-9 rounded-full bg-black/40 flex items-center justify-center cursor-pointer hover:bg-black transition-all disabled:opacity-10 disabled:cursor-default"
+								className={`rotate-90 w-9 h-9 opacity-40 hover:opacity-100 rounded-full flex items-center justify-center cursor-pointer transition-all disabled:opacity-10 disabled:cursor-default ${isLightNav ? 'bg-[#d9d9d9]' : 'bg-black'}`}
 							>
 								<RightArrowIcon className="w-5 h-5" />
 							</button>
@@ -103,7 +105,19 @@ export default function Scripts({ title, bgImage, bgImageMob, features }: Props)
 										<ul className="pb-5 space-y-3">
 											{item.content.map((li, i) => (
 												<li key={i} className="flex items-start text-sm text-white/80">
-													<span className="mr-2 text-brand-blue">•</span> {li}
+
+													{isCircleChecks ? (
+														<Image
+															src="/images/icons/comfort-check.svg"
+															width={22}
+															height={22}
+															alt=""
+															className="mr-2"
+														/>
+													) : (
+														<span className="mr-2 text-brand-blue">•</span>
+													)}
+													{li}
 												</li>
 											))}
 										</ul>
@@ -160,7 +174,19 @@ export default function Scripts({ title, bgImage, bgImageMob, features }: Props)
 									<ul className="space-y-2">
 										{item.content.map((li, i) => (
 											<li key={i} className="flex items-start text-sm text-white/90">
-												<span className="mr-2">•</span> {li}
+
+												{isCircleChecks ? (
+													<Image
+														src="/images/icons/comfort-check.svg"
+														width={22}
+														height={22}
+														alt=""
+														className="mr-2"
+													/>
+												) : (
+													<span className="mr-2 text-brand-blue">•</span>
+												)}
+												{li}
 											</li>
 										))}
 									</ul>

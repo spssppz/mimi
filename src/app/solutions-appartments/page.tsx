@@ -66,7 +66,20 @@ export default function solutionsAppartmentsPage() {
 						</>
 					}
 				/>
-				<Capabilities title="Чем вы сможете управлять?" />
+
+				<Capabilities
+					title="Чем вы сможете управлять?"
+					items={[
+						'lighting',
+						'climate',
+						'security',
+						'curtains',
+						'surveillance',
+						'electric',
+						'cinema',
+						'multiroom'
+					]}
+				/>
 				<VentilationControl />
 				<SolutionsCase />
 				<SystemCase

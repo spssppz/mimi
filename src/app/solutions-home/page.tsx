@@ -12,6 +12,7 @@ import Showroom from "@/components/sections/common/Showroom"
 import Footer from "@/components/layout/Footer"
 
 import { routes } from "@/config/routes"
+import SolutionsCaseOffice from "@/components/sections/Solutions/SolutionsCaseOffice"
 
 export const metadata = {
 	title: routes.solutionsHome.title
@@ -68,7 +69,10 @@ export default function SolutionsHomePage() {
 						</>
 					}
 				/>
-				<Capabilities title="Чем вы сможете управлять?" />
+
+				<Capabilities
+					title="Чем вы сможете управлять?"
+				/>
 				<SolutionsFeature
 					title="Управление воротами"
 					text="Возможность дистанционного управления, автоматизация процессов и интеграция с другими системами делают данную функцию неотъемлемой частью современного умного дома."
@@ -89,6 +93,7 @@ export default function SolutionsHomePage() {
 					imageHeight={540}
 				/>
 				<SolutionsCase />
+				<SolutionsCaseOffice />
 				<SystemCase
 					title="Видео-доступ"
 					text="Вызов на смартфон, превью с ближайших камер и открытие двери/калитки/шлагбаума из приложения."

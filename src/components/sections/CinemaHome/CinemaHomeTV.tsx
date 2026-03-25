@@ -28,7 +28,7 @@ export default function CinemaHomeTV() {
 					alt="decor"
 				/>
 			</div>
-			<div className="absolute bottom-[26.2%] left-1/2 -translate-x-1/2 w-[94%] md:w-173.5 aspect-696/359">
+			<div className="absolute max-lg:top-[37%] lg:bottom-[26.2%] left-1/2 -translate-x-1/2 w-[94%] md:w-173.5 aspect-696/359">
 				<Image
 					src="/images/cinema-page/tv/tv.png"
 					fill

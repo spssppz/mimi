@@ -1,6 +1,11 @@
+"use client"
+
+import { useEffect, useRef } from "react"
 import ArrowLink from "@/components/UI/ArrowLink"
 import { Title } from "@/components/UI/Title"
 import Image from "next/image"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const gradientTextClass =
 	"bg-[linear-gradient(90deg,#478beb_0%,#7748aa_38%,#f1500c_72.51%,#f1500c_100%)] bg-clip-text text-transparent"
@@ -25,15 +30,55 @@ const benefits = [
 ]
 
 export default function PartnersForDis() {
+	const sectionRef = useRef<HTMLElement | null>(null)
+	const bgRef = useRef<HTMLDivElement | null>(null)
+
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger)
+
+		const ctx = gsap.context(() => {
+			if (!bgRef.current || !sectionRef.current) return
+
+			gsap.fromTo(
+				bgRef.current,
+				{
+					filter: "blur(0px)",
+					scale: 1,
+				},
+				{
+					filter: "blur(10px)",
+					scale: 1.08,
+					ease: "none",
+					scrollTrigger: {
+						trigger: sectionRef.current,
+						start: "top bottom",
+						end: "bottom top",
+						scrub: true,
+					},
+				}
+			)
+		}, sectionRef)
+
+		return () => ctx.revert()
+	}, [])
+
 	return (
-		<section className="relative flex min-h-250 items-end py-22.5 text-white">
-			<Image
-				src="/images/partners-page/for-dis/bg.jpg"
-				fill
-				alt=""
-				sizes="100vw"
-				className="object-cover"
-			/>
+		<section
+			ref={sectionRef}
+			className="relative flex min-h-250 items-end py-22.5 text-white overflow-hidden"
+		>
+			<div
+				ref={bgRef}
+				className="absolute inset-0 scale-100 will-change-transform will-change-[filter]"
+			>
+				<Image
+					src="/images/partners-page/for-dis/bg.jpg"
+					fill
+					alt=""
+					sizes="100vw"
+					className="object-cover"
+				/>
+			</div>
 
 			<div className="absolute inset-0 bg-black/60" />
 
@@ -42,10 +87,7 @@ export default function PartnersForDis() {
 					<div className="relative mb-6">
 						<Title className={gradientTextClass}>Дизайнерам</Title>
 
-						<div
-							aria-hidden="true"
-							className={`${glowTitleClass} ${titleTextClass} ${gradientTextClass}`}
-						>
+						<div className={`${glowTitleClass} ${titleTextClass} ${gradientTextClass}`}>
 							Дизайнерам
 						</div>
 					</div>

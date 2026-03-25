@@ -52,7 +52,7 @@ export default function PartnersPage() {
 					title="Всем, кто «за» передовые технологии"
 					slides={featuresSlides}
 				/>
-				<Advantages />
+				<Advantages textLink="Узнать больше о компании" />
 				<Showroom />
 			</main>
 

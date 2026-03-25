@@ -107,7 +107,7 @@ export default function ForAgenciesYouGet() {
 						/>
 					</li>
 
-					<li className="js-you-get-card rounded-2xl md:col-span-2 md:pl-5 lg:pl-15 flex items-center justify-between overflow-hidden -tracking-[0.01em] text-white gap-5 max-md:flex-col min-h-125 bg-linear-to-l from-[#658f8a] via-[#385c57] to-[#1d4640] will-change-transform">
+					<li className="js-you-get-card max-md:max-h-125 rounded-2xl md:col-span-2 md:pl-5 lg:pl-15 flex items-center justify-between overflow-hidden -tracking-[0.01em] text-white gap-5 max-md:flex-col min-h-125 bg-linear-to-l from-[#658f8a] via-[#385c57] to-[#1d4640] will-change-transform">
 						<div className="md:max-w-69 max-md:p-6">
 							<h3 className="mb-6 font-semibold text-[22px] md:text-[28px] lg:text-[32px] rounded-2xl relative leading-[1.3]">
 								Сопровождение
@@ -116,7 +116,7 @@ export default function ForAgenciesYouGet() {
 								Мы и производители и интеграторы. Это значит, что мы разбираемся в том, что продаем, как это правильно монтируется и настраивается.
 							</div>
 						</div>
-						<div className="relative w-full md:w-107.5 grow-0 shrink-0 aspect-281/358 md:aspect-430/500">
+						<div className="relative w-full md:w-107.5 grow-0 shrink-0 aspect-square md:aspect-430/500">
 							<Image
 								src="/images/for-agencies-page/you-get/4.png"
 								fill

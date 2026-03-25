@@ -12,6 +12,7 @@ import Showroom from "@/components/sections/common/Showroom"
 import Footer from "@/components/layout/Footer"
 
 import { routes } from "@/config/routes"
+import SolutionsCaseOffice from "@/components/sections/Solutions/SolutionsCaseOffice"
 
 export const metadata = {
 	title: routes.solutionsFlat.title
@@ -70,7 +71,20 @@ export default function SolutionsFlatPage() {
 						</>
 					}
 				/>
-				<Capabilities title="Чем вы сможете управлять?" />
+
+				<Capabilities
+					title="Чем вы сможете управлять?"
+					items={[
+						'lighting',
+						'climate',
+						'security',
+						'curtains',
+						'surveillance',
+						'electric',
+						'cinema',
+						'multiroom'
+					]}
+				/>
 				<SolutionsFeature
 					title="Невидимость"
 					text="В квартирах меньше свободного пространства и поэтому его не нужно захламлять. Все датчики MiMiSmart либо встраиваются в выключатели, либо размером 1см и совершенно не видны в интерьере."
@@ -98,6 +112,7 @@ export default function SolutionsFlatPage() {
 					imageHeight={540}
 				/>
 				<SolutionsCase />
+				<SolutionsCaseOffice />
 				<SystemCase
 					title="Видео-доступ"
 					text="Вызов на смартфон, превью с ближайших камер и открытие двери/калитки/шлагбаума из приложения."

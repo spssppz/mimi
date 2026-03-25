@@ -4,6 +4,8 @@ import Image from "next/image"
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { contacts } from "@/config/contacts"
+import ArrowLink from "@/components/UI/ArrowLink"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -112,7 +114,7 @@ export default function AppBenefits() {
 						ref={el => {
 							cardsRef.current[0] = el
 						}}
-						className="bg-white overflow-hidden rounded-[20px] p-6 md:p-8 lg:p-10 md:col-span-2 min-h-100 relative will-change-transform"
+						className="bg-white min-h-125 overflow-hidden rounded-[20px] p-6 md:p-8 lg:p-10 md:col-span-2 md:min-h-100 relative will-change-transform"
 					>
 						<div className="space-y-4 relative z-10 max-w-82.5">
 							<div className="max-md:max-w-8">
@@ -147,7 +149,7 @@ export default function AppBenefits() {
 						ref={el => {
 							cardsRef.current[1] = el
 						}}
-						className="bg-white overflow-hidden flex flex-col gap-25 rounded-[20px] p-6 md:p-8 lg:p-10 lg:min-h-150 will-change-transform"
+						className="bg-white min-h-125 overflow-hidden flex flex-col gap-25 rounded-[20px] p-6 md:p-8 lg:p-10 lg:min-h-150 will-change-transform"
 					>
 						<div>
 							<h3 className="mb-4 font-semibold text-[22px] md:text-[28px] lg:text-[32px] leading-[1.3] -tracking-[0.01em]">
@@ -157,13 +159,22 @@ export default function AppBenefits() {
 								iOS, Android, ПК, часы - один аккаунт и синхронизация настроек.
 							</div>
 						</div>
-						<div className="self-center">
-							<Image
-								src="/images/app-page/benefits/2.png"
-								alt=""
-								width={163}
-								height={164}
-							/>
+						<div className="flex flex-col self-center items-center justify-center gap-10">
+							{contacts.apps?.map(app => {
+								const IconComponent = app.icon
+
+								return (
+									<div key={app.label} className="rounded-xl bg-[#fff]/40 backdrop-blur-[12px] py-2 px-4 border border-[rgb(224, 232, 235]/40 flex items-center gap-4">
+										<IconComponent className="w-8 h-8 text-foreground" />
+										<div className="flex flex-col items-start gap-2">
+											<span className="font-bold text-[15px] -tracking-[0.01em]">
+												{app.label}
+											</span>
+											<ArrowLink href={app.href}>Скачать</ArrowLink>
+										</div>
+									</div>
+								)
+							})}
 						</div>
 					</li>
 
@@ -171,7 +182,7 @@ export default function AppBenefits() {
 						ref={el => {
 							cardsRef.current[2] = el
 						}}
-						className="bg-white overflow-hidden rounded-[20px] pt-6 px-6 md:px-8 md:pt-8 lg:px-10 lg:pt-10 lg:min-h-150 will-change-transform"
+						className="bg-white max-md:min-h-125 overflow-hidden rounded-[20px] pt-6 px-6 md:px-8 md:pt-8 lg:px-10 lg:pt-10 lg:min-h-150 will-change-transform"
 					>
 						<div className="mb-15">
 							<h3 className="mb-4 font-semibold text-[22px] md:text-[28px] lg:text-[32px] leading-[1.3] -tracking-[0.01em]">
@@ -195,7 +206,7 @@ export default function AppBenefits() {
 						ref={el => {
 							cardsRef.current[3] = el
 						}}
-						className="md:min-h-100 bg-white overflow-hidden rounded-[20px] md:col-span-2 flex max-md:flex-col justify-between gap-5 md:pl-10 will-change-transform"
+						className="min-h-125 md:min-h-100 bg-white overflow-hidden rounded-[20px] md:col-span-2 flex max-md:flex-col justify-between gap-5 md:pl-10 will-change-transform"
 					>
 						<div className="col-span-2 max-md:p-5 md:py-8 lg:py-10 max-w-97.5 space-y-4">
 							<Image

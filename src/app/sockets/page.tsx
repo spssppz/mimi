@@ -47,7 +47,7 @@ export default function SocketsPage() {
 				<SocketsFunctions />
 				<SocketsSmart />
 				<PartnersFeatures
-					title="Особенности умных розеток"
+					title="Особенности умных&nbsp;розеток"
 					slides={featuresSlides}
 				/>
 				<Showroom />

@@ -50,7 +50,7 @@ export default function PALAppearance() {
 				alt=""
 				className="object-cover max-md:object-[40%_center]"
 			/>
-			<div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(244,244,244,0)_0%,#f4f4f4_100%),rgba(0,0,0,0.2)]" />
+			<div className="absolute top-0 left-0 w-full h-[60%] bg-linear-to-b from-background to-background/0" />
 
 			<div className="max-w-308 mx-auto px-4 w-full flex flex-col justify-between relative">
 				<Title className="text-center max-w-md self-center">

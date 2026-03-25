@@ -2,7 +2,7 @@ import { Title } from "@/components/UI/Title";
 import { RightArrowIcon } from "@/icons/RightArrowIcon";
 import Image from "next/image";
 
-export default function SolutionsCase() {
+export default function SolutionsCaseOffice() {
 	return (
 		<section className="overflow-hidden py-22.5 lg:py-37.5 lg:min-h-210.5 bg-linear-to-b from-[#e5e5e5] to-transparent">
 			<div className="max-w-235.5 px-4 mx-auto max-md:flex-col-reverse flex gap-10 lg:gap-25">

@@ -29,10 +29,10 @@ export default function SolutionsFeature({
 		<section className="py-22.5 overflow-hidden">
 			<div className={`max-w-235.5 px-4 mx-auto flex flex-col items-center ${containerClassName ?? ""}`}>
 
-				<div className="mb-10 flex flex-col text-center items-center max-w-142.5 space-y-6">
+				<div className="mb-10 flex flex-col text-center items-center  space-y-6">
 					<Title>{title}</Title>
 
-					<div className="font-helvetica text-[17px] leading-[1.3] -tracking-[0.01em]">
+					<div className="font-helvetica text-[17px] leading-[1.3] max-w-142.5 -tracking-[0.01em]">
 						{text}
 					</div>
 
