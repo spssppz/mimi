@@ -37,7 +37,7 @@ export default function PagesPage() {
 						<li><Link href="/article" className="transition-colors hover:text-brand-blue duration-300">Статья</Link></li>
 						<li><Link href="/privacy" className="transition-colors hover:text-brand-blue duration-300">Политика конфиденциальности</Link></li>
 						<li><Link href="/err" className="transition-colors hover:text-brand-blue duration-300">404</Link></li>
-						{/* <li><Link href="/pricing" className="transition-colors hover:text-brand-blue duration-300">Узнайте стоимость умного дома</Link></li> */}
+						<li><Link href="/pricing" className="transition-colors hover:text-brand-blue duration-300">Узнайте стоимость умного дома</Link></li>
 						<li><Link href="/project" className="transition-colors hover:text-brand-blue duration-300">Проект</Link></li>
 						<li><Link href="/controller" className="transition-colors hover:text-brand-blue duration-300">Контроллеры</Link></li>
 						<li><Link href="/detector" className="transition-colors hover:text-brand-blue duration-300">Датчики</Link></li>

@@ -23,10 +23,20 @@ export default function ProjectHero() {
 					</div>
 				</div>
 
-				<div className="relative w-full max-xl:-mx-4 aspect-1440/900">
+				<div className="relative max-xl:hidden w-full aspect-1440/900">
 					<Image
 						src="/images/project-page/hero.jpg"
 						fill
+						alt=""
+						quality={95}
+						className="object-cover"
+					/>
+				</div>
+				<div className="xl:hidden -mx-4">
+					<Image
+						src="/images/project-page/hero.jpg"
+						width={1440}
+						height={900}
 						alt=""
 						quality={95}
 						className="object-cover"

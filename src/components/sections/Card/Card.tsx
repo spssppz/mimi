@@ -7,7 +7,16 @@ export default function Card() {
 				<div className="mb-4 max-w-308 px-4 mx-auto text-[20px] md:text-[22px] lg:text-[24px] -tracking-[0.01em]">
 					Оборудование
 				</div>
-				<h1 className="text-[40px] md:text-[52px] lg:text-[64px] whitespace-nowrap">CUARM5M    —    CUARM5M    —    CUARM5M    —</h1>
+				<div className="overflow-hidden">
+					<div className="animate-marquee text-[40px] md:text-[52px] lg:text-[64px] flex whitespace-nowrap">
+						<span className="mr-10">
+							CUARM5M — CUARM5M — CUARM5M —
+						</span>
+						<span>
+							CUARM5M — CUARM5M — CUARM5M —
+						</span>
+					</div>
+				</div>
 			</div>
 			<div className="max-w-308 px-4 mx-auto">
 				<div className="py-15 lg:py-22.5 border-y border-[#d9d9d9] flex max-lg:flex-col items-center gap-15 lg:gap-10 lg:justify-between">

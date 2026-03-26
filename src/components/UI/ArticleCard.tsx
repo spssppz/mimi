@@ -13,7 +13,7 @@ export function ArticleCard({ article, className }: { article: Article, classNam
 		return diff <= daysMs
 	}
 	return (
-		<article className={`group flex flex-col relative bg-white p-4 pt-5 md:p-5 md:pt-7.5 rounded-[20px] leading-tight font-semibold ${className}`}>
+		<article className={`max-lg:min-h-93.75 group flex h-full flex-col relative bg-white p-4 pt-5 md:p-5 md:pt-7.5 rounded-[20px] leading-tight font-semibold ${className}`}>
 
 			<div className="flex justify-between items-center mb-4 gap-3">
 				<span className="text-brand-blue text-[14px]">

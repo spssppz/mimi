@@ -1,17 +1,95 @@
-import Header from "@/components/layout/Header"
-import OtherArticles from "@/components/sections/Article/OtherArticles"
-import Footer from "@/components/layout/Footer"
-import { routes } from "@/config/routes"
-import Image from "next/image"
-import { contacts } from "@/config/contacts"
-import Link from "next/link"
-import { LikeIcon } from "@/icons/LikeIcon"
+'use client'
 
-export const metadata = {
-	title: routes.article.title
+import Header from "@/components/layout/Header"
+import Footer from "@/components/layout/Footer"
+
+import { useEffect, useMemo, useRef, useState } from "react"
+
+// import { routes } from "@/config/routes"
+import Image from "next/image"
+
+import { LikeIcon } from "@/icons/LikeIcon"
+import { TgIcon } from "@/icons/socials/TgIcon"
+import { YoutubeIcon } from "@/icons/socials/YoutubeIcon"
+import { VkIcon } from "@/icons/socials/VkIcon"
+import { DzenIcon } from "@/icons/socials/DzenIcon"
+import Articles from "@/components/sections/Articles"
+
+
+type SectionItem = {
+	id: string
+	title: string
 }
 
+const articleSections: SectionItem[] = [
+	{ id: "thinking", title: "Язык = мышление" },
+	{ id: "wealth", title: "Русский язык — это богатство" },
+	{ id: "poor-speech", title: "Чем опасна бедная речь?" },
+	{ id: "idioms", title: "Фразеологизмы" },
+	{ id: "style", title: "Язык — это стиль" },
+]
+// export const metadata = {
+// 	title: routes.article.title
+// }
+
 export default function ArticlePage() {
+	const [liked, setLiked] = useState(false)
+	const [count, setCount] = useState(0)
+
+	const handleClick = () => {
+		setLiked(prev => !prev)
+		setCount(prev => prev + (liked ? -1 : 1))
+	}
+
+	const [activeSection, setActiveSection] = useState(0)
+
+	const sectionRefs = useRef<(HTMLElement | null)[]>([])
+
+	const setSectionRef = (index: number) => (el: HTMLElement | null) => {
+		sectionRefs.current[index] = el
+	}
+
+	useEffect(() => {
+		const sections = sectionRefs.current.filter(Boolean) as HTMLElement[]
+		if (!sections.length) return
+
+		const observer = new IntersectionObserver(
+			entries => {
+				const visibleEntries = entries
+					.filter(entry => entry.isIntersecting)
+					.sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+
+				if (!visibleEntries.length) return
+
+				const currentId = visibleEntries[0].target.id
+				const currentIndex = articleSections.findIndex(item => item.id === currentId)
+
+				if (currentIndex !== -1) {
+					setActiveSection(currentIndex)
+				}
+			},
+			{
+				root: null,
+				rootMargin: "-20% 0px -55% 0px",
+				threshold: [0.2, 0.35, 0.5, 0.7],
+			}
+		)
+
+		sections.forEach(section => observer.observe(section))
+
+		return () => observer.disconnect()
+	}, [])
+
+	const scrollToSection = (id: string) => {
+		const el = document.getElementById(id)
+		if (!el) return
+
+		el.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		})
+	}
+
 	return (
 		<>
 			<Header />
@@ -28,7 +106,25 @@ export default function ArticlePage() {
 				</div>
 
 				<section className="pt-4 md:pt-10 lg:pt-22.5 text-black">
-					<div className="max-w-264 px-4 mx-auto">
+					<div className="max-w-264 px-4 mx-auto relative">
+						<div className="max-xl:hidden absolute -left-20 top-0 h-full">
+							<div className="sticky top-30 w-5 space-y-2.5">
+								{articleSections.map((item, index) => (
+									<button
+										key={item.id}
+										type="button"
+										onClick={() => scrollToSection(item.id)}
+										aria-label={item.title}
+										className="block w-full cursor-pointer"
+									>
+										<div
+											className={`h-0.5 w-full transition-colors duration-300 ${index <= activeSection ? "bg-black" : "bg-[#d9d9d9]"
+												}`}
+										/>
+									</button>
+								))}
+							</div>
+						</div>
 
 						{/* HEADER */}
 						<div className="mb-10">
@@ -39,21 +135,36 @@ export default function ArticlePage() {
 							<div className="mb-4 text-[12px] md:text-[13px]">
 								20 июля 2025 | читать 5 минут
 							</div>
-							<div className="flex gap-4">
 
-								{contacts.socials?.map(icon => {
-									const IconComponent = icon.icon
-									return (
-										<Link
-											key={icon.name}
-											href={icon.href}
-											target="_blank"
-											className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
-										>
-											<IconComponent className={`w-4.5 h-4.5 transition duration-300 text-blue/40`} />
-										</Link>
-									)
-								})}
+							<div className="flex gap-4">
+								<a
+									href=""
+									target="_blank"
+									className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+								>
+									<TgIcon className="w-4.5 h-4.5 transition duration-300 text-blue/40" />
+								</a>
+								<a
+									href=""
+									target="_blank"
+									className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+								>
+									<DzenIcon className="w-4.5 h-4.5 transition duration-300 text-blue/40" />
+								</a>
+								<a
+									href=""
+									target="_blank"
+									className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+								>
+									<YoutubeIcon className="w-4.5 h-4.5 transition duration-300 text-blue/40" />
+								</a>
+								<a
+									href=""
+									target="_blank"
+									className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+								>
+									<VkIcon className="w-4.5 h-4.5 transition duration-300 text-blue/40" />
+								</a>
 							</div>
 						</div>
 
@@ -61,16 +172,22 @@ export default function ArticlePage() {
 						<div className="mb-10">
 							<div className="mb-2 text-[#acacac]">Оглавление:</div>
 							<ul className="space-y-2 font-medium">
-								<li>— Язык = мышление</li>
-								<li>— Русский язык — это богатство</li>
-								<li>— Чем опасна бедная речь?</li>
-								<li>— Фразеологизмы</li>
-								<li>— Язык — это стиль</li>
+								{articleSections.map((item, index) => (
+									<li key={item.id}>
+										<button
+											type="button"
+											onClick={() => scrollToSection(item.id)}
+											className={`text-left transition-colors duration-300 ${index === activeSection ? "text-black" : "text-black/60"
+												}`}
+										>
+											— {item.title}
+										</button>
+									</li>
+								))}
 							</ul>
 						</div>
 
 						<article className="space-y-12 max-md:mb-10">
-
 							<Image
 								width={1024}
 								height={600}
@@ -86,7 +203,10 @@ export default function ArticlePage() {
 								<p>Мы говорим словами, которые не чувствуем. Пишем фразы, которых не понимаем. Слушаем тексты, от которых ничего не остаётся. И это не просто эстетическая проблема. Это потеря мышления.</p>
 							</div>
 
-							<section>
+							<section
+								id="thinking"
+								ref={setSectionRef(0)}
+							>
 								<h2 className="mb-4 text-[24px] lg:text-[36px] font-semibold">
 									Язык = мышление
 								</h2>
@@ -104,7 +224,10 @@ export default function ArticlePage() {
 								</div>
 							</section>
 
-							<section>
+							<section
+								id="wealth"
+								ref={setSectionRef(1)}
+							>
 								<h2 className="mb-4 text-[24px] lg:text-[36px] font-semibold">
 									Русский язык — это богатство, а не барьер
 								</h2>
@@ -120,7 +243,10 @@ export default function ArticlePage() {
 								</div>
 							</section>
 
-							<section>
+							<section
+								id="poor-speech"
+								ref={setSectionRef(2)}
+							>
 								<h2 className="mb-4 text-[24px] lg:text-[36px] font-semibold">
 									Чем опасна бедная речь?
 								</h2>
@@ -148,7 +274,10 @@ export default function ArticlePage() {
 								</div>
 							</section>
 
-							<section>
+							<section
+								id="idioms"
+								ref={setSectionRef(3)}
+							>
 								<h2 className="mb-4 text-[24px] lg:text-[36px] font-semibold">
 									Почему фразеологизмы — не пыль, а энергия
 								</h2>
@@ -162,7 +291,10 @@ export default function ArticlePage() {
 								</div>
 							</section>
 
-							<section>
+							<section
+								id="style"
+								ref={setSectionRef(4)}
+							>
 								<h2 className="mb-4 text-[24px] lg:text-[36px] font-semibold">
 									Русский язык — это не скука. Это стиль.
 								</h2>
@@ -185,34 +317,60 @@ export default function ArticlePage() {
 									</p>
 								</div>
 							</section>
-
 						</article>
+
 						<div className="md:hidden flex flex-wrap text-black/60 text-[14px] gap-10 pt-6 border-t border-[#d9d9d9]">
-							<div className="flex items-center gap-2">
-								<LikeIcon className="w-5 h-5" />
-								<span>6</span>
-							</div>
+							<button
+								type="button"
+								onClick={handleClick}
+								className="flex items-center gap-2 min-w-11"
+							>
+								<LikeIcon
+									className={`w-5 h-5 transition ${liked ? "text-red-500" : ""}`}
+								/>
+								<span>{count}</span>
+							</button>
+
 							<time dateTime="20-06-2025">20 июля 2025</time>
+
 							<div className="flex gap-4 ml-auto">
-								{contacts.socials?.map(icon => {
-									const IconComponent = icon.icon
-									return (
-										<Link
-											key={icon.name}
-											href={icon.href}
-											target="_blank"
-											className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
-										>
-											<IconComponent className={`w-4.5 h-4.5 transition duration-300 text-black`} />
-										</Link>
-									)
-								})}
+								<a
+									href=""
+									target="_blank"
+									className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+								>
+									<TgIcon className="w-4.5 h-4.5 transition duration-300 text-black" />
+								</a>
+								<a
+									href=""
+									target="_blank"
+									className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+								>
+									<DzenIcon className="w-4.5 h-4.5 transition duration-300 text-black" />
+								</a>
+								<a
+									href=""
+									target="_blank"
+									className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+								>
+									<YoutubeIcon className="w-4.5 h-4.5 transition duration-300 text-black" />
+								</a>
+								<a
+									href=""
+									target="_blank"
+									className="w-4.5 h-4.5 block duration-300 transition-transform ease-in-out hover:scale-125"
+								>
+									<VkIcon className="w-4.5 h-4.5 transition duration-300 text-black" />
+								</a>
 							</div>
 						</div>
 					</div>
 				</section>
 
-				<OtherArticles />
+				<Articles
+					title="Другие статьи"
+					mobileView="stack"
+				/>
 			</main>
 
 			<Footer />

@@ -24,11 +24,10 @@ export default function Home() {
         <Showroom />
         <Cases
           title="Кейсы"
-          hasSliderNav
           hasFilter
           theme="dark"
         />
-        <Articles />
+        <Articles title="Полезные статьи" />
       </main>
       <Footer />
     </>

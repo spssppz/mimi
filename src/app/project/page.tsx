@@ -21,9 +21,10 @@ export default function ProjectPage() {
 			<main>
 				<ProjectHero />
 				<ProjectSteps />
-				{/* <ProjectTags /> */}
+				<ProjectTags />
 				<Cases
 					title="Другие работы"
+					limit={3}
 				/>
 				<Showroom />
 			</main>

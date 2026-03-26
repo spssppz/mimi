@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
@@ -15,20 +15,48 @@ import { RightArrowIcon } from '@/icons/RightArrowIcon'
 type Props = {
 	title: string
 	theme?: 'dark' | 'light'
-	hasSliderNav?: boolean
 	hasFilter?: boolean
+	limit?: number
 }
 
-export default function Cases({ title, theme, hasSliderNav, hasFilter }: Props) {
+export default function Cases({ title, theme, hasFilter, limit }: Props) {
 	const [activeCat, setActiveCat] = useState<string | null>(null)
 	const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null)
 	const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null)
+	const [slidesPerView, setSlidesPerView] = useState(1)
+
+	useEffect(() => {
+		const updateSlidesPerView = () => {
+			if (window.innerWidth >= 1024) {
+				setSlidesPerView(3)
+			} else if (window.innerWidth >= 768) {
+				setSlidesPerView(2)
+			} else {
+				setSlidesPerView(1)
+			}
+		}
+
+		updateSlidesPerView()
+		window.addEventListener('resize', updateSlidesPerView)
+
+		return () => window.removeEventListener('resize', updateSlidesPerView)
+	}, [])
 
 	const filteredCases = useMemo(() => {
-		if (!hasFilter) return cases
-		if (!activeCat) return cases
-		return cases.filter(item => item.tags.includes(activeCat))
-	}, [activeCat, hasFilter])
+		let result = cases
+
+		if (hasFilter && activeCat) {
+			result = cases.filter(item => item.tags.includes(activeCat))
+		}
+
+		if (limit) {
+			result = result.slice(0, limit)
+		}
+
+		return result
+	}, [activeCat, hasFilter, limit])
+
+	const shouldShowNavigation = filteredCases.length > slidesPerView
 
 	return (
 		<section className={`${theme === 'dark' ? 'bg-foreground text-white' : ''} py-22.5 overflow-hidden`}>
@@ -42,7 +70,7 @@ export default function Cases({ title, theme, hasSliderNav, hasFilter }: Props) 
 						<button
 							onClick={() => setActiveCat(null)}
 							className={`cursor-pointer py-2.5 px-4 rounded-full text-[14px] font-medium transition
-              ${activeCat === null
+								${activeCat === null
 									? 'bg-brand-blue text-white'
 									: `${theme === 'dark' ? 'bg-[#242634] text-white' : 'bg-white'}`
 								}`}
@@ -52,10 +80,7 @@ export default function Cases({ title, theme, hasSliderNav, hasFilter }: Props) 
 
 						{categories.map(cat => {
 							const isActive = activeCat === cat.label
-							const hasCases = cases.some(item =>
-								item.tags.includes(cat.label)
-							)
-
+							const hasCases = cases.some(item => item.tags.includes(cat.label))
 							const IconComponent = cat.icon
 
 							return (
@@ -63,12 +88,12 @@ export default function Cases({ title, theme, hasSliderNav, hasFilter }: Props) 
 									key={cat.label}
 									onClick={() => hasCases && setActiveCat(cat.label)}
 									className={`flex items-center gap-2.5 py-2.5 px-4 rounded-full text-[14px] font-medium transition
-				${isActive ? 'bg-brand-blue text-white'
+										${isActive
+											? 'bg-brand-blue text-white'
 											: hasCases
 												? `${theme === 'dark' ? 'bg-[#242634] text-white' : 'bg-white'} cursor-pointer hover:opacity-80 transition-opacity duration-200`
-												: `bg-transparent text-brand-gray`
-										}
-			`}
+												: 'bg-transparent text-brand-gray'
+										}`}
 								>
 									<IconComponent className="w-4.5 h-4.5" />
 									{cat.label}
@@ -82,7 +107,7 @@ export default function Cases({ title, theme, hasSliderNav, hasFilter }: Props) 
 					modules={[Navigation]}
 					spaceBetween={60}
 					slidesPerView={1}
-					navigation={{ prevEl, nextEl }}
+					navigation={shouldShowNavigation ? { prevEl, nextEl } : false}
 					className="overflow-visible!"
 					breakpoints={{
 						768: { slidesPerView: 2 },
@@ -103,6 +128,7 @@ export default function Cases({ title, theme, hasSliderNav, hasFilter }: Props) 
 										className="object-cover"
 									/>
 								</div>
+
 								{index === 0 ? (
 									<div
 										className="relative mb-6 lg:mb-7 min-h-14 lg:min-h-15.5"
@@ -124,7 +150,7 @@ export default function Cases({ title, theme, hasSliderNav, hasFilter }: Props) 
 									{visibleTags.map((tag, i) => (
 										<span
 											key={`${tag}-${i}`}
-											className={`${theme === 'dark' ? 'bg-[#1b1b1b] text-[#afe7ff]' : 'bg-white text-brand-gray'}  py-1.5 px-3 rounded-full`}
+											className={`${theme === 'dark' ? 'bg-[#1b1b1b] text-[#afe7ff]' : 'bg-white text-brand-gray'} py-1.5 px-3 rounded-full`}
 										>
 											{tag}
 										</span>
@@ -150,14 +176,14 @@ export default function Cases({ title, theme, hasSliderNav, hasFilter }: Props) 
 									className="text-brand-blue inline-flex items-center gap-1 leading-tight group"
 								>
 									<span className="text-[15px]">Смотреть проект</span>
-									<RightArrowIcon className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1"></RightArrowIcon>
+									<RightArrowIcon className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1" />
 								</a>
 							</SwiperSlide>
 						)
 					})}
 				</Swiper>
 
-				{hasSliderNav && (
+				{shouldShowNavigation && (
 					<SliderNavigation className="justify-end mt-10" setPrev={setPrevEl} setNext={setNextEl} />
 				)}
 			</div>
