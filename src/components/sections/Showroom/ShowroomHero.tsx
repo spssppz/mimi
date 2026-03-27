@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ShowroomHero() {
 	return (
-		<section className="min-h-198 md:min-h-135 py-15 text-white relative flex items-center max-md:text-center md:items-end">
+		<section className="max-lg:-mt-13.75 min-h-198 md:min-h-135 py-15 text-white relative flex items-center max-md:text-center md:items-end">
 			<Image
 				fill
 				alt=""

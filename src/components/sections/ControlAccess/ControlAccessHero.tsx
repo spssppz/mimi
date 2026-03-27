@@ -13,7 +13,7 @@ export default function ControlAccessHero() {
 						alt=""
 					/>
 				</div>
-				<Title className="max-lg:-mt-23 mb-6">Контроль доступа.</Title>
+				<Title className="max-lg:-mt-23 mb-6">Контроль доступа</Title>
 				<div className="font-helvetica text-[17px] leading-[1.3] -tracking-[0.01em] max-w-135.5">
 					Нехитрая система подъема, позволяющая им подниматься вверх или опускаться вниз с помощью системы шнуров и электропривода..
 					Часто популярны на кухне.

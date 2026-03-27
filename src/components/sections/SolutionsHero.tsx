@@ -88,7 +88,7 @@ export default function SolutionsHero({
 
 	return (
 		<>
-			<section className={`lg:min-h-195 min-h-198 lg:-mt-13.5 py-18 md:pt-22 lg:py-25 relative flex items-end overflow-hidden ${className || ""}`}>
+			<section className={`lg:min-h-195 min-h-198 -mt-13.5 py-18 md:pt-22 lg:py-25 relative flex items-end overflow-hidden ${className || ""}`}>
 				<div ref={imageRef} className="absolute inset-0">
 					<Image
 						fill

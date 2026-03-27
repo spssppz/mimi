@@ -13,8 +13,8 @@ export default function ContactsPage() {
 		<>
 			<Header />
 			<main>
-				<Contacts></Contacts>
-				<Showroom></Showroom>
+				<Contacts/>
+				<Showroom/>
 			</main>
 			<Footer />
 		</>

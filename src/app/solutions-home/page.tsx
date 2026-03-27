@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header"
+import Header from "@/components/layout/SolutionsHeader"
 import SolutionsHero from "@/components/sections/SolutionsHero"
 import Capabilities from "@/components/sections/Capabilities"
 import SolutionsFeature from "@/components/sections/Solutions/SolutionsFeature"

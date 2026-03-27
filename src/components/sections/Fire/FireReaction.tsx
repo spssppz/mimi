@@ -62,10 +62,10 @@ export default function FireReaction() {
 
 				<div className="flex justify-end pr-27.5">
 					<div className="relative">
-						<div className="absolute top-[52.5%] left-[29.91%] w-[4.69%] border border-white/15 rounded-full aspect-square" />
-						<div className="absolute top-[27.5%] left-[28.44%] w-[7.47%] border border-white/10 rounded-full aspect-square" />
-						<div className="absolute top-[5%] left-[27.12%] w-[10.41%] border border-white/5 rounded-full aspect-square" />
-						<div className="absolute -top-[22.5%] left-[25.51%] w-[13.48%] border border-white/3 rounded-full aspect-square" />
+						<div className="absolute top-[52.5%] left-[29.91%] w-[4.69%] border border-white/20 rounded-full aspect-square" />
+						<div className="absolute top-[27.5%] left-[28.44%] w-[7.47%] border border-white/16 rounded-full aspect-square" />
+						<div className="absolute top-[5%] left-[27.12%] w-[10.41%] border border-white/12 rounded-full aspect-square" />
+						<div className="absolute -top-[22.5%] left-[25.51%] w-[13.48%] border border-white/8 rounded-full aspect-square" />
 						<div className="absolute -top-[22.5%] left-[25.51%] w-[13.48%] bg-black aspect-2/1" />
 						<Image
 							src="/images/fire-page/reaction/top-decor.png"

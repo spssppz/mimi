@@ -20,6 +20,7 @@ type ProductItem = {
 
 type Props = {
 	title?: string
+	mobTitle?: string
 	items: ProductItem[]
 	INITIAL_COUNT?: number
 	LOAD_MORE?: number
@@ -28,6 +29,7 @@ type Props = {
 export default function CatalogItems({
 	title,
 	items,
+	mobTitle,
 	INITIAL_COUNT = 6,
 	LOAD_MORE = 3
 }: Props) {

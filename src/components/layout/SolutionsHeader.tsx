@@ -32,7 +32,7 @@ export default function Header() {
 	return (
 		<header
 			onMouseLeave={() => setShowFunctional(false)}
-			className={`relative z-2 font-helvetica transition-colors duration-400 lg:backdrop-blur-md ${enabled ? 'bg-foreground border-foreground' : 'bg-[#F4F4F4]/95 border-[rgba(69, 69, 69)]/15'} border-b py-2`}
+			className={`relative z-2 font-helvetica transition-colors duration-400 bg-[#F4F4F4]/95 border-[rgba(69, 69, 69)]/15 border-b py-2`}
 		>
 			<div className="max-w-308 mx-auto px-4 flex items-center lg:justify-between gap-5">
 

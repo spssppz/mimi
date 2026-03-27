@@ -153,7 +153,7 @@ export default function SmartSwitchesHero() {
 		>
 			<div
 				ref={bgRef}
-				className="absolute top-1/2 -translate-y-1/2 left-1/2 md:min-w-[200%] min-w-360 -translate-x-1/2 w-full max-w-414.5 aspect-1658/1082"
+				className="absolute top-1/2 -translate-y-1/2 left-1/2 md:min-w-[200%] min-w-360 lg:min-w-auto -translate-x-1/2 w-full max-w-414.5 aspect-1658/1082"
 			>
 				{heroImages.map((item, index) => (
 					<div

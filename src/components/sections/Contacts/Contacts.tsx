@@ -1,3 +1,4 @@
+
 'use client'
 
 import { Button } from "@/components/UI/Button";
@@ -6,6 +7,103 @@ import { brand } from "@/config/brand";
 import { contacts } from "@/config/contacts";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+
+function getClockAngles(date: Date) {
+	const hours = date.getHours() % 12
+	const minutes = date.getMinutes()
+	const seconds = date.getSeconds()
+	const ms = date.getMilliseconds()
+
+	const smoothSeconds = seconds + ms / 1000
+	const smoothMinutes = minutes + smoothSeconds / 60
+	const smoothHours = hours + smoothMinutes / 60
+
+	return {
+		hourDeg: smoothHours * 30,
+		minuteDeg: smoothMinutes * 6,
+		secondDeg: smoothSeconds * 6,
+	}
+}
+
+function ClockDecor() {
+	const [now, setNow] = useState<Date | null>(null)
+
+	useEffect(() => {
+		let frame = 0
+
+		const update = () => {
+			setNow(new Date())
+			frame = requestAnimationFrame(update)
+		}
+
+		update()
+
+		return () => cancelAnimationFrame(frame)
+	}, [])
+
+	const angles = useMemo(() => {
+		if (!now) {
+			return {
+				hourDeg: 0,
+				minuteDeg: 0,
+				secondDeg: 0,
+			}
+		}
+
+		return getClockAngles(now)
+	}, [now])
+
+	return (
+		<div className="self-end md:-z-1 -mr-[5%] md:mr-0 relative md:absolute h-full md:top-0 md:right-0 md:w-auto w-[139%] xl:w-222.25 aspect-889/646">
+			<Image
+				src="/images/contacts/clock-bg1.png"
+				alt="clock bg"
+				fill
+				quality={95}
+				className="object-cover"
+			/>
+
+			<div className="absolute w-[51.518%] aspect-458/459 top-[13.931%] left-[33.07%]">
+				<Image
+					src="/images/contacts/clock.png"
+					fill
+					quality={96}
+					alt="clock"
+				/>
+
+				<div className="aspect-square absolute w-[64.192%] left-[19.5%] top-[17.7%] rounded-full border-[3px]">
+					<div
+						className="absolute top-1/2 left-1/2 aspect-148/4 w-[50.34%] -translate-y-1/2 origin-left rounded-[5px] shadow-[0_2px_5px_0_rgba(0,0,0,0.16)] bg-[linear-gradient(121deg,#fff_0%,#c7d9fe_100%)]"
+						style={{
+							transform: `translateY(-50%) rotate(${angles.minuteDeg - 90}deg)`,
+							opacity: now ? 1 : 0,
+						}}
+					/>
+
+					<div
+						className="absolute top-1/2 left-1/2 aspect-176/2 w-[59.863%] -translate-y-1/2 origin-left bg-white shadow-[-1px_1px_2px_0_rgba(0,0,0,0.05)]"
+						style={{
+							transform: `translateY(-50%) rotate(${angles.secondDeg - 90}deg)`,
+							opacity: now ? 1 : 0,
+						}}
+					/>
+
+					<div
+						className="absolute top-1/2 left-1/2 aspect-127/8 w-[43.197%] -translate-y-1/2 origin-left rounded-lg bg-[linear-gradient(310deg,#fff_0%,#eee89e_100%)] shadow-[0_4px_4px_0_rgba(0,0,0,0.1)]"
+						style={{
+							transform: `translateY(-50%) rotate(${angles.hourDeg - 90}deg)`,
+							opacity: now ? 1 : 0,
+						}}
+					/>
+
+					<div className="absolute top-1/2 left-1/2 -translate-1/2 aspect-square w-[5.44%] rounded-full bg-[#ebebeb]" />
+					<div className="absolute top-1/2 left-1/2 -translate-1/2 w-[2.881%] aspect-square rounded-full bg-linear-to-b from-white to-[#c1c1c1] shadow-[0_0_3px_0_rgba(0,0,0,0.5),inset_1px_1px_1px_0_rgba(0,0,0,0.15)]" />
+				</div>
+			</div>
+		</div>
+	)
+}
 
 export default function Contacts() {
 	const phoneClean = contacts.phone.replace(/[^\d]/g, "")
@@ -93,20 +191,10 @@ export default function Contacts() {
 				<Button className='lg:min-w-80 py-1.75! px-6! justify-between mb-2.5'>Связаться с нами</Button>
 				<div className='flex items-center gap-1 text-[14px] text-[#acacac] -tracking-[0.01em] leading-normal pl-6'>
 					<span>Мы на связи сейчас</span>
-					<span className='w-2 h-2 rounded-full bg-[#27ca40] box-shadow: 0 4px 4px 0 rgba(39, 202, 64, 0.25);'></span>
+					<span className='w-2 h-2 rounded-full bg-[#27ca40] shadow-[0_4px_4px_0_rgba(39,202,64,0.25)]'></span>
 				</div>
 			</div>
-
-			<span className="self-end md:-z-1 -mr-[5%] md:mr-0 relative md:absolute h-full md:top-0 md:right-0 md:w-auto w-[139%] aspect-889/646 lg:aspect-889/646">
-
-				<Image
-					src="/images/contacts/decor.png"
-					alt="Декор"
-					fill
-					quality={95}
-					className="object-cover"
-				/>
-			</span>
+			<ClockDecor />
 		</section>
 	);
 };

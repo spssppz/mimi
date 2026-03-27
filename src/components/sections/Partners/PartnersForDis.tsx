@@ -46,8 +46,8 @@ export default function PartnersForDis() {
 					scale: 1,
 				},
 				{
-					filter: "blur(10px)",
-					scale: 1.08,
+					filter: "blur(20px)",
+					scale: 1.05,
 					ease: "none",
 					scrollTrigger: {
 						trigger: sectionRef.current,

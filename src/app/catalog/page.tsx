@@ -176,7 +176,7 @@ export default function CatalogPage() {
 					imageHeight={359}
 					imageClassName="max-md:-mb-20"
 				/>
-				<CatalogItems items={items}></CatalogItems>
+				<CatalogItems title="Контроллеры" items={items}></CatalogItems>
 			</main>
 			<Footer />
 		</>

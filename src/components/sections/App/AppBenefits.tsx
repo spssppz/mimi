@@ -182,7 +182,7 @@ export default function AppBenefits() {
 						ref={el => {
 							cardsRef.current[2] = el
 						}}
-						className="bg-white max-md:min-h-125 overflow-hidden rounded-[20px] pt-6 px-6 md:px-8 md:pt-8 lg:px-10 lg:pt-10 lg:min-h-150 will-change-transform"
+						className="bg-white max-md:max-h-125 max-md:min-h-125 overflow-hidden rounded-[20px] pt-6 px-6 md:px-8 md:pt-8 lg:px-10 lg:pt-10 lg:min-h-150 will-change-transform"
 					>
 						<div className="mb-15">
 							<h3 className="mb-4 font-semibold text-[22px] md:text-[28px] lg:text-[32px] leading-[1.3] -tracking-[0.01em]">
@@ -206,7 +206,7 @@ export default function AppBenefits() {
 						ref={el => {
 							cardsRef.current[3] = el
 						}}
-						className="min-h-125 md:min-h-100 bg-white overflow-hidden rounded-[20px] md:col-span-2 flex max-md:flex-col justify-between gap-5 md:pl-10 will-change-transform"
+						className="max-md:max-h-125 min-h-125 md:min-h-100 bg-white overflow-hidden rounded-[20px] md:col-span-2 flex max-md:flex-col justify-between gap-5 md:pl-10 will-change-transform"
 					>
 						<div className="col-span-2 max-md:p-5 md:py-8 lg:py-10 max-w-97.5 space-y-4">
 							<Image
