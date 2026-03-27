@@ -61,7 +61,7 @@ export default function PartnersForDealer() {
 	}, [])
 
 	return (
-		<section ref={sectionRef} className="pt-30 pb-15 overflow-hidden">
+		<section ref={sectionRef} className="pt-30 pb-15 bg-[#f3f6f6] overflow-hidden">
 			<div className="max-w-308 px-4 mx-auto">
 				<div className="mb-10 flex flex-col items-center text-center max-w-217 mx-auto">
 					<div className="font-bold text-[24px] -tracking-[0.01em] text-[#e27500]">
