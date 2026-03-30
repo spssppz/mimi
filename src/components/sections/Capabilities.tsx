@@ -201,7 +201,7 @@ const capabilitiesItems: CapabilityItem[] = [
 						</button>
 					</div>
 
-					<span className="absolute w-60 md:w-70 lg:w-80.5 top-7 right-6 lg:top-7 lg:right-6 aspect-322/303">
+					<span className="absolute w-45 md:w-70 lg:w-80.5 top-20 md:top-7 right-4 lg:top-7 lg:right-6 aspect-322/303">
 						<Image
 							quality={95}
 							src="/images/capabilities/decor/2.png"
