@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { adminApiConfig } from './api';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
 
@@ -18,23 +17,17 @@ function App() {
       return;
     }
 
-    if (!adminApiConfig.useExternalBackend) {
-      fetch('/api/admin/session', { credentials: 'include' })
-        .then((response) => response.json())
-        .then((data) => {
-          setIsLoggedIn(Boolean(data?.authenticated));
-        })
-        .catch(() => {
-          setIsLoggedIn(false);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-      return;
-    }
-
-    setIsLoggedIn(false);
-    setLoading(false);
+    fetch('/api/admin/session', { credentials: 'include' })
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoggedIn(Boolean(data?.authenticated));
+      })
+      .catch(() => {
+        setIsLoggedIn(false);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   if (loading) {
@@ -46,17 +39,12 @@ function App() {
     localStorage.removeItem('adminId');
     localStorage.removeItem('adminUsername');
 
-    if (!adminApiConfig.useExternalBackend) {
-      fetch('/api/admin/auth/logout', {
-        method: 'POST',
-        credentials: 'include',
-      }).finally(() => {
-        setIsLoggedIn(false);
-      });
-      return;
-    }
-
-    setIsLoggedIn(false);
+    fetch('/api/admin/auth/logout', {
+      method: 'POST',
+      credentials: 'include',
+    }).finally(() => {
+      setIsLoggedIn(false);
+    });
   };
 
   const handleLoginSuccess = () => {

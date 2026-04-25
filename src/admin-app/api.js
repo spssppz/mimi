@@ -1,8 +1,4 @@
-const configuredApiBase =
-  process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, "") || ""
-
-const useExternalBackend = Boolean(configuredApiBase)
-const adminBaseUrl = useExternalBackend ? `${configuredApiBase}/api/admin` : "/api/admin"
+const adminBaseUrl = "/api/admin"
 
 function getStoredToken() {
   if (typeof window === "undefined") {
@@ -38,7 +34,7 @@ function toUrl(path, params) {
     })
   }
 
-  if (!useExternalBackend && typeof window !== "undefined") {
+  if (typeof window !== "undefined") {
     return `${url.pathname}${url.search}`
   }
 
@@ -84,7 +80,7 @@ async function request(method, path, options = {}) {
         : options.data !== undefined
           ? JSON.stringify(options.data)
           : undefined,
-    credentials: useExternalBackend ? "omit" : "include",
+    credentials: "include",
   })
 
   const payload = await parseResponse(response, options.responseType)
@@ -141,21 +137,14 @@ export const leadsAPI = {
 }
 
 export const statsAPI = {
-  getStats: (from = "", to = "") =>
-    api.get(useExternalBackend ? "/stats" : "/leads/stats", { params: { from, to } }),
+  getStats: (from = "", to = "") => api.get("/leads/stats", { params: { from, to } }),
 }
 
 export const exportAPI = {
   exportCSV: (from = "", to = "") =>
-    api.get(useExternalBackend ? "/export/csv" : "/leads/export/csv", {
-      params: { from, to },
-      responseType: "blob",
-    }),
+    api.get("/leads/export/csv", { params: { from, to }, responseType: "blob" }),
   exportJSON: (from = "", to = "") =>
-    api.get(useExternalBackend ? "/export/json" : "/leads/export/json", {
-      params: { from, to },
-      responseType: "blob",
-    }),
+    api.get("/leads/export/json", { params: { from, to }, responseType: "blob" }),
 }
 
 export const uploadAPI = {
@@ -167,7 +156,7 @@ export const uploadAPI = {
 
 export const adminApiConfig = {
   adminBaseUrl,
-  useExternalBackend,
+  useExternalBackend: false,
 }
 
 export default api

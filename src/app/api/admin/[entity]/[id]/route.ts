@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 
+import { proxyAdminRequest, shouldProxyAdminBackend } from "@/lib/admin-backend"
 import { parseEntity, requireAdmin } from "@/lib/admin-api"
 import { deleteEntityItem, getEntityById, updateEntityItem } from "@/lib/admin-store"
 
@@ -8,6 +9,10 @@ type Context = {
 }
 
 export async function GET(request: NextRequest, context: Context) {
+  if (shouldProxyAdminBackend()) {
+    return proxyAdminRequest(request)
+  }
+
   const auth = requireAdmin(request)
 
   if (auth.response) {
@@ -31,6 +36,10 @@ export async function GET(request: NextRequest, context: Context) {
 }
 
 export async function PUT(request: NextRequest, context: Context) {
+  if (shouldProxyAdminBackend()) {
+    return proxyAdminRequest(request)
+  }
+
   const auth = requireAdmin(request)
 
   if (auth.response) {
@@ -60,6 +69,10 @@ export async function PUT(request: NextRequest, context: Context) {
 }
 
 export async function DELETE(request: NextRequest, context: Context) {
+  if (shouldProxyAdminBackend()) {
+    return proxyAdminRequest(request)
+  }
+
   const auth = requireAdmin(request)
 
   if (auth.response) {

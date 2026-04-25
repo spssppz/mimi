@@ -3,6 +3,7 @@ import path from "node:path"
 
 import { NextRequest, NextResponse } from "next/server"
 
+import { proxyAdminRequest, shouldProxyAdminBackend } from "@/lib/admin-backend"
 import { requireAdmin } from "@/lib/admin-api"
 
 function sanitizeSegment(value: string, fallback: string) {
@@ -16,6 +17,10 @@ function extensionFromFileName(name: string) {
 }
 
 export async function POST(request: NextRequest) {
+  if (shouldProxyAdminBackend()) {
+    return proxyAdminRequest(request)
+  }
+
   const auth = requireAdmin(request)
 
   if (auth.response) {

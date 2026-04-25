@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 
+import { proxyAdminRequest, shouldProxyAdminBackend } from "@/lib/admin-backend"
 import { requireAdmin } from "@/lib/admin-api"
 import { exportLeads } from "@/lib/admin-store"
 
@@ -8,6 +9,10 @@ type Context = {
 }
 
 export async function GET(request: NextRequest, context: Context) {
+  if (shouldProxyAdminBackend()) {
+    return proxyAdminRequest(request)
+  }
+
   const auth = requireAdmin(request)
 
   if (auth.response) {
