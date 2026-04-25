@@ -14,6 +14,7 @@ import { YoutubeIcon } from "@/icons/socials/YoutubeIcon"
 import { VkIcon } from "@/icons/socials/VkIcon"
 import { DzenIcon } from "@/icons/socials/DzenIcon"
 import Articles from "@/components/sections/Articles"
+import type { Article } from "@/types/article"
 
 
 type SectionItem = {
@@ -35,6 +36,26 @@ const articleSections: SectionItem[] = [
 export default function ArticlePage() {
 	const [liked, setLiked] = useState(false)
 	const [count, setCount] = useState(0)
+	const [articles, setArticles] = useState<Article[]>([])
+	const [loading, setLoading] = useState(true)
+
+	useEffect(() => {
+		const fetchArticles = async () => {
+			try {
+				const response = await fetch('/api/articles')
+				if (response.ok) {
+					const data = await response.json()
+					setArticles(data)
+				}
+			} catch (error) {
+				console.error('Failed to fetch articles:', error)
+			} finally {
+				setLoading(false)
+			}
+		}
+
+		fetchArticles()
+	}, [])
 
 	const handleClick = () => {
 		setLiked(prev => !prev)
@@ -370,6 +391,7 @@ export default function ArticlePage() {
 				<Articles
 					title="Другие статьи"
 					mobileView="stack"
+					articles={articles}
 				/>
 			</main>
 

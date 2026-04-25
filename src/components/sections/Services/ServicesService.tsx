@@ -1,4 +1,4 @@
-import { Button } from "@/components/UI/Button";
+import { LeadModalTrigger } from "@/components/modals/LeadModalTrigger";
 import { Title } from "@/components/UI/Title";
 import { RightArrowIcon } from "@/icons/RightArrowIcon";
 import Image from "next/image";
@@ -49,7 +49,9 @@ export default function ServicesService() {
 							Работает система за счет электропривода, который вмонтирован в карниз.
 							Помимо стандартного открытия и закрытия, в системе умный дом есть возможность настройки определенного положения ламелей для пропуска строго определенного количества света.
 						</div>
-						<Button className="justify-center py-1.75!">Оставить заявку</Button>
+						<LeadModalTrigger formType="services-service" buttonClassName="justify-center py-1.75!">
+							Оставить заявку
+						</LeadModalTrigger>
 					</div>
 				</div>
 			</div>

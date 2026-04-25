@@ -1,7 +1,7 @@
 import { FC, SVGProps } from 'react'
 
 export type Article = {
-	id: number
+	id: number | string
 	tag: string
 	title: string
 	description: string

@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
@@ -11,19 +12,45 @@ import { Title } from '../UI/Title'
 import { SliderNavigation } from '../UI/SliderNavigation'
 import { categories } from '@/data/categories'
 import { RightArrowIcon } from '@/icons/RightArrowIcon'
+import { getProjectHref } from '@/lib/project-links'
+import type { ProjectSummary } from '@/types/project'
+
+const UI_TEXT = {
+	project: "\u041F\u0440\u043E\u0435\u043A\u0442",
+	moscow: "\u041C\u043E\u0441\u043A\u0432\u0430",
+	all: "\u0412\u0441\u0435",
+	viewProject: "\u0421\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442",
+}
 
 type Props = {
 	title: string
 	theme?: 'dark' | 'light'
 	hasFilter?: boolean
 	limit?: number
+	items?: ProjectSummary[]
 }
 
-export default function Cases({ title, theme, hasFilter, limit }: Props) {
+function toFallbackProjects(): ProjectSummary[] {
+	return cases.map((item, index) => ({
+		id: index + 1,
+		slug: `project-${index + 1}`,
+		title: item.title,
+		description: item.description,
+		image: item.image,
+		imageMain: item.imageMain,
+		tags: item.tags,
+		objectType: UI_TEXT.project,
+		area: "",
+		city: UI_TEXT.moscow,
+	}))
+}
+
+export default function Cases({ title, theme, hasFilter, limit, items }: Props) {
 	const [activeCat, setActiveCat] = useState<string | null>(null)
 	const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null)
 	const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null)
 	const [slidesPerView, setSlidesPerView] = useState(1)
+	const sourceItems = items ?? toFallbackProjects()
 
 	useEffect(() => {
 		const updateSlidesPerView = () => {
@@ -43,10 +70,10 @@ export default function Cases({ title, theme, hasFilter, limit }: Props) {
 	}, [])
 
 	const filteredCases = useMemo(() => {
-		let result = cases
+		let result = sourceItems
 
 		if (hasFilter && activeCat) {
-			result = cases.filter(item => item.tags.includes(activeCat))
+			result = sourceItems.filter(item => item.tags.includes(activeCat))
 		}
 
 		if (limit) {
@@ -54,7 +81,7 @@ export default function Cases({ title, theme, hasFilter, limit }: Props) {
 		}
 
 		return result
-	}, [activeCat, hasFilter, limit])
+	}, [activeCat, hasFilter, limit, sourceItems])
 
 	const shouldShowNavigation = filteredCases.length > slidesPerView
 
@@ -75,12 +102,12 @@ export default function Cases({ title, theme, hasFilter, limit }: Props) {
 									: `${theme === 'dark' ? 'bg-[#242634] text-white' : 'bg-white'}`
 								}`}
 						>
-							Все
+							{UI_TEXT.all}
 						</button>
 
 						{categories.map(cat => {
 							const isActive = activeCat === cat.label
-							const hasCases = cases.some(item => item.tags.includes(cat.label))
+							const hasCases = sourceItems.some(item => item.tags.includes(cat.label))
 							const IconComponent = cat.icon
 
 							return (
@@ -119,7 +146,7 @@ export default function Cases({ title, theme, hasFilter, limit }: Props) {
 						const restCount = item.tags.length - visibleTags.length
 
 						return (
-							<SwiperSlide key={`${item.title}-${index}`}>
+							<SwiperSlide key={`${item.slug}-${index}`}>
 								<div className="relative aspect-360/290 mb-5 lg:mb-7.5 overflow-hidden rounded-xl">
 									<Image
 										src={item.image}
@@ -171,13 +198,13 @@ export default function Cases({ title, theme, hasFilter, limit }: Props) {
 									{item.description}
 								</p>
 
-								<a
-									href="#"
+								<Link
+									href={getProjectHref(item.slug)}
 									className="text-brand-blue inline-flex items-center gap-1 leading-tight group"
 								>
-									<span className="text-[15px]">Смотреть проект</span>
+									<span className="text-[15px]">{UI_TEXT.viewProject}</span>
 									<RightArrowIcon className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1" />
-								</a>
+								</Link>
 							</SwiperSlide>
 						)
 					})}

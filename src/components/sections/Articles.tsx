@@ -7,9 +7,9 @@ import "swiper/css"
 
 import { Title } from "../UI/Title"
 import { SliderNavigation } from "../UI/SliderNavigation"
-import { articles } from "@/data/articles"
 import { RightArrowIcon } from "@/icons/RightArrowIcon"
 import { ArticleCard } from "../UI/ArticleCard"
+import type { Article } from "@/types/article"
 
 function MoreSlide({ className }: { className?: string }) {
 	return (
@@ -26,14 +26,20 @@ function MoreSlide({ className }: { className?: string }) {
 type Props = {
 	title: string
 	mobileView?: "slider" | "stack"
+	articles: Article[]
 }
 
 export default function Articles({
 	title,
 	mobileView = "slider",
+	articles,
 }: Props) {
 	const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null)
 	const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null)
+
+	if (articles.length === 0) {
+		return null
+	}
 
 	const visibleArticles = articles.slice(0, 3)
 

@@ -1,11 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "../UI/Button"
-import { Title } from "../UI/Title"
-import { ReactNode, useEffect, useRef, useState } from "react"
-import { ApplicationModal } from "../modals/ApplicationModal"
+import { ReactNode, useEffect, useRef } from "react"
 import gsap from "gsap"
+import { Title } from "../UI/Title"
+import { LeadModalTrigger } from "../modals/LeadModalTrigger"
 
 type Props = {
 	title: ReactNode
@@ -20,8 +19,6 @@ export default function SolutionsHero({
 	className,
 	withRadialReveal
 }: Props) {
-	const [isModalOpen, setIsModalOpen] = useState(false)
-
 	const overlayRef = useRef<HTMLDivElement | null>(null)
 	const imageRef = useRef<HTMLDivElement | null>(null)
 
@@ -116,18 +113,11 @@ export default function SolutionsHero({
 				<div className="max-w-308 px-4 mx-auto max-md:flex-col relative flex items-start md:items-end justify-between gap-6 lg:gap-10 w-full">
 					<Title>{title}</Title>
 
-					<Button
-						onClick={() => setIsModalOpen(true)}
-						className="justify-center py-1.75!"
-					>
+					<LeadModalTrigger formType="hero" buttonClassName="justify-center py-1.75!">
 						Оставить заявку
-					</Button>
+					</LeadModalTrigger>
 				</div>
 			</section>
-
-			{isModalOpen && (
-				<ApplicationModal onClose={() => setIsModalOpen(false)} />
-			)}
 		</>
 	)
 }

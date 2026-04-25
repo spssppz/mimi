@@ -7,10 +7,13 @@ import Advantages from "@/components/sections/Advantages";
 import Features from "@/components/sections/Features";
 import Showroom from "@/components/sections/common/Showroom";
 import Cases from "@/components/sections/Cases";
-import Articles from "@/components/sections/Articles";
+import ArticlesWrapper from "@/components/sections/ArticlesWrapper";
 import Footer from "@/components/layout/Footer";
+import { getProjects } from "@/lib/projects";
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProjects();
+
   return (
     <>
       <Header />
@@ -26,10 +29,11 @@ export default function Home() {
           title="Кейсы"
           hasFilter
           theme="dark"
+          items={projects}
         />
-        <Articles title="Полезные статьи" />
+        <ArticlesWrapper title="Полезные статьи" />
       </main>
       <Footer />
     </>
   );
-} 
+}

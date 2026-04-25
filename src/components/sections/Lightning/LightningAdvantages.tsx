@@ -1,8 +1,7 @@
-import { Button } from "@/components/UI/Button";
 import Image from "next/image";
+import { LeadModalTrigger } from "@/components/modals/LeadModalTrigger";
 
 export default function LightningAdvantages() {
-
 	return (
 		<div className="pt-10 md:py-15 lg:py-30">
 			<div className="max-w-235.5 mx-auto px-4">
@@ -59,7 +58,9 @@ export default function LightningAdvantages() {
 					<div className="flex-auto font-helvetica text-[15px] leading-normal -tracking-[0.01em]">
 						Отправляйте нам дизайн проект с расстановкой мебели и света – мы предложим варианты, как преобразовать обычное освещение в современную электрику.
 					</div>
-					<Button className="justify-center sm:py-1.75">Оставить заявку</Button>
+					<LeadModalTrigger formType="lightning-advantages" buttonClassName="justify-center sm:py-1.75">
+						Оставить заявку
+					</LeadModalTrigger>
 				</div>
 			</div>
 		</div>

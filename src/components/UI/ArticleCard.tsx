@@ -1,6 +1,7 @@
 import { Article } from "@/types/article";
 import Image from "next/image";
 import Link from "next/link";
+import { getArticleHref } from "@/lib/article-links";
 
 export function ArticleCard({ article, className }: { article: Article, className?: string }) {
 	function isNewArticle(date: string, days = 7) {
@@ -28,7 +29,7 @@ export function ArticleCard({ article, className }: { article: Article, classNam
 			</div>
 
 			<h3 className="text-[20px] text-[#0a051a] mb-5 transition-colors duration-350 group-hover:text-brand-blue">
-				<Link href="">
+				<Link href={getArticleHref(article.id)} aria-label={article.title}>
 					{article.title}
 					<span className="absolute rounded-[20px] block top-0 left-0 w-full h-full"></span>
 				</Link>

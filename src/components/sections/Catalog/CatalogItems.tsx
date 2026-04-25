@@ -6,17 +6,14 @@ import { RightArrowIcon } from "@/icons/RightArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { Title } from "@/components/UI/CatalogTitle";
+import type { CatalogItem as ProductItem } from "@/types/catalog";
 
-type ProductItem = {
-	image: {
-		src: string
-		width: number
-		height: number
-	}
-	cap: string
-	descr: string
-	link: string
+function isRemoteImage(src: string) {
+	return src.startsWith("http://") || src.startsWith("https://")
 }
+
+const IMAGE_FRAME_WIDTH = 197
+const IMAGE_FRAME_HEIGHT = 266
 
 type Props = {
 	title?: string
@@ -53,14 +50,28 @@ export default function CatalogItems({
 							key={i}
 							className="rounded-[20px] bg-background px-5 py-6 md:px-10 md:py-10 lg:min-h-122.5 flex flex-col"
 						>
-							<Image
-								src={item.image.src}
-								alt={item.cap}
-								width={item.image.width}
-								height={item.image.height}
-								quality={95}
-								className="self-center mb-5"
-							/>
+							<div className="self-center mb-5 flex h-[266px] w-[197px] items-center justify-center overflow-hidden">
+								{isRemoteImage(item.image.src) ? (
+									<img
+										src={item.image.src}
+										alt={item.cap}
+										width={IMAGE_FRAME_WIDTH}
+										height={IMAGE_FRAME_HEIGHT}
+										loading="lazy"
+										referrerPolicy="no-referrer"
+										className="h-full w-full object-contain"
+									/>
+								) : (
+									<Image
+										src={item.image.src}
+										alt={item.cap}
+										width={IMAGE_FRAME_WIDTH}
+										height={IMAGE_FRAME_HEIGHT}
+										quality={95}
+										className="h-full w-full object-contain"
+									/>
+								)}
+							</div>
 							<div className="space-y-4 md:space-y-3 -tracking-[0.01em] max-sm:text-center mt-auto">
 								<h3 className="font-semibold max-sm:text-[15px] leading-[1.4]">{item.cap}</h3>
 								<div className="text-[15px] max-sm:hidden line-clamp-2">{item.descr}</div>

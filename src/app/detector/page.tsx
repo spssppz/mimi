@@ -6,14 +6,16 @@ import Showroom from "@/components/sections/common/Showroom";
 import Footer from "@/components/layout/Footer";
 
 import { routes } from "@/config/routes";
-import { detectors } from "@/data/detectors";
+import { getDetectors } from "@/lib/detectors";
 
 
 export const metadata = {
 	title: routes.detector.title
 }
 
-export default function DetectorPage() {
+export default async function DetectorPage() {
+	const detectors = await getDetectors();
+
 	return (
 		<>
 			<Header />

@@ -4,40 +4,40 @@ import { useState } from "react"
 import { Title } from "@/components/UI/Title"
 import { RightArrowIcon } from "@/icons/RightArrowIcon"
 import Image from "next/image"
+import type { ProjectStep } from "@/types/project"
 
-const spoilers = [
-	{
-		title: "Проектирование",
-		content:
-			"Четкое исполнение сроков проектирования и своевременное внесение всех правок заказчика в проект характеризует компанию Кластер как надежного партнера.",
-	},
-	{
-		title: "Монтаж",
-		content:
-			"Четкое исполнение сроков проектирования и своевременное внесение всех правок заказчика в проект...",
-	},
-]
+const UI_TEXT = {
+	stepsTitle: "\u042D\u0442\u0430\u043F\u044B \u0440\u0430\u0431\u043E\u0442",
+}
 
-export default function ProjectSteps() {
+type ProjectStepsProps = {
+	steps: ProjectStep[]
+}
+
+export default function ProjectSteps({ steps }: ProjectStepsProps) {
 	const [openIndex, setOpenIndex] = useState<number | null>(0)
 
 	const toggleSpoiler = (index: number) => {
 		setOpenIndex(prev => (prev === index ? null : index))
 	}
 
+	if (steps.length === 0) {
+		return null
+	}
+
 	return (
 		<section className="max-lg:pb-20 max-lg:pt-10 lg:py-22.5 bg-white">
 			<div className="max-w-308 px-4 mx-auto">
-				<Title className="mb-15 text-center">Этапы работ</Title>
+				<Title className="mb-15 text-center">{UI_TEXT.stepsTitle}</Title>
 
 				<div className="flex max-lg:flex-col justify-between gap-20">
 					<ul className="lg:max-w-106.75">
-						{spoilers.map((spoiler, i) => {
+						{steps.map((spoiler, i) => {
 							const isOpen = openIndex === i
 
 							return (
 								<li
-									key={i}
+									key={`${spoiler.title}-${i}`}
 									className="border-b border-[#d9d9d9] py-4 md:py-5 -tracking-[0.01em]"
 								>
 									<button

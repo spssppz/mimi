@@ -6,7 +6,12 @@ type ThemeContextType = {
 	toggle: () => void
 }
 
-const ThemeContext = createContext<ThemeContextType | null>(null)
+const defaultThemeContext: ThemeContextType = {
+	enabled: false,
+	toggle: () => {},
+}
+
+const ThemeContext = createContext<ThemeContextType>(defaultThemeContext)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
 	const [enabled, setEnabled] = useState(false)
@@ -21,7 +26,5 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useTheme() {
-	const ctx = useContext(ThemeContext)
-	if (!ctx) throw new Error('useTheme must be used inside ThemeProvider')
-	return ctx
+	return useContext(ThemeContext)
 }

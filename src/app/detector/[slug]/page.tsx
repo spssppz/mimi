@@ -6,7 +6,7 @@ import DetectorSlider from "@/components/sections/Detector/DetectorSlider"
 import Showroom from "@/components/sections/common/Showroom"
 import Footer from "@/components/layout/Footer"
 
-import { detectors } from "@/data/detectors"
+import { getDetectors } from "@/lib/detectors"
 
 import { notFound } from "next/navigation"
 
@@ -16,6 +16,7 @@ type Props = {
 
 export default async function DetectorItemPage({ params }: Props) {
 	const { slug } = await params;
+	const detectors = await getDetectors();
 
 	const detector = detectors.find(d => d.slug === slug);
 	if (!detector) {
@@ -38,6 +39,7 @@ export default async function DetectorItemPage({ params }: Props) {
 }
 
 export async function generateStaticParams() {
+	const detectors = await getDetectors();
 	return detectors.map((d) => ({
 		slug: d.slug,
 	}));
