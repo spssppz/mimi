@@ -3,11 +3,8 @@ import "server-only"
 import type { ProjectDetails, ProjectSection, ProjectStep, ProjectSummary } from "@/types/project"
 
 import { getPublicProjectBySlug, getPublicProjects } from "@/lib/admin-store"
-
-const API_BASE_URL =
-  process.env.API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  ""
+import { fetchBackendCollection } from "@/lib/backend-fetch"
+import { buildBackendUrl, getBackendBaseUrl } from "@/lib/backend-url"
 
 const configuredProjectsPath =
   process.env.API_PROJECTS_PATH?.trim().replace(/^\/+|\/+$/g, "") ||
@@ -15,6 +12,10 @@ const configuredProjectsPath =
   ""
 
 const PROJECTS_PATH = configuredProjectsPath || "api/projects"
+const PROJECTS_PATH_CANDIDATES = [
+  PROJECTS_PATH,
+  PROJECTS_PATH.startsWith("api/admin/") ? PROJECTS_PATH.replace(/^api\/admin\//, "api/") : `api/admin/projects`,
+]
 
 type UnknownRecord = Record<string, unknown>
 
@@ -52,10 +53,11 @@ function resolveAssetUrl(value: string | null, fallback: string) {
   }
 
   if (value.startsWith("/")) {
-    return API_BASE_URL ? `${API_BASE_URL}${value}` : value
+    const backendBaseUrl = getBackendBaseUrl()
+    return backendBaseUrl ? `${backendBaseUrl}${value}` : value
   }
 
-  return API_BASE_URL ? `${API_BASE_URL}/${value.replace(/^\/+/, "")}` : value
+  return buildBackendUrl(value)
 }
 
 function extractCollection(payload: unknown, depth = 0): unknown[] {
@@ -220,59 +222,48 @@ function normalizeProjectDetails(item: unknown): ProjectDetails | null {
   }
 }
 
-function buildProjectsUrl(slug?: string) {
-  const base = `${API_BASE_URL}/${PROJECTS_PATH}`
-  return slug ? `${base}/${encodeURIComponent(slug)}` : base
-}
-
 async function getBackendProjects(): Promise<ProjectSummary[] | null> {
-  if (!API_BASE_URL) {
-    return null
-  }
-
-  try {
-    const response = await fetch(buildProjectsUrl(), {
-      cache: "no-store",
-    })
-
-    if (!response.ok) {
-      console.warn(`Failed to load projects from backend: ${response.status}`)
-      return null
-    }
-
-    const payload = (await response.json()) as unknown
-    const items = extractCollection(payload)
-      .map(normalizeProjectSummary)
-      .filter((item): item is ProjectSummary => item !== null)
-
-    return items.length > 0 ? items : null
-  } catch (error) {
-    console.warn("Failed to load projects from backend:", error)
-    return null
-  }
+  return fetchBackendCollection<ProjectSummary>({
+    label: "projects",
+    paths: PROJECTS_PATH_CANDIDATES,
+    extract: extractCollection,
+    normalize: normalizeProjectSummary,
+  })
 }
 
 async function getBackendProjectBySlug(slug: string): Promise<ProjectDetails | null> {
-  if (!API_BASE_URL) {
+  const baseUrl = getBackendBaseUrl()
+
+  if (!baseUrl) {
     return null
   }
 
-  try {
-    const response = await fetch(buildProjectsUrl(slug), {
-      cache: "no-store",
-    })
+  const slugPathCandidates = PROJECTS_PATH_CANDIDATES.flatMap(path => [
+    `${path}/${encodeURIComponent(slug)}`,
+  ])
 
-    if (!response.ok) {
-      console.warn(`Failed to load project "${slug}" from backend: ${response.status}`)
-      return null
+  for (const path of slugPathCandidates) {
+    try {
+      const response = await fetch(buildBackendUrl(path), {
+        cache: "no-store",
+      })
+
+      if (!response.ok) {
+        continue
+      }
+
+      const payload = (await response.json()) as unknown
+      const normalized = normalizeProjectDetails(payload)
+
+      if (normalized) {
+        return normalized
+      }
+    } catch (error) {
+      console.warn(`Failed to load project "${slug}" from backend (${path}):`, error)
     }
-
-    const payload = (await response.json()) as unknown
-    return normalizeProjectDetails(payload)
-  } catch (error) {
-    console.warn(`Failed to load project "${slug}" from backend:`, error)
-    return null
   }
+
+  return null
 }
 
 export async function getProjects(): Promise<ProjectSummary[]> {

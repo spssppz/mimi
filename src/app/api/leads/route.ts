@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 
 import { createLead } from "@/lib/admin-store"
+import { buildBackendUrl, getBackendBaseUrl } from "@/lib/backend-url"
 
 type LeadPayload = {
   name?: string
@@ -11,15 +12,16 @@ type LeadPayload = {
   formType?: string | null
 }
 
-const API_BASE_URL =
-  process.env.API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  ""
-
 const LEADS_PATH =
   process.env.API_LEADS_PATH?.trim().replace(/^\/+|\/+$/g, "") ??
   process.env.NEXT_PUBLIC_API_LEADS_PATH?.trim().replace(/^\/+|\/+$/g, "") ??
-  "leads"
+  "api/leads"
+
+const LEADS_PATH_CANDIDATES = [
+  LEADS_PATH,
+  LEADS_PATH.startsWith("api/admin/") ? LEADS_PATH.replace(/^api\/admin\//, "api/") : "leads",
+  "api/admin/leads",
+]
 
 function validateLead(payload: LeadPayload) {
   const details: string[] = []
@@ -56,6 +58,39 @@ async function parseResponseBody(response: Response) {
   }
 }
 
+async function forwardLeadToBackend(externalPayload: Record<string, unknown>) {
+  if (!getBackendBaseUrl()) {
+    return null
+  }
+
+  const requestBody = JSON.stringify(externalPayload)
+
+  for (const path of LEADS_PATH_CANDIDATES) {
+    try {
+      const response = await fetch(buildBackendUrl(path), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: requestBody,
+        cache: "no-store",
+      })
+
+      const data = await parseResponseBody(response)
+
+      if (response.status === 404 || response.status === 405) {
+        continue
+      }
+
+      return { response, data }
+    } catch (error) {
+      console.warn(`Failed to forward lead to backend via ${path}:`, error)
+    }
+  }
+
+  return null
+}
+
 export async function POST(request: NextRequest) {
   const body = (await request.json().catch(() => null)) as LeadPayload | null
 
@@ -69,46 +104,30 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Validation failed", details }, { status: 400 })
   }
 
-  if (API_BASE_URL) {
-    const externalPayload = {
-      name: body.name!.trim(),
-      phone: body.phone!.trim(),
-      comment: body.comment?.trim() || null,
-      consent: true,
-      pageUrl: body.pageUrl!.trim(),
-      formType: body.formType?.trim() || null,
-      page_url: body.pageUrl!.trim(),
-      form_type: body.formType?.trim() || null,
-    }
+  const externalPayload = {
+    name: body.name!.trim(),
+    phone: body.phone!.trim(),
+    comment: body.comment?.trim() || null,
+    consent: true,
+    pageUrl: body.pageUrl!.trim(),
+    formType: body.formType?.trim() || null,
+    page_url: body.pageUrl!.trim(),
+    form_type: body.formType?.trim() || null,
+  }
 
-    try {
-      const response = await fetch(`${API_BASE_URL}/${LEADS_PATH}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(externalPayload),
-        cache: "no-store",
-      })
+  const forwarded = await forwardLeadToBackend(externalPayload)
 
-      const data = await parseResponseBody(response)
+  if (forwarded) {
+    const { response, data } = forwarded
 
-      if (!response.ok) {
-        return NextResponse.json(
-          data ?? { error: "Failed to store lead in backend." },
-          { status: response.status }
-        )
-      }
-
-      return NextResponse.json(data ?? { stored: true }, { status: response.status })
-    } catch (error) {
-      console.error("Failed to proxy lead to backend:", error)
-
+    if (!response.ok) {
       return NextResponse.json(
-        { error: "Не удалось отправить заявку в backend." },
-        { status: 503 }
+        data ?? { error: "Failed to store lead in backend." },
+        { status: response.status }
       )
     }
+
+    return NextResponse.json(data ?? { stored: true }, { status: response.status })
   }
 
   const lead = await createLead({

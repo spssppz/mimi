@@ -2,10 +2,7 @@ import "server-only"
 
 import { NextRequest, NextResponse } from "next/server"
 
-const ADMIN_BACKEND_BASE_URL =
-  process.env.API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  ""
+import { buildBackendUrl, getBackendBaseUrl } from "@/lib/backend-url"
 
 const HOP_BY_HOP_HEADERS = new Set([
   "connection",
@@ -17,17 +14,6 @@ const HOP_BY_HOP_HEADERS = new Set([
   "transfer-encoding",
   "upgrade",
 ])
-
-function joinPaths(basePath: string, requestPath: string) {
-  const normalizedBase = basePath.replace(/\/+$/, "")
-  const normalizedRequest = requestPath.replace(/^\/+/, "")
-
-  if (!normalizedBase) {
-    return `/${normalizedRequest}`
-  }
-
-  return `${normalizedBase}/${normalizedRequest}`.replace(/\/{2,}/g, "/")
-}
 
 function sanitizeSetCookie(value: string) {
   return value.replace(/;\s*Domain=[^;]+/i, "")
@@ -63,18 +49,17 @@ function appendForwardedHeaders(source: Headers, target: NextResponse) {
 }
 
 export function getAdminBackendBaseUrl() {
-  return ADMIN_BACKEND_BASE_URL
+  return getBackendBaseUrl()
 }
 
 export function shouldProxyAdminBackend() {
-  return Boolean(ADMIN_BACKEND_BASE_URL)
+  return Boolean(getBackendBaseUrl())
 }
 
 function buildTargetUrl(request: NextRequest) {
-  const baseUrl = new URL(ADMIN_BACKEND_BASE_URL)
-  baseUrl.pathname = joinPaths(baseUrl.pathname, request.nextUrl.pathname)
-  baseUrl.search = request.nextUrl.search
-  return baseUrl
+  const targetUrl = new URL(buildBackendUrl(request.nextUrl.pathname))
+  targetUrl.search = request.nextUrl.search
+  return targetUrl
 }
 
 export async function proxyAdminRequest(request: NextRequest) {

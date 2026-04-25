@@ -3,11 +3,8 @@ import "server-only"
 import type { Article } from "@/types/article"
 
 import { getPublicArticles } from "@/lib/admin-store"
-
-const API_BASE_URL =
-  process.env.API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  ""
+import { fetchBackendCollection } from "@/lib/backend-fetch"
+import { buildBackendUrl, getBackendBaseUrl } from "@/lib/backend-url"
 
 const configuredArticlesPath =
   process.env.API_ARTICLES_PATH?.trim().replace(/^\/+|\/+$/g, "") ||
@@ -15,6 +12,10 @@ const configuredArticlesPath =
   ""
 
 const ARTICLES_PATH = configuredArticlesPath || "api/articles"
+const ARTICLES_PATH_CANDIDATES = [
+  ARTICLES_PATH,
+  ARTICLES_PATH.startsWith("api/admin/") ? ARTICLES_PATH.replace(/^api\/admin\//, "api/") : "api/admin/articles",
+]
 
 const ARTICLE_IMAGE_FALLBACKS = [
   "/images/articles/1.jpg",
@@ -50,10 +51,11 @@ function resolveAssetUrl(value: string | null, fallback: string) {
   }
 
   if (value.startsWith("/")) {
-    return API_BASE_URL ? `${API_BASE_URL}${value}` : value
+    const backendBaseUrl = getBackendBaseUrl()
+    return backendBaseUrl ? `${backendBaseUrl}${value}` : value
   }
 
-  return API_BASE_URL ? `${API_BASE_URL}/${value.replace(/^\/+/, "")}` : value
+  return buildBackendUrl(value)
 }
 
 function extractCollection(payload: unknown, depth = 0): unknown[] {
@@ -122,30 +124,12 @@ function normalizeArticleItem(item: unknown, index: number): Article | null {
 }
 
 async function getBackendArticles(): Promise<Article[] | null> {
-  if (!API_BASE_URL) {
-    return null
-  }
-
-  try {
-    const response = await fetch(`${API_BASE_URL}/${ARTICLES_PATH}`, {
-      cache: "no-store",
-    })
-
-    if (!response.ok) {
-      console.warn(`Failed to load articles from backend: ${response.status}`)
-      return null
-    }
-
-    const payload = (await response.json()) as unknown
-    const items = extractCollection(payload)
-      .map(normalizeArticleItem)
-      .filter((item): item is Article => item !== null)
-
-    return items.length > 0 ? items : null
-  } catch (error) {
-    console.warn("Failed to load articles from backend:", error)
-    return null
-  }
+  return fetchBackendCollection<Article>({
+    label: "articles",
+    paths: ARTICLES_PATH_CANDIDATES,
+    extract: extractCollection,
+    normalize: normalizeArticleItem,
+  })
 }
 
 export async function getArticles(): Promise<Article[]> {

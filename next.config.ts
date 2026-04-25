@@ -1,5 +1,6 @@
 import { type NextConfig } from 'next'
 import type { RemotePattern } from 'next/dist/shared/lib/image-config'
+import { getBackendBaseUrl } from "./src/lib/backend-url"
 
 function toRemotePattern(url: string): RemotePattern | null {
   try {
@@ -26,8 +27,7 @@ function toRemotePattern(url: string): RemotePattern | null {
   }
 }
 
-const configuredApiBaseUrl =
-  process.env.API_BASE_URL ?? process.env.NEXT_PUBLIC_API_BASE_URL
+const configuredApiBaseUrl = getBackendBaseUrl()
 
 const configuredApiRemotePattern = configuredApiBaseUrl
   ? toRemotePattern(configuredApiBaseUrl)

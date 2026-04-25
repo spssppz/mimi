@@ -3,11 +3,8 @@ import "server-only"
 import type { CatalogItem } from "@/types/catalog"
 
 import { getPublicControllers } from "@/lib/admin-store"
-
-const API_BASE_URL =
-  process.env.API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  ""
+import { fetchBackendCollection } from "@/lib/backend-fetch"
+import { buildBackendUrl, getBackendBaseUrl } from "@/lib/backend-url"
 
 const configuredControllersPath =
   process.env.API_CONTROLLERS_PATH?.trim().replace(/^\/+|\/+$/g, "") ||
@@ -15,6 +12,12 @@ const configuredControllersPath =
   ""
 
 const CONTROLLERS_PATH = configuredControllersPath || "api/admin/controllers"
+const CONTROLLERS_PATH_CANDIDATES = [
+  CONTROLLERS_PATH,
+  CONTROLLERS_PATH.startsWith("api/admin/")
+    ? CONTROLLERS_PATH.replace(/^api\/admin\//, "api/")
+    : "api/controllers",
+]
 
 type UnknownRecord = Record<string, unknown>
 
@@ -44,10 +47,11 @@ function resolveImageSource(value: string | null) {
   }
 
   if (value.startsWith("/")) {
-    return API_BASE_URL ? `${API_BASE_URL}${value}` : value
+    const backendBaseUrl = getBackendBaseUrl()
+    return backendBaseUrl ? `${backendBaseUrl}${value}` : value
   }
 
-  return API_BASE_URL ? `${API_BASE_URL}/${value.replace(/^\/+/, "")}` : value
+  return buildBackendUrl(value)
 }
 
 function extractCollection(payload: unknown, depth = 0): unknown[] {
@@ -102,30 +106,12 @@ function normalizeControllerItem(item: unknown, index: number): CatalogItem | nu
 }
 
 async function getBackendControllers(): Promise<CatalogItem[] | null> {
-  if (!API_BASE_URL) {
-    return null
-  }
-
-  try {
-    const response = await fetch(`${API_BASE_URL}/${CONTROLLERS_PATH}`, {
-      cache: "no-store",
-    })
-
-    if (!response.ok) {
-      console.warn(`Failed to load controllers from backend: ${response.status}`)
-      return null
-    }
-
-    const payload = (await response.json()) as unknown
-    const items = extractCollection(payload)
-      .map(normalizeControllerItem)
-      .filter((item): item is CatalogItem => item !== null)
-
-    return items.length > 0 ? items : null
-  } catch (error) {
-    console.warn("Failed to load controllers from backend:", error)
-    return null
-  }
+  return fetchBackendCollection<CatalogItem>({
+    label: "controllers",
+    paths: CONTROLLERS_PATH_CANDIDATES,
+    extract: extractCollection,
+    normalize: normalizeControllerItem,
+  })
 }
 
 export async function getControllerCatalogItems(): Promise<CatalogItem[]> {

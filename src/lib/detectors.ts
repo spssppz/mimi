@@ -3,11 +3,8 @@ import "server-only"
 import type { Detector, DetectorExampleData, DetectorHero, DetectorInfo, InfoSection } from "@/types/detector"
 
 import { getPublicDetectors } from "@/lib/admin-store"
-
-const API_BASE_URL =
-  process.env.API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, "") ??
-  ""
+import { fetchBackendCollection } from "@/lib/backend-fetch"
+import { buildBackendUrl, getBackendBaseUrl } from "@/lib/backend-url"
 
 const configuredDetectorsPath =
   process.env.API_DETECTORS_PATH?.trim().replace(/^\/+|\/+$/g, "") ||
@@ -15,6 +12,10 @@ const configuredDetectorsPath =
   ""
 
 const DETECTORS_PATH = configuredDetectorsPath || "api/detectors"
+const DETECTORS_PATH_CANDIDATES = [
+  DETECTORS_PATH,
+  DETECTORS_PATH.startsWith("api/admin/") ? DETECTORS_PATH.replace(/^api\/admin\//, "api/") : "api/admin/detectors",
+]
 
 const DETECTOR_ICON_FALLBACKS = [
   "/images/detector-page/icons/1.svg",
@@ -104,10 +105,11 @@ function resolveAssetUrl(value: string | null, fallback: string) {
   }
 
   if (value.startsWith("/")) {
-    return API_BASE_URL ? `${API_BASE_URL}${value}` : value
+    const backendBaseUrl = getBackendBaseUrl()
+    return backendBaseUrl ? `${backendBaseUrl}${value}` : value
   }
 
-  return API_BASE_URL ? `${API_BASE_URL}/${value.replace(/^\/+/, "")}` : value
+  return buildBackendUrl(value)
 }
 
 function extractCollection(payload: unknown, depth = 0): unknown[] {
@@ -320,33 +322,13 @@ function normalizeDetectorItem(item: unknown, index: number): Detector | null {
   }
 }
 
-function buildDetectorsUrl() {
-  return `${API_BASE_URL}/${DETECTORS_PATH}`
-}
-
 async function getBackendDetectors(): Promise<Detector[] | null> {
-  if (!API_BASE_URL) {
-    return null
-  }
-
-  try {
-    const response = await fetch(buildDetectorsUrl(), {
-      cache: "no-store",
-    })
-
-    if (!response.ok) {
-      console.warn(`Failed to load detectors from backend: ${response.status}`)
-      return null
-    }
-
-    const payload = (await response.json()) as unknown
-    return extractCollection(payload)
-      .map(normalizeDetectorItem)
-      .filter((item): item is Detector => item !== null)
-  } catch (error) {
-    console.warn("Failed to load detectors from backend:", error)
-    return null
-  }
+  return fetchBackendCollection<Detector>({
+    label: "detectors",
+    paths: DETECTORS_PATH_CANDIDATES,
+    extract: extractCollection,
+    normalize: normalizeDetectorItem,
+  })
 }
 
 export async function getDetectors(): Promise<Detector[]> {
