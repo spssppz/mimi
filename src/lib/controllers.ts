@@ -3,6 +3,7 @@ import "server-only"
 import type { CatalogItem } from "@/types/catalog"
 
 import { getPublicControllers } from "@/lib/admin-store"
+import { getAllControllers as fetchControllersFromApi, getControllerById as fetchControllerByIdFromApi } from "@/lib/api/controllers"
 import { fetchBackendCollection } from "@/lib/backend-fetch"
 import { buildBackendUrl, getBackendBaseUrl } from "@/lib/backend-url"
 
@@ -85,10 +86,16 @@ function normalizeControllerItem(item: unknown, index: number): CatalogItem | nu
   const title = firstString(item, ["cap", "title", "name", "model"])
   const description = firstString(item, ["descr", "description", "summary", "content"]) ?? ""
   const imageSource = firstString(item, ["image_url", "image", "imageUrl"])
-  const link = firstString(item, ["link", "href", "url"]) ?? "#"
+  let link = firstString(item, ["link", "href", "url"]) ?? null
+  const specifications = Array.isArray(item.specifications) ? item.specifications : undefined
 
   if (!title) {
     return null
+  }
+
+  // Generate link from index if not provided
+  if (!link || link === "#") {
+    link = `/controller/${index}`
   }
 
   const fallbackImages = ["/images/products/1.png", "/images/products/2.png", "/images/products/3.png"]
@@ -102,16 +109,44 @@ function normalizeControllerItem(item: unknown, index: number): CatalogItem | nu
     cap: title,
     descr: description,
     link,
+    specifications: specifications as Array<{
+      name: string
+      unit: string
+      value: string
+    }> | undefined,
   }
 }
 
 async function getBackendControllers(): Promise<CatalogItem[] | null> {
-  return fetchBackendCollection<CatalogItem>({
-    label: "controllers",
-    paths: CONTROLLERS_PATH_CANDIDATES,
-    extract: extractCollection,
-    normalize: normalizeControllerItem,
-  })
+  try {
+    // Попытка через fetchBackendCollection (основной способ)
+    const items = await fetchBackendCollection<CatalogItem>({
+      label: "controllers",
+      paths: CONTROLLERS_PATH_CANDIDATES,
+      extract: extractCollection,
+      normalize: normalizeControllerItem,
+    })
+
+    if (items && items.length > 0) {
+      console.log(`[Controllers] Loaded ${items.length} items from backend`)
+      return items
+    }
+  } catch (error) {
+    console.warn("Failed to fetch controllers via fetchBackendCollection:", error)
+  }
+
+  try {
+    // Попытка через новый API client
+    const result = await fetchControllersFromApi()
+    if (result.data && result.data.length > 0) {
+      console.log(`[Controllers] Loaded ${result.data.length} items from API`)
+      return result.data
+    }
+  } catch (error) {
+    console.warn("Failed to fetch controllers from API:", error)
+  }
+
+  return null
 }
 
 export async function getControllerCatalogItems(): Promise<CatalogItem[]> {
@@ -121,9 +156,38 @@ export async function getControllerCatalogItems(): Promise<CatalogItem[]> {
     return backendItems
   }
 
+  console.log("[Controllers] Using fallback: loading from local storage")
   const items = await getPublicControllers()
 
-  return items.map(
+  const result = items.map(
     ({ id: _id, status: _status, createdAt: _createdAt, updatedAt: _updatedAt, ...item }) => item
   )
+
+  console.log(`[Controllers] Loaded ${result.length} items from local storage`)
+  return result
+}
+
+export async function getControllerById(id: string): Promise<CatalogItem | null> {
+  try {
+    // Попытка через новый API client
+    const result = await fetchControllerByIdFromApi(id)
+    if (result) {
+      return result
+    }
+  } catch (error) {
+    console.warn(`Failed to fetch controller ${id} from API:`, error)
+  }
+
+  // Fallback: получить из каталога и найти по индексу
+  try {
+    const items = await getControllerCatalogItems()
+    const index = Number.parseInt(id, 10)
+    if (!Number.isNaN(index) && items[index]) {
+      return items[index]
+    }
+  } catch (error) {
+    console.warn(`Failed to find controller ${id} in catalog:`, error)
+  }
+
+  return null
 }

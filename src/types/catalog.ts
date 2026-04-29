@@ -7,4 +7,9 @@ export type CatalogItem = {
   cap: string
   descr: string
   link: string
+  specifications?: Array<{
+    name: string
+    unit: string
+    value: string
+  }>
 }
