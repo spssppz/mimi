@@ -273,20 +273,7 @@ export async function getProjects(): Promise<ProjectSummary[]> {
     return backendItems
   }
 
-  const items = await getPublicProjects()
-
-  return items.map(
-    ({
-      heroImage: _heroImage,
-      steps: _steps,
-      sections: _sections,
-      relatedProjectSlugs: _relatedProjectSlugs,
-      status: _status,
-      createdAt: _createdAt,
-      updatedAt: _updatedAt,
-      ...project
-    }) => project
-  )
+  return []
 }
 
 export async function getProjectBySlug(slug: string): Promise<ProjectDetails | null> {

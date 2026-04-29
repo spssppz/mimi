@@ -14,6 +14,8 @@ const UI_TEXT = {
 	relatedWorks: "\u0414\u0440\u0443\u0433\u0438\u0435 \u0440\u0430\u0431\u043E\u0442\u044B",
 }
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
 	title: routes.project.title
 }
