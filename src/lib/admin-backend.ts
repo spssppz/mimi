@@ -57,7 +57,7 @@ export function shouldProxyAdminBackend() {
 }
 
 function buildTargetUrl(request: NextRequest) {
-  const normalizedPath = request.nextUrl.pathname.replace(/^\/api\/admin\/equipment(?=\/|$)/, "/api/admin/controllers")
+  const normalizedPath = request.nextUrl.pathname.replace(/^\/api\/admin\/equipment(?=\/|$)/, "/api/equipment")
   const targetUrl = new URL(buildBackendUrl(normalizedPath))
   targetUrl.search = request.nextUrl.search
   return targetUrl
