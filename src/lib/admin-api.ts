@@ -4,7 +4,7 @@ import { NextResponse } from "next/server"
 import { readAdminSessionFromRequest } from "@/lib/admin-auth"
 import { type AdminEntity } from "@/lib/admin-store"
 
-const VALID_ENTITIES: AdminEntity[] = ["admins", "articles", "controllers", "detectors", "leads", "projects"]
+const VALID_ENTITIES: AdminEntity[] = ["admins", "articles", "controllers", "detectors", "equipment", "leads", "projects"]
 
 export function unauthorizedResponse() {
   return NextResponse.json({ error: "Требуется вход администратора." }, { status: 401 })

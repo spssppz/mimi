@@ -12,12 +12,14 @@ const configuredControllersPath =
   process.env.NEXT_PUBLIC_API_CONTROLLERS_PATH?.trim().replace(/^\/+|\/+$/g, "") ||
   ""
 
-const CONTROLLERS_PATH = configuredControllersPath || "api/admin/controllers"
+const CONTROLLERS_PATH = configuredControllersPath || "api/equipment"
 const CONTROLLERS_PATH_CANDIDATES = [
   CONTROLLERS_PATH,
-  CONTROLLERS_PATH.startsWith("api/admin/")
-    ? CONTROLLERS_PATH.replace(/^api\/admin\//, "api/")
-    : "api/controllers",
+  CONTROLLERS_PATH.startsWith("api/admin/") ? CONTROLLERS_PATH.replace(/^api\/admin\//, "api/") : CONTROLLERS_PATH,
+  "api/equipment",
+  "api/controllers",
+  "api/admin/equipment",
+  "api/admin/controllers",
 ]
 
 type UnknownRecord = Record<string, unknown>
@@ -36,6 +38,23 @@ function firstString(source: UnknownRecord, keys: string[]): string | null {
   }
 
   return null
+}
+
+function extractControllerId(item: UnknownRecord) {
+  const directId = item.id ?? item._id
+
+  if (typeof directId === "string" && directId.trim()) {
+    return directId.trim()
+  }
+
+  if (typeof directId === "number") {
+    return directId
+  }
+
+  const linkValue = firstString(item, ["link", "href", "url"])
+  const match = linkValue?.match(/\/controller\/([^/?#]+)/)
+
+  return match?.[1] ?? null
 }
 
 function resolveImageSource(value: string | null) {
@@ -83,36 +102,47 @@ function normalizeControllerItem(item: unknown, index: number): CatalogItem | nu
     return null
   }
 
+  const normalizedId = extractControllerId(item)
   const title = firstString(item, ["cap", "title", "name", "model"])
   const description = firstString(item, ["descr", "description", "summary", "content"]) ?? ""
+  const fullDescription = firstString(item, ["full_description", "fullDescription"]) ?? description
+  const type = firstString(item, ["type"])
   const imageSource = firstString(item, ["image_url", "image", "imageUrl"])
   let link = firstString(item, ["link", "href", "url"]) ?? null
   const specifications = Array.isArray(item.specifications) ? item.specifications : undefined
+  const steps = Array.isArray(item.steps) ? item.steps : undefined
 
   if (!title) {
     return null
   }
 
-  // Generate link from index if not provided
+  // Generate link from backend id if not provided.
   if (!link || link === "#") {
-    link = `/controller/${index}`
+    link = `/controller/${normalizedId ?? index}`
   }
 
   const fallbackImages = ["/images/products/1.png", "/images/products/2.png", "/images/products/3.png"]
 
   return {
+    id: normalizedId ?? undefined,
     image: {
       src: resolveImageSource(imageSource) || fallbackImages[index % fallbackImages.length],
       width: 197,
       height: 266,
     },
     cap: title,
+    type: type ?? undefined,
     descr: description,
     link,
+    fullDescription: fullDescription !== description ? fullDescription : undefined,
     specifications: specifications as Array<{
       name: string
       unit: string
       value: string
+    }> | undefined,
+    steps: steps as Array<{
+      title: string
+      content: string
     }> | undefined,
   }
 }
@@ -159,9 +189,11 @@ export async function getControllerCatalogItems(): Promise<CatalogItem[]> {
   console.log("[Controllers] Using fallback: loading from local storage")
   const items = await getPublicControllers()
 
-  const result = items.map(
-    ({ id: _id, status: _status, createdAt: _createdAt, updatedAt: _updatedAt, ...item }) => item
-  )
+  const result = items.map(({ status: _status, createdAt: _createdAt, updatedAt: _updatedAt, ...item }) => ({
+    ...item,
+    id: item.id,
+    link: item.link && item.link !== "#" ? item.link : `/controller/${item.id}`,
+  }))
 
   console.log(`[Controllers] Loaded ${result.length} items from local storage`)
   return result
@@ -181,6 +213,12 @@ export async function getControllerById(id: string): Promise<CatalogItem | null>
   // Fallback: получить из каталога и найти по индексу
   try {
     const items = await getControllerCatalogItems()
+    const matched = items.find(item => String(item.id) === id)
+
+    if (matched) {
+      return matched
+    }
+
     const index = Number.parseInt(id, 10)
     if (!Number.isNaN(index) && items[index]) {
       return items[index]

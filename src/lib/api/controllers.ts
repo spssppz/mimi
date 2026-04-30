@@ -1,18 +1,78 @@
 import type { CatalogItem } from "@/types/catalog"
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:4000/api"
+import { buildBackendUrl, getBackendBaseUrl } from "@/lib/backend-url"
+
+const LEGACY_API_BASE =
+  process.env.NEXT_PUBLIC_API_URL?.trim() || process.env.NEXT_PUBLIC_BACKEND_URL?.trim() || ""
+
+const API_BASE = getBackendBaseUrl() || LEGACY_API_BASE.replace(/\/+$/, "") || "http://localhost:4000"
+const CONTROLLER_PATHS = ["api/equipment", "api/controllers"]
+
+function extractId(record: Record<string, unknown>) {
+  const directId = record.id ?? record._id
+
+  if (typeof directId === "string" && directId.trim()) {
+    return directId.trim()
+  }
+
+  if (typeof directId === "number") {
+    return directId
+  }
+
+  const linkValue = typeof record.link === "string" ? record.link : typeof record.url === "string" ? record.url : ""
+  const match = linkValue.match(/\/controller\/([^/?#]+)/)
+
+  return match?.[1] ?? undefined
+}
+
+function buildControllerUrl(path: string) {
+  const normalizedPath = path.replace(/^\/+/, "")
+
+  if (API_BASE === getBackendBaseUrl()) {
+    return buildBackendUrl(normalizedPath)
+  }
+
+  return `${API_BASE}/${normalizedPath}`
+}
+
+async function fetchFirstAvailable(pathnames: string[], init?: RequestInit) {
+  let lastResponse: Response | null = null
+  let lastError: unknown = null
+
+  for (const pathname of pathnames) {
+    try {
+      const response = await fetch(buildControllerUrl(pathname), {
+        cache: "no-store",
+        headers: {
+          "Content-Type": "application/json",
+          ...(init?.headers || {}),
+        },
+        ...init,
+      })
+
+      if (response.ok) {
+        return response
+      }
+
+      lastResponse = response
+    } catch (error) {
+      lastError = error
+    }
+  }
+
+  if (lastError) {
+    throw lastError
+  }
+
+  return lastResponse
+}
 
 export async function getControllerById(id: string | number): Promise<CatalogItem | null> {
   try {
-    const res = await fetch(`${API_BASE}/controllers/${id}`, {
-      cache: "no-store",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    const res = await fetchFirstAvailable(CONTROLLER_PATHS.map((path) => `${path}/${id}`))
 
-    if (!res.ok) {
-      console.error(`Failed to fetch controller ${id}:`, res.status)
+    if (!res?.ok) {
+      console.error(`Failed to fetch controller ${id}:`, res?.status)
       return null
     }
 
@@ -29,24 +89,21 @@ export async function getAllControllers(limit = 100, offset = 0): Promise<{
   total: number
 }> {
   try {
-    const res = await fetch(`${API_BASE}/controllers?limit=${limit}&offset=${offset}`, {
-      cache: "no-store",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    const res = await fetchFirstAvailable(
+      CONTROLLER_PATHS.map((path) => `${path}?limit=${limit}&offset=${offset}`)
+    )
 
-    if (!res.ok) {
-      console.error("Failed to fetch controllers:", res.status)
+    if (!res?.ok) {
+      console.error("Failed to fetch controllers:", res?.status)
       return { data: [], total: 0 }
     }
 
     const response = await res.json()
-    const data = Array.isArray(response.data) ? response.data : [response.data]
-    
+    const rawData = Array.isArray(response?.data) ? response.data : Array.isArray(response) ? response : []
+
     return {
-      data: data.map(normalizeController).filter((item): item is CatalogItem => item !== null),
-      total: response.total || data.length,
+      data: rawData.map(normalizeController).filter((item: CatalogItem | null): item is CatalogItem => item !== null),
+      total: response?.total || response?.pagination?.total || rawData.length,
     }
   } catch (error) {
     console.error("Error fetching controllers:", error)
@@ -54,22 +111,18 @@ export async function getAllControllers(limit = 100, offset = 0): Promise<{
   }
 }
 
-export async function createController(
-  data: Partial<CatalogItem>,
-  token: string
-): Promise<CatalogItem | null> {
+export async function createController(data: Partial<CatalogItem>, token: string): Promise<CatalogItem | null> {
   try {
-    const res = await fetch(`${API_BASE}/controllers`, {
+    const res = await fetchFirstAvailable(CONTROLLER_PATHS, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     })
 
-    if (!res.ok) {
-      throw new Error(`Failed to create controller: ${res.statusText}`)
+    if (!res?.ok) {
+      throw new Error(`Failed to create controller: ${res?.statusText || "unknown error"}`)
     }
 
     const response = await res.json()
@@ -86,17 +139,16 @@ export async function updateController(
   token: string
 ): Promise<CatalogItem | null> {
   try {
-    const res = await fetch(`${API_BASE}/controllers/${id}`, {
+    const res = await fetchFirstAvailable(CONTROLLER_PATHS.map((path) => `${path}/${id}`), {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     })
 
-    if (!res.ok) {
-      throw new Error(`Failed to update controller: ${res.statusText}`)
+    if (!res?.ok) {
+      throw new Error(`Failed to update controller: ${res?.statusText || "unknown error"}`)
     }
 
     const response = await res.json()
@@ -109,15 +161,15 @@ export async function updateController(
 
 export async function deleteController(id: string | number, token: string): Promise<boolean> {
   try {
-    const res = await fetch(`${API_BASE}/controllers/${id}`, {
+    const res = await fetchFirstAvailable(CONTROLLER_PATHS.map((path) => `${path}/${id}`), {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
 
-    if (!res.ok) {
-      throw new Error(`Failed to delete controller: ${res.statusText}`)
+    if (!res?.ok) {
+      throw new Error(`Failed to delete controller: ${res?.statusText || "unknown error"}`)
     }
 
     return true
@@ -132,20 +184,31 @@ function normalizeController(item: unknown): CatalogItem | null {
     return null
   }
 
-  const record = item as Record<string, unknown>
+  const record =
+    typeof (item as { data?: unknown }).data === "object" && (item as { data?: unknown }).data !== null
+      ? ((item as { data: Record<string, unknown> }).data as Record<string, unknown>)
+      : (item as Record<string, unknown>)
 
   const cap = getString(record, ["cap", "title", "name", "model"])
+  const normalizedId = extractId(record)
   const descr = getString(record, ["descr", "description", "summary", "content"]) ?? ""
   const imageUrl = getString(record, ["image", "image_url", "imageUrl", "src"]) ?? "/images/products/1.png"
-  const link = getString(record, ["link", "href", "url"]) ?? "#"
+  const link = getString(record, ["link", "href", "url"]) ?? (normalizedId !== undefined ? `/controller/${normalizedId}` : "#")
+  const fullDescription = getString(record, ["full_description", "fullDescription"]) ?? descr
   const specifications = Array.isArray(record.specifications) ? record.specifications : []
+  const steps = Array.isArray(record.steps) ? record.steps : []
+  const model = getString(record, ["model"]) ?? undefined
+  const type = getString(record, ["type"]) ?? undefined
 
   if (!cap) {
     return null
   }
 
   return {
+    id: normalizedId,
     cap,
+    type,
+    model,
     descr,
     link,
     image: {
@@ -153,10 +216,15 @@ function normalizeController(item: unknown): CatalogItem | null {
       width: 197,
       height: 266,
     },
+    fullDescription,
     specifications: specifications as Array<{
       name: string
       unit: string
       value: string
+    }>,
+    steps: steps as Array<{
+      title: string
+      content: string
     }>,
   }
 }

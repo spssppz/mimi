@@ -9,8 +9,13 @@ export const metadata = {
 	title: routes.controller.title
 }
 
-export default async function ControllerDetailPage({ params }: { params: { id: string } }) {
-	const controller = await getControllerById(params.id)
+type ControllerDetailPageProps = {
+	params: Promise<{ id: string }>
+}
+
+export default async function ControllerDetailPage({ params }: ControllerDetailPageProps) {
+	const { id } = await params
+	const controller = await getControllerById(id)
 
 	if (!controller) {
 		notFound()

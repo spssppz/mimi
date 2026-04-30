@@ -3,15 +3,9 @@
 import Image from "next/image"
 import type { CatalogItem } from "@/types/catalog"
 
-type ControllerCardProps = CatalogItem & {
-	specifications?: Array<{
-		name: string
-		unit: string
-		value: string
-	}>
-}
+type ControllerCardProps = CatalogItem
 
-export default function ControllerCard({ cap, descr, image, specifications }: ControllerCardProps) {
+export default function ControllerCard({ cap, descr, fullDescription, image, specifications, steps }: ControllerCardProps) {
 	return (
 		<section className="bg-white">
 			<div className="text-center pt-15 pb-22.5 text-black font-bold overflow-hidden">
@@ -41,7 +35,7 @@ export default function ControllerCard({ cap, descr, image, specifications }: Co
 						/>
 					)}
 					<div className="font-helvetica basis-[54.25%] md:grow-0 md:shrink-0 text-[17px] -tracking-[0.01em] space-y-[1em]">
-						<p>{descr}</p>
+						<p>{fullDescription || descr}</p>
 					</div>
 				</div>
 
@@ -72,6 +66,19 @@ export default function ControllerCard({ cap, descr, image, specifications }: Co
 								))}
 							</tbody>
 						</table>
+					</div>
+				)}
+
+				{steps && steps.length > 0 && (
+					<div className="py-15 lg:py-22.5 border-b border-[#d9d9d9]">
+						<div className="space-y-8">
+							{steps.map((step, idx) => (
+								<div key={idx} className="font-helvetica -tracking-[0.01em]">
+									<h3 className="font-bold text-[18px] mb-2">{step.title}</h3>
+									<p className="text-[15px]">{step.content}</p>
+								</div>
+							))}
+						</div>
 					</div>
 				)}
 			</div>

@@ -20,20 +20,40 @@ function CrudTable({ entity, fields, title, icon }) {
   const [newData, setNewData] = useState({});
   const [uploadingField, setUploadingField] = useState('');
 
-  const getDisplayFields = () =>
-    fields.filter((field) => !['created_at', 'updated_at', 'published_at'].includes(field));
+  const normalizedFields = fields.map((field) =>
+    typeof field === 'string'
+      ? { key: field, label: getFieldLabel(field), type: 'text' }
+      : { key: field.key, label: field.label || getFieldLabel(field.key), type: field.type || 'text' }
+  );
 
-  const isImageField = (field) => field === 'image_url';
-  const isTextAreaField = (field) => ['description', 'content'].includes(field);
-  const isBooleanStatusField = (field) =>
-    field === 'status' && ['sensors', 'controllers'].includes(entity);
-  const isDateField = (field) => field.includes('date');
-  const isNumberField = (field) => field.includes('budget');
+  const getDisplayFields = () =>
+    normalizedFields.filter(
+      (field) => !['created_at', 'updated_at', 'published_at', 'createdAt', 'updatedAt'].includes(field.key)
+    );
+
+  const isImageField = (field) => field.type === 'image' || ['image', 'image_url'].includes(field.key);
+  const isTextAreaField = (field) =>
+    field.type === 'textarea' || ['description', 'content', 'descr', 'full_description'].includes(field.key);
+  const isJsonField = (field) => field.type === 'json';
+  const isBooleanStatusField = (field) => field.type === 'checkbox' || field.key === 'status';
+  const isDateField = (field) => field.type === 'date' || field.key.includes('date');
+  const isNumberField = (field) => field.type === 'number' || field.key.includes('budget');
 
   const normalizeValue = (field, value) => {
     if (value === '') {
       if (isBooleanStatusField(field)) return true;
+      if (isJsonField(field)) return [];
       return null;
+    }
+
+    if (isJsonField(field)) {
+      if (typeof value !== 'string') return value;
+
+      try {
+        return JSON.parse(value);
+      } catch {
+        return value;
+      }
     }
 
     if (isNumberField(field)) {
@@ -52,10 +72,22 @@ function CrudTable({ entity, fields, title, icon }) {
     const payload = {};
 
     getDisplayFields().forEach((field) => {
-      payload[field] = normalizeValue(field, source[field] ?? '');
+      payload[field.key] = normalizeValue(field, source[field.key] ?? '');
     });
 
     return payload;
+  };
+
+  const buildFormState = (source = {}) => {
+    const formState = {};
+
+    getDisplayFields().forEach((field) => {
+      const value = source[field.key];
+      formState[field.key] =
+        isJsonField(field) && value !== undefined && value !== null ? JSON.stringify(value, null, 2) : value ?? '';
+    });
+
+    return formState;
   };
 
   const fetchItems = async (page = 1) => {
@@ -83,24 +115,24 @@ function CrudTable({ entity, fields, title, icon }) {
 
   const handleEdit = (item) => {
     setEditingId(item.id);
-    setEditData(buildPayload(item));
+    setEditData(buildFormState(item));
   };
 
   const setFormFieldValue = (mode, field, value) => {
-    const normalized = normalizeValue(field, value);
+    const normalized = isJsonField(field) ? value : normalizeValue(field, value);
 
     if (mode === 'edit') {
-      setEditData((prev) => ({ ...prev, [field]: normalized }));
+      setEditData((prev) => ({ ...prev, [field.key]: normalized }));
       return;
     }
 
-    setNewData((prev) => ({ ...prev, [field]: normalized }));
+    setNewData((prev) => ({ ...prev, [field.key]: normalized }));
   };
 
   const handleImageUpload = async (mode, field, file) => {
     if (!file) return;
 
-    setUploadingField(`${mode}:${field}`);
+    setUploadingField(`${mode}:${field.key}`);
     setError('');
 
     try {
@@ -170,9 +202,9 @@ function CrudTable({ entity, fields, title, icon }) {
   };
 
   const renderFormField = (mode, field, value) => {
-    const uploadKey = `${mode}:${field}`;
+    const uploadKey = `${mode}:${field.key}`;
     const displayValue = value ?? '';
-    const label = getFieldLabel(field).toLowerCase();
+    const label = field.label.toLowerCase();
 
     if (isImageField(field)) {
       return (
@@ -193,6 +225,17 @@ function CrudTable({ entity, fields, title, icon }) {
           )}
           {renderImagePreview(displayValue, `${entity} preview`)}
         </>
+      );
+    }
+
+    if (isJsonField(field)) {
+      return (
+        <textarea
+          value={displayValue}
+          onChange={(e) => setFormFieldValue(mode, field, e.target.value)}
+          placeholder={`Введите JSON для ${label}`}
+          rows={8}
+        />
       );
     }
 
@@ -244,12 +287,20 @@ function CrudTable({ entity, fields, title, icon }) {
       return '-';
     }
 
-    if (field === 'status') {
+    if (field.key === 'status') {
       return translateStatus(value);
     }
 
-    if (field === 'category') {
+    if (field.key === 'category') {
       return translateArticleCategory(value);
+    }
+
+    if (isJsonField(field)) {
+      if (Array.isArray(value)) {
+        return `${value.length} items`;
+      }
+
+      return String(value).substring(0, 50);
     }
 
     return String(value).substring(0, 50);
@@ -297,9 +348,9 @@ function CrudTable({ entity, fields, title, icon }) {
           <h3>Новая запись: {getEntityLabel(entity, 'singular')}</h3>
           <div className="form-grid">
             {getDisplayFields().map((field) => (
-              <div key={field} className="form-group">
-                <label>{getFieldLabel(field)}</label>
-                {renderFormField('create', field, newData[field])}
+              <div key={field.key} className="form-group">
+                <label>{field.label}</label>
+                {renderFormField('create', field, newData[field.key])}
               </div>
             ))}
           </div>
@@ -326,7 +377,7 @@ function CrudTable({ entity, fields, title, icon }) {
                 <tr>
                   <th>ID</th>
                   {getDisplayFields().map((field) => (
-                    <th key={field}>{getFieldLabel(field)}</th>
+                    <th key={field.key}>{field.label}</th>
                   ))}
                   <th>Действия</th>
                 </tr>
@@ -336,13 +387,13 @@ function CrudTable({ entity, fields, title, icon }) {
                   <tr key={item.id} className={editingId === item.id ? 'editing' : ''}>
                     <td>{item.id}</td>
                     {getDisplayFields().map((field) => (
-                      <td key={field}>
+                      <td key={field.key}>
                         {editingId === item.id ? (
                           <div className="cell-edit-wrap">
-                            {renderFormField('edit', field, editData[field])}
+                            {renderFormField('edit', field, editData[field.key])}
                           </div>
                         ) : (
-                          <span>{renderCellValue(field, item[field])}</span>
+                          <span>{renderCellValue(field, item[field.key])}</span>
                         )}
                       </td>
                     ))}
@@ -382,8 +433,8 @@ function CrudTable({ entity, fields, title, icon }) {
               Назад
             </button>
 
-            {Array.from({ length: pagination.pages }, (_, i) => i + 1)
-              .slice(Math.max(0, currentPage - 2), Math.min(pagination.pages, currentPage + 2))
+            {Array.from({ length: pagination.pages || 0 }, (_, i) => i + 1)
+              .slice(Math.max(0, currentPage - 2), Math.min(pagination.pages || 0, currentPage + 2))
               .map((page) => (
                 <button
                   key={page}

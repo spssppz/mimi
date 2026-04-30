@@ -3,7 +3,7 @@ import LeadsTab from '../components/LeadsTab';
 import StatsTab from '../components/StatsTab';
 import ExportTab from '../components/ExportTab';
 import SensorForm from '../components/SensorForm';
-import ControllersTab from '../components/ControllersTab';
+import EquipmentPage from './EquipmentPage';
 import ProjectsTab from '../components/ProjectsTab';
 import ArticleForm from '../components/ArticleForm';
 import DetectorForm from '../components/DetectorForm';
@@ -71,7 +71,7 @@ function Dashboard({ onLogout }) {
         <div className="tabs-content">
           {activeTab === 'leads' && <LeadsTab />}
           {activeTab === 'sensors' && <SensorForm />}
-          {activeTab === 'controllers' && <ControllersTab />}
+          {activeTab === 'controllers' && <EquipmentPage />}
           {activeTab === 'projects' && <ProjectsTab />}
           {activeTab === 'articles' && <ArticleForm />}
           {activeTab === 'detectors' && <DetectorForm />}

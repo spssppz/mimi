@@ -2,6 +2,7 @@ export const ENTITY_LABELS = {
   leads: { singular: 'лид', plural: 'лиды' },
   sensors: { singular: 'датчик', plural: 'датчики' },
   controllers: { singular: 'контроллер', plural: 'контроллеры' },
+  equipment: { singular: 'оборудование', plural: 'оборудование' },
   projects: { singular: 'проект', plural: 'проекты' },
   articles: { singular: 'статья', plural: 'статьи' },
   detectors: { singular: 'детектор', plural: 'детекторы' },
@@ -19,9 +20,12 @@ export const FIELD_LABELS = {
   form_type: 'Тип формы',
   submitted_at: 'Отправлено',
   type: 'Тип',
+  cap: 'Название',
   model: 'Модель',
   description: 'Описание',
+  descr: 'Описание',
   content: 'Контент',
+  full_description: 'Полное описание',
   author: 'Автор',
   category: 'Категория',
   image_url: 'Изображение',
@@ -35,6 +39,8 @@ export const FIELD_LABELS = {
   published_at: 'Опубликовано',
   subtitle: 'Подзаголовок',
   likes: 'Лайки',
+  specifications: 'Характеристики',
+  steps: 'Шаги',
 };
 
 export const PROJECT_STATUS_LABELS = {

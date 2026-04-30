@@ -8,7 +8,7 @@ import type { CatalogItem } from "@/types/catalog"
 import type { Detector } from "@/types/detector"
 import type { ProjectDetails, ProjectSection, ProjectStep, ProjectSummary } from "@/types/project"
 
-export type AdminEntity = "admins" | "articles" | "controllers" | "detectors" | "leads" | "projects"
+export type AdminEntity = "admins" | "articles" | "controllers" | "detectors" | "equipment" | "leads" | "projects"
 
 export type ArticleRecord = Article & {
   slug: string
@@ -28,6 +28,28 @@ export type ControllerRecord = CatalogItem & {
 
 export type DetectorRecord = Detector & {
   id: number | string
+  status: boolean
+  createdAt: string
+  updatedAt: string
+}
+
+export type EquipmentRecord = {
+  id: number | string
+  cap: string
+  type: string
+  model: string
+  descr: string
+  full_description: string
+  image: string
+  specifications: Array<{
+    name: string
+    unit: string
+    value: string
+  }>
+  steps: Array<{
+    title: string
+    content: string
+  }>
   status: boolean
   createdAt: string
   updatedAt: string
@@ -64,6 +86,7 @@ type EntityMap = {
   articles: ArticleRecord
   controllers: ControllerRecord
   detectors: DetectorRecord
+  equipment: EquipmentRecord
   leads: LeadRecord
   projects: ProjectRecord
 }
@@ -123,6 +146,54 @@ function stringArray(value: unknown) {
   return value
     .map(item => (typeof item === "string" ? item.trim() : ""))
     .filter(Boolean)
+}
+
+function equipmentSpecifications(value: unknown): EquipmentRecord["specifications"] {
+  if (!Array.isArray(value)) {
+    return []
+  }
+
+  return value
+    .map(item => {
+      if (!isObject(item)) {
+        return null
+      }
+
+      const name = text(item.name)
+      const unit = text(item.unit)
+      const normalizedValue =
+        typeof item.value === "string" || typeof item.value === "number" ? String(item.value) : ""
+
+      if (!name && !unit && !normalizedValue) {
+        return null
+      }
+
+      return { name, unit, value: normalizedValue }
+    })
+    .filter((item): item is EquipmentRecord["specifications"][number] => item !== null)
+}
+
+function equipmentSteps(value: unknown): EquipmentRecord["steps"] {
+  if (!Array.isArray(value)) {
+    return []
+  }
+
+  return value
+    .map(item => {
+      if (!isObject(item)) {
+        return null
+      }
+
+      const title = text(item.title)
+      const content = text(item.content)
+
+      if (!title && !content) {
+        return null
+      }
+
+      return { title, content }
+    })
+    .filter((item): item is EquipmentRecord["steps"][number] => item !== null)
 }
 
 function projectSteps(value: unknown): ProjectStep[] {
@@ -294,6 +365,7 @@ function filterEntityItems<T extends AdminEntity>(entity: T, items: EntityMap[T]
     articles: ["title", "description", "tag", "slug", "author"],
     controllers: ["cap", "descr", "link"],
     detectors: ["slug", "title", "subtitle"],
+    equipment: ["cap", "type", "model", "descr", "full_description"],
     leads: ["name", "phone", "comment", "pageUrl", "formType"],
     projects: ["slug", "title", "description", "city", "objectType", "area"],
   }
@@ -401,6 +473,30 @@ function normalizeDetectorRecord(
   }
 }
 
+function normalizeEquipmentRecord(
+  input: Partial<EquipmentRecord>,
+  existing?: EquipmentRecord,
+  index = 0
+): EquipmentRecord {
+  const createdAt = existing?.createdAt ?? text(input.createdAt, nowIso())
+  const updatedAt = nowIso()
+
+  return {
+    id: input.id ?? existing?.id ?? index + 1,
+    cap: text(input.cap, existing?.cap || ""),
+    type: text(input.type, existing?.type || ""),
+    model: text(input.model, existing?.model || ""),
+    descr: text(input.descr, existing?.descr || ""),
+    full_description: text(input.full_description, existing?.full_description || ""),
+    image: text(input.image, existing?.image || ""),
+    specifications: equipmentSpecifications(input.specifications ?? existing?.specifications),
+    steps: equipmentSteps(input.steps ?? existing?.steps),
+    status: bool(input.status, existing?.status ?? true),
+    createdAt,
+    updatedAt,
+  }
+}
+
 function normalizeProjectRecord(input: Partial<ProjectRecord>, existing?: ProjectRecord, index = 0): ProjectRecord {
   const normalized = ensureProjectDetails(
     {
@@ -501,6 +597,9 @@ export async function createEntityItem<T extends Exclude<AdminEntity, "admins">>
     case "detectors":
       created = normalizeDetectorRecord(input as Partial<DetectorRecord>, undefined, items.length) as EntityMap[T]
       break
+    case "equipment":
+      created = normalizeEquipmentRecord(input as Partial<EquipmentRecord>, undefined, items.length) as EntityMap[T]
+      break
     case "leads":
       created = normalizeLeadRecord(
         input as Partial<LeadRecord>,
@@ -547,6 +646,9 @@ export async function updateEntityItem<T extends Exclude<AdminEntity, "admins">>
       break
     case "detectors":
       updated = normalizeDetectorRecord(input as Partial<DetectorRecord>, existing as DetectorRecord, index) as EntityMap[T]
+      break
+    case "equipment":
+      updated = normalizeEquipmentRecord(input as Partial<EquipmentRecord>, existing as EquipmentRecord, index) as EntityMap[T]
       break
     case "leads":
       updated = normalizeLeadRecord(input as Partial<LeadRecord>, existing as LeadRecord) as EntityMap[T]

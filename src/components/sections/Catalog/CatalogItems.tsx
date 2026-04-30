@@ -12,6 +12,22 @@ function isRemoteImage(src: string) {
 	return src.startsWith("http://") || src.startsWith("https://")
 }
 
+function getControllerHref(item: ProductItem, fallbackIndex: number) {
+	if (typeof item.id === "string" && item.id.trim()) {
+		return `/controller/${encodeURIComponent(item.id.trim())}`
+	}
+
+	if (typeof item.id === "number") {
+		return `/controller/${item.id}`
+	}
+
+	if (typeof item.link === "string" && item.link.trim() && !item.link.includes("undefined")) {
+		return item.link
+	}
+
+	return `/controller/${fallbackIndex}`
+}
+
 const IMAGE_FRAME_WIDTH = 197
 const IMAGE_FRAME_HEIGHT = 266
 
@@ -47,7 +63,7 @@ export default function CatalogItems({
 				<ul className="grid grid-cols-2 lg:grid-cols-3 sm:gap-4 gap-2 mb-6 lg:mb-10">
 					{visibleItems.map((item, i) => (
 						<li
-							key={i}
+							key={String(item.id ?? item.link ?? i)}
 							className="rounded-[20px] bg-background px-5 py-6 md:px-10 md:py-10 lg:min-h-122.5 flex flex-col"
 						>
 							<div className="self-center mb-5 flex h-[266px] w-[197px] items-center justify-center overflow-hidden">
@@ -77,7 +93,7 @@ export default function CatalogItems({
 								<div className="text-[15px] max-sm:hidden line-clamp-2">{item.descr}</div>
 
 								<Link
-									href={item.link}
+									href={getControllerHref(item, i)}
 									className="inline-flex hover:text-foreground transition-colors duration-300 items-center gap-1 text-[15px] font-medium text-brand-blue group cursor-pointer"
 								>
 									Подробнее
