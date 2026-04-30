@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import Image from 'next/image'
 import { categories } from '@/data/categories'
 import type { ProjectSection } from '@/types/project'
+import SafeImage from '@/components/UI/SafeImage'
 
 type ProjectTagsProps = {
 	sections: ProjectSection[]
@@ -131,7 +131,7 @@ export default function ProjectTags({ sections }: ProjectTagsProps) {
 										{section.title}
 									</h3>
 
-									<Image
+									<SafeImage
 										src={section.image}
 										width={773}
 										height={515}

@@ -5,6 +5,10 @@ import type { CatalogItem } from "@/types/catalog"
 
 type ControllerCardProps = CatalogItem
 
+function isRemoteImage(src: string) {
+	return src.startsWith("http://") || src.startsWith("https://")
+}
+
 export default function ControllerCard({ cap, descr, fullDescription, image, specifications, steps }: ControllerCardProps) {
 	return (
 		<section className="bg-white">
@@ -26,13 +30,25 @@ export default function ControllerCard({ cap, descr, fullDescription, image, spe
 			<div className="max-w-308 px-4 mx-auto">
 				<div className="py-15 lg:py-22.5 border-y border-[#d9d9d9] flex max-lg:flex-col items-center gap-15 lg:gap-10 lg:justify-between">
 					{image && (
-						<Image
-							src={image.src}
-							width={image.width || 349}
-							height={image.height || 449}
-							alt={cap}
-							className="max-w-63.5 md:max-w-100"
-						/>
+						isRemoteImage(image.src) ? (
+							<img
+								src={image.src}
+								width={image.width || 349}
+								height={image.height || 449}
+								alt={cap}
+								loading="lazy"
+								referrerPolicy="no-referrer"
+								className="max-w-63.5 md:max-w-100"
+							/>
+						) : (
+							<Image
+								src={image.src}
+								width={image.width || 349}
+								height={image.height || 449}
+								alt={cap}
+								className="max-w-63.5 md:max-w-100"
+							/>
+						)
 					)}
 					<div className="font-helvetica basis-[54.25%] md:grow-0 md:shrink-0 text-[17px] -tracking-[0.01em] space-y-[1em]">
 						<p>{fullDescription || descr}</p>

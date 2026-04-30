@@ -1,5 +1,5 @@
-import Image from "next/image"
 import type { ProjectDetails } from "@/types/project"
+import SafeImage from "@/components/UI/SafeImage"
 
 type ProjectHeroProps = Pick<ProjectDetails, "title" | "objectType" | "area" | "heroImage">
 
@@ -25,7 +25,7 @@ export default function ProjectHero({ title, objectType, area, heroImage }: Proj
 				</div>
 
 				<div className="relative max-xl:hidden w-full aspect-1440/900">
-					<Image
+					<SafeImage
 						src={heroImage}
 						fill
 						alt={title}
@@ -34,7 +34,7 @@ export default function ProjectHero({ title, objectType, area, heroImage }: Proj
 					/>
 				</div>
 				<div className="xl:hidden -mx-4">
-					<Image
+					<SafeImage
 						src={heroImage}
 						width={1440}
 						height={900}

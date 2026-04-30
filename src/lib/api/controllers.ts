@@ -35,6 +35,23 @@ function buildControllerUrl(path: string) {
   return `${API_BASE}/${normalizedPath}`
 }
 
+function resolveImageSource(value: string | null) {
+  if (!value) {
+    return "/images/products/1.png"
+  }
+
+  if (value.startsWith("http://") || value.startsWith("https://") || value.startsWith("/images/")) {
+    return value
+  }
+
+  if (value.startsWith("/")) {
+    const backendBaseUrl = getBackendBaseUrl()
+    return backendBaseUrl ? `${backendBaseUrl}${value}` : value
+  }
+
+  return buildBackendUrl(value)
+}
+
 async function fetchFirstAvailable(pathnames: string[], init?: RequestInit) {
   let lastResponse: Response | null = null
   let lastError: unknown = null
@@ -192,7 +209,7 @@ function normalizeController(item: unknown): CatalogItem | null {
   const cap = getString(record, ["cap", "title", "name", "model"])
   const normalizedId = extractId(record)
   const descr = getString(record, ["descr", "description", "summary", "content"]) ?? ""
-  const imageUrl = getString(record, ["image", "image_url", "imageUrl", "src"]) ?? "/images/products/1.png"
+  const imageUrl = resolveImageSource(getString(record, ["image", "image_url", "imageUrl", "src"]))
   const link = getString(record, ["link", "href", "url"]) ?? (normalizedId !== undefined ? `/controller/${normalizedId}` : "#")
   const fullDescription = getString(record, ["full_description", "fullDescription"]) ?? descr
   const specifications = Array.isArray(record.specifications) ? record.specifications : []

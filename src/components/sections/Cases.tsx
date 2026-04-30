@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useMemo, useEffect } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
@@ -10,6 +9,7 @@ import { cases } from '@/data/cases'
 
 import { Title } from '../UI/Title'
 import { SliderNavigation } from '../UI/SliderNavigation'
+import SafeImage from '../UI/SafeImage'
 import { categories } from '@/data/categories'
 import { RightArrowIcon } from '@/icons/RightArrowIcon'
 import { getProjectHref } from '@/lib/project-links'
@@ -148,7 +148,7 @@ export default function Cases({ title, theme, hasFilter, limit, items }: Props) 
 						return (
 							<SwiperSlide key={`${item.slug}-${index}`}>
 								<div className="relative aspect-360/290 mb-5 lg:mb-7.5 overflow-hidden rounded-xl">
-									<Image
+									<SafeImage
 										src={item.image}
 										alt={item.title}
 										fill

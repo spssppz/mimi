@@ -1,12 +1,12 @@
 'use client'
 
 import { useState, useMemo, useRef, useLayoutEffect } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import 'swiper/css'
 import { categories } from '@/data/categories'
 import { RightArrowIcon } from '@/icons/RightArrowIcon'
 import { Title } from '@/components/UI/Title'
+import SafeImage from '@/components/UI/SafeImage'
 import { getProjectHref } from '@/lib/project-links'
 import type { ProjectSummary } from '@/types/project'
 import gsap from 'gsap'
@@ -166,7 +166,7 @@ export default function Portfolio({ projects }: PortfolioProps) {
 							</div>
 
 							<div className="relative rounded-xl overflow-hidden flex-auto aspect-774/430">
-								<Image quality={95} src={item.imageMain} alt={item.title} fill className="object-cover" />
+								<SafeImage quality={95} src={item.imageMain} alt={item.title} fill className="object-cover" />
 							</div>
 						</li>
 					))}

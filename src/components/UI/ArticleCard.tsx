@@ -1,7 +1,7 @@
 import { Article } from "@/types/article";
-import Image from "next/image";
 import Link from "next/link";
 import { getArticleHref } from "@/lib/article-links";
+import SafeImage from "@/components/UI/SafeImage";
 
 export function ArticleCard({ article, className }: { article: Article, className?: string }) {
 	function isNewArticle(date: string, days = 7) {
@@ -40,7 +40,7 @@ export function ArticleCard({ article, className }: { article: Article, classNam
 			</p>
 
 			<div className="aspect-326/149 lg:aspect-273/125 rounded-2xl overflow-hidden mt-auto">
-				<Image
+				<SafeImage
 					src={article.image}
 					alt={article.title}
 					width={273}

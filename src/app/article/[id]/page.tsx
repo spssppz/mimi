@@ -1,10 +1,10 @@
-import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import Footer from "@/components/layout/Footer"
 import Header from "@/components/layout/Header"
 import Articles from "@/components/sections/Articles"
+import SafeImage from "@/components/UI/SafeImage"
 import { getArticles } from "@/lib/articles"
 import { formatArticleDate } from "@/lib/article-links"
 
@@ -33,7 +33,7 @@ export default async function ArticleDetailsPage({ params }: ArticlePageProps) {
 
 			<main>
 				<div className="relative aspect-390/180 md:aspect-1440/420">
-					<Image
+					<SafeImage
 						src={article.image}
 						alt={article.title}
 						fill
