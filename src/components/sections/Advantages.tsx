@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Title } from "../UI/Title";
 import { RightArrowIcon } from "@/icons/RightArrowIcon";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 // Данные для попапов
 const ADVANTAGES_DATA = [
@@ -75,10 +76,10 @@ export default function Advantages({ textLink }: { textLink?: string }) {
 		<section className="pt-30 pb-22.5 relative">
 			<div className="max-w-308 mx-auto px-4">
 				<Title className="mb-10">Преимущества умного <br /> дома MiMiSmart</Title>
-				<a href="#" className="mb-10 inline-flex hover:text-foreground transition-colors duration-300 items-center gap-1 text-[15px] font-medium text-brand-blue group">
+				<Link href="/features" className="mb-10 inline-flex hover:text-foreground transition-colors duration-300 items-center gap-1 text-[15px] font-medium text-brand-blue group">
 					{textLink ? textLink : 'Узнать больше'}
 					<RightArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-				</a>
+				</Link>
 
 				<ul className="grid sm:grid-cols-2 lg:flex gap-4 sm:gap-5 flex-wrap relative">
 					{/* Карточка 1 */}

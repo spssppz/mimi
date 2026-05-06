@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Title } from '../UI/Title';
 import { RightArrowIcon } from '@/icons/RightArrowIcon';
 import gsap from 'gsap';
+import Link from 'next/link';
 
 interface CardProps {
 	title: string;
@@ -12,10 +13,11 @@ interface CardProps {
 	image: string;
 	imgWidth: number;
 	glowColor: string;
+	url: string;
 	mousePos: { x: number; y: number }; // Получаем координаты извне
 }
 
-const SolutionCard = ({ title, description, image, imgWidth, glowColor, mousePos }: CardProps) => {
+const SolutionCard = ({ title, description, image, imgWidth, glowColor, mousePos, url }: CardProps) => {
 	const cardRef = useRef<HTMLLIElement>(null);
 	const glowRef = useRef<HTMLDivElement>(null);
 
@@ -95,10 +97,10 @@ const SolutionCard = ({ title, description, image, imgWidth, glowColor, mousePos
 				<p className="mb-4 font-helvetica text-brand-gray text-[15px] tracking-[-0.01em]">
 					{description}
 				</p>
-				<a href="#" className="inline-flex items-center gap-1 text-[15px] font-medium text-brand-blue group/link">
+				<Link href={url} className="inline-flex items-center gap-1 text-[15px] font-medium text-brand-blue group/link">
 					Узнать больше
 					<RightArrowIcon className="w-5 h-5 group-hover/link:translate-x-1 transition-transform duration-300" />
-				</a>
+				</Link>
 			</div>
 		</li>
 	);
@@ -128,6 +130,7 @@ export default function Solutions() {
 						glowColor="#99E1FF"
 						description="От проектирования до настройки - создаём умную квартиру..."
 						mousePos={mousePos}
+						url="/solutions-flat"
 					/>
 					<SolutionCard
 						title="Для дома"
@@ -136,6 +139,7 @@ export default function Solutions() {
 						glowColor="#FFF599"
 						description="От проектирования до настройки - создаём умный дом..."
 						mousePos={mousePos}
+						url="/solutions-home"
 					/>
 				</ul>
 			</div>

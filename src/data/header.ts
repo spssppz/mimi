@@ -16,7 +16,7 @@ export const menuItems = [
 	},
 	{
 		label: 'Оборудование',
-		href: '/',
+		href: '/equipment',
 		desktop: true
 	},
 	{
@@ -26,12 +26,12 @@ export const menuItems = [
 	},
 	{
 		label: 'Готовые решения',
-		href: '/',
+		href: '/solutions',
 		desktop: true
 	},
 	{
 		label: 'Проекты',
-		href: '/',
+		href: '/portfolio',
 		desktop: true
 	},
 	{
@@ -41,22 +41,22 @@ export const menuItems = [
 	},
 	{
 		label: 'О компании',
-		href: '/',
+		href: '/about',
 		desktop: false
 	},
 	{
 		label: 'Партнерам',
-		href: '/',
+		href: '/partners',
 		desktop: false
 	},
 	{
 		label: 'Статьи',
-		href: '/',
+		href: '/news',
 		desktop: false
 	},
 	{
 		label: 'Контакты',
-		href: '/',
+		href: '/contacts',
 		desktop: false
 	},
 ]

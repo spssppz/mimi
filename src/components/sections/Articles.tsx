@@ -9,17 +9,18 @@ import { Title } from "../UI/Title"
 import { SliderNavigation } from "../UI/SliderNavigation"
 import { RightArrowIcon } from "@/icons/RightArrowIcon"
 import { ArticleCard } from "../UI/ArticleCard"
+import Link from "next/link"
 import type { Article } from "@/types/article"
 
 function MoreSlide({ className }: { className?: string }) {
 	return (
-		<a
-			href="#"
+		<Link
+			href="/news"
 			className={`py-3 border-2 text-[#4a5df9] transition hover:text-foreground duration-300 border-[#4a5df9] hover:border-foreground rounded-[20px] flex items-center justify-center gap-2.5 ${className ?? ""}`}
 		>
 			<span className="text-[14px]">Больше новостей</span>
 			<RightArrowIcon className="w-6 h-6" />
-		</a>
+		</Link>
 	)
 }
 

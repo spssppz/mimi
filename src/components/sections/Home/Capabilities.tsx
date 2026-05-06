@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
+import 'swiper/css';
 import { Pagination } from "swiper/modules";
 import { BtnArrowIcon } from "@/icons/BtnArrowIcon";
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Title } from "@/components/UI/Title";
+import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Capabilities() {
@@ -86,10 +87,10 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#907e70]">
 								Подходят любые светильники. <br /> Регулируйте яркость, температуру теплого и холодного света. Управляйте шторами с кнопок и с телефона.
 							</p>
-							<button className="shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#5a250a] group hover:opacity-80 transition-opacity">
+							<Link href="/lightning" className="shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#5a250a] group hover:opacity-80 transition-opacity">
 								Подробнее
 								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
-							</button>
+							</Link>
 						</div>
 						<span className="absolute w-[44%] top-0 -right-7.25 aspect-584/500">
 
@@ -116,10 +117,10 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#303236]">
 								Автоматический климат-контроль: <br /> слаженная работа отопления, теплых полов, кондиционеров, вентиляции и увлажнения
 							</p>
-							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
+							<Link href="/climate" className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
 								Подробнее
 								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
-							</button>
+							</Link>
 						</div>
 
 						<span className="absolute w-80.5 top-7 right-6 aspect-322/303">
@@ -155,10 +156,10 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#95979e]">
 								Защита от протечек воды, охранная сигнализация, имитацция присутствия
 							</p>
-							<button className="group shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
+							<Link href="/security" className="group shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
 								Подробнее
 								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
-							</button>
+							</Link>
 						</div>
 					</li>
 					<li className="sticky top-12 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-15 px-20 bg-[#c7c7c9] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
@@ -184,10 +185,10 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#58595d]">
 								Управляем любыми видами отопления, теплых полов и конвекторов. В каждой комнате своя, комфортная каждому температура.
 							</p>
-							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
+							<Link href="/curtains" className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
 								Подробнее
 								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
-							</button>
+							</Link>
 						</div>
 					</li>
 					<li className="sticky top-15 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-15 px-20 bg-[#eee] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
@@ -213,10 +214,10 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#95979e]">
 								Смотрите ваши камеры и отвечайте на звонок в домофон в любой точке мира. Наблюдайте за домом и будьте уверены, что с родными все в порядке.
 							</p>
-							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
+							<Link href="/video-control" className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
 								Подробнее
 								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
-							</button>
+							</Link>
 						</div>
 					</li>
 					<li className="sticky top-18 bg-[radial-gradient(50%_200%_at_50%_50%,#F4EFC5_0%,#F4F4F4_48.56%,#D3B291_100%)] shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-15 px-20 bg-[#0f1015] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
@@ -242,10 +243,10 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#58595d]">
 								Спроектируем и реализуем современную электрику. Управление розетками, сценарные выключатели, стабилизация напряжения, резервное питание, молниезащита.
 							</p>
-							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
+							<Link href="/power-supply" className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
 								Подробнее
 								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
-							</button>
+							</Link>
 						</div>
 					</li>
 					<li className="sticky top-21 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-15 px-20 bg-[#c9c9ca] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
@@ -271,10 +272,10 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#303236]">
 								Оборудуем кинозалы и кино в гостиной под ключ. Автоматизируем аппаратуру кино и создаем удобные сценарии
 							</p>
-							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
+							<Link href="/cinema-home" className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
 								Подробнее
 								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
-							</button>
+							</Link>
 						</div>
 					</li>
 					<li className="sticky top-24 shadow-[inset_-2px_2px_3px_0_rgba(0,0,0,0.19),inset_1px_-1px_1px_0_rgba(255,255,255,0.6)] rounded-3xl py-15 px-20 bg-[#0f1015] gap-4 min-h-150 overflow-hidden flex flex-col justify-between">
@@ -319,10 +320,10 @@ export default function Capabilities() {
 							<p className="font-helvetica text-[16px] max-w-85 leading-snug tracing-[-0.01em] text-[#92969d]">
 								Своя музыка в каждой комнате, AirPlay, следящая музыка, звуковые оповещения
 							</p>
-							<button className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
+							<Link href="/multiroom" className="group cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a] hover:opacity-80 transition-opacity">
 								Подробнее
 								<BtnArrowIcon className="group-hover:translate-x-1 transition-transform duration-300 w-6 h-6"></BtnArrowIcon>
-							</button>
+							</Link>
 						</div>
 					</li>
 				</ul>
@@ -351,7 +352,7 @@ export default function Capabilities() {
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#907e70]">
 										Подходят любые светильники. <br /> Регулируйте яркость, температуру теплого и холодного света. Управляйте шторами с кнопок и с телефона.
 									</p>
-									<button className="shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#5a250a]">
+									<Link href="/lightning" className="shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#5a250a]">
 										Подробнее
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://лwww.w3.org/2000/svg">
 											<path d="M18 8L22 12L18 16"
@@ -365,7 +366,7 @@ export default function Capabilities() {
 												strokeLinejoin="round"
 											/>
 										</svg>
-									</button>
+									</Link>
 								</div>
 								<span className="absolute w-98 top-0 -right-20 sm:-right-5 aspect-233/200">
 
@@ -395,7 +396,7 @@ export default function Capabilities() {
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#303236]">
 										Автоматический климат-контроль: <br /> слаженная работа отопления, теплых полов, кондиционеров, вентиляции и увлажнения
 									</p>
-									<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+									<Link href="/climate" className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 										Подробнее
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M18 8L22 12L18 16"
@@ -409,7 +410,7 @@ export default function Capabilities() {
 												strokeLinejoin="round"
 											/>
 										</svg>
-									</button>
+									</Link>
 								</div>
 
 								<span className="absolute w-60 md:w-70 top-7 right-6 aspect-322/303">
@@ -447,7 +448,7 @@ export default function Capabilities() {
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#95979e]">
 										Защита от протечек воды, охранная сигнализация, имитацция присутствия
 									</p>
-									<button className="shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+									<Link href="/security" className="shadow-[inset_-3px_-3px_6px_1px_rgba(255,255,255,0.5),inset_3px_3px_6px_0_#eaeaea] cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 										Подробнее
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M18 8L22 12L18 16"
@@ -461,7 +462,7 @@ export default function Capabilities() {
 												strokeLinejoin="round"
 											/>
 										</svg>
-									</button>
+									</Link>
 								</div>
 							</div>
 						</SwiperSlide>
@@ -489,7 +490,7 @@ export default function Capabilities() {
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#58595d]">
 										Управляем любыми видами отопления, теплых полов и конвекторов. В каждой комнате своя, комфортная каждому температура.
 									</p>
-									<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+									<Link href="/curtains" className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 										Подробнее
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M18 8L22 12L18 16"
@@ -503,7 +504,7 @@ export default function Capabilities() {
 												strokeLinejoin="round"
 											/>
 										</svg>
-									</button>
+									</Link>
 								</div>
 							</div>
 						</SwiperSlide>
@@ -531,7 +532,7 @@ export default function Capabilities() {
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#95979e]">
 										Смотрите ваши камеры и отвечайте на звонок в домофон в любой точке мира. Наблюдайте за домом и будьте уверены, что с родными все в порядке.
 									</p>
-									<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+									<Link href="/video-control" className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 										Подробнее
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M18 8L22 12L18 16"
@@ -545,7 +546,7 @@ export default function Capabilities() {
 												strokeLinejoin="round"
 											/>
 										</svg>
-									</button>
+									</Link>
 								</div>
 							</div>
 						</SwiperSlide>
@@ -573,7 +574,7 @@ export default function Capabilities() {
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#58595d]">
 										Спроектируем и реализуем современную электрику. Управление розетками, сценарные выключатели, стабилизация напряжения, резервное питание, молниезащита.
 									</p>
-									<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+									<Link href="/power-supply" className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 										Подробнее
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M18 8L22 12L18 16"
@@ -587,7 +588,7 @@ export default function Capabilities() {
 												strokeLinejoin="round"
 											/>
 										</svg>
-									</button>
+									</Link>
 								</div>
 							</div>
 						</SwiperSlide>
@@ -615,7 +616,7 @@ export default function Capabilities() {
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#303236]">
 										Оборудуем кинозалы и кино в гостиной под ключ. Автоматизируем аппаратуру кино и создаем удобные сценарии
 									</p>
-									<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+									<Link href="/cinema-home" className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 										Подробнее
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M18 8L22 12L18 16"
@@ -629,7 +630,7 @@ export default function Capabilities() {
 												strokeLinejoin="round"
 											/>
 										</svg>
-									</button>
+									</Link>
 								</div>
 							</div>
 						</SwiperSlide>
@@ -672,7 +673,7 @@ export default function Capabilities() {
 									<p className="font-helvetica text-[16px] sm:max-w-85 leading-snug tracing-[-0.01em] text-[#92969d]">
 										Своя музыка в каждой комнате, AirPlay, следящая музыка, звуковые оповещения
 									</p>
-									<button className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
+									<Link href="/multiroom" className="cursor-pointer rounded-[50px] leading-none flex px-11 py-2 border border-white items-center justify-center uppercase gap-1.5 font-semibold text-[13px] bg-[#f0f4f6] tracking-[-0.02em] text-[#0a051a]">
 										Подробнее
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M18 8L22 12L18 16"
@@ -686,7 +687,7 @@ export default function Capabilities() {
 												strokeLinejoin="round"
 											/>
 										</svg>
-									</button>
+									</Link>
 								</div>
 							</div>
 						</SwiperSlide>
