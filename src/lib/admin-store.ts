@@ -108,6 +108,8 @@ type PaginatedResponse<T> = {
 }
 
 const STORAGE_DIR = path.join(process.cwd(), "storage", "admin")
+const IS_VERCEL = process.env.VERCEL === "1"
+const IS_PRODUCTION = process.env.NODE_ENV === "production"
 
 function nowIso() {
   return new Date().toISOString()
@@ -294,8 +296,9 @@ function entityPath(entity: AdminEntity) {
 }
 
 async function readCollection<T extends AdminEntity>(entity: T): Promise<EntityMap[T][]> {
+  const filePath = entityPath(entity)
+
   try {
-    const filePath = entityPath(entity)
     const fileContents = await readFile(filePath, "utf8")
     const parsed = JSON.parse(fileContents) as unknown
 
@@ -307,6 +310,13 @@ async function readCollection<T extends AdminEntity>(entity: T): Promise<EntityM
     console.log(`[DB] ${entity}: Loaded ${parsed.length} items from ${filePath}`)
     return parsed as EntityMap[T][]
   } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code === "ENOENT") {
+      if (!IS_PRODUCTION) {
+        console.log(`[DB] ${entity}: File not found at ${filePath}, using empty collection`)
+      }
+      return []
+    }
+
     console.log(`[DB] ${entity}: Error reading file, using empty collection`, error)
     return []
   }
@@ -709,6 +719,10 @@ export async function getPublicDetectors(): Promise<DetectorRecord[]> {
 }
 
 export async function getPublicProjects(): Promise<ProjectRecord[]> {
+  if (IS_PRODUCTION && IS_VERCEL) {
+    return []
+  }
+
   const items = await readCollection("projects")
   return items.filter(item => item.status === "active")
 }
